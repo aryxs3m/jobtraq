@@ -4,14 +4,14 @@ namespace App\Services\Parser\DTOs;
 
 class JobCategory
 {
-    private string $position;
-    private ?string $stack;
-    private string $level;
+    private ?string $position = null;
+    private ?string $stack = null;
+    private ?string $level = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPosition(): string
+    public function getPosition(): ?string
     {
         return $this->position;
     }
@@ -41,9 +41,9 @@ class JobCategory
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLevel(): string
+    public function getLevel(): ?string
     {
         return $this->level;
     }

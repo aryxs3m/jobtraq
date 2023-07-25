@@ -2,61 +2,44 @@
 
 namespace App\Services\Parser;
 
+use App\Models\JobLevel;
+use App\Models\JobPosition;
+use App\Models\JobStack;
 use App\Services\Parser\DTOs\JobCategory;
 
 class HumanAdvertisementParser
 {
-    private const LEVELS = [
-        'internship' => ['internship', 'intern', 'trainee', 'gyakornok', 'diákmunka'] ,
-        'junior' => ['junior'],
-        'medior' => ['medior', 'mid'],
-        'senior' => ['senior'],
-        'lead' => ['lead', 'leader'],
-        'architect' => ['architect'],
-        'manager' => ['manager'],
-    ];
+    protected static $levels = [];
+    protected static $stacks = [];
+    protected static $positions = [];
 
-    private const POSITION = [
-        'frontend' => ['frontend', 'front-end'],
-        'backend' => ['backend', 'back-end', 'api'],
-        'analyst' => ['analyst'],
-        'data' => ['data'],
-        'ml' => ['machine'],
-        'embedded' => ['embedded'],
-        'full-stack' => ['full-stack', 'fullstack'],
-        'support' => ['support', 'l1', 'l2', 'l3'],
-        'devops' => ['devops', 'dev-ops'],
-        'developer' => ['developer', 'engineer', 'fejlesztő'],
-    ];
+    public function __construct()
+    {
+        if ([] === self::$levels) {
+            foreach (JobLevel::all() as $item) {
+                self::$levels[$item->name] = $item->keywords;
+            }
+        }
 
-    private const STACK = [
-        'go',
-        'php',
-        'java',
-        'angular',
-        'react',
-        'node',
-        '.net',
-        'asp',
-        'c#',
-        'c++',
-        'python',
-        'golang',
-        'ruby',
-        'rust',
-        'solidity',
-        'rust',
-        'mysql',
-        'postgresql',
-        'postgres'
-    ];
+        if ([] === self::$stacks) {
+            foreach (JobStack::all() as $item) {
+                self::$stacks[$item->name] = $item->keywords;
+            }
+        }
+
+        if ([] === self::$positions) {
+            foreach (JobPosition::all() as $item) {
+                self::$positions[$item->name] = $item->keywords;
+            }
+        }
+    }
 
     public function parseJobTitle(string $title): JobCategory
     {
         $titleParts = explode(' ', str_replace(['(', ')', '/', ','], ' ', mb_strtolower($title)));
         $jobCategory = new JobCategory();
 
-        foreach (self::LEVELS as $level => $keywords) {
+        foreach (self::$levels as $level => $keywords) {
             foreach ($keywords as $keyword) {
                 if (\in_array($keyword, $titleParts)) {
                     $jobCategory->setLevel($level);
@@ -65,7 +48,7 @@ class HumanAdvertisementParser
             }
         }
 
-        foreach (self::POSITION as $position => $keywords) {
+        foreach (self::$positions as $position => $keywords) {
             foreach ($keywords as $keyword) {
                 if (\in_array($keyword, $titleParts)) {
                     $jobCategory->setPosition($position);
@@ -74,10 +57,12 @@ class HumanAdvertisementParser
             }
         }
 
-        foreach (self::STACK as $stack) {
-            if (\in_array($stack, $titleParts)) {
-                $jobCategory->setStack($stack);
-                break;
+        foreach (self::$stacks as $stack => $keywords) {
+            foreach ($keywords as $keyword) {
+                if (\in_array($keyword, $titleParts)) {
+                    $jobCategory->setStack($stack);
+                    break 2;
+                }
             }
         }
 

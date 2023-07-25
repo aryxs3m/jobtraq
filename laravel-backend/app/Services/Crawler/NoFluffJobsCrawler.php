@@ -18,20 +18,24 @@ class NoFluffJobsCrawler extends BaseJobListingCrawler
             $client = new HtmlWeb();
             $html = $client->load("https://nofluffjobs.com/hu/{$type}?page={$page}");
 
-            foreach ($html->find('.posting-list-item') as $postingListItem) {
-                $listing = new Listing();
-                $listing->setPosition($postingListItem->find('.posting-title__position', 0)->plaintext);
+            try {
+                foreach ($html->find('.posting-list-item') as $postingListItem) {
+                    $listing = new Listing();
+                    $listing->setPosition($postingListItem->find('.posting-title__position', 0)->plaintext);
 
-                $salaryRaw = $postingListItem->find('.salary', 0)->plaintext;
-                $this->setSalary($listing, $salaryRaw);
+                    $salaryRaw = $postingListItem->find('.salary', 0)->plaintext;
+                    $this->setSalary($listing, $salaryRaw);
 
-                $location = trim($postingListItem->find('.posting-info__location', 0)->plaintext);
-                $listing->setLocation($location);
+                    $location = trim($postingListItem->find('.posting-info__location', 0)->plaintext);
+                    $listing->setLocation($location);
 
-                $listing->setCategory(
-                    $this->advertisementParser->parseJobTitle($listing->getPosition()));
+                    $listing->setCategory(
+                        $this->advertisementParser->parseJobTitle($listing->getPosition()));
 
-                $listings[] = $listing;
+                    $listings[] = $listing;
+                }
+            } catch (\Throwable $throwable) {
+                // TODO: log
             }
 
             sleep(1);
