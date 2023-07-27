@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\PublicApi;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\BaseApiController;
+use App\Services\Report\PublicReporter;
+use Illuminate\Http\JsonResponse;
 
-class ReportController extends Controller
+class ReportController extends BaseApiController
 {
-    public function statisticByPosition()
+    public function statisticByPosition(PublicReporter $reporter): JsonResponse
     {
-        
+        return $this->success($reporter->getAverageSalariesByPositions());
     }
 }

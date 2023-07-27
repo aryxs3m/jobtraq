@@ -1,0 +1,39 @@
+#loading-overlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.63);
+  padding-top: 100px;
+  z-index: 2;
+
+  .loader {
+    text-align: center;
+    font-size: 0.8rem;
+    color: white;
+  }
+
+  img {
+    animation: loader 5s ease-in-out infinite;
+    margin-bottom: 15px;
+  }
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(2880deg);
+  }
+  100% {
+    transform: rotate(2880deg);
+  }
+}
+
+.chart-row {
+  min-height: 500px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #eee;
+}

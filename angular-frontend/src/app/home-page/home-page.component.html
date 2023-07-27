@@ -1,0 +1,131 @@
+<div id="loading-overlay" *ngIf="false">
+  <div class="loader">
+      <img src="assets/logo.svg" alt="Logo">
+      <p>Betöltés...</p>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Keresett területek -->
+  <div class="row chart-row">
+    <div class="col m-auto">
+      <h3>Keresett területek</h3>
+      <p class="lead">
+        Különböző IT területek nyitott álláshirdetéseinek eloszlása.
+      </p>
+      <p>
+        Jelenleg <strong>frontend</strong> területre van a legtöbb szabad pozíció.
+      </p>
+    </div>
+    <div class="col">
+      <ngx-charts-advanced-pie-chart
+        [results]="pieChartPositions"
+        label="Álláshirdetések"
+        [scheme]="colorScheme">
+      </ngx-charts-advanced-pie-chart>
+    </div>
+  </div>
+
+  <!-- Álláshirdetések alakulása -->
+  <div class="row chart-row">
+    <div class="col m-auto">
+      <h3>Álláshirdetések alakulása</h3>
+      <p class="lead">
+        Nyitott álláshirdetések számának változása.
+      </p>
+      <p>
+        Mostanában <strong>fogy</strong> a nyitott álláshirdetések száma.
+      </p>
+    </div>
+    <div class="col">
+      <ngx-charts-bar-vertical
+        [results]="barOpenPositions"
+        xAxis="true"
+        yAxis="true"
+        [scheme]="colorScheme">
+      </ngx-charts-bar-vertical>
+    </div>
+  </div>
+
+  <!-- Legnépszerűbb stack -->
+  <div class="row chart-row">
+    <div class="col m-auto">
+      <h3>Legnépszerűbb stack</h3>
+      <p class="lead">
+        Nyitott álláshirdetésekben kért technikai követelmények.
+      </p>
+      <p>
+        A <strong>React</strong> vezet.
+      </p>
+    </div>
+    <div class="col">
+      <ngx-charts-tree-map
+        [results]="treeMapStacks"
+        [scheme]="colorScheme">
+      </ngx-charts-tree-map>
+    </div>
+  </div>
+
+  <!-- Legnépszerűbb stack -->
+  <div class="row chart-row">
+    <div class="col">
+      <ngx-charts-bar-horizontal
+        [results]="barFrontend"
+        xAxis="true"
+        yAxis="true"
+        [scheme]="colorScheme">
+      </ngx-charts-bar-horizontal>
+    </div>
+    <div class="col m-auto">
+      <h3>Frontend bérsáv</h3>
+      <p class="lead">
+        Nyitott álláshirdetésekből vett átlag.
+      </p>
+      <p>
+        A <strong>React</strong> vezet.
+      </p>
+    </div>
+  </div>
+
+  <!-- Legnépszerűbb stack -->
+  <div class="row chart-row">
+    <div class="col">
+      <ngx-charts-bar-horizontal
+        [results]="barBackend"
+        xAxis="true"
+        yAxis="true"
+        [scheme]="colorScheme">
+      </ngx-charts-bar-horizontal>
+    </div>
+    <div class="col m-auto">
+      <h3>Backend bérsáv</h3>
+      <p class="lead">
+        Nyitott álláshirdetésekből vett átlag.
+      </p>
+      <p>
+        A <strong>React</strong> vezet.
+      </p>
+    </div>
+  </div>
+
+  <!-- Legnépszerűbb stack -->
+  <div class="row chart-row">
+    <div class="col">
+      <h3>Stackenkénti átlagos bér</h3>
+      <p class="lead">
+        Nyitott álláshirdetésekből vett átlag.
+      </p>
+      <p>
+        A <strong>React</strong> vezet.
+      </p>
+
+      <ngx-charts-bar-horizontal-stacked
+        [results]="barStack"
+        yAxis="true"
+        [scheme]="colorScheme">
+      </ngx-charts-bar-horizontal-stacked>
+    </div>
+  </div>
+
+
+</div>

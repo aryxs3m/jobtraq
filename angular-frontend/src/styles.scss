@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'variables';
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap';
+
+/* Always show scrollbar, and custom scrollbar */
+body {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+/* Utilities */
+hr.divider {
+  width: 25px;
+  border: 0;
+  border-bottom: 3px solid $primary;
+  opacity: 1;
+}
