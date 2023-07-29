@@ -23,7 +23,10 @@ class HumanAdvertisementParser
 
         if ([] === self::$stacks) {
             foreach (JobStack::all() as $item) {
-                self::$stacks[$item->name] = $item->keywords;
+                self::$stacks[$item->name] = [
+                    'keywords' => $item->keywords,
+                    'defaultPosition' => $item->jobPosition ? $item->jobPosition->name : null,
+                ];
             }
         }
 
@@ -57,13 +60,20 @@ class HumanAdvertisementParser
             }
         }
 
-        foreach (self::$stacks as $stack => $keywords) {
+        foreach (self::$stacks as $stack => $stackData) {
+            $keywords = $stackData['keywords'];
+
             foreach ($keywords as $keyword) {
                 if (\in_array($keyword, $titleParts)) {
                     $jobCategory->setStack($stack);
                     break 2;
                 }
             }
+        }
+
+        // Use the fallback position if stack is available
+        if (null === $jobCategory->getPosition() && null !== $jobCategory->getStack()) {
+            $jobCategory->setPosition(self::$stacks[$jobCategory->getStack()]['defaultPosition']);
         }
 
         return $jobCategory;

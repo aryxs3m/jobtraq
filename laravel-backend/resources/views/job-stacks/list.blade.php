@@ -10,6 +10,7 @@
         <tr>
             <td>ID</td>
             <td>Név</td>
+            <td>Pozíció</td>
             <td>Műveletek</td>
         </tr>
         </thead>
@@ -18,6 +19,7 @@
             <tr>
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->name }}</td>
+                <td>{{ $item->jobPosition ? $item->jobPosition->name : '' }}</td>
                 <td>
                     <a href="/job-stacks/edit/{{ $item->id }}" class="btn btn-sm btn-primary">Szerkesztés</a>
                     <a href="/job-stacks/delete/{{ $item->id }}" class="btn btn-sm btn-danger">Törlés</a>

@@ -19,7 +19,7 @@ class JobCategory
     /**
      * @param string $position
      */
-    public function setPosition(string $position): void
+    public function setPosition(?string $position): void
     {
         $this->position = $position;
     }
@@ -49,9 +49,9 @@ class JobCategory
     }
 
     /**
-     * @param string $level
+     * @param string|null $level
      */
-    public function setLevel(string $level): void
+    public function setLevel(?string $level): void
     {
         $this->level = $level;
     }
