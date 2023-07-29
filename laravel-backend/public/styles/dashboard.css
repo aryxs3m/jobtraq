@@ -32,6 +32,15 @@
     font-size: .75rem;
 }
 
+li.nav-item {
+    background: transparent;
+    transition: background 0.2s;
+}
+
+li.nav-item:hover {
+    background: #00000033;
+}
+
 /*
  * Navbar
  */
