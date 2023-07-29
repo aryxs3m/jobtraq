@@ -20,5 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('report')->group(function () {
-    Route::get('/by-position', [ReportController::class, 'statisticByPosition']);
+    Route::get('homepage', [ReportController::class, 'homepageStatistics']);
+    Route::get('by-position', [ReportController::class, 'statisticByPosition']);
 });

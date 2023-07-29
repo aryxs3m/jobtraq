@@ -1,0 +1,40 @@
+
+
+.loader {
+  background: linear-gradient(283deg, #12e773, #13a154);
+  background-size: 400% 400%;
+
+  -webkit-animation: loaderAnimation 1s ease infinite;
+  -moz-animation: loaderAnimation 1s ease infinite;
+  animation: loaderAnimation 1s ease infinite;
+
+  height: 10px;
+  width: 100%;
+  position: absolute;
+  top: 55px;
+  left: 0;
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.loader.shown {
+  opacity: 1;
+}
+
+@-webkit-keyframes loaderAnimation {
+  0%{background-position:0% 49%}
+  50%{background-position:100% 52%}
+  100%{background-position:0% 49%}
+}
+@-moz-keyframes loaderAnimation {
+  0%{background-position:0% 49%}
+  50%{background-position:100% 52%}
+  100%{background-position:0% 49%}
+}
+@keyframes loaderAnimation {
+  0%{background-position:0% 49%}
+  50%{background-position:100% 52%}
+  100%{background-position:0% 49%}
+}

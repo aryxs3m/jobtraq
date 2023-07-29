@@ -1,10 +1,3 @@
-<div id="loading-overlay" *ngIf="false">
-  <div class="loader">
-      <img src="assets/logo.svg" alt="Logo">
-      <p>Betöltés...</p>
-  </div>
-</div>
-
 <div class="container">
   <!-- Keresett területek -->
   <div class="row chart-row">
@@ -13,14 +6,16 @@
       <p class="lead">
         Különböző IT területek nyitott álláshirdetéseinek eloszlása.
       </p>
+      <app-small-divider></app-small-divider>
       <p>
-        Jelenleg <strong>frontend</strong> területre van a legtöbb szabad pozíció.
+        Jelenleg <strong>{{ positionsMostOpen }}</strong> területre van a legtöbb szabad pozíció.
       </p>
     </div>
     <div class="col">
       <ngx-charts-advanced-pie-chart
+        *ngIf="!loading"
         [results]="pieChartPositions"
-        label="Álláshirdetések"
+        label="Álláshirdetés"
         [scheme]="colorScheme">
       </ngx-charts-advanced-pie-chart>
     </div>
@@ -33,12 +28,14 @@
       <p class="lead">
         Nyitott álláshirdetések számának változása.
       </p>
+      <app-small-divider></app-small-divider>
       <p>
-        Mostanában <strong>fogy</strong> a nyitott álláshirdetések száma.
+        Mostanában <strong>{{ positionsTrend }}</strong> a nyitott álláshirdetések száma.
       </p>
     </div>
     <div class="col">
       <ngx-charts-bar-vertical
+        *ngIf="!loading"
         [results]="barOpenPositions"
         xAxis="true"
         yAxis="true"
@@ -54,78 +51,29 @@
       <p class="lead">
         Nyitott álláshirdetésekben kért technikai követelmények.
       </p>
+      <app-small-divider></app-small-divider>
       <p>
-        A <strong>React</strong> vezet.
+        A <strong>{{ mostNeededStack }}</strong> vezet.
       </p>
     </div>
     <div class="col">
       <ngx-charts-tree-map
+        *ngIf="!loading"
         [results]="treeMapStacks"
         [scheme]="colorScheme">
       </ngx-charts-tree-map>
     </div>
   </div>
 
-  <!-- Legnépszerűbb stack -->
-  <div class="row chart-row">
-    <div class="col">
-      <ngx-charts-bar-horizontal
-        [results]="barFrontend"
-        xAxis="true"
-        yAxis="true"
-        [scheme]="colorScheme">
-      </ngx-charts-bar-horizontal>
-    </div>
-    <div class="col m-auto">
-      <h3>Frontend bérsáv</h3>
-      <p class="lead">
-        Nyitott álláshirdetésekből vett átlag.
-      </p>
-      <p>
-        A <strong>React</strong> vezet.
-      </p>
+  <!-- Pozíciónkénti chartok -->
+  <div *ngIf="!loading">
+    <div *ngFor="let salaryData of positionSalaries">
+      <app-position-salary-chart [position]="salaryData.name" [data]="salaryData.data" [colorScheme]="colorScheme" *ngIf="salaryData.data.length > 0"></app-position-salary-chart>
     </div>
   </div>
 
-  <!-- Legnépszerűbb stack -->
-  <div class="row chart-row">
-    <div class="col">
-      <ngx-charts-bar-horizontal
-        [results]="barBackend"
-        xAxis="true"
-        yAxis="true"
-        [scheme]="colorScheme">
-      </ngx-charts-bar-horizontal>
-    </div>
-    <div class="col m-auto">
-      <h3>Backend bérsáv</h3>
-      <p class="lead">
-        Nyitott álláshirdetésekből vett átlag.
-      </p>
-      <p>
-        A <strong>React</strong> vezet.
-      </p>
-    </div>
-  </div>
-
-  <!-- Legnépszerűbb stack -->
-  <div class="row chart-row">
-    <div class="col">
-      <h3>Stackenkénti átlagos bér</h3>
-      <p class="lead">
-        Nyitott álláshirdetésekből vett átlag.
-      </p>
-      <p>
-        A <strong>React</strong> vezet.
-      </p>
-
-      <ngx-charts-bar-horizontal-stacked
-        [results]="barStack"
-        yAxis="true"
-        [scheme]="colorScheme">
-      </ngx-charts-bar-horizontal-stacked>
-    </div>
-  </div>
+  <!-- Stackenkénti chart -->
+  <app-stack-salary-chart *ngIf="!loading" [barStack]="barStack" [colorScheme]="colorScheme"></app-stack-salary-chart>
 
 
 </div>

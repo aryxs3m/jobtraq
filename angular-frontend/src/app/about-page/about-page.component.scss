@@ -1,0 +1,17 @@
+ul {
+  --icon-space: 1.3em;
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding-left: var(--icon-space);
+}
+
+li:before {
+  color: #12e773;
+  content: "\00BB";
+  display: inline-block;
+  margin-left: calc( var(--icon-space) * -1 );
+  width: var(--icon-space);
+}
