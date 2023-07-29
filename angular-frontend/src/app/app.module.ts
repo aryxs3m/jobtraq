@@ -21,6 +21,8 @@ import localeFr from '@angular/common/locales/hu';
 import { StackSalaryChartComponent } from './home-page/stack-salary-chart/stack-salary-chart.component';
 import { SmallDividerComponent } from './small-divider/small-divider.component';
 import { ErrorNotifyComponent } from './error-notify/error-notify.component';
+import { StatusPageComponent } from './status-page/status-page.component';
+import { StatusItemComponent } from './status-page/status-item/status-item.component';
 registerLocaleData(localeFr, 'hu');
 
 @NgModule({
@@ -35,6 +37,8 @@ registerLocaleData(localeFr, 'hu');
     StackSalaryChartComponent,
     SmallDividerComponent,
     ErrorNotifyComponent,
+    StatusPageComponent,
+    StatusItemComponent,
   ],
   imports: [
     CommonModule,

@@ -185,4 +185,6 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    'version' => env('APP_VERSION', 'local-dev')
+
 ];

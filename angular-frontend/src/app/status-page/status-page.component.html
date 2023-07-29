@@ -1,0 +1,15 @@
+<div class="container mt-4">
+  <h2 class="mb-4">A JobTraq állapota</h2>
+
+  <div class="list-group mb-4" *ngIf="!loading">
+    <div class="list-group-item p-0">
+      <app-status-item name="Frontend" description="jobtraq.io" [available]="frontendStatus"></app-status-item>
+    </div>
+    <div class="list-group-item p-0">
+      <app-status-item name="Backend" description="api.jobtraq.io" [available]="backendStatus"></app-status-item>
+    </div>
+    <div class="list-group-item p-0" *ngFor="let crawler of crawlerStatus">
+      <app-status-item [name]="crawler.name" [available]="crawler.status"></app-status-item>
+    </div>
+  </div>
+</div>

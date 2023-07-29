@@ -47,6 +47,8 @@ export class HomePageComponent implements OnInit {
   }
 
   protected loadCharts() {
+    this.loading = true;
+
     let dateFilter = this.route.snapshot.paramMap.get('date');
 
     let apiRoute = dateFilter ?

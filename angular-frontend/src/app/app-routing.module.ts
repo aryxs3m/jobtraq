@@ -4,11 +4,13 @@ import {HomePageComponent} from "./home-page/home-page.component";
 import {NotFoundPageComponent} from "./not-found-page/not-found-page.component";
 import {AboutPageComponent} from "./about-page/about-page.component";
 import {ContactPageComponent} from "./contact-page/contact-page.component";
+import {StatusPageComponent} from "./status-page/status-page.component";
 
 const routes: Routes = [
   { path: 'report', component: HomePageComponent },
   { path: 'report/:date', component: HomePageComponent },
   { path: 'about-us', component: AboutPageComponent },
+  { path: 'status', component: StatusPageComponent },
   { path: 'contact', component: ContactPageComponent },
   { path: '', redirectTo: "/report", pathMatch: "full" },
   { path: '**', component: NotFoundPageComponent },
