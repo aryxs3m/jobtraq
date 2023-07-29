@@ -122,6 +122,22 @@
       <path value="$PROJECT_DIR$/laravel-backend/vendor/doctrine/inflector" />
       <path value="$PROJECT_DIR$/laravel-backend/vendor/symfony/http-foundation" />
       <path value="$PROJECT_DIR$/laravel-backend/vendor/simplehtmldom/simplehtmldom" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/laravel/framework_compare" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/markbaker/matrix" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/markbaker/complex" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/phpoffice/phpspreadsheet" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/league/fractal" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/openspout/openspout" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/maennchen/zipstream-php" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/yajra/laravel-datatables" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/yajra/laravel-datatables-buttons" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/ezyang/htmlpurifier" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/yajra/laravel-datatables-oracle" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/yajra/laravel-datatables-html" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/yajra/laravel-datatables-editor" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/yajra/laravel-datatables-export" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/yajra/laravel-datatables-fractal" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/livewire/livewire" />
     </include_path>
   </component>
   <component name="PhpInterpreters">

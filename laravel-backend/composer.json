@@ -10,7 +10,8 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
-        "simplehtmldom/simplehtmldom": "2.0-RC2"
+        "simplehtmldom/simplehtmldom": "2.0-RC2",
+        "yajra/laravel-datatables": "^10.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CrawlerKeywordsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\JobLevelsController;
+use App\Http\Controllers\Admin\JobListingsController;
 use App\Http\Controllers\Admin\JobPositionsController;
 use App\Http\Controllers\Admin\JobStacksController;
 use Illuminate\Support\Facades\Route;
@@ -45,4 +46,9 @@ Route::prefix('job-stacks')->group(function () {
     Route::post('add', [JobStacksController::class, 'upsertPost']);
     Route::post('edit/{jobStack}', [JobStacksController::class, 'upsertPost']);
     Route::get('delete/{jobStack}', [JobStacksController::class, 'delete']);
+});
+
+Route::prefix('job-listings')->group(function () {
+    Route::get('', [JobListingsController::class, 'index']);
+    Route::get('reparse/{listing}', [JobListingsController::class, 'reparse']);
 });
