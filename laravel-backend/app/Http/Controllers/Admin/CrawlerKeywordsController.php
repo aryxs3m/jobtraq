@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\CrawlerKeyword;
 use App\Services\Crawler\CrawlManager;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class CrawlerKeywordsController extends Controller
@@ -52,5 +53,12 @@ class CrawlerKeywordsController extends Controller
         }
 
         return redirect()->back()->with('success', true);
+    }
+
+    public function delete(CrawlerKeyword $crawlerKeyword): RedirectResponse
+    {
+        $crawlerKeyword->delete();
+
+        return redirect()->back();
     }
 }

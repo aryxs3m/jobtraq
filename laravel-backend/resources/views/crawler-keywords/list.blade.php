@@ -20,6 +20,7 @@
                 <td>{{ $item->crawler }}</td>
                 <td>
                     <a href="/crawler-keywords/edit/{{ $item->id }}" class="btn btn-sm btn-primary">Szerkesztés</a>
+                    <a href="/crawler-keywords/delete/{{ $item->id }}" class="btn btn-sm btn-danger">Törlés</a>
                 </td>
             </tr>
         @endforeach

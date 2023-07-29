@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\JobStack;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class JobStacksController extends Controller
@@ -49,5 +50,12 @@ class JobStacksController extends Controller
         }
 
         return redirect()->back()->with('success', true);
+    }
+
+    public function delete(JobStack $jobStack): RedirectResponse
+    {
+        $jobStack->delete();
+
+        return redirect()->back();
     }
 }

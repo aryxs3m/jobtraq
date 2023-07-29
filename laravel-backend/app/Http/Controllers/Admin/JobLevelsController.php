@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\JobLevel;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class JobLevelsController extends Controller
@@ -49,5 +50,30 @@ class JobLevelsController extends Controller
         }
 
         return redirect()->back()->with('success', true);
+    }
+
+    public function delete(JobLevel $jobLevel): RedirectResponse
+    {
+        $jobLevel->delete();
+
+        return redirect()->back();
+    }
+
+    public function order(Request $request)
+    {
+        return view('job-levels.order', [
+            'levels' => JobLevel::query()->orderBy('order')->get(),
+        ]);
+    }
+
+    public function orderPost(Request $request)
+    {
+        foreach ($request->post('order') as $order => $id) {
+            $level = JobLevel::query()->findOrFail($id);
+            $level->order = $order;
+            $level->save();
+        }
+
+        return redirect()->back();
     }
 }

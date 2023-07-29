@@ -16,13 +16,14 @@ return new class extends Migration
             $table->timestamps();
             $table->string('name');
             $table->enum('salary_type', ['GROSS', 'NET'])->index();
+            $table->integer('salary_avg');
             $table->integer('salary_low');
             $table->integer('salary_high');
             $table->string('salary_currency');
             $table->string('location')->index();
-            $table->string('level')->index();
-            $table->string('position')->index();
-            $table->string('stack')->index();
+            $table->string('level')->nullable()->index();
+            $table->string('position')->nullable()->index();
+            $table->string('stack')->nullable()->index();
             $table->string('crawler')->index();
         });
     }

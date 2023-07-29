@@ -20,6 +20,7 @@
                 <td>{{ $item->name }}</td>
                 <td>
                     <a href="/job-stacks/edit/{{ $item->id }}" class="btn btn-sm btn-primary">Szerkesztés</a>
+                    <a href="/job-stacks/delete/{{ $item->id }}" class="btn btn-sm btn-danger">Törlés</a>
                 </td>
             </tr>
         @endforeach

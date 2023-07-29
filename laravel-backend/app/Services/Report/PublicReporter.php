@@ -34,7 +34,7 @@ class PublicReporter
     {
         return DB::table('job_listings')
             ->select('position AS name', DB::raw('COUNT(id) AS value'))
-            ->whereRaw("position IS NOT NULL AND position <> '' AND level IS NOT NULL AND level <> '' AND salary_currency IN ('HUF', 'Ft/hó')")
+            ->whereRaw("position IS NOT NULL AND level IS NOT NULL AND salary_currency IN ('HUF', 'Ft/hó')")
             ->whereRaw("DATE(created_at) = :filterDate", ['filterDate' => $this->getFilterDateSQL()])
             ->groupBy('position')
             ->orderBy('value', 'DESC')
@@ -50,7 +50,7 @@ class PublicReporter
     {
         return DB::table('job_listings')
             ->select(DB::raw('WEEK(created_at, 7) AS name'), DB::raw('COUNT(id) AS value'))
-            ->whereRaw("position IS NOT NULL AND position <> '' AND level IS NOT NULL AND level <> '' AND salary_currency IN ('HUF', 'Ft/hó')")
+            ->whereRaw("position IS NOT NULL AND level IS NOT NULL AND salary_currency IN ('HUF', 'Ft/hó')")
             ->groupBy(DB::raw('WEEK(created_at, 7)'))
             ->orderBy('name', 'DESC')
             ->limit(4)
@@ -67,7 +67,7 @@ class PublicReporter
     {
         return DB::table('job_listings')
             ->select('stack AS name', DB::raw('COUNT(id) AS value'))
-            ->whereRaw("stack IS NOT NULL AND stack <> '' AND level IS NOT NULL AND level <> '' AND salary_currency IN ('HUF', 'Ft/hó')")
+            ->whereRaw("stack IS NOT NULL AND level IS NOT NULL AND salary_currency IN ('HUF', 'Ft/hó')")
             ->whereRaw('DATE(created_at) = :filterDate', ['filterDate' => $this->getFilterDateSQL()])
             ->groupBy('stack')
             ->orderBy('value', 'DESC')
@@ -83,14 +83,14 @@ class PublicReporter
      */
     public function getAverageSalariesByLevels(string $position): Collection
     {
-        // TODO: order by level 'order' column
         return DB::table('job_listings')
-            ->select('level AS name', DB::raw('AVG(salary_low) AS value'))
-            ->whereRaw("position IS NOT NULL AND position <> '' AND level IS NOT NULL AND level <> '' AND salary_currency IN ('HUF', 'Ft/hó')")
-            ->whereRaw('DATE(created_at) = ?', [$this->getFilterDateSQL()])
+            ->select('level AS name', 'job_levels.order', DB::raw('AVG(salary_low) AS value'))
+            ->leftJoin('job_levels', 'job_levels.name', '=', 'job_listings.level')
+            ->whereRaw("position IS NOT NULL AND level IS NOT NULL AND salary_currency IN ('HUF', 'Ft/hó')")
+            ->whereRaw('DATE(job_listings.created_at) = ?', [$this->getFilterDateSQL()])
             ->where('position', '=', $position)
-            ->groupBy('level')
-            ->orderBy('level')
+            ->groupBy('level', 'job_levels.order')
+            ->orderBy('job_levels.order')
             ->get()
             ->map(function ($item) {
                 return [
@@ -108,12 +108,13 @@ class PublicReporter
     public function getAverageSalariesByStacksByLevels(): array
     {
         $collection = DB::table('job_listings')
-            ->select('level', 'stack', DB::raw('AVG(salary_low) AS value'))
-            ->whereRaw("position IS NOT NULL AND position <> '' AND level IS NOT NULL AND level <> '' AND salary_currency IN ('HUF', 'Ft/hó') AND stack <> '' AND stack IS NOT NULL")
-            ->whereRaw('DATE(created_at) = :filterDate', ['filterDate' => $this->getFilterDateSQL()])
-            ->groupBy('level', 'stack')
+            ->select('level', 'job_levels.order', 'stack', DB::raw('AVG(salary_low) AS value'))
+            ->leftJoin('job_levels', 'job_levels.name', '=', 'job_listings.level')
+            ->whereRaw("position IS NOT NULL AND level IS NOT NULL AND salary_currency IN ('HUF', 'Ft/hó') AND stack IS NOT NULL")
+            ->whereRaw('DATE(job_listings.created_at) = :filterDate', ['filterDate' => $this->getFilterDateSQL()])
+            ->groupBy('level', 'job_levels.order', 'stack')
             ->orderBy('stack', 'ASC')
-            ->orderBy('level', 'ASC')
+            ->orderBy('job_levels.order', 'ASC')
             ->get();
 
         $return = [];

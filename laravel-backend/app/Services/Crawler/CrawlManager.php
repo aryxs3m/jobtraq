@@ -60,9 +60,9 @@ class CrawlManager
                 'salary_currency' => $listing->getSalaryCurrency(),
                 'salary_type' => $listing->getSalaryType(),
                 'location' => $listing->getLocation(),
-                'position' => $listing->getCategory()->getPosition() ?? '',
-                'level' => $listing->getCategory()->getLevel() ?? '',
-                'stack' => $listing->getCategory()->getStack() ?? '',
+                'position' => $listing->getCategory()->getPosition(),
+                'level' => $listing->getCategory()->getLevel(),
+                'stack' => $listing->getCategory()->getStack(),
                 'crawler' => $crawler,
             ]);
         }

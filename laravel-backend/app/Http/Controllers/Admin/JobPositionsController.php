@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\JobPosition;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class JobPositionsController extends Controller
@@ -49,5 +50,12 @@ class JobPositionsController extends Controller
         }
 
         return redirect()->back()->with('success', true);
+    }
+
+    public function delete(JobPosition $jobPosition): RedirectResponse
+    {
+        $jobPosition->delete();
+
+        return redirect()->back();
     }
 }

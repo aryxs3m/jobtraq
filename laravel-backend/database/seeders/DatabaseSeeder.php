@@ -3,9 +3,12 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\CrawlerKeyword;
 use App\Models\JobLevel;
 use App\Models\JobPosition;
 use App\Models\JobStack;
+use App\Services\Crawler\NoFluffJobsCrawler;
+use App\Services\Crawler\ProfessionCrawler;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,6 +18,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        CrawlerKeyword::create([
+            'crawler' => NoFluffJobsCrawler::class,
+            'keywords' => ['backend', 'frontend', 'data', 'devops', 'cloud'],
+        ]);
+        CrawlerKeyword::create([
+            'crawler' => ProfessionCrawler::class,
+            'keywords' => ['backend fejlesztő', 'frontend fejlesztő', 'data scientist', 'data analyst', 'devops'],
+        ]);
+
         JobLevel::create([
             'name' => 'internship',
             'keywords' => ['internship', 'intern', 'trainee', 'gyakornok', 'diákmunka'],

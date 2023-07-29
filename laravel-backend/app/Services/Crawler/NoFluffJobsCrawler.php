@@ -10,6 +10,7 @@ class NoFluffJobsCrawler extends BaseJobListingCrawler
 {
     public function crawlPage(string $type): array
     {
+        $type = urlencode($type);
         $listings = [];
 
         $maxPages = 5;

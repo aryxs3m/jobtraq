@@ -19,4 +19,21 @@ class JobListing extends Model
         'salary_type' => SalaryType::class,
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        self::creating(function (JobListing $listing) {
+            $listing->calculateAvgSalary();
+        });
+
+        self::updating(function (JobListing $listing) {
+            $listing->calculateAvgSalary();
+        });
+    }
+
+    public function calculateAvgSalary()
+    {
+        $this->salary_avg = ($this->salary_low + $this->salary_high) / 2;
+    }
 }

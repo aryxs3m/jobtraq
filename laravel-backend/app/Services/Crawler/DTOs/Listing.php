@@ -8,8 +8,8 @@ class Listing
 {
     private string $position;
     private SalaryType $salaryType;
-    private float $salaryLow;
-    private float $salaryHigh;
+    private int $salaryLow;
+    private int $salaryHigh;
     private string $salaryCurrency;
     private int $homeOfficeDays = 0;
     private string $location;

@@ -15,6 +15,7 @@ Route::prefix('crawler-keywords')->group(function () {
     Route::get('edit/{crawlerKeyword}', [CrawlerKeywordsController::class, 'update']);
     Route::post('add', [CrawlerKeywordsController::class, 'upsertPost']);
     Route::post('edit/{crawlerKeyword}', [CrawlerKeywordsController::class, 'upsertPost']);
+    Route::get('delete/{crawlerKeyword}', [CrawlerKeywordsController::class, 'delete']);
 });
 
 Route::prefix('job-positions')->group(function () {
@@ -23,6 +24,7 @@ Route::prefix('job-positions')->group(function () {
     Route::get('edit/{jobPosition}', [JobPositionsController::class, 'update']);
     Route::post('add', [JobPositionsController::class, 'upsertPost']);
     Route::post('edit/{jobPosition}', [JobPositionsController::class, 'upsertPost']);
+    Route::get('delete/{jobPosition}', [JobPositionsController::class, 'delete']);
 });
 
 Route::prefix('job-levels')->group(function () {
@@ -31,6 +33,9 @@ Route::prefix('job-levels')->group(function () {
     Route::get('edit/{jobLevel}', [JobLevelsController::class, 'update']);
     Route::post('add', [JobLevelsController::class, 'upsertPost']);
     Route::post('edit/{jobLevel}', [JobLevelsController::class, 'upsertPost']);
+    Route::get('delete/{jobLevel}', [JobLevelsController::class, 'delete']);
+    Route::get('order', [JobLevelsController::class, 'order']);
+    Route::post('order', [JobLevelsController::class, 'orderPost']);
 });
 
 Route::prefix('job-stacks')->group(function () {
@@ -39,4 +44,5 @@ Route::prefix('job-stacks')->group(function () {
     Route::get('edit/{jobStack}', [JobStacksController::class, 'update']);
     Route::post('add', [JobStacksController::class, 'upsertPost']);
     Route::post('edit/{jobStack}', [JobStacksController::class, 'upsertPost']);
+    Route::get('delete/{jobStack}', [JobStacksController::class, 'delete']);
 });
