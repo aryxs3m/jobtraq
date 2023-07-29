@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { LoaderService } from "../loader.service";
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import {SearchService} from "../search.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
@@ -24,6 +26,12 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
   ],
 })
 export class NavbarComponent {
-  constructor(public loader: LoaderService) {
+  constructor(public loader: LoaderService, public search: SearchService, private router: Router) {
+    console.log(search.getDate());
+  }
+
+  setDate(event: any) {
+    this.search.dateFilter = event.target.value;
+    this.router.navigateByUrl('/report/'+this.search.dateFilter);
   }
 }

@@ -2,21 +2,50 @@
 
 namespace App\Services\Report;
 
+use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Publikus frontenden megjelenő chartokhoz, riportokhoz állítja elő az adatokat az adatbázisban tárolt álláshirdetések
+ * alapján.
+ */
 class PublicReporter
 {
+    protected Carbon $filterDate;
+
+    /**
+     * Erre a napra szűrve lesznek generálva a riportok.
+     *
+     * @param Carbon $filterDate
+     */
+    public function setFilterDate(Carbon $filterDate): void
+    {
+        $this->filterDate = $filterDate;
+    }
+
+    /**
+     * Munkakör szerinti álláshirdetések számát adja vissza.
+     *
+     * @return Collection
+     * @throws \Exception
+     */
     public function getJobsCountByPosition(): Collection
     {
         return DB::table('job_listings')
             ->select('position AS name', DB::raw('COUNT(id) AS value'))
             ->whereRaw("position IS NOT NULL AND position <> '' AND level IS NOT NULL AND level <> '' AND salary_currency IN ('HUF', 'Ft/hó')")
+            ->whereRaw("DATE(created_at) = :filterDate", ['filterDate' => $this->getFilterDateSQL()])
             ->groupBy('position')
             ->orderBy('value', 'DESC')
             ->get();
     }
 
+    /**
+     * Álláshirdetések száma az elmúlt 4 hétben.
+     *
+     * @return Collection
+     */
     public function getJobsCountByWeek(): Collection
     {
         return DB::table('job_listings')
@@ -29,22 +58,36 @@ class PublicReporter
             ->reverse();
     }
 
+    /**
+     * Álláshirdetések száma stackenként.
+     *
+     * @return Collection
+     */
     public function getJobsCountByStack(): Collection
     {
         return DB::table('job_listings')
             ->select('stack AS name', DB::raw('COUNT(id) AS value'))
             ->whereRaw("stack IS NOT NULL AND stack <> '' AND level IS NOT NULL AND level <> '' AND salary_currency IN ('HUF', 'Ft/hó')")
+            ->whereRaw('DATE(created_at) = :filterDate', ['filterDate' => $this->getFilterDateSQL()])
             ->groupBy('stack')
             ->orderBy('value', 'DESC')
             ->get();
     }
 
+    /**
+     * Átlagos fizetések szintenként egy megadott munkakörre.
+     *
+     * @param string $position munkakör
+     *
+     * @return Collection
+     */
     public function getAverageSalariesByLevels(string $position): Collection
     {
         // TODO: order by level 'order' column
         return DB::table('job_listings')
             ->select('level AS name', DB::raw('AVG(salary_low) AS value'))
             ->whereRaw("position IS NOT NULL AND position <> '' AND level IS NOT NULL AND level <> '' AND salary_currency IN ('HUF', 'Ft/hó')")
+            ->whereRaw('DATE(created_at) = ?', [$this->getFilterDateSQL()])
             ->where('position', '=', $position)
             ->groupBy('level')
             ->orderBy('level')
@@ -57,11 +100,17 @@ class PublicReporter
             });
     }
 
+    /**
+     * Átlagos fizetések szintenként és stackenként.
+     *
+     * @return array
+     */
     public function getAverageSalariesByStacksByLevels(): array
     {
         $collection = DB::table('job_listings')
             ->select('level', 'stack', DB::raw('AVG(salary_low) AS value'))
             ->whereRaw("position IS NOT NULL AND position <> '' AND level IS NOT NULL AND level <> '' AND salary_currency IN ('HUF', 'Ft/hó') AND stack <> '' AND stack IS NOT NULL")
+            ->whereRaw('DATE(created_at) = :filterDate', ['filterDate' => $this->getFilterDateSQL()])
             ->groupBy('level', 'stack')
             ->orderBy('stack', 'ASC')
             ->orderBy('level', 'ASC')
@@ -96,5 +145,17 @@ class PublicReporter
         ];
 
         return $return;
+    }
+
+    /**
+     * @throws \Exception ha nincs beállítva dátum a szűréshez
+     */
+    protected function getFilterDateSQL(): string
+    {
+        if (null === $this->filterDate) {
+            throw new \Exception('Filter date is not set.');
+        }
+
+        return $this->filterDate->format('Y-m-d');
     }
 }

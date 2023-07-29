@@ -6,10 +6,11 @@ import {AboutPageComponent} from "./about-page/about-page.component";
 import {ContactPageComponent} from "./contact-page/contact-page.component";
 
 const routes: Routes = [
-  { path: 'home', component: HomePageComponent },
+  { path: 'report', component: HomePageComponent },
+  { path: 'report/:date', component: HomePageComponent },
   { path: 'about-us', component: AboutPageComponent },
   { path: 'contact', component: ContactPageComponent },
-  { path: '', redirectTo: "/home", pathMatch: "full" },
+  { path: '', redirectTo: "/report", pathMatch: "full" },
   { path: '**', component: NotFoundPageComponent },
 ];
 @NgModule({

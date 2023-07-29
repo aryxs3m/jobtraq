@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class LoaderService {
   private loading: boolean = false;
+  private backendError: boolean = false;
 
   constructor() { }
 
@@ -14,5 +15,13 @@ export class LoaderService {
 
   getLoading(): boolean {
     return this.loading;
+  }
+
+  getBackendError(): boolean {
+    return this.backendError;
+  }
+
+  setBackendError(backendError: boolean) {
+    this.backendError = backendError;
   }
 }

@@ -3,14 +3,18 @@
 namespace App\Http\Controllers\PublicApi;
 
 use App\Http\Controllers\BaseApiController;
+use App\Http\Requests\PublicApi\HomePageRequest;
 use App\Models\JobPosition;
 use App\Services\Report\PublicReporter;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 
 class ReportController extends BaseApiController
 {
-    public function homepageStatistics(PublicReporter $reporter)
+    public function homepageStatistics(HomePageRequest $request, PublicReporter $reporter): JsonResponse
     {
+        $reporter->setFilterDate(new Carbon($request->get('date', '2023-07-25')));
+
         return $this->success([
             'pieChartPositions' => $reporter->getJobsCountByPosition(),
             'barOpenPositions' => $reporter->getJobsCountByWeek(),
