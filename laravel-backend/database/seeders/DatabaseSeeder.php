@@ -7,8 +7,8 @@ use App\Models\CrawlerKeyword;
 use App\Models\JobLevel;
 use App\Models\JobPosition;
 use App\Models\JobStack;
-use App\Services\Crawler\NoFluffJobsCrawler;
-use App\Services\Crawler\ProfessionCrawler;
+use App\Services\Scraper\NoFluffJobsScraper;
+use App\Services\Scraper\ProfessionScraper;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,11 +19,11 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         CrawlerKeyword::create([
-            'crawler' => NoFluffJobsCrawler::class,
+            'crawler' => NoFluffJobsScraper::class,
             'keywords' => ['backend', 'frontend', 'data', 'devops', 'cloud'],
         ]);
         CrawlerKeyword::create([
-            'crawler' => ProfessionCrawler::class,
+            'crawler' => ProfessionScraper::class,
             'keywords' => ['backend fejlesztő', 'frontend fejlesztő', 'data scientist', 'data analyst', 'devops'],
         ]);
 

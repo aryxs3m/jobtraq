@@ -1,7 +1,7 @@
 @extends('layouts.list')
 
 @section('content')
-    <h2>Crawler kulcsszavak</h2>
+    <h2>Scraper kulcsszavak</h2>
 
     @if(session()->has('success'))
         <p class="alert alert-success">Sikeres mentés.</p>
@@ -24,6 +24,6 @@
             <label class="form-label">Kulcsszavak</label>
             <textarea name="keywords" class="form-control" placeholder="Vesszővel válaszd el a kulcsszavakat!">@if($item){{ implode(',', $item->keywords) }}@endif</textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Mentés</button>
     </form>
 @endsection

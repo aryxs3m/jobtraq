@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Services\Crawler;
+namespace App\Services\Scraper;
 
-use App\Services\Crawler\DTOs\Listing;
-use App\Services\Crawler\DTOs\SalaryType;
+use App\Services\Scraper\DTOs\Listing;
+use App\Services\Scraper\DTOs\SalaryType;
 use Goutte\Client;
 use simplehtmldom\HtmlWeb;
 use Sunra\PhpSimple\HtmlDomParser;
 
-class ProfessionCrawler extends BaseJobListingCrawler
+class ProfessionScraper extends BaseJobListingScraper
 {
-    public function crawlPage(string $type): array
+    public function scrapePage(string $type): array
     {
         $type = urlencode($type);
         $listings = [];

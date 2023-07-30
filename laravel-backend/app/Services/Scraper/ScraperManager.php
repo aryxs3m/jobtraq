@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Services\Crawler;
+namespace App\Services\Scraper;
 
 use App\Models\CrawlerKeyword;
 use App\Models\JobListing;
-use App\Services\Crawler\DTOs\Listing;
+use App\Services\Scraper\DTOs\Listing;
 use Illuminate\Console\OutputStyle;
 
-class CrawlManager
+class ScraperManager
 {
     private OutputStyle $output;
 
     private const CRAWLERS = [
-        NoFluffJobsCrawler::class,
-        ProfessionCrawler::class,
+        NoFluffJobsScraper::class,
+        ProfessionScraper::class,
     ];
 
     /**
@@ -31,12 +31,12 @@ class CrawlManager
         foreach (CrawlerKeyword::all() as $crawlerKeyword) {
             $this->output->title($crawlerKeyword->crawler);
 
-            /** @var JobListingCrawlerInterface $crawlerService */
+            /** @var JobListingScraperInterface $crawlerService */
             $crawlerService = app($crawlerKeyword->crawler);
 
             foreach ($crawlerKeyword->keywords as $keyword) {
                 $this->output->writeln($keyword . " crawling ...");
-                $listings = $crawlerService->crawlPage($keyword);
+                $listings = $crawlerService->scrapePage($keyword);
                 $this->saveListings($crawlerKeyword->crawler, $listings);
             }
         }

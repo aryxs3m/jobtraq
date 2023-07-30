@@ -2,9 +2,9 @@
 
 namespace App\Console\Commands;
 
-use App\Services\Crawler\CrawlManager;
-use App\Services\Crawler\NoFluffJobsCrawler;
-use App\Services\Crawler\ProfessionCrawler;
+use App\Services\Scraper\ScraperManager;
+use App\Services\Scraper\NoFluffJobsScraper;
+use App\Services\Scraper\ProfessionScraper;
 use Illuminate\Console\Command;
 
 class CrawlCommand extends Command
@@ -23,9 +23,9 @@ class CrawlCommand extends Command
      */
     protected $description = 'Crawls job portals';
 
-    private CrawlManager $crawler;
+    private ScraperManager $crawler;
 
-    public function __construct(CrawlManager $crawler)
+    public function __construct(ScraperManager $crawler)
     {
         $this->crawler = $crawler;
 

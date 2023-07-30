@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\CrawlerKeyword;
-use App\Services\Crawler\CrawlManager;
+use App\Services\Scraper\ScraperManager;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
-class CrawlerKeywordsController extends Controller
+class ScraperKeywordsController extends Controller
 {
     public function index()
     {
@@ -17,7 +17,7 @@ class CrawlerKeywordsController extends Controller
         ]);
     }
 
-    public function create(CrawlManager $crawlManager)
+    public function create(ScraperManager $crawlManager)
     {
         return view('crawler-keywords.form', [
             'services' => $crawlManager->getServices(),
@@ -25,7 +25,7 @@ class CrawlerKeywordsController extends Controller
         ]);
     }
 
-    public function update(CrawlerKeyword $crawlerKeyword, CrawlManager $crawlManager)
+    public function update(CrawlerKeyword $crawlerKeyword, ScraperManager $crawlManager)
     {
         return view('crawler-keywords.form', [
             'services' => $crawlManager->getServices(),

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Crawler\DTOs;
+namespace App\Services\Scraper\DTOs;
 
 use App\Services\Parser\DTOs\JobCategory;
 

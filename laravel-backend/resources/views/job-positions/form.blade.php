@@ -21,6 +21,6 @@
             <label class="form-label">Kulcsszavak</label>
             <textarea name="keywords" class="form-control" placeholder="Vesszővel válaszd el a kulcsszavakat!">@if($item){{ implode(',', $item->keywords) }}@endif</textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Mentés</button>
     </form>
 @endsection

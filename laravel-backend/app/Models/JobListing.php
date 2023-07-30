@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Services\Crawler\DTOs\SalaryType;
+use App\Services\Scraper\DTOs\SalaryType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

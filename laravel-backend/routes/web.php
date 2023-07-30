@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\CrawlerKeywordsController;
+use App\Http\Controllers\Admin\ScraperKeywordsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\JobLevelsController;
 use App\Http\Controllers\Admin\JobListingsController;
@@ -10,13 +10,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'index']);
 
-Route::prefix('crawler-keywords')->group(function () {
-    Route::get('', [CrawlerKeywordsController::class, 'index']);
-    Route::get('add', [CrawlerKeywordsController::class, 'create']);
-    Route::get('edit/{crawlerKeyword}', [CrawlerKeywordsController::class, 'update']);
-    Route::post('add', [CrawlerKeywordsController::class, 'upsertPost']);
-    Route::post('edit/{crawlerKeyword}', [CrawlerKeywordsController::class, 'upsertPost']);
-    Route::get('delete/{crawlerKeyword}', [CrawlerKeywordsController::class, 'delete']);
+Route::prefix('scraper-keywords')->group(function () {
+    Route::get('', [ScraperKeywordsController::class, 'index']);
+    Route::get('add', [ScraperKeywordsController::class, 'create']);
+    Route::get('edit/{crawlerKeyword}', [ScraperKeywordsController::class, 'update']);
+    Route::post('add', [ScraperKeywordsController::class, 'upsertPost']);
+    Route::post('edit/{crawlerKeyword}', [ScraperKeywordsController::class, 'upsertPost']);
+    Route::get('delete/{crawlerKeyword}', [ScraperKeywordsController::class, 'delete']);
 });
 
 Route::prefix('job-positions')->group(function () {

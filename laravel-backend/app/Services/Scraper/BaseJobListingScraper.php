@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Services\Crawler;
+namespace App\Services\Scraper;
 
 use App\Services\Parser\HumanAdvertisementParser;
 use Drnxloc\LaravelHtmlDom\HtmlDomParser;
 use simplehtmldom\simple_html_dom;
 
-abstract class BaseJobListingCrawler implements JobListingCrawlerInterface
+abstract class BaseJobListingScraper implements JobListingScraperInterface
 {
     protected HumanAdvertisementParser $advertisementParser;
 
