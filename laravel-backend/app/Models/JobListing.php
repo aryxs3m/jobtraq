@@ -8,7 +8,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property Carbon created_at
+ * @property Carbon $created_at létrehozási idő
+ * @property Carbon $updated_at frissítési idő
+ * @property string $name a hirdetés teljes, eredeti neve
+ * @property SalaryType $salary_type fizetés típusa
+ * @property int $salary_low fizetési sáv alja
+ * @property int $salary_high fizetési sáv teteje
+ * @property int $salary_avg átlagfizetés (fizetési sáv aljából és tetejéből számítva)
+ * @property int $salary_currency deviza
+ * @property string $location munkavégzés helye
+ * @property string $level JobLevel neve stringként
+ * @property string $position JobPosition neve stringként
+ * @property string $stack JobStack neve stringként
+ * @property string $crawler Scraper class
  */
 class JobListing extends Model
 {

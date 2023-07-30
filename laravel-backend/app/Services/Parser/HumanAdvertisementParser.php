@@ -16,12 +16,14 @@ class HumanAdvertisementParser
     public function __construct()
     {
         if ([] === self::$levels) {
+            /** @var JobLevel $item */
             foreach (JobLevel::all() as $item) {
                 self::$levels[$item->name] = $item->keywords;
             }
         }
 
         if ([] === self::$stacks) {
+            /** @var JobStack $item */
             foreach (JobStack::all() as $item) {
                 self::$stacks[$item->name] = [
                     'keywords' => $item->keywords,
@@ -31,6 +33,7 @@ class HumanAdvertisementParser
         }
 
         if ([] === self::$positions) {
+            /** @var JobPosition $item */
             foreach (JobPosition::all() as $item) {
                 self::$positions[$item->name] = $item->keywords;
             }

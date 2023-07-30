@@ -28,6 +28,7 @@ class ScraperManager
     {
         $listingsCount = 0;
 
+        /** @var CrawlerKeyword $crawlerKeyword */
         foreach (CrawlerKeyword::all() as $crawlerKeyword) {
             $this->output->title($crawlerKeyword->crawler);
 
@@ -55,7 +56,7 @@ class ScraperManager
         $this->output->comment('Saving listings...');
 
         foreach ($listings as $listing) {
-            JobListing::create([
+            JobListing::query()->create([
                 'name' => $listing->getPosition(),
                 'salary_low' => $listing->getSalaryLow(),
                 'salary_high' => $listing->getSalaryHigh(),
@@ -70,7 +71,7 @@ class ScraperManager
         }
     }
 
-    public function getServices()
+    public function getServices(): array
     {
         return self::CRAWLERS;
     }
