@@ -1,10 +1,12 @@
 @extends('layouts.list')
 
 @section('content')
-    <h2>Szintek</h2>
+    <h2 class="mb-4">Szintek</h2>
 
-    <a href="/job-levels/add" class="btn btn-primary btn-success">Új</a>
-    <a href="/job-levels/order" class="btn btn-primary btn-primary">Sorrendezés</a>
+    <div class="mb-4 border-bottom pb-4">
+        <a href="/job-levels/add" class="btn btn-sm btn-primary btn-success">Új</a>
+        <a href="/job-levels/order" class="btn btn-sm btn-primary btn-primary">Sorrendezés</a>
+    </div>
 
     <table class="table" style="width: 100%">
         <thead>

@@ -118,8 +118,11 @@
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/bacon/bacon-qr-code" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/dasprid/enum" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/drnxloc/laravel-simple-html-dom" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/ezyang/htmlpurifier" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/laravel/fortify" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/laravel/framework_compare" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/league/fractal" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/livewire/livewire" />
@@ -127,7 +130,9 @@
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/markbaker/complex" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/markbaker/matrix" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/openspout/openspout" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/paragonie/constant_time_encoding" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/phpoffice/phpspreadsheet" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/pragmarx/google2fa" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/yajra/laravel-datatables" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/yajra/laravel-datatables-buttons" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/yajra/laravel-datatables-editor" />

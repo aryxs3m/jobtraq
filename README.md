@@ -16,9 +16,9 @@ Segítségével látható
 - ~~Backend: HealthcheckControllerhez a healthchecket végző service megírása~~
 - Backend: még több unit teszt?
 - ~~Backend: scraperekhez logolás, logokat lehessen adminfelületen megtekinteni~~
-- Backend: autentikáció
+- ~~Backend: autentikáció~~
 - Backend: CRUD törlés javítása (jelenleg GET-tel megy, nem túl biztonságos)
-- Backend: némi ráncfelvarrás ráférne
+- ~~Backend: némi ráncfelvarrás ráférne~~
 - Backend: apidoc bekötése, annotációk készítése a controllerekbe
 - Frontend: privacy-policy feltöltése
 - Frontend: impressum feltöltése

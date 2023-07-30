@@ -1,7 +1,7 @@
 @extends('layouts.list')
 
 @section('content')
-    <h2>Scraper napló</h2>
+    <h2 class="mb-4">Scraper napló</h2>
 
     <div class="list-group">
         <div class="list-group-item">

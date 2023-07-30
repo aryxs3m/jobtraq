@@ -138,6 +138,11 @@
       <path value="$PROJECT_DIR$/laravel-backend/vendor/yajra/laravel-datatables-fractal" />
       <path value="$PROJECT_DIR$/laravel-backend/vendor/livewire/livewire" />
       <path value="$PROJECT_DIR$/laravel-backend/vendor/drnxloc/laravel-simple-html-dom" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/paragonie/constant_time_encoding" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/pragmarx/google2fa" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/bacon/bacon-qr-code" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/laravel/fortify" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/dasprid/enum" />
     </include_path>
   </component>
   <component name="PhpInterpreters">

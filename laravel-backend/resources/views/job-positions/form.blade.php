@@ -1,7 +1,7 @@
 @extends('layouts.list')
 
 @section('content')
-    <h2>Pozíciók</h2>
+    <h2 class="mb-4">Pozíciók</h2>
 
     @if(session()->has('success'))
         <p class="alert alert-success">Sikeres mentés.</p>

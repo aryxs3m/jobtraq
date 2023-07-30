@@ -1,7 +1,7 @@
 @extends('layouts.list')
 
 @section('content')
-    <h2>Scraper naplók</h2>
+    <h2 class="mb-4">Scraper naplók</h2>
 
     <div class="card">
         <div class="card-body">

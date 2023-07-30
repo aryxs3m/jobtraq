@@ -1,14 +1,14 @@
 @extends('layouts.list')
 
 @section('content')
-    <h2>Szintek rendezése</h2>
+    <h2 class="mb-4">Szintek rendezése</h2>
 
     <form method="post">
         @csrf
         <ul id="bar" class="list-group">
             @foreach($levels as $level)
                 <li class="list-group-item">
-                    {{ $level->name }}
+                    <i class="fas fa-bars text-muted me-2"></i> {{ $level->name }}
                     <input type="hidden" name="order[]" value="{{ $level->id }}">
                 </li>
             @endforeach
