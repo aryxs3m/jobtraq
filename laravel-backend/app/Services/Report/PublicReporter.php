@@ -17,8 +17,6 @@ class PublicReporter
 
     /**
      * Erre a napra szűrve lesznek generálva a riportok.
-     *
-     * @param Carbon $filterDate
      */
     public function setFilterDate(Carbon $filterDate): void
     {
@@ -27,20 +25,17 @@ class PublicReporter
 
     /**
      * Ellenőrzi, hogy a megadott filterDate-hez van-e már egyáltalán adat az adatbázisban.
-     *
-     * @return bool
      */
     public function isDataReady(): bool
     {
         return JobListing::query()
-            ->whereDate('created_at', "=", $this->filterDate)
+            ->whereDate('created_at', '=', $this->filterDate)
             ->count();
     }
 
     /**
      * Munkakör szerinti álláshirdetések számát adja vissza.
      *
-     * @return Collection
      * @throws \Exception
      */
     public function getJobsCountByPosition(): Collection
@@ -48,7 +43,7 @@ class PublicReporter
         return DB::table('job_listings')
             ->select('position AS name', DB::raw('COUNT(id) AS value'))
             ->whereRaw("position IS NOT NULL AND level IS NOT NULL AND salary_currency IN ('HUF', 'Ft/hó')")
-            ->whereRaw("DATE(created_at) = :filterDate", ['filterDate' => $this->getFilterDateSQL()])
+            ->whereRaw('DATE(created_at) = :filterDate', ['filterDate' => $this->getFilterDateSQL()])
             ->groupBy('position')
             ->orderBy('value', 'DESC')
             ->get();
@@ -56,8 +51,6 @@ class PublicReporter
 
     /**
      * Álláshirdetések száma az elmúlt 4 hétben.
-     *
-     * @return Collection
      */
     public function getJobsCountByWeek(): Collection
     {
@@ -73,8 +66,6 @@ class PublicReporter
 
     /**
      * Álláshirdetések száma stackenként.
-     *
-     * @return Collection
      */
     public function getJobsCountByStack(): Collection
     {
@@ -90,9 +81,7 @@ class PublicReporter
     /**
      * Átlagos fizetések szintenként egy megadott munkakörre.
      *
-     * @param string $position munkakör
-     *
-     * @return Collection
+     * @param  string  $position munkakör
      */
     public function getAverageSalariesByLevels(string $position): Collection
     {
@@ -115,8 +104,6 @@ class PublicReporter
 
     /**
      * Átlagos fizetések szintenként és stackenként.
-     *
-     * @return array
      */
     public function getAverageSalariesByStacksByLevels(): array
     {

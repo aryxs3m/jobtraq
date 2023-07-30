@@ -63,10 +63,9 @@ class DatabaseSeeder extends Seeder
             'order' => 6,
         ]);
 
-
         JobPosition::create([
             'name' => 'frontend',
-            'keywords' => ['frontend', 'front-end']
+            'keywords' => ['frontend', 'front-end'],
         ]);
         JobPosition::create([
             'name' => 'backend',
@@ -105,70 +104,69 @@ class DatabaseSeeder extends Seeder
             'keywords' => ['developer', 'engineer', 'fejlesztő'],
         ]);
 
-
         JobStack::create([
             'name' => 'golang',
-            'keywords' => ['golang','go'],
+            'keywords' => ['golang', 'go'],
         ]);
         JobStack::create([
             'name' => 'php',
-            'keywords' => ['php','laravel','symfony','cakephp'],
+            'keywords' => ['php', 'laravel', 'symfony', 'cakephp'],
         ]);
         JobStack::create([
             'name' => 'java',
-            'keywords' => ['java','spring'],
+            'keywords' => ['java', 'spring'],
         ]);
         JobStack::create([
             'name' => 'angular',
-            'keywords' => ['angular',],
+            'keywords' => ['angular'],
         ]);
         JobStack::create([
             'name' => 'react',
-            'keywords' => ['react',],
+            'keywords' => ['react'],
         ]);
         JobStack::create([
             'name' => 'node',
-            'keywords' => ['node',],
+            'keywords' => ['node'],
         ]);
         JobStack::create([
             'name' => '.net',
-            'keywords' => ['.net',],
+            'keywords' => ['.net'],
         ]);
         JobStack::create([
             'name' => 'asp',
-            'keywords' => ['asp',],
+            'keywords' => ['asp'],
         ]);
         JobStack::create([
             'name' => 'c#',
-            'keywords' => ['c#',],
+            'keywords' => ['c#'],
         ]);
         JobStack::create([
             'name' => 'c++',
-            'keywords' => ['c++',],
+            'keywords' => ['c++'],
         ]);
         JobStack::create([
             'name' => 'python',
-            'keywords' => ['python',],
+            'keywords' => ['python'],
         ]);
         JobStack::create([
             'name' => 'ruby',
-            'keywords' => ['ruby',],
+            'keywords' => ['ruby'],
         ]);
         JobStack::create([
             'name' => 'rust',
-            'keywords' => ['rust',],
+            'keywords' => ['rust'],
         ]);
         JobStack::create([
             'name' => 'solidity',
-            'keywords' => ['solidity',],
+            'keywords' => ['solidity'],
         ]);
         JobStack::create([
             'name' => 'mysql',
-            'keywords' => ['mysql',],
+            'keywords' => ['mysql'],
         ]);
         JobStack::create([
             'name' => 'mssql',
-            'keywords' => ['mssql',],
+            'keywords' => ['mssql'],
         ]);
         JobStack::create([
             'name' => 'postgresql',

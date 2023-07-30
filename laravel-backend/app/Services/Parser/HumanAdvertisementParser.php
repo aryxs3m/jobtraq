@@ -10,7 +10,9 @@ use App\Services\Parser\DTOs\JobCategory;
 class HumanAdvertisementParser
 {
     protected static array $levels = [];
+
     protected static array $stacks = [];
+
     protected static array $positions = [];
 
     public function __construct()

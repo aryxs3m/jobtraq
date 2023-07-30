@@ -13,7 +13,7 @@ class AdminReporter
     {
         return DB::table('job_listings')
             ->select(DB::raw('COUNT(id) AS value'))
-            ->whereRaw("DATE(created_at) = :filterDate", ['filterDate' => (new Carbon())->format('Y-m-d')])
+            ->whereRaw('DATE(created_at) = :filterDate', ['filterDate' => (new Carbon())->format('Y-m-d')])
             ->get()
             ->first()
             ->value;

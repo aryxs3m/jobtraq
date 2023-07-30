@@ -6,7 +6,6 @@ use App\DataTables\JobListingsDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\JobListing;
 use App\Services\Parser\ReParserService;
-use Illuminate\Http\Request;
 
 class JobListingsController extends Controller
 {

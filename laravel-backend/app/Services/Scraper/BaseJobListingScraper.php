@@ -15,7 +15,7 @@ abstract class BaseJobListingScraper implements JobListingScraperInterface
     public function __construct(HumanAdvertisementParser $advertisementParser)
     {
         // Limit for HTML DOM parsing
-        if (!defined('MAX_FILE_SIZE')) {
+        if (! defined('MAX_FILE_SIZE')) {
             define('MAX_FILE_SIZE', 6000000);
         }
 
@@ -37,7 +37,7 @@ abstract class BaseJobListingScraper implements JobListingScraperInterface
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_REFERER, $url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_USERAGENT, "JobTraq 1.0 (https://jobtraq.hu, info@jobtraq.hu)");
+        curl_setopt($curl, CURLOPT_USERAGENT, 'JobTraq 1.0 (https://jobtraq.hu, info@jobtraq.hu)');
         $content = curl_exec($curl);
         curl_close($curl);
 

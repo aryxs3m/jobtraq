@@ -20,7 +20,7 @@ class JobStack extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'keywords', 'job_position_id'
+        'name', 'keywords', 'job_position_id',
     ];
 
     protected $casts = [

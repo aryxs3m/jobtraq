@@ -2,7 +2,6 @@
 
 namespace Tests\Unit;
 
-use App\Services\Parser\HumanAdvertisementParser;
 use App\Services\Report\PublicReporter;
 use PHPUnit\Framework\TestCase;
 

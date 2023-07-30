@@ -22,7 +22,7 @@ class HomePageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'date' => 'nullable|date'
+            'date' => 'nullable|date',
         ];
     }
 }

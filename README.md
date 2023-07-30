@@ -12,7 +12,7 @@ Segítségével látható
 ## TODOs
 
 - ~~legyünk kedves botok: küldjük a scraperekben user-agenként a nevünket és az elérhetőséget~~
-- Backend: cs fixer bekötése
+- ~~Backend: cs fixer bekötése~~
 - ~~Backend: HealthcheckControllerhez a healthchecket végző service megírása~~
 - Backend: még több unit teszt?
 - ~~Backend: scraperekhez logolás, logokat lehessen adminfelületen megtekinteni~~

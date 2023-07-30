@@ -4,9 +4,6 @@ namespace App\Services\Scraper;
 
 use App\Services\Scraper\DTOs\Listing;
 use App\Services\Scraper\DTOs\SalaryType;
-use Goutte\Client;
-use simplehtmldom\HtmlWeb;
-use Sunra\PhpSimple\HtmlDomParser;
 
 class ProfessionScraper extends BaseJobListingScraper
 {

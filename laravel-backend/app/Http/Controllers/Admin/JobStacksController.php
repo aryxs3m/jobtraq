@@ -38,7 +38,7 @@ class JobStacksController extends Controller
         $validated = $request->validate([
             'name' => 'string|required',
             'keywords' => 'string|required',
-            'job_position' => 'nullable|integer|exists:job_positions,id'
+            'job_position' => 'nullable|integer|exists:job_positions,id',
         ]);
 
         $data = [

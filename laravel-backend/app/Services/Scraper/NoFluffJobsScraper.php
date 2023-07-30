@@ -4,7 +4,6 @@ namespace App\Services\Scraper;
 
 use App\Services\Scraper\DTOs\Listing;
 use App\Services\Scraper\DTOs\SalaryType;
-use simplehtmldom\HtmlWeb;
 
 class NoFluffJobsScraper extends BaseJobListingScraper
 {

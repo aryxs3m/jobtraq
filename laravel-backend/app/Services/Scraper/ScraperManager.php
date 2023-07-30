@@ -16,9 +16,6 @@ class ScraperManager
         ProfessionScraper::class,
     ];
 
-    /**
-     * @param OutputStyle $output
-     */
     public function setOutput(OutputStyle $output): void
     {
         $this->output = $output;
@@ -36,7 +33,7 @@ class ScraperManager
             $crawlerService = app($crawlerKeyword->crawler);
 
             foreach ($crawlerKeyword->keywords as $keyword) {
-                $this->output->writeln($keyword . " crawling ...");
+                $this->output->writeln($keyword.' crawling ...');
                 $listings = $crawlerService->scrapePage($keyword);
                 $this->saveListings($crawlerKeyword->crawler, $listings);
 
@@ -48,8 +45,7 @@ class ScraperManager
     }
 
     /**
-     * @param Listing[] $listings
-     * @return void
+     * @param  Listing[]  $listings
      */
     private function saveListings(string $crawler, array $listings): void
     {

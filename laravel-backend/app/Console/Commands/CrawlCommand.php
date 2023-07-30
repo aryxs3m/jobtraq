@@ -3,8 +3,6 @@
 namespace App\Console\Commands;
 
 use App\Services\Scraper\ScraperManager;
-use App\Services\Scraper\NoFluffJobsScraper;
-use App\Services\Scraper\ProfessionScraper;
 use Illuminate\Console\Command;
 
 class CrawlCommand extends Command

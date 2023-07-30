@@ -17,7 +17,7 @@ class CrawlerKeyword extends Model
     use HasFactory;
 
     protected $fillable = [
-        'crawler', 'keywords'
+        'crawler', 'keywords',
     ];
 
     protected $casts = [
