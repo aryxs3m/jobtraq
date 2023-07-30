@@ -22,7 +22,7 @@ Segítségével látható
 - Backend: apidoc bekötése, annotációk készítése a controllerekbe
 - Frontend: privacy-policy feltöltése
 - Frontend: impressum feltöltése
-- Frontend: contact feltöltése
+- ~~Frontend: contact feltöltése~~
 - Frontend: reszponzivitásban problémák javítása (mobilon itt-ott overflow, rossz méretek)
 - Frontend: cookie consent és Google Analytics bekötése
 - Frontend: PWA
