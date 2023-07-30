@@ -24,6 +24,8 @@ import { ErrorNotifyComponent } from './error-notify/error-notify.component';
 import { StatusPageComponent } from './status-page/status-page.component';
 import { StatusItemComponent } from './status-page/status-item/status-item.component';
 import { NoDataInfoComponent } from './home-page/no-data-info/no-data-info.component';
+import { FooterComponent } from './footer/footer.component';
+import { SystemMessageComponent } from './system-message/system-message.component';
 registerLocaleData(localeFr, 'hu');
 
 @NgModule({
@@ -41,6 +43,8 @@ registerLocaleData(localeFr, 'hu');
     StatusPageComponent,
     StatusItemComponent,
     NoDataInfoComponent,
+    FooterComponent,
+    SystemMessageComponent,
   ],
   imports: [
     CommonModule,
