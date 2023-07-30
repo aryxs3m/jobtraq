@@ -26,7 +26,7 @@ class ScraperManager
 
     public function crawlAll(): void
     {
-        $listings = [];
+        $listingsCount = 0;
 
         foreach (CrawlerKeyword::all() as $crawlerKeyword) {
             $this->output->title($crawlerKeyword->crawler);
@@ -38,10 +38,12 @@ class ScraperManager
                 $this->output->writeln($keyword . " crawling ...");
                 $listings = $crawlerService->scrapePage($keyword);
                 $this->saveListings($crawlerKeyword->crawler, $listings);
+
+                $listingsCount += count($listings);
             }
         }
 
-        $this->output->success('Total ' . count($listings) . ' listings crawled.');
+        $this->output->success(sprintf('Total %s listings crawled.', $listingsCount));
     }
 
     /**
