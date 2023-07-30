@@ -1,15 +1,23 @@
-<div class="container mt-4">
-  <h2 class="mb-4">A JobTraq állapota</h2>
+<app-page-header title="A JobTraq állapota" background="status-bg.webp">
+  <p class="lead">
+    Minden rendben?
+  </p>
+</app-page-header>
 
+<div class="container mt-4">
   <div class="list-group mb-4" *ngIf="!loading">
     <div class="list-group-item p-0">
-      <app-status-item name="Frontend" description="jobtraq.io" [available]="frontendStatus"></app-status-item>
+      <app-status-item name="Frontend" description="jobtraq.hu" [available]="frontendStatus"></app-status-item>
     </div>
     <div class="list-group-item p-0">
-      <app-status-item name="Backend" description="api.jobtraq.io" [available]="backendStatus"></app-status-item>
+      <app-status-item name="Backend" description="api.jobtraq.hu" [available]="backendStatus"></app-status-item>
     </div>
     <div class="list-group-item p-0" *ngFor="let scraper of scraperStatus">
       <app-status-item [name]="scraper.name" [available]="scraper.status"></app-status-item>
     </div>
+  </div>
+
+  <div class="text-end mb-5">
+    <a href="https://www.freepik.com/free-photo/dark-server-racks-computer-network-security-server-room-data-center-generative-ai_38975672.htm#query=servers%20dark&position=3&from_view=search&track=ais#page=1&query=s&from_query=undefined&position=0&from_view=search&track=ais">Image by benzoix</a> on Freepik
   </div>
 </div>

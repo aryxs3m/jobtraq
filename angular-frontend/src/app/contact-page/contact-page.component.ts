@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {faEnvelope, faGlobe} from "@fortawesome/free-solid-svg-icons";
+import {faGithub} from "@fortawesome/free-brands-svg-icons";
 
 @Component({
   selector: 'app-contact-page',
@@ -7,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class ContactPageComponent {
 
+  protected readonly faGlobe = faGlobe;
+  protected readonly faGithub = faGithub;
+  protected readonly faEnvelope = faEnvelope;
 }

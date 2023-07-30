@@ -1,17 +1,14 @@
-.ethics-masthead {
-  background: url("/assets/tropical-green-leaves-background.webp");
-  background-size: cover;
-}
+.scraping-ethics-typography {
+  p.lead {
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
 
-p.lead {
-  margin-top: 20px;
-  margin-bottom: 0;
-}
+  p.small {
+    margin-bottom: 20px;
+  }
 
-p.small {
-  margin-bottom: 20px;
-}
-
-span.code {
-  font-family: monospace;
+  span.code {
+    font-family: monospace;
+  }
 }

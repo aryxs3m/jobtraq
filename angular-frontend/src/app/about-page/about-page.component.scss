@@ -1,3 +1,9 @@
+.masthead {
+  background-image: url("/assets/about-bg.webp");
+  background-position: center;
+  background-size: cover;
+}
+
 ul {
   --icon-space: 1.3em;
   list-style: none;
@@ -14,4 +20,13 @@ li:before {
   display: inline-block;
   margin-left: calc( var(--icon-space) * -1 );
   width: var(--icon-space);
+}
+
+.github-card {
+  font-size: 1.3rem;
+  text-align: center;
+
+  a {
+    text-decoration: none;
+  }
 }

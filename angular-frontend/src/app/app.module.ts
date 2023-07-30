@@ -27,6 +27,7 @@ import { NoDataInfoComponent } from './home-page/no-data-info/no-data-info.compo
 import { FooterComponent } from './footer/footer.component';
 import { SystemMessageComponent } from './system-message/system-message.component';
 import { ScrapingEthicsPageComponent } from './scraping-ethics-page/scraping-ethics-page.component';
+import {PageHeaderComponent} from "./page-header/page-header.component";
 registerLocaleData(localeFr, 'hu');
 
 @NgModule({
@@ -47,6 +48,7 @@ registerLocaleData(localeFr, 'hu');
     FooterComponent,
     SystemMessageComponent,
     ScrapingEthicsPageComponent,
+    PageHeaderComponent,
   ],
   imports: [
     CommonModule,
