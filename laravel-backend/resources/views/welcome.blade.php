@@ -3,7 +3,7 @@
 @section('content')
     <h2>Szép napot!</h2>
 
-    <div class="row row-cols-2 row-cols-md-4">
+    <div class="row row-cols-2 row-cols-md-5">
         <div class="col mt-4">
             <div class="card">
                 <div class="card-body">
@@ -33,6 +33,14 @@
                 <div class="card-body">
                     <h3>{{ $countListingsFull }}</h3>
                     <span class="small">Teljesen kategorizált hirdetések</span>
+                </div>
+            </div>
+        </div>
+        <div class="col mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3>{{ $percentageOfNotUsedListings }}%</h3>
+                    <span class="small">Nem használt álláshirdetések</span>
                 </div>
             </div>
         </div>

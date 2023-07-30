@@ -10,13 +10,23 @@ class DashboardController extends Controller
 {
     public function index(AdminReporter $reporter)
     {
+        $notUsedListings = $reporter->getJobListingCountNotUsed();
+        $totalListings = JobListing::count();
+        $percentageNotUsed = number_format(
+            $notUsedListings / $totalListings * 100,
+            1,
+            ',',
+            ' '
+        );
+
         return view('welcome', [
-            'countListings' => JobListing::count(),
+            'countListings' => $totalListings,
             'countListingsToday' => $reporter->getJobListingCountToday(),
-            'countListingsNotUsed' => $reporter->getJobListingCountNotUsed(),
+            'countListingsNotUsed' => $notUsedListings,
             'countListingsFull' => $reporter->getJobListingCountFull(),
             'jobListingsDaily' => $reporter->getJobListingsDaily()->values(),
             'jobListingsCrawler' => $reporter->getJobListingsByCrawler(),
+            'percentageOfNotUsedListings' => $percentageNotUsed,
         ]);
     }
 }
