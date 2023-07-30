@@ -8,8 +8,8 @@
     <div class="list-group-item p-0">
       <app-status-item name="Backend" description="api.jobtraq.io" [available]="backendStatus"></app-status-item>
     </div>
-    <div class="list-group-item p-0" *ngFor="let crawler of crawlerStatus">
-      <app-status-item [name]="crawler.name" [available]="crawler.status"></app-status-item>
+    <div class="list-group-item p-0" *ngFor="let scraper of scraperStatus">
+      <app-status-item [name]="scraper.name" [available]="scraper.status"></app-status-item>
     </div>
   </div>
 </div>

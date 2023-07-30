@@ -11,7 +11,7 @@ export class StatusPageComponent implements OnInit {
 
   frontendStatus: boolean = false;
   backendStatus: boolean = false;
-  crawlerStatus: any = [];
+  scraperStatus: any = [];
 
   constructor(private http: HttpClient) {
   }
@@ -20,7 +20,7 @@ export class StatusPageComponent implements OnInit {
     this.http.get<any>('http://localhost/api/healthcheck').subscribe(data => {
       this.frontendStatus = data.data.frontend;
       this.backendStatus = data.data.backend;
-      this.crawlerStatus = data.data.crawlers;
+      this.scraperStatus = data.data.scrapers;
 
       this.loading = false;
     })

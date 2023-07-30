@@ -3,9 +3,13 @@
 namespace App\Models;
 
 use App\Services\Scraper\DTOs\SalaryType;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property Carbon created_at
+ */
 class JobListing extends Model
 {
     use HasFactory;
