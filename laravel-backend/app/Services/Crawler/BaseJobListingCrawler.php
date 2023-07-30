@@ -3,6 +3,8 @@
 namespace App\Services\Crawler;
 
 use App\Services\Parser\HumanAdvertisementParser;
+use Drnxloc\LaravelHtmlDom\HtmlDomParser;
+use simplehtmldom\simple_html_dom;
 
 abstract class BaseJobListingCrawler implements JobListingCrawlerInterface
 {
@@ -10,6 +12,11 @@ abstract class BaseJobListingCrawler implements JobListingCrawlerInterface
 
     public function __construct(HumanAdvertisementParser $advertisementParser)
     {
+        // Limit for HTML DOM parsing
+        if (!defined('MAX_FILE_SIZE')) {
+            define('MAX_FILE_SIZE', 6000000);
+        }
+
         $this->advertisementParser = $advertisementParser;
     }
 
@@ -19,6 +26,21 @@ abstract class BaseJobListingCrawler implements JobListingCrawlerInterface
         'k' => 1000,
         'e' => 1000,
     ];
+
+    protected function downloadPage(string $url): simple_html_dom
+    {
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_HEADER, false);
+        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_REFERER, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_USERAGENT, "JobTraq 1.0 (https://jobtraq.hu, info@jobtraq.hu)");
+        $content = curl_exec($curl);
+        curl_close($curl);
+
+        return HtmlDomParser::str_get_html($content);
+    }
 
     protected function parseSalary(string $salaryString): float
     {

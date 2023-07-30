@@ -18,26 +18,25 @@ class ProfessionCrawler extends BaseJobListingCrawler
         $maxPages = 5;
 
         for ($page = 1; $page <= $maxPages; $page++) {
-            $client = new HtmlWeb();
-            $html = $client->load("https://www.profession.hu/allasok/{$page},0,0,{$type}%401%401,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,15?keywordsearch");
-
-            if (null === $html) {
-                continue;
-            }
+            $html = $this->downloadPage("https://www.profession.hu/allasok/{$page},0,0,{$type}%401%401,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,15?keywordsearch");
 
             try {
                 foreach ($html->find('.job-cards li') as $postingListItem) {
-                    $position = $postingListItem->find('.job-card__title', 0)->plaintext;
-                    $salaryRaw = $postingListItem->find('.job-card__tag', 0)->plaintext;
-                    $location = trim($postingListItem->find('.job-card__company-address', 0)->plaintext);
+                    try {
+                        $position = $postingListItem->find('.job-card__title', 0)->plaintext;
+                        $salaryRaw = $postingListItem->find('.job-card__tag', 0)->plaintext;
+                        $location = trim($postingListItem->find('.job-card__company-address', 0)->plaintext);
 
-                    $listing = new Listing();
-                    $listing->setPosition($position);
-                    $listing->setLocation($location);
-                    $this->setSalary($listing, $salaryRaw);
-                    $listing->setCategory(
-                        $this->advertisementParser->parseJobTitle($listing->getPosition()));
-                    $listings[] = $listing;
+                        $listing = new Listing();
+                        $listing->setPosition($position);
+                        $listing->setLocation($location);
+                        $this->setSalary($listing, $salaryRaw);
+                        $listing->setCategory(
+                            $this->advertisementParser->parseJobTitle($listing->getPosition()));
+                        $listings[] = $listing;
+                    } catch (\Throwable $throwable) {
+                        // TODO: log
+                    }
                 }
             } catch (\Throwable $throwable) {
                 // TODO: log

@@ -121,7 +121,6 @@
       <path value="$PROJECT_DIR$/laravel-backend/vendor/symfony/translation-contracts" />
       <path value="$PROJECT_DIR$/laravel-backend/vendor/doctrine/inflector" />
       <path value="$PROJECT_DIR$/laravel-backend/vendor/symfony/http-foundation" />
-      <path value="$PROJECT_DIR$/laravel-backend/vendor/simplehtmldom/simplehtmldom" />
       <path value="$PROJECT_DIR$/laravel-backend/vendor/laravel/framework_compare" />
       <path value="$PROJECT_DIR$/laravel-backend/vendor/markbaker/matrix" />
       <path value="$PROJECT_DIR$/laravel-backend/vendor/markbaker/complex" />
@@ -138,6 +137,7 @@
       <path value="$PROJECT_DIR$/laravel-backend/vendor/yajra/laravel-datatables-export" />
       <path value="$PROJECT_DIR$/laravel-backend/vendor/yajra/laravel-datatables-fractal" />
       <path value="$PROJECT_DIR$/laravel-backend/vendor/livewire/livewire" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/drnxloc/laravel-simple-html-dom" />
     </include_path>
   </component>
   <component name="PhpInterpreters">

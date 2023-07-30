@@ -11,7 +11,20 @@ Segítségével látható
 
 ## TODOs
 
-- legyünk kedves botok: küldjük a scraperekben user-agenként a nevünket és az elérhetőséget
+- ~~legyünk kedves botok: küldjük a scraperekben user-agenként a nevünket és az elérhetőséget~~
+- Backend: cs fixer bekötése
+- Backend: HealthcheckControllerhez a healthchecket végző service megírása
+- Backend: még több unit teszt?
+- Backend: scraperekhez logolás, logokat lehessen adminfelületen megtekinteni
+- Backend: autentikáció
+- Backend: CRUD törlés javítása (jelenleg GET-tel megy, nem túl biztonságos)
+- Backend: némi ráncfelvarrás ráférne
+- Backend: apidoc bekötése, annotációk készítése a controllerekbe
+- Frontend: privacy-policy feltöltése
+- Frontend: impressum feltöltése
+- Frontend: contact feltöltése
+- Frontend: reszponzivitásban problémák javítása (mobilon itt-ott overflow, rossz méretek)
+- Frontend: cookie consent és Google Analytics bekötése
 
 ## Technikai
 

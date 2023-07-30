@@ -80,7 +80,6 @@
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/sebastian/recursion-context" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/sebastian/type" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/sebastian/version" />
-      <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/simplehtmldom/simplehtmldom" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/spatie/backtrace" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/spatie/flare-client-php" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/spatie/ignition" />
@@ -119,6 +118,7 @@
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/drnxloc/laravel-simple-html-dom" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/ezyang/htmlpurifier" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/laravel/framework_compare" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/league/fractal" />
