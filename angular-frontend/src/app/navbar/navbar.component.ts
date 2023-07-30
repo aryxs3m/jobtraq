@@ -3,6 +3,7 @@ import { LoaderService } from "../loader.service";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {SearchService} from "../search.service";
 import {Router} from "@angular/router";
+import {faGithub} from "@fortawesome/free-brands-svg-icons";
 
 @Component({
   selector: 'app-navbar',
@@ -34,4 +35,6 @@ export class NavbarComponent {
     this.search.dateFilter = new Date(event.target.value);
     this.router.navigateByUrl('/report/'+this.search.getDate());
   }
+
+  protected readonly faGithub = faGithub;
 }
