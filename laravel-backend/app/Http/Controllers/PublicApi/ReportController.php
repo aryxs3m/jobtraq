@@ -16,6 +16,7 @@ class ReportController extends BaseApiController
         $reporter->setFilterDate(new Carbon($request->get('date', 'now')));
 
         return $this->success([
+            'isDataReady' => $reporter->isDataReady(),
             'pieChartPositions' => $reporter->getJobsCountByPosition(),
             'barOpenPositions' => $reporter->getJobsCountByWeek(),
             'treeMapStacks' => $reporter->getJobsCountByStack(),

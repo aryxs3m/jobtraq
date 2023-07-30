@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as moment from 'moment';
+import {Subject} from "rxjs";
 
 
 @Injectable({
@@ -7,16 +8,21 @@ import * as moment from 'moment';
 })
 export class SearchService {
 
+  dateFilterChange: Subject<Date> = new Subject<Date>();
   private _dateFilter: Date = new Date();
 
-  constructor() { }
+  constructor() {
+    this.dateFilterChange.subscribe(value => {
+      this._dateFilter = value;
+    })
+  }
 
   get dateFilter(): Date {
     return this._dateFilter;
   }
 
   set dateFilter(value: Date) {
-    this._dateFilter = value;
+    this.dateFilterChange.next(value);
   }
 
   public getDate() {

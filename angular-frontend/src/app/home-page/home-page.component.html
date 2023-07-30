@@ -1,4 +1,6 @@
-<div class="container">
+<app-no-data-info [visible]="!isReady"></app-no-data-info>
+
+<div class="container" *ngIf="isReady">
   <!-- Keresett területek -->
   <div class="row chart-row">
     <div class="col m-auto">

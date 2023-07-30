@@ -31,7 +31,7 @@ export class NavbarComponent {
   }
 
   setDate(event: any) {
-    this.search.dateFilter = event.target.value;
-    this.router.navigateByUrl('/report/'+this.search.dateFilter);
+    this.search.dateFilter = new Date(event.target.value);
+    this.router.navigateByUrl('/report/'+this.search.getDate());
   }
 }

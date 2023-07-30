@@ -1,0 +1,20 @@
+<div class="not-ready-data bg-body-secondary py-5 mb-4" *ngIf="visible">
+  <div class="container py-5 d-flex flex-row">
+    <fa-icon [icon]="faExclamationTriangle" class="text-secondary display-3 me-4"></fa-icon>
+    <div>
+      <h2>Ehhez a naphoz nincs adatunk.</h2>
+      <div *ngIf="today">
+        <p class="lead">
+          Gyere vissza később, úgy tűnik még nem futottak le az adatgyűjtők.
+        </p>
+      </div>
+
+      <div *ngIf="!today">
+        <p class="lead">
+          A kiválasztott nap a JobTraq indulása előtti, így nincsen róla információnk.
+        </p>
+        <button (click)="goToday()" class="btn btn-primary">Megnézem a mai napot</button>
+      </div>
+    </div>
+  </div>
+</div>

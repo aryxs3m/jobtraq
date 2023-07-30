@@ -2,6 +2,7 @@
 
 namespace App\Services\Report;
 
+use App\Models\JobListing;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
@@ -22,6 +23,18 @@ class PublicReporter
     public function setFilterDate(Carbon $filterDate): void
     {
         $this->filterDate = $filterDate;
+    }
+
+    /**
+     * Ellenőrzi, hogy a megadott filterDate-hez van-e már egyáltalán adat az adatbázisban.
+     *
+     * @return bool
+     */
+    public function isDataReady(): bool
+    {
+        return JobListing::query()
+            ->whereDate('created_at', "=", $this->filterDate)
+            ->count();
     }
 
     /**

@@ -6,6 +6,7 @@ import {PositionSalaries} from "../network/PositionSalaries";
 import {LoaderService} from "../loader.service";
 import {ActivatedRoute, Data, Params} from "@angular/router";
 import {combineLatest} from "rxjs";
+import {SearchService} from "../search.service";
 
 @Component({
   selector: 'app-home-page',
@@ -36,8 +37,10 @@ export class HomePageComponent implements OnInit {
   protected readonly faCircleNotch = faCircleNotch;
 
   loading: boolean = true;
+  isReady: boolean = true;
 
-  constructor(private http: HttpClient, private loader: LoaderService, private route: ActivatedRoute) {
+  constructor(private http: HttpClient, private loader: LoaderService, private route: ActivatedRoute,
+              private search: SearchService) {
   }
 
   ngOnInit(): void {
@@ -48,14 +51,25 @@ export class HomePageComponent implements OnInit {
 
   protected loadCharts() {
     this.loading = true;
+    this.isReady = true;
 
     let dateFilter = this.route.snapshot.paramMap.get('date');
+
+    if (dateFilter) {
+      this.search.dateFilter = new Date(dateFilter);
+    }
 
     let apiRoute = dateFilter ?
       `http://localhost/api/report/homepage?date=${dateFilter}` :
       'http://localhost/api/report/homepage';
 
     this.http.get<any>(apiRoute).subscribe(data => {
+        this.isReady = data.data.isDataReady;
+
+        if (data.data.isDataReady === false) {
+          return;
+        }
+
         this.pieChartPositions = data.data.pieChartPositions;
         this.positionsMostOpen = data.data.pieChartPositions[0].name;
 
