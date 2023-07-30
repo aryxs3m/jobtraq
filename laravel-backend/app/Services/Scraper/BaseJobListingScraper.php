@@ -2,8 +2,10 @@
 
 namespace App\Services\Scraper;
 
+use App\Models\ScraperLog;
 use App\Services\Parser\HumanAdvertisementParser;
 use Drnxloc\LaravelHtmlDom\HtmlDomParser;
+use Illuminate\Support\Facades\Log;
 use simplehtmldom\simple_html_dom;
 
 abstract class BaseJobListingScraper implements JobListingScraperInterface
@@ -60,5 +62,19 @@ abstract class BaseJobListingScraper implements JobListingScraperInterface
         }
 
         return $salaryNumber * $multiplier;
+    }
+
+    protected function logError(\Throwable $throwable): void
+    {
+        ScraperLog::query()->create([
+            'scraper' => static::class,
+            'log' => [
+                'name' => class_basename($throwable),
+                'message' => $throwable->getMessage(),
+                'trace' => $throwable->getTrace(),
+            ],
+        ]);
+
+        Log::error('Scraper error.', (array) $throwable);
     }
 }

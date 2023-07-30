@@ -27,6 +27,7 @@ class DashboardController extends Controller
             'jobListingsDaily' => $reporter->getJobListingsDaily()->values(),
             'jobListingsCrawler' => $reporter->getJobListingsByCrawler(),
             'percentageOfNotUsedListings' => $percentageNotUsed,
+            'errorsToday' => $reporter->errorCountToday(),
         ]);
     }
 }

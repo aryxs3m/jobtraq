@@ -35,11 +35,11 @@ class NoFluffJobsScraper extends BaseJobListingScraper
 
                         $listings[] = $listing;
                     } catch (\Throwable $throwable) {
-                        // TODO: log
+                        $this->logError($throwable);
                     }
                 }
             } catch (\Throwable $throwable) {
-                // TODO: log
+                $this->logError($throwable);
             }
 
             sleep(1);

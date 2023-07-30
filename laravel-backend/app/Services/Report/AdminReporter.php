@@ -2,6 +2,7 @@
 
 namespace App\Services\Report;
 
+use App\Models\ScraperLog;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
@@ -60,5 +61,12 @@ class AdminReporter
             ->groupBy('crawler')
             ->orderBy('crawler', 'ASC')
             ->get();
+    }
+
+    public function errorCountToday(): int
+    {
+        return ScraperLog::query()
+            ->whereDate('created_at', '=', Carbon::now())
+            ->count();
     }
 }

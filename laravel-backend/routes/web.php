@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\JobLevelsController;
 use App\Http\Controllers\Admin\JobListingsController;
 use App\Http\Controllers\Admin\JobPositionsController;
 use App\Http\Controllers\Admin\JobStacksController;
+use App\Http\Controllers\Admin\ScraperLogsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'index']);
@@ -51,4 +52,10 @@ Route::prefix('job-stacks')->group(function () {
 Route::prefix('job-listings')->group(function () {
     Route::get('', [JobListingsController::class, 'index']);
     Route::get('reparse/{listing}', [JobListingsController::class, 'reparse']);
+});
+
+
+Route::prefix('scraper-logs')->group(function () {
+    Route::get('', [ScraperLogsController::class, 'index']);
+    Route::get('{log}', [ScraperLogsController::class, 'show']);
 });

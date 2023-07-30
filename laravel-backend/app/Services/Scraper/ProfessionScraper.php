@@ -35,11 +35,11 @@ class ProfessionScraper extends BaseJobListingScraper
                             $this->advertisementParser->parseJobTitle($listing->getPosition()));
                         $listings[] = $listing;
                     } catch (\Throwable $throwable) {
-                        // TODO: log
+                        $this->logError($throwable);
                     }
                 }
             } catch (\Throwable $throwable) {
-                // TODO: log
+                $this->logError($throwable);
             }
 
             sleep(1);

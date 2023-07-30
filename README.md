@@ -15,7 +15,7 @@ Segítségével látható
 - Backend: cs fixer bekötése
 - ~~Backend: HealthcheckControllerhez a healthchecket végző service megírása~~
 - Backend: még több unit teszt?
-- Backend: scraperekhez logolás, logokat lehessen adminfelületen megtekinteni
+- ~~Backend: scraperekhez logolás, logokat lehessen adminfelületen megtekinteni~~
 - Backend: autentikáció
 - Backend: CRUD törlés javítása (jelenleg GET-tel megy, nem túl biztonságos)
 - Backend: némi ráncfelvarrás ráférne
@@ -26,6 +26,7 @@ Segítségével látható
 - Frontend: reszponzivitásban problémák javítása (mobilon itt-ott overflow, rossz méretek)
 - Frontend: cookie consent és Google Analytics bekötése
 - Frontend: PWA
+- Frontend: mobil menü toggle
 
 ## Technikai
 
