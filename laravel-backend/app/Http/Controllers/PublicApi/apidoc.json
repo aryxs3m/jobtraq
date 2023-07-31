@@ -1,0 +1,11 @@
+{
+    "name": "JobTraq Public API",
+    "version": "0.1.0",
+    "description": "JobTraq - Kimutatások a magyar IT álláspiacról",
+    "title": "JobTraq Public API Docs",
+    "url" : "https://api.jobtraq.hu/api",
+    "header": {
+        "title": "Információ",
+        "filename": "information.md"
+    }
+}

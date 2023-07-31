@@ -19,7 +19,7 @@ Segítségével látható
 - ~~Backend: autentikáció~~
 - Backend: CRUD törlés javítása (jelenleg GET-tel megy, nem túl biztonságos)
 - ~~Backend: némi ráncfelvarrás ráférne~~
-- Backend: apidoc bekötése, annotációk készítése a controllerekbe
+- ~~Backend: apidoc bekötése, annotációk készítése a controllerekbe~~
 - Frontend: privacy-policy feltöltése
 - Frontend: impressum feltöltése
 - ~~Frontend: contact feltöltése~~
