@@ -1,7 +1,7 @@
 <header data-bs-theme="dark">
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-black">
     <div class="container">
-      <a class="navbar-brand" routerLink="/">
+      <a class="navbar-brand" id="nav-link-brand" routerLink="/">
         <img src="assets/logo_Light.svg" alt="JobTraq" height="30">
       </a>
       <button class="navbar-toggler" (click)="toggleMenu()" type="button" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,22 +10,22 @@
       <div class="navbar-collapse" [class.collapse]="collapsed" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active" routerLink="about-us">Hogy működik?</a>
+            <a class="nav-link" id="nav-link-about-us" routerLinkActive="active" routerLink="about-us">Hogy működik?</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active" routerLink="status">Állapot</a>
+            <a class="nav-link" id="nav-link-status" routerLinkActive="active" routerLink="status">Állapot</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active" routerLink="contact">Kapcsolat</a>
+            <a class="nav-link" id="nav-link-contact" routerLinkActive="active" routerLink="contact">Kapcsolat</a>
           </li>
         </ul>
         <form class="d-flex" role="search">
-          <input class="form-control me-2" type="date" placeholder="Szűrés napra" aria-label="Szűrés napra"
+          <input id="nav-input-search" class="form-control me-2" type="date" placeholder="Szűrés napra" aria-label="Szűrés napra"
                  [value]="search.getDate()" (change)="setDate($event)">
         </form>
         <ul class="navbar-nav smb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link" target="_blank" href="https://github.com/aryxs3m/jobtraq">
+            <a class="nav-link" id="nav-link-github" target="_blank" href="https://github.com/aryxs3m/jobtraq">
               <fa-icon [icon]="faGithub"></fa-icon>
             </a>
           </li>

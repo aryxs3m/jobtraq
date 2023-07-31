@@ -28,7 +28,7 @@ Segítségével látható
 - Frontend: PWA
 - ~~Frontend: mobil menü toggle~~
 - ~~Frontend: environmentek kezelése, API URL legyen állítható~~
-- Frontend: E2E tesztekhez id-k hozzáadása kattintható elemekhez
+- ~~Frontend: E2E tesztekhez id-k hozzáadása kattintható elemekhez~~
 
 ## Technikai
 
