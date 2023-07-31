@@ -1,5 +1,6 @@
 @extends('layouts.auth')
 
+@section('content')
 <div class="auth">
     <div class="row auth-row g-0">
         <div class="col bg-col d-flex flex-column">
@@ -39,3 +40,4 @@
         </div>
     </div>
 </div>
+@endsection
