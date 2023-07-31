@@ -61,7 +61,8 @@ class PublicReporter
             ->orderBy('name', 'DESC')
             ->limit(4)
             ->get()
-            ->reverse();
+            ->reverse()
+            ->values();
     }
 
     /**
