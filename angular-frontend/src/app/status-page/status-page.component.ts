@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {environment} from "../environments/environment";
 
 @Component({
   selector: 'app-status-page',
@@ -17,7 +18,7 @@ export class StatusPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.http.get<any>('http://localhost/api/healthcheck').subscribe(data => {
+    this.http.get<any>(environment.api_url + 'healthcheck').subscribe(data => {
       this.frontendStatus = data.data.frontend;
       this.backendStatus = data.data.backend;
       this.scraperStatus = data.data.scrapers;

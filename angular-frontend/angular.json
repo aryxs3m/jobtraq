@@ -30,9 +30,12 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/cookieconsent/build/cookieconsent.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/cookieconsent/build/cookieconsent.min.js"
+            ]
           },
           "configurations": {
             "production": {

@@ -7,6 +7,7 @@ import {LoaderService} from "../loader.service";
 import {ActivatedRoute, Data, Params} from "@angular/router";
 import {combineLatest} from "rxjs";
 import {SearchService} from "../search.service";
+import {environment} from "../environments/environment";
 
 @Component({
   selector: 'app-home-page',
@@ -60,10 +61,10 @@ export class HomePageComponent implements OnInit {
     }
 
     let apiRoute = dateFilter ?
-      `http://localhost/api/report/homepage?date=${dateFilter}` :
-      'http://localhost/api/report/homepage';
+      `report/homepage?date=${dateFilter}` :
+      'report/homepage';
 
-    this.http.get<any>(apiRoute).subscribe(data => {
+    this.http.get<any>(environment.api_url + apiRoute).subscribe(data => {
         this.isReady = data.data.isDataReady;
 
         if (data.data.isDataReady === false) {

@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {NgcCookieConsentService} from "ngx-cookieconsent";
 
 @Component({
     selector: 'app-footer',
@@ -7,7 +8,14 @@ import {Component} from '@angular/core';
 })
 export class FooterComponent {
 
+  constructor(private cookieConsent: NgcCookieConsentService) {
+  }
+
   backToTop() {
     window.scrollTo({top: 0});
+  }
+
+  showCookieConsent() {
+    this.cookieConsent.fadeIn();
   }
 }

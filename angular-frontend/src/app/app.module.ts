@@ -28,7 +28,41 @@ import { FooterComponent } from './footer/footer.component';
 import { SystemMessageComponent } from './system-message/system-message.component';
 import { ScrapingEthicsPageComponent } from './scraping-ethics-page/scraping-ethics-page.component';
 import {PageHeaderComponent} from "./page-header/page-header.component";
+import {NgxGa4Module} from "@kattoshi/ngx-ga4";
+import {NgcCookieConsentConfig, NgcCookieConsentModule} from "ngx-cookieconsent";
+import {environment} from "./environments/environment";
 registerLocaleData(localeFr, 'hu');
+
+const cookieConfig:NgcCookieConsentConfig = {
+  "cookie": {
+    "domain": environment.domain,
+  },
+  "position": "bottom-left",
+  "theme": "block",
+  "revokeBtn": "<span></span>",
+  "palette": {
+    "popup": {
+      "background": "#333",
+      "text": "#ffffff",
+      "link": "#ffffff"
+    },
+    "button": {
+      "background": "#12e773",
+      "text": "#000000",
+      "border": "transparent"
+    }
+  },
+  "type": "opt-out",
+  "content": {
+    "message": "🍪 Sütiket használunk az analitikához. Engedélyezed?",
+    "dismiss": "Oké!",
+    "deny": "Nem szeretném",
+    "link": "Adatvédelem",
+    "href": "https://jobtraq.hu/privacy-policy",
+    "policy": "Süti beállítások",
+    "allow": "Engedélyezés",
+  }
+};
 
 @NgModule({
   declarations: [
@@ -58,7 +92,9 @@ registerLocaleData(localeFr, 'hu');
     FontAwesomeModule,
     NgxChartsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxGa4Module.forRoot({}),
+    NgcCookieConsentModule.forRoot(cookieConfig),
   ],
   providers: [
     {

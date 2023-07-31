@@ -24,10 +24,10 @@ Segítségével látható
 - Frontend: impressum feltöltése
 - ~~Frontend: contact feltöltése~~
 - Frontend: reszponzivitásban problémák javítása (mobilon itt-ott overflow, rossz méretek)
-- Frontend: cookie consent és Google Analytics bekötése
+- ~~Frontend: cookie consent és Google Analytics bekötése~~
 - Frontend: PWA
 - Frontend: mobil menü toggle
-- Frontend: environmentek kezelése, API URL legyen állítható
+- ~~Frontend: environmentek kezelése, API URL legyen állítható~~
 - Frontend: E2E tesztekhez id-k hozzáadása kattintható elemekhez
 
 ## Technikai
