@@ -20,6 +20,7 @@ class ReParserService
         $listing->level = $category->getLevel();
         $listing->position = $category->getPosition();
         $listing->stack = $category->getStack();
+        $listing->location_id = $this->advertisementParser->parseJobLocation($listing->original_location);
         $listing->save();
     }
 }

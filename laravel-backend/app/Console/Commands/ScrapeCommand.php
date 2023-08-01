@@ -5,27 +5,27 @@ namespace App\Console\Commands;
 use App\Services\Scraper\ScraperManager;
 use Illuminate\Console\Command;
 
-class CrawlCommand extends Command
+class ScrapeCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'jtq:crawl';
+    protected $signature = 'jtq:scrape';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Crawls job portals';
+    protected $description = 'Run all scrapers';
 
-    private ScraperManager $crawler;
+    private ScraperManager $scraper;
 
     public function __construct(ScraperManager $crawler)
     {
-        $this->crawler = $crawler;
+        $this->scraper = $crawler;
 
         parent::__construct();
     }
@@ -35,7 +35,7 @@ class CrawlCommand extends Command
      */
     public function handle()
     {
-        $this->crawler->setOutput($this->output);
-        $this->crawler->crawlAll();
+        $this->scraper->setOutput($this->output);
+        $this->scraper->scrapeAll();
     }
 }

@@ -20,6 +20,9 @@ class JobListingsDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', 'job-listings.action')
+            ->addColumn('location', function (JobListing $item) {
+                return $item->location ? $item->location->location : '';
+            })
             ->setRowId('id');
     }
 
@@ -55,6 +58,8 @@ class JobListingsDataTable extends DataTable
             Column::make('id'),
             Column::make('created_at'),
             Column::make('name'),
+            Column::make('original_location'),
+            Column::make('location'),
             Column::make('position'),
             Column::make('level'),
             Column::make('stack'),

@@ -5,6 +5,7 @@ namespace App\Services\Parser;
 use App\Models\JobLevel;
 use App\Models\JobPosition;
 use App\Models\JobStack;
+use App\Models\Location;
 use App\Services\Parser\DTOs\JobCategory;
 
 class HumanAdvertisementParser
@@ -14,6 +15,8 @@ class HumanAdvertisementParser
     protected static array $stacks = [];
 
     protected static array $positions = [];
+
+    protected static array $locations = [];
 
     public function __construct()
     {
@@ -38,6 +41,13 @@ class HumanAdvertisementParser
             /** @var JobPosition $item */
             foreach (JobPosition::all() as $item) {
                 self::$positions[$item->name] = $item->keywords;
+            }
+        }
+
+        if ([] === self::$locations) {
+            /** @var Location $item */
+            foreach (Location::all() as $item) {
+                self::$locations[$item->location] = $item->id;
             }
         }
     }
@@ -82,5 +92,18 @@ class HumanAdvertisementParser
         }
 
         return $jobCategory;
+    }
+
+    public function parseJobLocation(string $location): ?int
+    {
+        $locationParts = explode(" ", str_replace(',', '', mb_strtolower($location)));
+
+        foreach (self::$locations as $locationName => $locationId) {
+            if (\in_array(mb_strtolower($locationName), $locationParts)) {
+                return $locationId;
+            }
+        }
+
+        return null;
     }
 }

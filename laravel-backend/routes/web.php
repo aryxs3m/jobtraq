@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\Data\CountriesController;
+use App\Http\Controllers\Admin\Data\LocationsController;
 use App\Http\Controllers\Admin\JobLevelsController;
 use App\Http\Controllers\Admin\JobListingsController;
 use App\Http\Controllers\Admin\JobPositionsController;
@@ -54,6 +56,24 @@ Route::middleware('auth')->group(function () {
     Route::prefix('job-listings')->group(function () {
         Route::get('', [JobListingsController::class, 'index']);
         Route::get('reparse/{listing}', [JobListingsController::class, 'reparse']);
+    });
+
+    Route::prefix('data/countries')->group(function () {
+        Route::get('', [CountriesController::class, 'index']);
+        Route::get('add', [CountriesController::class, 'create']);
+        Route::get('edit/{country}', [CountriesController::class, 'update']);
+        Route::post('add', [CountriesController::class, 'upsertPost']);
+        Route::post('edit/{country}', [CountriesController::class, 'upsertPost']);
+        Route::get('delete/{country}', [CountriesController::class, 'delete']);
+    });
+
+    Route::prefix('data/locations')->group(function () {
+        Route::get('', [LocationsController::class, 'index']);
+        Route::get('add', [LocationsController::class, 'create']);
+        Route::get('edit/{location}', [LocationsController::class, 'update']);
+        Route::post('add', [LocationsController::class, 'upsertPost']);
+        Route::post('edit/{location}', [LocationsController::class, 'upsertPost']);
+        Route::get('delete/{location}', [LocationsController::class, 'delete']);
     });
 
     Route::prefix('scraper-logs')->group(function () {

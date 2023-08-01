@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use App\Services\Parser\HumanAdvertisementParser;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 class HumanAdvertisementParserTest extends TestCase
 {

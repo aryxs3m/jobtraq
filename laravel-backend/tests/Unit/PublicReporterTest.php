@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use App\Services\Report\PublicReporter;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 class PublicReporterTest extends TestCase
 {

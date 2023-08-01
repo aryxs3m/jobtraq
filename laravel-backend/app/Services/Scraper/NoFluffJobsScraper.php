@@ -28,9 +28,11 @@ class NoFluffJobsScraper extends BaseJobListingScraper
 
                         $location = trim($postingListItem->find('.posting-info__location', 0)->plaintext);
                         $listing->setLocation($location);
+                        $listing->setLocationId($this->advertisementParser->parseJobLocation($location));
 
                         $listing->setCategory(
                             $this->advertisementParser->parseJobTitle($listing->getPosition()));
+
 
                         $listings[] = $listing;
                     } catch (\Throwable $throwable) {

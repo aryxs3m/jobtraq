@@ -15,6 +15,8 @@ class PublicReporter
 {
     protected Carbon $filterDate;
 
+    protected int $countryId;
+
     /**
      * Erre a napra szűrve lesznek generálva a riportok.
      */
@@ -41,9 +43,11 @@ class PublicReporter
     public function getJobsCountByPosition(): Collection
     {
         return DB::table('job_listings')
-            ->select('position AS name', DB::raw('COUNT(id) AS value'))
+            ->select('position AS name', DB::raw('COUNT(1) AS value'))
+            ->leftJoin('locations', 'locations.id', '=', 'job_listings.location_id')
             ->whereRaw("position IS NOT NULL AND level IS NOT NULL AND salary_currency IN ('HUF', 'Ft/hó')")
-            ->whereRaw('DATE(created_at) = :filterDate', ['filterDate' => $this->getFilterDateSQL()])
+            ->whereRaw('DATE(job_listings.created_at) = :filterDate', ['filterDate' => $this->getFilterDateSQL()])
+            ->whereRaw('locations.country_id = :countryId', ['countryId' => $this->getCountryId()])
             ->groupBy('position')
             ->orderBy('value', 'DESC')
             ->get();
@@ -55,9 +59,11 @@ class PublicReporter
     public function getJobsCountByWeek(): Collection
     {
         return DB::table('job_listings')
-            ->select(DB::raw('WEEK(created_at, 7) AS name'), DB::raw('COUNT(id) AS value'))
+            ->select(DB::raw('WEEK(job_listings.created_at, 7) AS name'), DB::raw('COUNT(1) AS value'))
+            ->leftJoin('locations', 'locations.id', '=', 'job_listings.location_id')
             ->whereRaw("position IS NOT NULL AND level IS NOT NULL AND salary_currency IN ('HUF', 'Ft/hó')")
-            ->groupBy(DB::raw('WEEK(created_at, 7)'))
+            ->whereRaw('locations.country_id = :countryId', ['countryId' => $this->getCountryId()])
+            ->groupBy(DB::raw('WEEK(job_listings.created_at, 7)'))
             ->orderBy('name', 'DESC')
             ->limit(4)
             ->get()
@@ -71,9 +77,11 @@ class PublicReporter
     public function getJobsCountByStack(): Collection
     {
         return DB::table('job_listings')
-            ->select('stack AS name', DB::raw('COUNT(id) AS value'))
+            ->select('stack AS name', DB::raw('COUNT(1) AS value'))
+            ->leftJoin('locations', 'locations.id', '=', 'job_listings.location_id')
             ->whereRaw("stack IS NOT NULL AND level IS NOT NULL AND salary_currency IN ('HUF', 'Ft/hó')")
-            ->whereRaw('DATE(created_at) = :filterDate', ['filterDate' => $this->getFilterDateSQL()])
+            ->whereRaw('DATE(job_listings.created_at) = :filterDate', ['filterDate' => $this->getFilterDateSQL()])
+            ->whereRaw('locations.country_id = :countryId', ['countryId' => $this->getCountryId()])
             ->groupBy('stack')
             ->orderBy('value', 'DESC')
             ->get();
@@ -89,8 +97,10 @@ class PublicReporter
         return DB::table('job_listings')
             ->select('level AS name', 'job_levels.order', DB::raw('AVG(salary_low) AS value'))
             ->leftJoin('job_levels', 'job_levels.name', '=', 'job_listings.level')
+            ->leftJoin('locations', 'locations.id', '=', 'job_listings.location_id')
             ->whereRaw("position IS NOT NULL AND level IS NOT NULL AND salary_currency IN ('HUF', 'Ft/hó')")
             ->whereRaw('DATE(job_listings.created_at) = ?', [$this->getFilterDateSQL()])
+            ->whereRaw('locations.country_id = ?', [$this->getCountryId()])
             ->where('position', '=', $position)
             ->groupBy('level', 'job_levels.order')
             ->orderBy('job_levels.order')
@@ -111,8 +121,10 @@ class PublicReporter
         $collection = DB::table('job_listings')
             ->select('level', 'job_levels.order', 'stack', DB::raw('AVG(salary_low) AS value'))
             ->leftJoin('job_levels', 'job_levels.name', '=', 'job_listings.level')
+            ->leftJoin('locations', 'locations.id', '=', 'job_listings.location_id')
             ->whereRaw("position IS NOT NULL AND level IS NOT NULL AND salary_currency IN ('HUF', 'Ft/hó') AND stack IS NOT NULL")
             ->whereRaw('DATE(job_listings.created_at) = :filterDate', ['filterDate' => $this->getFilterDateSQL()])
+            ->whereRaw('locations.country_id = :countryId', ['countryId' => $this->getCountryId()])
             ->groupBy('level', 'job_levels.order', 'stack')
             ->orderBy('stack', 'ASC')
             ->orderBy('job_levels.order', 'ASC')
@@ -159,5 +171,21 @@ class PublicReporter
         }
 
         return $this->filterDate->format('Y-m-d');
+    }
+
+    /**
+     * @return int
+     */
+    public function getCountryId(): int
+    {
+        return $this->countryId;
+    }
+
+    /**
+     * @param int $countryId
+     */
+    public function setCountryId(int $countryId): void
+    {
+        $this->countryId = $countryId;
     }
 }

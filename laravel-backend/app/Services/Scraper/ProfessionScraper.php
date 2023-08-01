@@ -22,14 +22,18 @@ class ProfessionScraper extends BaseJobListingScraper
                     try {
                         $position = $postingListItem->find('.job-card__title', 0)->plaintext;
                         $salaryRaw = $postingListItem->find('.job-card__tag', 0)->plaintext;
-                        $location = trim($postingListItem->find('.job-card__company-address', 0)->plaintext);
+                        $location = html_entity_decode(trim(
+                            $postingListItem->find('.job-card__company-address', 0)->plaintext
+                        ));
 
                         $listing = new Listing();
                         $listing->setPosition($position);
                         $listing->setLocation($location);
+                        $listing->setLocationId($this->advertisementParser->parseJobLocation($location));
                         $this->setSalary($listing, $salaryRaw);
                         $listing->setCategory(
                             $this->advertisementParser->parseJobTitle($listing->getPosition()));
+
                         $listings[] = $listing;
                     } catch (\Throwable $throwable) {
                         $this->logError($throwable);

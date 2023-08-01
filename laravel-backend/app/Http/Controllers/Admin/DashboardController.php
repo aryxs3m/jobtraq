@@ -12,12 +12,17 @@ class DashboardController extends Controller
     {
         $notUsedListings = $reporter->getJobListingCountNotUsed();
         $totalListings = JobListing::count();
-        $percentageNotUsed = number_format(
-            $notUsedListings / $totalListings * 100,
-            1,
-            ',',
-            ' '
-        );
+
+        try {
+            $percentageNotUsed = number_format(
+                $notUsedListings / $totalListings * 100,
+                1,
+                ',',
+                ' '
+            );
+        } catch (\DivisionByZeroError $error) {
+            $percentageNotUsed = '0';
+        }
 
         return view('welcome', [
             'countListings' => $totalListings,

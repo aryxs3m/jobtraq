@@ -48,6 +48,7 @@ class ReportController extends BaseApiController
     public function homepageStatistics(HomePageRequest $request, PublicReporter $reporter): JsonResponse
     {
         $reporter->setFilterDate(new Carbon($request->get('date', 'now')));
+        $reporter->setCountryId(1);
 
         return $this->success([
             'isDataReady' => $reporter->isDataReady(),

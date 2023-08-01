@@ -11,7 +11,7 @@ class ScraperManager
 {
     private OutputStyle $output;
 
-    private const CRAWLERS = [
+    private const SCRAPERS = [
         NoFluffJobsScraper::class,
         ProfessionScraper::class,
     ];
@@ -21,19 +21,19 @@ class ScraperManager
         $this->output = $output;
     }
 
-    public function crawlAll(): void
+    public function scrapeAll(): void
     {
         $listingsCount = 0;
 
         /** @var CrawlerKeyword $crawlerKeyword */
         foreach (CrawlerKeyword::all() as $crawlerKeyword) {
-            $this->output->title($crawlerKeyword->crawler);
+            $this->output->writeln($crawlerKeyword->crawler);
 
             /** @var JobListingScraperInterface $crawlerService */
             $crawlerService = app($crawlerKeyword->crawler);
 
             foreach ($crawlerKeyword->keywords as $keyword) {
-                $this->output->writeln($keyword.' crawling ...');
+                $this->output->writeln(sprintf(' > %s scraping ...', $keyword));
                 $listings = $crawlerService->scrapePage($keyword);
                 $this->saveListings($crawlerKeyword->crawler, $listings);
 
@@ -41,7 +41,7 @@ class ScraperManager
             }
         }
 
-        $this->output->success(sprintf('Total %s listings crawled.', $listingsCount));
+        $this->output->success(sprintf('Total %s listings scraped.', $listingsCount));
     }
 
     /**
@@ -49,8 +49,6 @@ class ScraperManager
      */
     private function saveListings(string $crawler, array $listings): void
     {
-        $this->output->comment('Saving listings...');
-
         foreach ($listings as $listing) {
             JobListing::query()->create([
                 'name' => $listing->getPosition(),
@@ -58,7 +56,8 @@ class ScraperManager
                 'salary_high' => $listing->getSalaryHigh(),
                 'salary_currency' => $listing->getSalaryCurrency(),
                 'salary_type' => $listing->getSalaryType(),
-                'location' => $listing->getLocation(),
+                'original_location' => $listing->getLocation(),
+                'location_id' => $listing->getLocationId(),
                 'position' => $listing->getCategory()->getPosition(),
                 'level' => $listing->getCategory()->getLevel(),
                 'stack' => $listing->getCategory()->getStack(),
@@ -69,6 +68,6 @@ class ScraperManager
 
     public function getServices(): array
     {
-        return self::CRAWLERS;
+        return self::SCRAPERS;
     }
 }

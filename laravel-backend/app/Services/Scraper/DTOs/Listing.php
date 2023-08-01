@@ -22,6 +22,8 @@ class Listing
 
     private JobCategory $category;
 
+    private int $locationId;
+
     public function getPosition(): string
     {
         return $this->position;
@@ -110,5 +112,21 @@ class Listing
     public function setCategory(JobCategory $category): void
     {
         $this->category = $category;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLocationId(): int
+    {
+        return $this->locationId;
+    }
+
+    /**
+     * @param int $locationId
+     */
+    public function setLocationId(int $locationId): void
+    {
+        $this->locationId = $locationId;
     }
 }
