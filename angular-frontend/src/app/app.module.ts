@@ -31,6 +31,7 @@ import {PageHeaderComponent} from "./page-header/page-header.component";
 import {NgxGa4Module} from "@kattoshi/ngx-ga4";
 import {NgcCookieConsentConfig, NgcCookieConsentModule} from "ngx-cookieconsent";
 import {environment} from "./environments/environment";
+import { ImpressumPageComponent } from './impressum-page/impressum-page.component';
 registerLocaleData(localeFr, 'hu');
 
 const cookieConfig:NgcCookieConsentConfig = {
@@ -83,6 +84,7 @@ const cookieConfig:NgcCookieConsentConfig = {
     SystemMessageComponent,
     ScrapingEthicsPageComponent,
     PageHeaderComponent,
+    ImpressumPageComponent,
   ],
   imports: [
     CommonModule,

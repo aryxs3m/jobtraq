@@ -6,6 +6,7 @@ import {AboutPageComponent} from "./about-page/about-page.component";
 import {ContactPageComponent} from "./contact-page/contact-page.component";
 import {StatusPageComponent} from "./status-page/status-page.component";
 import {ScrapingEthicsPageComponent} from "./scraping-ethics-page/scraping-ethics-page.component";
+import {ImpressumPageComponent} from "./impressum-page/impressum-page.component";
 
 const routes: Routes = [
   { path: 'report', component: HomePageComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'status', component: StatusPageComponent },
   { path: 'contact', component: ContactPageComponent },
   { path: 'our-scraping-ethics', component: ScrapingEthicsPageComponent },
+  { path: 'impressum', component: ImpressumPageComponent },
   { path: '', redirectTo: "/report", pathMatch: "full" },
   { path: '**', component: NotFoundPageComponent },
 ];

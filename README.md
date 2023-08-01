@@ -21,7 +21,7 @@ Segítségével látható
 - ~~Backend: némi ráncfelvarrás ráférne~~
 - ~~Backend: apidoc bekötése, annotációk készítése a controllerekbe~~
 - Frontend: privacy-policy feltöltése
-- Frontend: impressum feltöltése
+- ~~Frontend: impressum feltöltése~~
 - ~~Frontend: contact feltöltése~~
 - Frontend: reszponzivitásban problémák javítása (mobilon itt-ott overflow, rossz méretek)
 - ~~Frontend: cookie consent és Google Analytics bekötése~~
