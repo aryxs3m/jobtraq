@@ -1,0 +1,20 @@
+{
+    "name": "jobtraq/deploy",
+    "description": "JobTraq Deployer setup",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Jobtraq\\Deploy\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tóth Patrik",
+            "email": "aryx@pvga.hu"
+        }
+    ],
+    "require-dev": {
+        "deployer/deployer": "^7.3"
+    }
+}
