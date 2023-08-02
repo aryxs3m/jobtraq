@@ -59,6 +59,7 @@ task('fe-npm-build', function () {
 
 task('fe-pm2-reload', function () {
     cd("{{release_path}}/angular-frontend");
+    run("pm2 delete ecosystem.test.config.js");
     run("pm2 reload ecosystem.test.config.js");
     run("pm2 startOrRestart ecosystem.test.config.js");
 });
