@@ -3,7 +3,7 @@ import {NgcCookieConsentService, NgcStatusChangeEvent} from "ngx-cookieconsent";
 import {NgxGa4Service} from "@kattoshi/ngx-ga4";
 import {CookieService} from "ngx-cookie-service";
 import {Subscription} from "rxjs";
-import {environment} from "./environments/environment";
+import {environment} from "../environments/environment";
 
 @Component({
   selector: 'app-root',

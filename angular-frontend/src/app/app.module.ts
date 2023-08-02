@@ -30,8 +30,8 @@ import { ScrapingEthicsPageComponent } from './scraping-ethics-page/scraping-eth
 import {PageHeaderComponent} from "./page-header/page-header.component";
 import {NgxGa4Module} from "@kattoshi/ngx-ga4";
 import {NgcCookieConsentConfig, NgcCookieConsentModule} from "ngx-cookieconsent";
-import {environment} from "./environments/environment";
 import { ImpressumPageComponent } from './impressum-page/impressum-page.component';
+import {environment} from "../environments/environment";
 registerLocaleData(localeFr, 'hu');
 
 const cookieConfig:NgcCookieConsentConfig = {

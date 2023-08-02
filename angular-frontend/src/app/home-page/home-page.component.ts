@@ -2,12 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {faCircleNotch, faExclamationTriangle, faSpinner} from "@fortawesome/free-solid-svg-icons";
 import {Color, ScaleType} from "@swimlane/ngx-charts";
 import {HttpClient} from "@angular/common/http";
-import {PositionSalaries} from "../network/PositionSalaries";
 import {LoaderService} from "../loader.service";
 import {ActivatedRoute, Data, Params} from "@angular/router";
-import {combineLatest} from "rxjs";
 import {SearchService} from "../search.service";
-import {environment} from "../environments/environment";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-home-page',
