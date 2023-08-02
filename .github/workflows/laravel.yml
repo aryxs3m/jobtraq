@@ -17,10 +17,12 @@ jobs:
       with:
         php-version: '8.1'
     - uses: actions/checkout@v3
+    - name: cd to laravel/backend
+      run: cd laravel-backend
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Install Dependencies
-      run: composer install
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist --ignore-platform-reqs
     - name: Generate key
       run: php artisan key:generate
     - name: Directory Permissions
