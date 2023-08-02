@@ -12,7 +12,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->command('jtq:crawl')->dailyAt('02:00');
+        $schedule->command('jtq:scrape')->dailyAt('02:00');
     }
 
     /**
