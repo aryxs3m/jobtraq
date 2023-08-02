@@ -11,6 +11,7 @@ task('setup-test', [
     'be-migrate',
     'fe-npm-install',
     'fe-npm-build',
+    'fe-pm2-reload',
 ])->desc('Deploy project to test machine');
 
 before('deploy:symlink', 'setup-test');

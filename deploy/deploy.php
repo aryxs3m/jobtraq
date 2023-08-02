@@ -56,6 +56,12 @@ task('fe-npm-build', function () {
     run("ng build --configuration=test");
 });
 
+task('fe-pm2-reload', function () {
+    cd("{{release_path}}/angular-frontend");
+    run("pm2 reload ecosystem.test.config.js");
+    run("pm2 startOrRestart ecosystem.test.config.js");
+});
+
 // Hooks
 
 after('deploy:failed', 'deploy:unlock');
