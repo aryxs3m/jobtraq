@@ -19,7 +19,7 @@ export class AppComponent {
               private cookieService: CookieService, private meta: Meta){
     meta.addTags([
       { name: 'description', content: 'A JobTraq naponta frissülő kimutatást készít az álláshirdetésekről, hogy megmutassa a különböző IT munkakörök iránti keresletet és fizetési sávokat.'},
-      { "og:image": "https://" + environment.domain + "/assets/og-image.jpg" },
+      { name: "og:image", content: "https://" + environment.domain + "/assets/og-image.jpg" },
     ])
   }
 

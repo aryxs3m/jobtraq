@@ -54,6 +54,7 @@ task('fe-npm-build', function () {
 
     cd("{{release_path}}/angular-frontend");
     run("ng build --configuration=test");
+    run("ng run angular-frontend:server:test");
 });
 
 task('fe-pm2-reload', function () {
