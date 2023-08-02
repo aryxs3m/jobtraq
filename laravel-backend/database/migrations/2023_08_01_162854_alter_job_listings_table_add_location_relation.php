@@ -13,7 +13,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('job_listings', function (Blueprint $table) {
-            \DB::statement('ALTER TABLE `job_listings` CHANGE `location` `original_location` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL;');
+            if (config('database.default') === 'sqlite') {
+                $table->renameColumn('location', 'original_location');
+            } else {
+                \DB::statement('ALTER TABLE `job_listings` CHANGE `location` `original_location` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL;');
+            }
             $table->foreignIdFor(Location::class);
         });
     }
@@ -25,7 +29,11 @@ return new class extends Migration
     {
         Schema::table('job_listings', function (Blueprint $table) {
             $table->dropForeignIdFor(Location::class);
-            \DB::statement('ALTER TABLE `job_listings` CHANGE `original_location` `location` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL;');
+            if (config('database.default') === 'sqlite') {
+                $table->renameColumn('original_location', 'location');
+            } else {
+                \DB::statement('ALTER TABLE `job_listings` CHANGE `original_location` `location` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL;');
+            }
         });
     }
 };
