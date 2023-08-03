@@ -1,12 +1,12 @@
 describe('Status Page', () => {
   it('can navigate to the status page', () => {
-    cy.visit('http://localhost:4200/')
+    cy.visit(Cypress.env('base_url'))
     cy.contains('Állapot').click()
     cy.url().should('contain', '/status')
   })
 
   it('can show status content', () => {
-    cy.visit('http://localhost:4200/status')
+    cy.visit(Cypress.env('base_url') + '/status')
 
     cy.contains('A JobTraq állapota')
     cy.contains('Minden rendben?')
@@ -14,7 +14,7 @@ describe('Status Page', () => {
   })
 
   it('can show status information', () => {
-    cy.visit('http://localhost:4200/status')
+    cy.visit(Cypress.env('base_url') + '/status')
 
     cy.contains('Frontend')
     cy.contains('Backend')

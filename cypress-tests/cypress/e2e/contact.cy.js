@@ -1,12 +1,12 @@
 describe('Contact Page', () => {
   it('can navigate to the contact page', () => {
-    cy.visit('http://localhost:4200/')
+    cy.visit(Cypress.env('base_url'))
     cy.contains('Kapcsolat').click()
     cy.url().should('contain', '/contact')
   })
 
   it('can show contact content', () => {
-    cy.visit('http://localhost:4200/contact')
+    cy.visit(Cypress.env('base_url') + '/contact')
 
     cy.contains('Kapcsolat')
     cy.contains('Minden visszajelzést szívesen fogadunk.')
