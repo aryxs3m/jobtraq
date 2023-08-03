@@ -1,53 +1,21 @@
-name: Cypress
+name: Cypress Tests
 
-on:
-  workflow_dispatch:
-  push:
-    branches: [ "master" ]
+on: push
 
 jobs:
-  install:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout
-        with:
-          working-directory: cypress-tests
-        uses: actions/checkout@v3
-      - name: Cypress install
-        uses: cypress-io/github-action@v5
-        with:
-          working-directory: cypress-tests
-          # Disable running of tests within install job
-          runTests: false
-          build: npm run build
-
-      - name: Save build folder
-        uses: actions/upload-artifact@v3
-        with:
-          working-directory: cypress-tests
-          name: build
-          if-no-files-found: error
-          path: build
-
   cypress-run:
     runs-on: ubuntu-22.04
-    needs: install
     steps:
       - name: Checkout
         uses: actions/checkout@v3
         with:
           working-directory: cypress-tests
 
-      - name: Download the build folder
-        uses: actions/download-artifact@v3
-        with:
-          working-directory: cypress-tests
-          name: build
-          path: build
-
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
           working-directory: cypress-tests
+          build: npm run build
           start: npm start
-          browser: chrome
