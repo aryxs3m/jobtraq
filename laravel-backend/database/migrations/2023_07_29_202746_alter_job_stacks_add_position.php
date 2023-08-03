@@ -13,7 +13,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('job_stacks', function (Blueprint $table) {
-            $table->foreignIdFor(JobPosition::class)->nullable();
+            if (config('database.default') === 'sqlite') {
+                $table->bigInteger('job_position_id')->unsigned()->nullable();
+            } else {
+                $table->foreignIdFor(JobPosition::class)->nullable();
+            }
         });
     }
 

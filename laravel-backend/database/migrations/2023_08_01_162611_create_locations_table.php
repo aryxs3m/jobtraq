@@ -16,7 +16,12 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('location');
-            $table->foreignIdFor(Country::class);
+
+            if (config('database.default') === 'sqlite') {
+                $table->bigInteger('country_id')->unsigned();
+            } else {
+                $table->foreignIdFor(Country::class);
+            }
         });
     }
 
