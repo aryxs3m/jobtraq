@@ -1,4 +1,4 @@
-[![PHPUnit](https://github.com/aryxs3m/jobtraq/actions/workflows/laravel.yml/badge.svg?branch=master)](https://github.com/aryxs3m/jobtraq/actions/workflows/laravel.yml)
+[![PHPUnit](https://github.com/aryxs3m/jobtraq/actions/workflows/laravel.yml/badge.svg?branch=master)](https://github.com/aryxs3m/jobtraq/actions/workflows/laravel.yml) [![Cypress Tests](https://github.com/aryxs3m/jobtraq/actions/workflows/cypress.yml/badge.svg)](https://github.com/aryxs3m/jobtraq/actions/workflows/cypress.yml)
 
 ![JobTraq logo](angular-frontend/src/assets/logo_Light.svg)
 
