@@ -1,3 +1,5 @@
+[![PHPUnit](https://github.com/aryxs3m/jobtraq/actions/workflows/laravel.yml/badge.svg?branch=master)](https://github.com/aryxs3m/jobtraq/actions/workflows/laravel.yml)
+
 ![JobTraq logo](angular-frontend/src/assets/logo_Light.svg)
 
 A JobTraq naponta frissülő kimutatást készít az álláshirdetésekről, hogy megmutassa a különböző IT munkakörök iránti keresletet és fizetési sávokat.
@@ -14,21 +16,28 @@ Segítségével látható
 - ~~legyünk kedves botok: küldjük a scraperekben user-agenként a nevünket és az elérhetőséget~~
 - ~~Backend: cs fixer bekötése~~
 - ~~Backend: HealthcheckControllerhez a healthchecket végző service megírása~~
-- Backend: még több unit teszt?
+- ~~Backend: némi ráncfelvarrás ráférne~~
 - ~~Backend: scraperekhez logolás, logokat lehessen adminfelületen megtekinteni~~
 - ~~Backend: autentikáció~~
-- Backend: CRUD törlés javítása (jelenleg GET-tel megy, nem túl biztonságos)
-- ~~Backend: némi ráncfelvarrás ráférne~~
 - ~~Backend: apidoc bekötése, annotációk készítése a controllerekbe~~
-- Frontend: privacy-policy feltöltése
 - ~~Frontend: impressum feltöltése~~
 - ~~Frontend: contact feltöltése~~
-- Frontend: reszponzivitásban problémák javítása (mobilon itt-ott overflow, rossz méretek)
-- ~~Frontend: cookie consent és Google Analytics bekötése~~
-- Frontend: PWA
 - ~~Frontend: mobil menü toggle~~
 - ~~Frontend: environmentek kezelése, API URL legyen állítható~~
 - ~~Frontend: E2E tesztekhez id-k hozzáadása kattintható elemekhez~~
+- ~~Frontend: cookie consent és Google Analytics bekötése~~
+- Backend: CRUD törlés javítása (jelenleg GET-tel megy, nem túl biztonságos)
+- Backend: tesztek javítása
+- Backend: named route-ok használata, HTTPS problémák javítása
+- Backend: tesztrendszer kizárása keresőmotorok indexeléséből
+- Backend: hírek kezelése
+- Frontend: privacy-policy feltöltése
+- Frontend: reszponzivitásban problémák javítása (mobilon itt-ott overflow, rossz méretek)
+- Frontend: PWA
+- Frontend: SSR javítása, rosszabb esetben kikapcsolása
+- Frontend: tesztrendszer kizárása keresőmotorok indexeléséből
+- Frontend: hírek megjelenítése
+- Design: browser ikonok ellenőrzése többféle böngészőben, platformon (szükséges lehet hátteret hozzáadni)
 
 ## Technikai
 
