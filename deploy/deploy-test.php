@@ -14,4 +14,8 @@ task('setup-test', [
     'fe-pm2-reload',
 ])->desc('Deploy project to test machine');
 
+task('reparse', [
+    'be-reparse',
+])->desc('Reparse all listings.');
+
 before('deploy:symlink', 'setup-test');

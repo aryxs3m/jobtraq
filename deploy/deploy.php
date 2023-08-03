@@ -18,7 +18,8 @@ add('writable_dirs', [
 
 host('nekobox.pvga.hu')
     ->set('remote_user', 'jobtraq')
-    ->set('deploy_path', '/var/www/jobtraq/test.jobtraq.hu');
+    ->set('deploy_path', '/var/www/jobtraq/test.jobtraq.hu')
+    ->set('keep_releases', 2);
 
 task('be-copy-env', function () {
     run('cp "{{deploy_path}}/.env" "{{release_path}}/laravel-backend/.env"');
@@ -62,6 +63,10 @@ task('fe-pm2-reload', function () {
     run("pm2 delete ecosystem.test.config.js");
     run("pm2 reload ecosystem.test.config.js");
     run("pm2 startOrRestart ecosystem.test.config.js");
+});
+
+task('be-reparse', function () {
+    run("php {{deploy_path}}/current/laravel-backend/artisan jtq:reparse");
 });
 
 // Hooks

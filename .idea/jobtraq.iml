@@ -140,6 +140,11 @@
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/yajra/laravel-datatables-oracle" />
       <excludeFolder url="file://$MODULE_DIR$/deploy/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/deploy/vendor/deployer/deployer" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/doctrine/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/doctrine/dbal" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/doctrine/deprecations" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/doctrine/event-manager" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/psr/cache" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

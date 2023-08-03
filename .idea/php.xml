@@ -145,6 +145,11 @@
       <path value="$PROJECT_DIR$/laravel-backend/vendor/laravel/fortify" />
       <path value="$PROJECT_DIR$/laravel-backend/vendor/dasprid/enum" />
       <path value="$PROJECT_DIR$/laravel-backend/vendor/pragmarx/google2fa" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/doctrine/deprecations" />
     </include_path>
   </component>
   <component name="PhpInterpreters">
