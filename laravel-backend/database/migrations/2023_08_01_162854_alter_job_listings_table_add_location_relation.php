@@ -18,7 +18,7 @@ return new class extends Migration
             } else {
                 \DB::statement('ALTER TABLE `job_listings` CHANGE `location` `original_location` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL;');
             }
-            $table->foreignIdFor(Location::class);
+            $table->foreignIdFor(Location::class)->nullable();
         });
     }
 
