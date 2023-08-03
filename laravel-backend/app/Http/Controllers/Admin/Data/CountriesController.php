@@ -3,53 +3,64 @@
 namespace App\Http\Controllers\Admin\Data;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\CountryRequest;
 use App\Models\Country;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class CountriesController extends Controller
 {
-    public function index()
+    public function index(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         return view('data.countries.list', [
             'items' => Country::all(),
         ]);
     }
 
-    public function create()
+    public function create(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
-        return view('data.countries.form', [
+        return view('data.countries.create', [
             'item' => null,
         ]);
     }
 
-    public function update(Country $country)
+    public function edit(Country $country): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
-        return view('data.countries.form', [
+        return view('data.countries.update', [
             'item' => $country,
         ]);
     }
 
-    public function upsertPost(Request $request)
+    public function store(CountryRequest $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'name' => 'string|required',
-        ]);
-
-        if ($request->has('id')) {
-            $country = Country::query()->findOrFail($request->input('id'));
-            $country->update($validated);
-        } else {
-            Country::create($validated);
-        }
+        $this->handleSave($request);
 
         return redirect()->back()->with('success', true);
     }
 
-    public function delete(Country $country): RedirectResponse
+    public function update(CountryRequest $request, Country $country)
+    {
+        $this->handleSave($request, $country);
+
+        return redirect()->back()->with('success', true);
+    }
+
+    public function destroy(Country $country): RedirectResponse
     {
         $country->delete();
 
         return redirect()->back();
+    }
+
+    private function handleSave(CountryRequest $request, ?Country $country = null): void
+    {
+        if (null !== $country) {
+            $country->update($request->validated());
+        } else {
+            Country::query()->create($request->validated());
+        }
     }
 }

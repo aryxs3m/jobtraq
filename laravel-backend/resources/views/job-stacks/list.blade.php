@@ -4,7 +4,7 @@
     <h2 class="mb-4">Stackek</h2>
 
     <div class="mb-4 border-bottom pb-4">
-        <a href="/job-stacks/add" class="btn btn-sm btn-primary btn-success">Új</a>
+        <a href="{{ route('job-stacks.create') }}" class="btn btn-sm btn-primary btn-success">Új</a>
     </div>
 
     <table class="table" style="width: 100%">
@@ -23,8 +23,8 @@
                 <td>{{ $item->name }}</td>
                 <td>{{ $item->jobPosition ? $item->jobPosition->name : '' }}</td>
                 <td>
-                    <a href="/job-stacks/edit/{{ $item->id }}" class="btn btn-sm btn-primary">Szerkesztés</a>
-                    <a href="/job-stacks/delete/{{ $item->id }}" class="btn btn-sm btn-danger">Törlés</a>
+                    <a href="{{ route('job-stacks.edit', ['job_stack' => $item]) }}" class="btn btn-sm btn-primary">Szerkesztés</a>
+                    <a href="#" data-action="{{ route('job-stacks.destroy', ['job_stack' => $item->id]) }}" class="btn btn-sm btn-danger btn-crud-delete">Törlés</a>
                 </td>
             </tr>
         @endforeach

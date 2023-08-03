@@ -39,7 +39,8 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js" integrity="sha384-gdQErvCNWvHQZj6XZM0dNsAoY4v+j5P1XDpNkcM3HJG1Yx04ecqIHk7+4VBOCHOG" crossorigin="anonymous"></script>
 
 <script>
-    function logout(event) {
+    // TODO: resourcees alá tenni?
+    function logout() {
         $.ajax({
             url: '/logout',
             method: 'POST',
@@ -51,6 +52,25 @@
             }
         })
     }
+
+    $(function () {
+        $(".btn-crud-delete").on('click', function () {
+            let btn = $(this);
+
+            if (confirm('Biztos törlöd?')) {
+                $.ajax({
+                    url: btn.data('action'),
+                    method: 'DELETE',
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                    },
+                    complete: () => {
+                        window.location.reload();
+                    }
+                })
+            }
+        });
+    });
 </script>
 
 @stack('scripts')

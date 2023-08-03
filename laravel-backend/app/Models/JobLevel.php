@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon $updated_at frissítési idő
  * @property string $name pozíció neve (pl. backend, frontend)
  * @property array $keywords kulcsszavak, amik alapján kikereshető címből
+ * @property int   $order sorrend
  */
 class JobLevel extends Model
 {

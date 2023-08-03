@@ -150,6 +150,8 @@
       <path value="$PROJECT_DIR$/laravel-backend/vendor/doctrine/event-manager" />
       <path value="$PROJECT_DIR$/laravel-backend/vendor/doctrine/dbal" />
       <path value="$PROJECT_DIR$/laravel-backend/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/barryvdh/laravel-debugbar" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/maximebf/debugbar" />
     </include_path>
   </component>
   <component name="PhpInterpreters">

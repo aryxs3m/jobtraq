@@ -16,6 +16,11 @@ class Location extends Model
 {
     use HasFactory;
 
+    /**
+     * Magyarország mindig az 1-es location kell legyen.
+     */
+    public const LOCATION_HUNGARY = 1;
+
     protected $fillable = [
         'location', 'country_id',
     ];

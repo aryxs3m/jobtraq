@@ -3,7 +3,7 @@
 @section('content')
     <h2 class="mb-4">Szintek rendezése</h2>
 
-    <form method="post">
+    <form method="post" action="{{ route('job-level-order.order-post') }}">
         @csrf
         <ul id="bar" class="list-group">
             @foreach($levels as $level)

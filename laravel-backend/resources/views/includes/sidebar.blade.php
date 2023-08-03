@@ -20,7 +20,7 @@
         <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="/">
+                    <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="{{ route('dashboard') }}">
                         <i class="fas fa-gauge-simple-high"></i>
                         Dashboard
                     </a>
@@ -32,7 +32,7 @@
             </h6>
             <ul class="nav flex-column mb-auto">
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="/scraper-logs">
+                    <a class="nav-link d-flex align-items-center gap-2" href="{{ route('scraper-logs.index') }}">
                         <i class="fas fa-file-text"></i>
                         Scraper naplók
                     </a>
@@ -44,7 +44,7 @@
             </h6>
             <ul class="nav flex-column mb-auto">
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="/job-listings">
+                    <a class="nav-link d-flex align-items-center gap-2" href="{{ route('job-listings.index') }}">
                         <i class="fas fa-building"></i>
                         Álláshirdetések
                     </a>
@@ -56,25 +56,25 @@
             </h6>
             <ul class="nav flex-column mb-auto">
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="/scraper-keywords">
+                    <a class="nav-link d-flex align-items-center gap-2" href="{{ route('scraper-keywords.index') }}">
                         <i class="fas fa-cloud"></i>
                         Scraper kulcsszavak
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="/job-positions">
+                    <a class="nav-link d-flex align-items-center gap-2" href="{{ route('job-positions.index') }}">
                         <i class="fas fa-briefcase"></i>
                         Pozíciók
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="/job-levels">
+                    <a class="nav-link d-flex align-items-center gap-2" href="{{ route('job-levels.index') }}">
                         <i class="fas fa-level-up"></i>
                         Pozíció szintek
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="/job-stacks">
+                    <a class="nav-link d-flex align-items-center gap-2" href="{{ route('job-stacks.index') }}">
                         <i class="fas fa-code"></i>
                         Stackek
                     </a>
@@ -86,7 +86,7 @@
             </h6>
             <ul class="nav flex-column mb-auto">
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="/data/locations">
+                    <a class="nav-link d-flex align-items-center gap-2" href="{{ route('locations.index') }}">
                         <i class="fas fa-map-location"></i>
                         Helyek
                     </a>
@@ -94,7 +94,7 @@
             </ul>
             <ul class="nav flex-column mb-auto">
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="/data/countries">
+                    <a class="nav-link d-flex align-items-center gap-2" href="{{ route('countries.index') }}">
                         <i class="fas fa-map"></i>
                         Országok
                     </a>
@@ -105,7 +105,7 @@
 
             <ul class="nav flex-column mb-auto">
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="#" onclick="logout(event)">
+                    <a class="nav-link d-flex align-items-center gap-2" href="#" onclick="logout()">
                         <i class="fas fa-user-lock"></i>
                         Kijelentkezés
                     </a>

@@ -9,9 +9,11 @@ use App\Models\JobLevel;
 use App\Models\JobPosition;
 use App\Models\JobStack;
 use App\Models\Location;
+use App\Models\User;
 use App\Services\Scraper\NoFluffJobsScraper;
 use App\Services\Scraper\ProfessionScraper;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -69,7 +71,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'frontend',
             'keywords' => ['frontend', 'front-end'],
         ]);
-        JobPosition::create([
+        $backendPosition = JobPosition::create([
             'name' => 'backend',
             'keywords' => ['backend', 'back-end', 'api'],
         ]);
@@ -101,10 +103,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'devops',
             'keywords' => ['devops', 'dev-ops'],
         ]);
-        JobPosition::create([
-            'name' => 'developer',
-            'keywords' => ['developer', 'engineer', 'fejlesztő'],
-        ]);
 
         JobStack::create([
             'name' => 'golang',
@@ -113,6 +111,7 @@ class DatabaseSeeder extends Seeder
         JobStack::create([
             'name' => 'php',
             'keywords' => ['php', 'laravel', 'symfony', 'cakephp'],
+            'job_position_id' => $backendPosition->id,
         ]);
         JobStack::create([
             'name' => 'java',
@@ -182,6 +181,12 @@ class DatabaseSeeder extends Seeder
         Location::create([
             'location' => 'Budapest',
             'country_id' => 1,
+        ]);
+
+        User::create([
+            'name' => 'Test User',
+            'email' => 'test@jobtraq.hu',
+            'password' => Hash::make('test-user-123'),
         ]);
     }
 }

@@ -7,6 +7,13 @@ use Tests\TestCase;
 
 class HumanAdvertisementParserTest extends TestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->artisan('db:seed');
+    }
+
     public function test_advertisement_parser_can_parse_levels(): void
     {
         /** @var HumanAdvertisementParser $advertisementParser */
@@ -50,5 +57,14 @@ class HumanAdvertisementParserTest extends TestCase
 
         $jobCategory = $advertisementParser->parseJobTitle('Lead Data Engineer (Python)');
         $this->assertTrue($jobCategory->getPosition() === 'data');
+    }
+
+    public function test_advertisement_parser_can_get_fallback_position(): void
+    {
+        /** @var HumanAdvertisementParser $advertisementParser */
+        $advertisementParser = app(HumanAdvertisementParser::class);
+
+        $jobCategory = $advertisementParser->parseJobTitle('Junior PHP Developer');
+        $this->assertTrue($jobCategory->getPosition() === 'backend');
     }
 }

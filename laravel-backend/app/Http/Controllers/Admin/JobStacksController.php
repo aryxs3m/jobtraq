@@ -3,64 +3,73 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\JobStackRequest;
 use App\Models\JobPosition;
 use App\Models\JobStack;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class JobStacksController extends Controller
 {
-    public function index()
+    public function index(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         return view('job-stacks.list', [
             'items' => JobStack::query()->with('jobPosition')->get(),
         ]);
     }
 
-    public function create()
+    public function create(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
-        return view('job-stacks.form', [
+        return view('job-stacks.create', [
             'item' => null,
             'positions' => JobPosition::all(),
         ]);
     }
 
-    public function update(JobStack $jobStack)
+    public function edit(JobStack $jobStack): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
-        return view('job-stacks.form', [
+        return view('job-stacks.update', [
             'item' => $jobStack,
             'positions' => JobPosition::all(),
         ]);
     }
 
-    public function upsertPost(Request $request)
+    public function store(JobStackRequest $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'name' => 'string|required',
-            'keywords' => 'string|required',
-            'job_position' => 'nullable|integer|exists:job_positions,id',
-        ]);
-
-        $data = [
-            'name' => $validated['name'],
-            'keywords' => explode(',', $validated['keywords']),
-            'job_position_id' => $validated['job_position'],
-        ];
-
-        if ($request->has('id')) {
-            $jobStack = JobStack::query()->findOrFail($request->input('id'));
-            $jobStack->update($data);
-        } else {
-            JobStack::create($data);
-        }
+        $this->handleSave($request);
 
         return redirect()->back()->with('success', true);
     }
 
-    public function delete(JobStack $jobStack): RedirectResponse
+    public function update(JobStack $jobStack, JobStackRequest $request): RedirectResponse
+    {
+        $this->handleSave($request, $jobStack);
+
+        return redirect()->back()->with('success', true);
+    }
+
+    public function destroy(JobStack $jobStack): RedirectResponse
     {
         $jobStack->delete();
 
         return redirect()->back();
+    }
+
+    private function handleSave(JobStackRequest $request, ?JobStack $jobStack = null): void
+    {
+        $data = [
+            'name' => $request->validated('name'),
+            'keywords' => explode(',', $request->validated('keywords')),
+            'job_position_id' => $request->validated('job_position'),
+        ];
+
+        if (null !== $jobStack) {
+            $jobStack->update($data);
+        } else {
+            JobStack::query()->create($data);
+        }
     }
 }

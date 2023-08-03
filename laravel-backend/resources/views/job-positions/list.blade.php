@@ -4,7 +4,7 @@
     <h2 class="mb-4">Pozíciók</h2>
 
     <div class="mb-4 border-bottom pb-4">
-        <a href="/job-positions/add" class="btn btn-sm btn-primary btn-success">Új</a>
+        <a href="{{ route('job-positions.create') }}" class="btn btn-sm btn-primary btn-success">Új</a>
     </div>
 
     <table class="table" style="width: 100%">
@@ -21,8 +21,8 @@
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->name }}</td>
                 <td>
-                    <a href="/job-positions/edit/{{ $item->id }}" class="btn btn-sm btn-primary">Szerkesztés</a>
-                    <a href="/job-positions/delete/{{ $item->id }}" class="btn btn-sm btn-danger">Törlés</a>
+                    <a href="{{ route('job-positions.edit', ['job_position' => $item]) }}" class="btn btn-sm btn-primary">Szerkesztés</a>
+                    <a href="#" data-action="{{ route('job-positions.destroy', ['job_position' => $item->id]) }}" class="btn btn-sm btn-danger btn-crud-delete">Törlés</a>
                 </td>
             </tr>
         @endforeach

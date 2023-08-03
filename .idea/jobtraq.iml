@@ -7,6 +7,9 @@
       <sourceFolder url="file://$MODULE_DIR$/laravel-backend/database/seeders" isTestSource="false" packagePrefix="Database\Seeders\" />
       <sourceFolder url="file://$MODULE_DIR$/laravel-backend/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/laravel-backend/tests" isTestSource="true" packagePrefix="Tests\" />
+      <sourceFolder url="file://$MODULE_DIR$/deploy/src" isTestSource="false" packagePrefix="Jobtraq\Deploy\" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/dflydev/dot-access-data" />
@@ -145,6 +148,8 @@
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/doctrine/deprecations" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/doctrine/event-manager" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/psr/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/barryvdh/laravel-debugbar" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/maximebf/debugbar" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

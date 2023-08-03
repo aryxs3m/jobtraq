@@ -4,7 +4,7 @@
     <h2 class="mb-4">Helyek</h2>
 
     <div class="mb-4 border-bottom pb-4">
-        <a href="/data/locations/add" class="btn btn-sm btn-primary btn-success">Új</a>
+        <a href="{{ route('locations.create') }}" class="btn btn-sm btn-primary btn-success">Új</a>
     </div>
 
     <table class="table" style="width: 100%">
@@ -21,8 +21,8 @@
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->location }}</td>
                 <td>
-                    <a href="/data/locations/edit/{{ $item->id }}" class="btn btn-sm btn-primary">Szerkesztés</a>
-                    <a href="/data/locations/delete/{{ $item->id }}" class="btn btn-sm btn-danger">Törlés</a>
+                    <a href="{{ route('locations.edit', ['location' => $item]) }}" class="btn btn-sm btn-primary">Szerkesztés</a>
+                    <a href="#" data-action="{{ route('locations.destroy', ['location' => $item->id]) }}" class="btn btn-sm btn-danger btn-crud-delete">Törlés</a>
                 </td>
             </tr>
         @endforeach

@@ -4,8 +4,8 @@
     <h2 class="mb-4">Szintek</h2>
 
     <div class="mb-4 border-bottom pb-4">
-        <a href="/job-levels/add" class="btn btn-sm btn-primary btn-success">Új</a>
-        <a href="/job-levels/order" class="btn btn-sm btn-primary btn-primary">Sorrendezés</a>
+        <a href="{{ route('job-levels.create') }}" class="btn btn-sm btn-primary btn-success">Új</a>
+        <a href="{{ route('job-level-order.order') }}" class="btn btn-sm btn-primary btn-primary">Sorrendezés</a>
     </div>
 
     <table class="table" style="width: 100%">
@@ -22,8 +22,8 @@
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->name }}</td>
                 <td>
-                    <a href="/job-levels/edit/{{ $item->id }}" class="btn btn-sm btn-primary">Szerkesztés</a>
-                    <a href="/job-levels/delete/{{ $item->id }}" class="btn btn-sm btn-danger">Törlés</a>
+                    <a href="{{ route('job-levels.edit', ['job_level' => $item]) }}" class="btn btn-sm btn-primary">Szerkesztés</a>
+                    <a href="#" data-action="{{ route('job-levels.destroy', ['job_level' => $item->id]) }}" class="btn btn-sm btn-danger btn-crud-delete">Törlés</a>
                 </td>
             </tr>
         @endforeach

@@ -3,62 +3,72 @@
 namespace App\Http\Controllers\Admin\Data;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\LocationRequest;
 use App\Models\Country;
 use App\Models\Location;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class LocationsController extends Controller
 {
-    public function index()
+    public function index(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         return view('data.locations.list', [
             'items' => Location::all(),
         ]);
     }
 
-    public function create()
+    public function create(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
-        return view('data.locations.form', [
+        return view('data.locations.create', [
             'item' => null,
             'countries' => Country::all(),
         ]);
     }
 
-    public function update(Location $location)
+    public function edit(Location $location): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
-        return view('data.locations.form', [
+        return view('data.locations.update', [
             'item' => $location,
             'countries' => Country::all(),
         ]);
     }
 
-    public function upsertPost(Request $request)
+    public function store(LocationRequest $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'location' => 'string|required',
-            'country' => 'integer|exists:countries,id',
-        ]);
-
-        $data = [
-            'location' => $validated['location'],
-            'country_id' => $validated['country'],
-        ];
-
-        if ($request->has('id')) {
-            $location = Location::query()->findOrFail($request->input('id'));
-            $location->update($data);
-        } else {
-            Location::create($data);
-        }
+        $this->handleSave($request);
 
         return redirect()->back()->with('success', true);
     }
 
-    public function delete(Location $location): RedirectResponse
+    public function update(LocationRequest $request, Location $location): RedirectResponse
+    {
+        $this->handleSave($request, $location);
+
+        return redirect()->back()->with('success', true);
+    }
+
+    public function destroy(Location $location): RedirectResponse
     {
         $location->delete();
 
         return redirect()->back();
+    }
+
+    private function handleSave(LocationRequest $request, ?Location $location = null): void
+    {
+        $data = [
+            'location' => $request->validated('location'),
+            'country_id' => $request->validated('country'),
+        ];
+
+        if (null !== $location) {
+            $location->update($data);
+        } else {
+            Location::query()->create($data);
+        }
     }
 }
