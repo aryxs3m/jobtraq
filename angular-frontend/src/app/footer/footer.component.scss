@@ -16,7 +16,20 @@
   transition: opacity 0.2s;
   cursor: pointer;
 
+  &:before {
+    display: inline-block;
+    content: '› ';
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: 0.3s all;
+  }
+
   &:hover {
     opacity: 1;
+
+    &:before {
+      opacity: 1;
+      transform: translateX(-5px);
+    }
   }
 }
