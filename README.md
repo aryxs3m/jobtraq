@@ -38,6 +38,7 @@ Segítségével látható
 - Backend: hírek kezelése
 - Frontend: privacy-policy feltöltése
 - Frontend: hírek megjelenítése
+- Frontend: PWA ikonokhoz maskable verzió készítése
 
 ## Technikai
 
