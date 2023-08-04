@@ -32,7 +32,7 @@ Segítségével látható
 - Backend: tesztrendszer kizárása keresőmotorok indexeléséből
 - Backend: hírek kezelése
 - Frontend: privacy-policy feltöltése
-- Frontend: reszponzivitásban problémák javítása (mobilon itt-ott overflow, rossz méretek)
+- ~~Frontend: reszponzivitásban problémák javítása (mobilon itt-ott overflow, rossz méretek)~~
 - Frontend: PWA
 - Frontend: SSR javítása, rosszabb esetben kikapcsolása
 - ~~Frontend: tesztrendszer kizárása keresőmotorok indexeléséből~~
