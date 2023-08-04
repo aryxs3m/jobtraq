@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {CommonModule, NgOptimizedImage} from "@angular/common";
 
@@ -33,6 +33,7 @@ import {NgcCookieConsentConfig, NgcCookieConsentModule} from "ngx-cookieconsent"
 import { ImpressumPageComponent } from './impressum-page/impressum-page.component';
 import {environment} from "../environments/environment";
 import { ContactCardComponent } from './contact-page/contact-card/contact-card.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 registerLocaleData(localeHu, 'hu');
 
 const cookieConfig:NgcCookieConsentConfig = {
@@ -100,6 +101,12 @@ const cookieConfig:NgcCookieConsentConfig = {
         NgxGa4Module.forRoot({}),
         NgcCookieConsentModule.forRoot(cookieConfig),
         NgOptimizedImage,
+        ServiceWorkerModule.register('ngsw-worker.js', {
+          enabled: !isDevMode(),
+          // Register the ServiceWorker as soon as the application is stable
+          // or after 30 seconds (whichever comes first).
+          registrationStrategy: 'registerWhenStable:30000'
+        }),
     ],
   providers: [
     {

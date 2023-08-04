@@ -26,18 +26,18 @@ Segítségével látható
 - ~~Frontend: environmentek kezelése, API URL legyen állítható~~
 - ~~Frontend: E2E tesztekhez id-k hozzáadása kattintható elemekhez~~
 - ~~Frontend: cookie consent és Google Analytics bekötése~~
+- ~~Frontend: reszponzivitásban problémák javítása (mobilon itt-ott overflow, rossz méretek)~~
+- ~~Frontend: PWA~~
+- ~~Frontend: SSR javítása, rosszabb esetben kikapcsolása~~
+- ~~Frontend: tesztrendszer kizárása keresőmotorok indexeléséből~~
+- ~~Design: browser ikonok ellenőrzése többféle böngészőben, platformon (szükséges lehet hátteret hozzáadni)~~
 - Backend: CRUD törlés javítása (jelenleg GET-tel megy, nem túl biztonságos)
 - Backend: tesztek javítása
 - Backend: named route-ok használata, HTTPS problémák javítása
 - Backend: tesztrendszer kizárása keresőmotorok indexeléséből
 - Backend: hírek kezelése
 - Frontend: privacy-policy feltöltése
-- ~~Frontend: reszponzivitásban problémák javítása (mobilon itt-ott overflow, rossz méretek)~~
-- Frontend: PWA
-- ~~Frontend: SSR javítása, rosszabb esetben kikapcsolása~~
-- ~~Frontend: tesztrendszer kizárása keresőmotorok indexeléséből~~
 - Frontend: hírek megjelenítése
-- ~~Design: browser ikonok ellenőrzése többféle böngészőben, platformon (szükséges lehet hátteret hozzáadni)~~
 
 ## Technikai
 
