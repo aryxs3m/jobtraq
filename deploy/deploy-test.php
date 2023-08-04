@@ -8,9 +8,9 @@ task('setup-test', [
     'be-composer-install',
     'be-npm-install',
     'be-npm-build',
-    'be-migrate',
     'fe-npm-install',
     'fe-npm-build',
+    'be-migrate',
     'fe-pm2-reload',
 ])->desc('Deploy project to test machine');
 
