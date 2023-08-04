@@ -1,5 +1,9 @@
 {
- "name": "App",
+ "id": "jobtraq_pwa_app_r1",
+ "name": "JobTraq",
+ "start_url": "/report",
+ "display": "standalone",
+ "theme_color": "#000000",
  "icons": [
   {
    "src": "\/assets\/icons\/android-icon-36x36.png",

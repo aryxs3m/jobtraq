@@ -37,7 +37,7 @@ Segítségével látható
 - ~~Frontend: SSR javítása, rosszabb esetben kikapcsolása~~
 - ~~Frontend: tesztrendszer kizárása keresőmotorok indexeléséből~~
 - Frontend: hírek megjelenítése
-- Design: browser ikonok ellenőrzése többféle böngészőben, platformon (szükséges lehet hátteret hozzáadni)
+- ~~Design: browser ikonok ellenőrzése többféle böngészőben, platformon (szükséges lehet hátteret hozzáadni)~~
 
 ## Technikai
 
