@@ -1,20 +1,20 @@
 <div class="row chart-row">
-    <div class="col">
-        <ngx-charts-bar-horizontal
-                [results]="data"
-                xAxis="true"
-                yAxis="true"
-                [scheme]="colorScheme">
-        </ngx-charts-bar-horizontal>
-    </div>
-    <div class="col m-auto">
-        <h3>{{ position | titlecase }} bérsáv</h3>
-        <p class="lead">
-            Nyitott álláshirdetésekből vett átlag.
-        </p>
-        <app-small-divider></app-small-divider>
-        <p>
-            Az átlagos fizetés <strong class="chart-highlight">{{ avgSalary | currency:'HUF':'symbol':'3.0-0':'hu' }}</strong>.
-        </p>
-    </div>
+  <div class="col m-auto order-md-2">
+      <h3>{{ position | titlecase }} bérsáv</h3>
+      <p class="lead">
+          Nyitott álláshirdetésekből vett átlag.
+      </p>
+      <app-small-divider></app-small-divider>
+      <p>
+          Az átlagos fizetés <strong class="chart-highlight">{{ avgSalary | currency:'HUF':'symbol':'3.0-0':'hu' }}</strong>.
+      </p>
+  </div>
+  <div class="col order-md-1">
+    <ngx-charts-bar-horizontal
+      [results]="data"
+      xAxis="true"
+      yAxis="true"
+      [scheme]="colorScheme">
+    </ngx-charts-bar-horizontal>
+  </div>
 </div>
