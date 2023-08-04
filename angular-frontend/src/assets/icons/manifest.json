@@ -2,10 +2,10 @@
   "name": "JobTraq",
   "short_name": "JobTraq",
   "theme_color": "#000000",
-  "background_color": "#ffffff",
+  "background_color": "#000000",
   "display": "standalone",
   "scope": "./",
-  "start_url": "./report",
+  "start_url": "/report",
   "icons": [
     {
      "src": "\/assets\/icons\/android-icon-36x36.png",
