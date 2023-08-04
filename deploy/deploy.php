@@ -44,6 +44,13 @@ task('be-migrate', function () {
     run("php {{release_path}}/laravel-backend/artisan migrate");
 });
 
+task('be-optimize', function () {
+    run("php {{release_path}}/laravel-backend/artisan config:cache");
+    run("php {{release_path}}/laravel-backend/artisan route:cache");
+    run("php {{release_path}}/laravel-backend/artisan view:cache");
+    run("php {{release_path}}/laravel-backend/artisan optimize");
+});
+
 task('fe-npm-install', function () {
     cd("{{release_path}}/angular-frontend");
     run("npm i");

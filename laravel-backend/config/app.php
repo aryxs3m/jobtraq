@@ -188,4 +188,5 @@ return [
 
     'version' => env('APP_VERSION', 'local-dev'),
 
+    'force_https' => env('FORCE_HTTPS', false)
 ];

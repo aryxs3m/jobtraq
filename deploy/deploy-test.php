@@ -8,6 +8,7 @@ task('setup-test', [
     'be-composer-install',
     'be-npm-install',
     'be-npm-build',
+    'be-optimize',
     'fe-npm-install',
     'fe-npm-build',
     'be-migrate',
