@@ -21,6 +21,12 @@ export class AppComponent {
       { name: 'description', content: 'A JobTraq naponta frissülő kimutatást készít az álláshirdetésekről, hogy megmutassa a különböző IT munkakörök iránti keresletet és fizetési sávokat.'},
       { name: "og:image", content: "https://" + environment.domain + "/assets/og-image.jpg" },
     ])
+
+    if (!environment.production) {
+      meta.addTag({
+        name: 'robots', content: 'noindex',
+      })
+    }
   }
 
   ngOnInit(): void {
