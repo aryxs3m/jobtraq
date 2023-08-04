@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { LoaderService } from "../loader.service";
-import {animate, state, style, transition, trigger} from "@angular/animations";
 import {SearchService} from "../search.service";
 import {NavigationStart, Router} from "@angular/router";
 import {faGithub} from "@fortawesome/free-brands-svg-icons";
+import {environment} from "../../environments/environment";
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-navbar',
@@ -13,6 +14,8 @@ import {faGithub} from "@fortawesome/free-brands-svg-icons";
 export class NavbarComponent {
   protected readonly faGithub = faGithub;
   collapsed: boolean = true;
+  launchDate: string = environment.launchDate;
+  todayDate: string = moment(new Date()).format('YYYY-MM-DD');
 
   constructor(public loader: LoaderService, public search: SearchService, private router: Router) {
     this.router.events

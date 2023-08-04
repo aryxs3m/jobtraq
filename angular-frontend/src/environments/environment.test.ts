@@ -7,6 +7,7 @@ export const environment = {
   google_measurement_id: 'G-ZH4VB95FLH',
   domain: 'test.jobtraq.hu',
   api_url: 'https://admin-test.jobtraq.hu/api/',
+  launchDate: "2023-08-02",
 };
 
 /*

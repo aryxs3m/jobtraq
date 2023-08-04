@@ -7,6 +7,7 @@ export const environment = {
   google_measurement_id: 'G-ZH4VB95FLH',
   domain: 'localhost',
   api_url: 'http://localhost/api/',
+  launchDate: "2023-08-01",
 };
 
 /*
