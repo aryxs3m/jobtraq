@@ -1,0 +1,38 @@
+.contact-card {
+  text-align: center;
+  transition: all 0.3s;
+  overflow: hidden;
+
+  .card-arrow {
+    z-index: -1;
+    height: 100%;
+    color: #12e773;
+    font-size: 30rem;
+    position: absolute;
+    top: -332px;
+    transform: translateX(-250px);
+    filter: blur(10px);
+    opacity: 0;
+    transition: 0.3s all;
+  }
+
+  fa-icon {
+    font-size: 2.5rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  &:hover {
+    transform: scale(1.02);
+    border-color: #12e773;
+
+    .card-arrow {
+      transform: translateX(470px);
+      opacity: 0.3;
+      filter: blur(0);
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from "@angular/common";
+import {CommonModule, NgOptimizedImage} from "@angular/common";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +17,7 @@ import {PositionSalaryChartComponent} from "./home-page/position-salary-chart/po
 import { NavbarComponent } from './navbar/navbar.component';
 import {LoadingInterceptor} from "./loading.interceptor";
 import { registerLocaleData } from '@angular/common';
-import localeFr from '@angular/common/locales/hu';
+import localeHu from '@angular/common/locales/hu';
 import { StackSalaryChartComponent } from './home-page/stack-salary-chart/stack-salary-chart.component';
 import { SmallDividerComponent } from './small-divider/small-divider.component';
 import { ErrorNotifyComponent } from './error-notify/error-notify.component';
@@ -32,7 +32,8 @@ import {NgxGa4Module} from "@kattoshi/ngx-ga4";
 import {NgcCookieConsentConfig, NgcCookieConsentModule} from "ngx-cookieconsent";
 import { ImpressumPageComponent } from './impressum-page/impressum-page.component';
 import {environment} from "../environments/environment";
-registerLocaleData(localeFr, 'hu');
+import { ContactCardComponent } from './contact-page/contact-card/contact-card.component';
+registerLocaleData(localeHu, 'hu');
 
 const cookieConfig:NgcCookieConsentConfig = {
   "cookie": {
@@ -85,19 +86,21 @@ const cookieConfig:NgcCookieConsentConfig = {
     ScrapingEthicsPageComponent,
     PageHeaderComponent,
     ImpressumPageComponent,
+    ContactCardComponent,
   ],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule,
-    FontAwesomeModule,
-    NgxChartsModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    NgxGa4Module.forRoot({}),
-    NgcCookieConsentModule.forRoot(cookieConfig),
-  ],
+    imports: [
+        CommonModule,
+        BrowserModule,
+        AppRoutingModule,
+        NgbModule,
+        FontAwesomeModule,
+        NgxChartsModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        NgxGa4Module.forRoot({}),
+        NgcCookieConsentModule.forRoot(cookieConfig),
+        NgOptimizedImage,
+    ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true
