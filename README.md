@@ -34,7 +34,7 @@ Segítségével látható
 - Frontend: privacy-policy feltöltése
 - ~~Frontend: reszponzivitásban problémák javítása (mobilon itt-ott overflow, rossz méretek)~~
 - Frontend: PWA
-- Frontend: SSR javítása, rosszabb esetben kikapcsolása
+- ~~Frontend: SSR javítása, rosszabb esetben kikapcsolása~~
 - ~~Frontend: tesztrendszer kizárása keresőmotorok indexeléséből~~
 - Frontend: hírek megjelenítése
 - Design: browser ikonok ellenőrzése többféle böngészőben, platformon (szükséges lehet hátteret hozzáadni)
