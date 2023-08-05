@@ -1,0 +1,8 @@
+<app-page-header [background]="newsBlock.image_url" [title]="newsBlock.title" [tint]="true" *ngIf="newsBlock">
+  <p class="small">{{ publishedDate }}</p>
+</app-page-header>
+
+<div class="container mt-4 mb-4" *ngIf="newsBlock">
+  <p class="lead">{{ newsBlock.introduction }}</p>
+  <div [innerHTML]="markdown"></div>
+</div>

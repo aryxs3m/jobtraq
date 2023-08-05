@@ -10,7 +10,6 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 
 class ScraperKeywordsController extends Controller
 {
@@ -29,12 +28,6 @@ class ScraperKeywordsController extends Controller
         ]);
     }
 
-    /**
-     * @param CrawlerKeyword $scraperKeyword
-     * @param ScraperManager $crawlManager
-     *
-     * @return View|Application|Factory|\Illuminate\Contracts\Foundation\Application
-     */
     public function edit(CrawlerKeyword $scraperKeyword, ScraperManager $crawlManager): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         return view('crawler-keywords.update', [
@@ -64,7 +57,7 @@ class ScraperKeywordsController extends Controller
         return redirect()->back();
     }
 
-    private function handleSave(ScraperKeywordsRequest $request, ?CrawlerKeyword $scraperKeyword = null): void
+    private function handleSave(ScraperKeywordsRequest $request, CrawlerKeyword $scraperKeyword = null): void
     {
         $request = [
             'crawler' => $request->validated('crawler'),

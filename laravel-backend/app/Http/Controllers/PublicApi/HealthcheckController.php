@@ -11,14 +11,17 @@ class HealthcheckController extends BaseApiController
 {
     /**
      * @api {get} /healthcheck Healthcheck információk lekérése
+     *
      * @apiName JobTraq
+     *
      * @apiGroup Healthcheck
+     *
      * @apiVersion 0.1.0
      *
      * @apiSuccess {string} status
      * @apiSuccess {object} data
-     * @apiSuccess {boolean} data.frontend Frontend állapota (mindig true)
-     * @apiSuccess {boolean} data.backend Backend állapota (mindig true)
+     * @apiSuccess {boolean} data.frontend frontend állapota (mindig true)
+     * @apiSuccess {boolean} data.backend backend állapota (mindig true)
      * @apiSuccess {object[]} data.scrapers[] scraperek állapota (mai napon sikeresen lefutottak-e)
      * @apiSuccess {string} data.scrapers.name scraper class neve
      * @apiSuccess {boolean} data.scrapers.status scraper állapota

@@ -37,7 +37,7 @@ Validációs hibára példa:
 
 ```json
 {
-    "success": "fail",
+    "status": "fail",
     "data": {
         "message": "The date field must be a valid date."
     }

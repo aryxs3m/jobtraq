@@ -2,9 +2,6 @@
 
 namespace Tests\Feature\PublicAPI;
 
-use App\Models\JobListing;
-use App\Services\Scraper\NoFluffJobsScraper;
-use App\Services\Scraper\ProfessionScraper;
 use Tests\TestCase;
 
 class ReportTest extends TestCase

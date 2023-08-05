@@ -173,17 +173,11 @@ class PublicReporter
         return $this->filterDate->format('Y-m-d');
     }
 
-    /**
-     * @return int
-     */
     public function getCountryId(): int
     {
         return $this->countryId;
     }
 
-    /**
-     * @param int $countryId
-     */
     public function setCountryId(int $countryId): void
     {
         $this->countryId = $countryId;

@@ -9,7 +9,6 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 
 class JobPositionsController extends Controller
 {
@@ -55,7 +54,7 @@ class JobPositionsController extends Controller
         return redirect()->back();
     }
 
-    private function handleSave(JobPositionRequest $request, ?JobPosition $jobPosition = null): void
+    private function handleSave(JobPositionRequest $request, JobPosition $jobPosition = null): void
     {
         $request = [
             'name' => $request->validated('name'),

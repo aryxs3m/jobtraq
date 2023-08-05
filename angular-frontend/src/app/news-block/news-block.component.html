@@ -1,0 +1,19 @@
+<h3>Hírek</h3>
+
+<div class="row row-cols-3 g-4">
+  <!-- Real Articles -->
+  <div class="col" *ngFor="let block of blocks">
+    <app-news-card [newsBlock]="block"></app-news-card>
+  </div>
+
+  <!-- Skeleton Loaders -->
+  <div class="col" *ngIf="blocks.length === 0">
+    <app-skeleton-news-card></app-skeleton-news-card>
+  </div>
+  <div class="col" *ngIf="blocks.length === 0">
+    <app-skeleton-news-card></app-skeleton-news-card>
+  </div>
+  <div class="col" *ngIf="blocks.length === 0">
+    <app-skeleton-news-card></app-skeleton-news-card>
+  </div>
+</div>

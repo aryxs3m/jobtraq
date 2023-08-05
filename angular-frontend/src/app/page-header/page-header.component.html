@@ -1,6 +1,8 @@
-<div class="page-header text-white py-5" style='background-image: url("/assets/{{ background }}");'>
-  <div class="container py-5">
-    <h3>{{ title }}</h3>
-    <ng-content></ng-content>
+<div class="page-header text-white" style='background-image: url({{ background }});'>
+  <div [class.page-header-tint]="tint" class="py-5">
+    <div class="container py-5">
+      <h3>{{ title }}</h3>
+      <ng-content></ng-content>
+    </div>
   </div>
 </div>

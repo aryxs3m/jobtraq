@@ -31,14 +31,15 @@ Segítségével látható
 - ~~Frontend: SSR javítása, rosszabb esetben kikapcsolása~~
 - ~~Frontend: tesztrendszer kizárása keresőmotorok indexeléséből~~
 - ~~Design: browser ikonok ellenőrzése többféle böngészőben, platformon (szükséges lehet hátteret hozzáadni)~~
-- Backend: CRUD törlés javítása (jelenleg GET-tel megy, nem túl biztonságos)
+- ~~Frontend: hírek megjelenítése~~
+- ~~Backend: CRUD törlés javítása (jelenleg GET-tel megy, nem túl biztonságos)~~
+- ~~Backend: named route-ok használata, HTTPS problémák javítása~~
+- ~~Backend: tesztrendszer kizárása keresőmotorok indexeléséből~~ - megoldva nginxből
+- ~~Backend: hírek kezelése~~
 - Backend: tesztek javítása
-- Backend: named route-ok használata, HTTPS problémák javítása
-- Backend: tesztrendszer kizárása keresőmotorok indexeléséből
-- Backend: hírek kezelése
+- Backend: media manager: képek feltöltése hírekhez
+- Backend: tároljuk az álláshirdetések egyedi azonosítóit is
 - Frontend: privacy-policy feltöltése
-- Frontend: hírek megjelenítése
-- Frontend: PWA ikonokhoz maskable verzió készítése
 
 ## Technikai
 

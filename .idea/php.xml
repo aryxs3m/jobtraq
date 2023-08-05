@@ -152,6 +152,11 @@
       <path value="$PROJECT_DIR$/laravel-backend/vendor/doctrine/deprecations" />
       <path value="$PROJECT_DIR$/laravel-backend/vendor/barryvdh/laravel-debugbar" />
       <path value="$PROJECT_DIR$/laravel-backend/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/barryvdh/laravel-ide-helper" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/barryvdh/reflection-docblock" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/phpstan/phpdoc-parser" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/laravel-backend/vendor/phpdocumentor/type-resolver" />
     </include_path>
   </component>
   <component name="PhpInterpreters">

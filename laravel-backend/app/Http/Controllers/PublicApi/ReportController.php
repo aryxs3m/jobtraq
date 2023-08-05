@@ -16,9 +16,13 @@ class ReportController extends BaseApiController
      * @throws \Exception
      *
      * @api {get} /report/homepage Napi kimutatás
+     *
      * @apiDescription A jobtraq.hu frontendjén megjelenő egy naphoz tartozó minden adat.
+     *
      * @apiName JobTraq
+     *
      * @apiGroup Kimutatások
+     *
      * @apiVersion 0.1.0
      *
      * @apiQuery {Date} [date] Dátumszűrés. Alapértelmezett értéke a mai nap. Formátuma: 2018-09-21

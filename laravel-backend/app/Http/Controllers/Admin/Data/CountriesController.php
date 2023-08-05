@@ -9,7 +9,6 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 
 class CountriesController extends Controller
 {
@@ -55,7 +54,7 @@ class CountriesController extends Controller
         return redirect()->back();
     }
 
-    private function handleSave(CountryRequest $request, ?Country $country = null): void
+    private function handleSave(CountryRequest $request, Country $country = null): void
     {
         if (null !== $country) {
             $country->update($request->validated());

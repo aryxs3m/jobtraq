@@ -10,7 +10,6 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 
 class LocationsController extends Controller
 {
@@ -58,7 +57,7 @@ class LocationsController extends Controller
         return redirect()->back();
     }
 
-    private function handleSave(LocationRequest $request, ?Location $location = null): void
+    private function handleSave(LocationRequest $request, Location $location = null): void
     {
         $data = [
             'location' => $request->validated('location'),

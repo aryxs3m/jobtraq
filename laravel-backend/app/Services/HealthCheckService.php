@@ -8,8 +8,6 @@ class HealthCheckService
 {
     /**
      * Ellenőrzi, hogy a scraper olvasott-e már be a mai napon álláshirdetést. Ha igen, akkor élőnek tekintjük.
-     *
-     * @param string $scraperClass
      */
     public function checkScraperHealthForToday(string $scraperClass): bool
     {

@@ -1,0 +1,16 @@
+$skeleton-color: #eee;
+
+.fake-card {
+  div.title {
+    background: $skeleton-color;
+    display: block;
+    height: 24px;
+    width: 150px;
+  }
+  div.date {
+    background: $skeleton-color;
+    display: block;
+    height: 24px;
+    width: 70px;
+  }
+}

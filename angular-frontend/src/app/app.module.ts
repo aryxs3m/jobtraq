@@ -34,6 +34,11 @@ import { ImpressumPageComponent } from './impressum-page/impressum-page.componen
 import {environment} from "../environments/environment";
 import { ContactCardComponent } from './contact-page/contact-card/contact-card.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { NewsBlockComponent } from './news-block/news-block.component';
+import { NewsCardComponent } from './news-block/news-card/news-card.component';
+import { NewsPageComponent } from './news-page/news-page.component';
+import { SkeletonNewsCardComponent } from './news-block/skeleton-news-card/skeleton-news-card.component';
+import {NgxSkeletonLoaderModule} from "ngx-skeleton-loader";
 registerLocaleData(localeHu, 'hu');
 
 const cookieConfig:NgcCookieConsentConfig = {
@@ -88,26 +93,31 @@ const cookieConfig:NgcCookieConsentConfig = {
     PageHeaderComponent,
     ImpressumPageComponent,
     ContactCardComponent,
+    NewsBlockComponent,
+    NewsCardComponent,
+    NewsPageComponent,
+    SkeletonNewsCardComponent,
   ],
-    imports: [
-        CommonModule,
-        BrowserModule,
-        AppRoutingModule,
-        NgbModule,
-        FontAwesomeModule,
-        NgxChartsModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        NgxGa4Module.forRoot({}),
-        NgcCookieConsentModule.forRoot(cookieConfig),
-        NgOptimizedImage,
-        ServiceWorkerModule.register('ngsw-worker.js', {
-          enabled: !isDevMode(),
-          // Register the ServiceWorker as soon as the application is stable
-          // or after 30 seconds (whichever comes first).
-          registrationStrategy: 'registerWhenStable:30000'
-        }),
-    ],
+  imports: [
+    CommonModule,
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    FontAwesomeModule,
+    NgxChartsModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    NgxGa4Module.forRoot({}),
+    NgcCookieConsentModule.forRoot(cookieConfig),
+    NgOptimizedImage,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
+    NgxSkeletonLoaderModule
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true

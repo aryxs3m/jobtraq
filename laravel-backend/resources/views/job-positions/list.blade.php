@@ -21,8 +21,8 @@
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->name }}</td>
                 <td>
-                    <a href="{{ route('job-positions.edit', ['job_position' => $item]) }}" class="btn btn-sm btn-primary">Szerkesztés</a>
-                    <a href="#" data-action="{{ route('job-positions.destroy', ['job_position' => $item->id]) }}" class="btn btn-sm btn-danger btn-crud-delete">Törlés</a>
+                    <a href="{{ route('job-positions.edit', ['job_position' => $item]) }}" class="btn btn-sm btn-primary"><i class="fas fa-pencil"></i></a>
+                    <a href="#" data-action="{{ route('job-positions.destroy', ['job_position' => $item->id]) }}" class="btn btn-sm btn-danger btn-crud-delete"><i class="fas fa-trash"></i></a>
                 </td>
             </tr>
         @endforeach

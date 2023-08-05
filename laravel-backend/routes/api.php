@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PublicApi\ArticlesController;
 use App\Http\Controllers\PublicApi\HealthcheckController;
 use App\Http\Controllers\PublicApi\HomeController;
 use App\Http\Controllers\PublicApi\ReportController;
@@ -27,4 +28,9 @@ Route::get('/healthcheck', [HealthcheckController::class, 'status']);
 Route::prefix('report')->group(function () {
     Route::get('homepage', [ReportController::class, 'homepageStatistics']);
     Route::get('by-position', [ReportController::class, 'statisticByPosition']);
+});
+
+Route::prefix('articles')->group(function () {
+    Route::get('/', [ArticlesController::class, 'list']);
+    Route::get('/get', [ArticlesController::class, 'get']);
 });

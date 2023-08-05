@@ -74,7 +74,7 @@ class JobLevelsController extends Controller
         return redirect()->back();
     }
 
-    private function handleSave(JobLevelRequest $request, ?JobLevel $jobLevel = null): void
+    private function handleSave(JobLevelRequest $request, JobLevel $jobLevel = null): void
     {
         $request = [
             'name' => $request->validated('name'),

@@ -21,8 +21,8 @@
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->crawler }}</td>
                 <td>
-                    <a href="{{ route('scraper-keywords.edit', ['scraper_keyword' => $item]) }}" class="btn btn-sm btn-primary">Szerkesztés</a>
-                    <a href="#" data-action="{{ route('scraper-keywords.destroy', ['scraper_keyword' => $item->id]) }}" class="btn btn-sm btn-danger btn-crud-delete">Törlés</a>
+                    <a href="{{ route('scraper-keywords.edit', ['scraper_keyword' => $item]) }}" class="btn btn-sm btn-primary"><i class="fas fa-pencil"></i></a>
+                    <a href="#" data-action="{{ route('scraper-keywords.destroy', ['scraper_keyword' => $item->id]) }}" class="btn btn-sm btn-danger btn-crud-delete"><i class="fas fa-trash"></i></a>
                 </td>
             </tr>
         @endforeach

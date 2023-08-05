@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 
 use App\Models\JobListing;
-use App\Services\Parser\ReParserService;
 use App\Services\Scraper\ProfessionScraper;
 use Illuminate\Console\Command;
 

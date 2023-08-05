@@ -66,7 +66,7 @@ class HumanAdvertisementParser
     {
         $this->initParserData();
 
-        $locationParts = explode(" ", str_replace(',', '', mb_strtolower($location)));
+        $locationParts = explode(' ', str_replace(',', '', mb_strtolower($location)));
 
         foreach (self::$locations as $locationName => $locationId) {
             if (\in_array(mb_strtolower($locationName), $locationParts)) {

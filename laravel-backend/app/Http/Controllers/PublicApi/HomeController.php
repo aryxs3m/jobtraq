@@ -9,19 +9,22 @@ class HomeController extends BaseApiController
 {
     /**
      * @api {get} / API és környezeti információk lekérése
+     *
      * @apiName JobTraq
+     *
      * @apiGroup Rendszer
+     *
      * @apiVersion 0.1.0
      *
      * @apiSuccess {string} status
      * @apiSuccess {object} data
-     * @apiSuccess {object} data.system Alkalmazás információk
-     * @apiSuccess {string} data.system.name Alkalmazás neve
-     * @apiSuccess {string} data.system.version Alkalmazás verziószáma
-     * @apiSuccess {string} data.system.environment Alkalmazás környezete
-     * @apiSuccess {object} data.contact Kapcsolatfelvételi információk
-     * @apiSuccess {string} data.contact.author Fejlesztő neve
-     * @apiSuccess {string} data.contact.email Fejlesztő e-mail címe
+     * @apiSuccess {object} data.system alkalmazás információk
+     * @apiSuccess {string} data.system.name alkalmazás neve
+     * @apiSuccess {string} data.system.version alkalmazás verziószáma
+     * @apiSuccess {string} data.system.environment alkalmazás környezete
+     * @apiSuccess {object} data.contact kapcsolatfelvételi információk
+     * @apiSuccess {string} data.contact.author fejlesztő neve
+     * @apiSuccess {string} data.contact.email fejlesztő e-mail címe
      */
     public function index(): JsonResponse
     {

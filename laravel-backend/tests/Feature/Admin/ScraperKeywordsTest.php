@@ -56,7 +56,7 @@ class ScraperKeywordsTest extends TestCase
         /** @var CrawlerKeyword $scraperKeyword */
         $scraperKeyword = CrawlerKeyword::factory()->create();
 
-        $response = $this->actingAs($user)->get("/scraper-keywords");
+        $response = $this->actingAs($user)->get('/scraper-keywords');
         $response->assertStatus(200);
         $response->assertSee($scraperKeyword->id);
         $response->assertSee($scraperKeyword->crawler);

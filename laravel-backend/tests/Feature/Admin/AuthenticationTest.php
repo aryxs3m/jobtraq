@@ -26,7 +26,7 @@ class AuthenticationTest extends TestCase
         // User from seeder
         $response = $this->post('/login', [
             'email' => 'test@jobtraq.hu',
-            'password' => 'test-user-123'
+            'password' => 'test-user-123',
         ]);
 
         $response->assertStatus(302);
@@ -41,7 +41,7 @@ class AuthenticationTest extends TestCase
     {
         $response = $this->post('/login', [
             'email' => 'invalid@invalid.com',
-            'password' => 'invalid'
+            'password' => 'invalid',
         ]);
 
         $response->assertStatus(302);

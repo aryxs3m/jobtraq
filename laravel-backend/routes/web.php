@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ArticlesController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Data\CountriesController;
 use App\Http\Controllers\Admin\Data\LocationsController;
@@ -21,6 +22,7 @@ Route::middleware('auth')->group(function () {
         'job-stacks' => JobStacksController::class,
         'data/countries' => CountriesController::class,
         'data/locations' => LocationsController::class,
+        'articles' => ArticlesController::class,
     ]);
 
     Route::prefix('job-level-order')->name('job-level-order.')->group(function () {

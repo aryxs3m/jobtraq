@@ -32,10 +32,10 @@ class Handler extends ExceptionHandler
         $this->renderable(function (ValidationException $throwable, Request $request) {
             if ($request->is('api/*')) {
                 return response()->json([
-                    'success' => 'fail',
+                    'status' => 'fail',
                     'data' => [
                         'message' => $throwable->getMessage(),
-                    ]
+                    ],
                 ], 200);
             }
         });
@@ -43,7 +43,7 @@ class Handler extends ExceptionHandler
         $this->renderable(function (Throwable $throwable, Request $request) {
             if ($request->is('api/*')) {
                 return response()->json([
-                    'success' => 'error',
+                    'status' => 'error',
                     'message' => $throwable->getMessage(),
                 ], 200);
             }

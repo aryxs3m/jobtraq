@@ -10,7 +10,6 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 
 class JobStacksController extends Controller
 {
@@ -58,7 +57,7 @@ class JobStacksController extends Controller
         return redirect()->back();
     }
 
-    private function handleSave(JobStackRequest $request, ?JobStack $jobStack = null): void
+    private function handleSave(JobStackRequest $request, JobStack $jobStack = null): void
     {
         $data = [
             'name' => $request->validated('name'),

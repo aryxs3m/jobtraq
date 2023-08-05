@@ -21,8 +21,8 @@
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->location }}</td>
                 <td>
-                    <a href="{{ route('locations.edit', ['location' => $item]) }}" class="btn btn-sm btn-primary">Szerkesztés</a>
-                    <a href="#" data-action="{{ route('locations.destroy', ['location' => $item->id]) }}" class="btn btn-sm btn-danger btn-crud-delete">Törlés</a>
+                    <a href="{{ route('locations.edit', ['location' => $item]) }}" class="btn btn-sm btn-primary"><i class="fas fa-pencil"></i></a>
+                    <a href="#" data-action="{{ route('locations.destroy', ['location' => $item->id]) }}" class="btn btn-sm btn-danger btn-crud-delete"><i class="fas fa-trash"></i></a>
                 </td>
             </tr>
         @endforeach

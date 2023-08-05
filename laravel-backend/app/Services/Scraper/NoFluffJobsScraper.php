@@ -33,7 +33,6 @@ class NoFluffJobsScraper extends BaseJobListingScraper
                         $listing->setCategory(
                             $this->advertisementParser->parseJobTitle($listing->getPosition()));
 
-
                         $listings[] = $listing;
                     } catch (\Throwable $throwable) {
                         $this->logError($throwable);
