@@ -8,6 +8,7 @@ export const environment = {
   domain: 'localhost',
   api_url: 'http://localhost/api/',
   launchDate: "2023-08-01",
+  discord_join_link: 'https://discord.gg/FquPDzetRC'
 };
 
 /*

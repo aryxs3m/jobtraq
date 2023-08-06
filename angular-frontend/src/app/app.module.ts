@@ -39,6 +39,7 @@ import { NewsCardComponent } from './news-block/news-card/news-card.component';
 import { NewsPageComponent } from './news-page/news-page.component';
 import { SkeletonNewsCardComponent } from './news-block/skeleton-news-card/skeleton-news-card.component';
 import {NgxSkeletonLoaderModule} from "ngx-skeleton-loader";
+import { CtaDiscordComponent } from './home-page/cta-discord/cta-discord.component';
 registerLocaleData(localeHu, 'hu');
 
 const cookieConfig:NgcCookieConsentConfig = {
@@ -97,6 +98,7 @@ const cookieConfig:NgcCookieConsentConfig = {
     NewsCardComponent,
     NewsPageComponent,
     SkeletonNewsCardComponent,
+    CtaDiscordComponent,
   ],
   imports: [
     CommonModule,

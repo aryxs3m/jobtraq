@@ -1,9 +1,6 @@
 <app-no-data-info [visible]="!isReady"></app-no-data-info>
 
 <div class="container mt-3" *ngIf="isReady">
-
-  <app-news-block></app-news-block>
-
   <!-- Keresett területek -->
   <div class="row chart-row">
     <div class="col m-auto">
@@ -79,6 +76,10 @@
 
   <!-- Stackenkénti chart -->
   <app-stack-salary-chart *ngIf="!loading" [barStack]="barStack" [colorScheme]="colorScheme"></app-stack-salary-chart>
-
-
 </div>
+
+<div class="container mt-4 mb-4">
+  <app-news-block></app-news-block>
+</div>
+
+<app-cta-discord></app-cta-discord>
