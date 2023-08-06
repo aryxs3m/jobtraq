@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card news-card">
     <img [src]="newsBlock.image_url" class="card-img-top" alt="{{ newsBlock.title }} illustration">
     <div class="card-body">
         <div class="card-title d-flex flex-row justify-content-between">
@@ -7,7 +7,7 @@
         </div>
         <p class="card-text">{{ newsBlock.introduction }}</p>
         <p class="small mb-0">
-          <a [routerLink]="articleLink" class="stretched-link">Tovább olvasom</a>
+          <a [routerLink]="articleLink" class="stretched-link">Tovább olvasom<span class="arrow"> ›</span></a>
         </p>
     </div>
 </div>

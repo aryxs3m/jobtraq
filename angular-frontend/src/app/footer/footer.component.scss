@@ -17,6 +17,7 @@
   cursor: pointer;
 
   &:before {
+    will-change: transform;
     display: inline-block;
     content: '› ';
     opacity: 0;

@@ -1,0 +1,36 @@
+.news-card {
+  transition: all 0.3s;
+  overflow: hidden;
+  will-change: transform;
+
+  a {
+    text-decoration: none;
+    color: black;
+    transition: all 0.3s;
+
+    // :after does not work because Bootstrap's stretched-link uses position:absolute.
+    // if you have a better idea feel free to open a pull request :)
+    .arrow {
+      will-change: transform;
+      display: inline-block;
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: all 0.3s;
+      color: #12e773;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.02);
+    border-color: #12e773;
+
+    a {
+      color: #12e773;
+
+      .arrow {
+        opacity: 1;
+        transform: translateX(5px);
+      }
+    }
+  }
+}
