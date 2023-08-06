@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { LoaderService } from "../loader.service";
 import {SearchService} from "../search.service";
 import {NavigationStart, Router} from "@angular/router";
-import {faGithub} from "@fortawesome/free-brands-svg-icons";
+import {faDiscord, faGithub} from "@fortawesome/free-brands-svg-icons";
 import {environment} from "../../environments/environment";
 import * as moment from 'moment';
 
@@ -35,4 +35,7 @@ export class NavbarComponent {
   toggleMenu() {
     this.collapsed = !this.collapsed;
   }
+
+  protected readonly faDiscord = faDiscord;
+  protected readonly environment = environment;
 }

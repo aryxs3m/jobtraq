@@ -23,10 +23,15 @@
           <input id="nav-input-search" class="form-control me-2" type="date" placeholder="Szűrés napra" aria-label="Szűrés napra"
                  [value]="search.getDate()" (change)="setDate($event)" min="{{ launchDate }}" max="{{ todayDate }}">
         </form>
-        <ul class="navbar-nav smb-2 mb-md-0">
+        <ul class="navbar-nav smb-2 mt-3 mt-md-0 mb-md-0">
           <li class="nav-item">
             <a class="nav-link" id="nav-link-github" target="_blank" href="https://github.com/aryxs3m/jobtraq">
               <fa-icon [icon]="faGithub"></fa-icon><span class="d-md-none ms-2">GitHub</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="nav-link-discord" target="_blank" [href]="environment.discord_join_link">
+              <fa-icon [icon]="faDiscord"></fa-icon><span class="d-md-none ms-2">Discord</span>
             </a>
           </li>
         </ul>
