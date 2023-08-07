@@ -18,7 +18,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $id
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\JobStack> $stacks
  * @property-read int|null $stacks_count
- *
  * @method static \Illuminate\Database\Eloquent\Builder|JobPosition newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|JobPosition newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|JobPosition query()
@@ -27,7 +26,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static \Illuminate\Database\Eloquent\Builder|JobPosition whereKeywords($value)
  * @method static \Illuminate\Database\Eloquent\Builder|JobPosition whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|JobPosition whereUpdatedAt($value)
- *
  * @mixin \Eloquent
  */
 class JobPosition extends Model

@@ -51,6 +51,7 @@ class ScraperManager
     {
         foreach ($listings as $listing) {
             JobListing::query()->create([
+                'external_id' => $listing->getExternalId(),
                 'name' => $listing->getPosition(),
                 'salary_low' => $listing->getSalaryLow(),
                 'salary_high' => $listing->getSalaryHigh(),

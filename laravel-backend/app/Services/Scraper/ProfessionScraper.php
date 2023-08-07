@@ -4,6 +4,7 @@ namespace App\Services\Scraper;
 
 use App\Services\Scraper\DTOs\Listing;
 use App\Services\Scraper\DTOs\SalaryType;
+use simplehtmldom\simple_html_dom_node;
 
 class ProfessionScraper extends BaseJobListingScraper
 {
@@ -18,6 +19,7 @@ class ProfessionScraper extends BaseJobListingScraper
             $html = $this->downloadPage("https://www.profession.hu/allasok/{$page},0,0,{$type}%401%401,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,15?keywordsearch");
 
             try {
+                /** @var simple_html_dom_node $postingListItem */
                 foreach ($html->find('.job-cards li') as $postingListItem) {
                     try {
                         $position = $postingListItem->find('.job-card__title', 0)->plaintext;
@@ -27,6 +29,7 @@ class ProfessionScraper extends BaseJobListingScraper
                         ));
 
                         $listing = new Listing();
+                        $listing->setExternalId($postingListItem->getAttribute('id'));
                         $listing->setPosition($position);
                         $listing->setLocation($location);
                         $listing->setLocationId($this->advertisementParser->parseJobLocation($location));
@@ -49,6 +52,9 @@ class ProfessionScraper extends BaseJobListingScraper
         return $listings;
     }
 
+    /**
+     * @throws \Exception
+     */
     private function setSalary(Listing $listing, string $salaryRawText): void
     {
         $salaryParts = explode(' ', trim($salaryRawText));
@@ -58,13 +64,20 @@ class ProfessionScraper extends BaseJobListingScraper
             $salaryLow = $salaryParts[1];
             $salaryHigh = $salaryParts[3];
             $salaryCurrency = $salaryParts[4];
-        } else {
+        } elseif (count($salaryParts) == 3) {
+            $salaryType = $salaryParts[0];
+            $salaryLow = $salaryParts[1];
+            $salaryHigh = $salaryParts[1];
+            $salaryCurrency = $salaryParts[2];
+        } elseif (count($salaryParts) >= 4) {
             $salaryType = $salaryParts[0];
             $salaryCurrency = $salaryParts[3];
 
             preg_match_all('/[0-9]+/', $salaryRawText, $matches);
             $salaryLow = implode('', $matches[0]);
             $salaryHigh = implode('', $matches[0]);
+        } else {
+            throw new \Exception(sprintf('Unknown salary format. Raw value: %s', $salaryRawText));
         }
 
         switch ($salaryType) {

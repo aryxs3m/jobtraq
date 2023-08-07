@@ -18,7 +18,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\JobListing> $jobListings
  * @property-read int|null $job_listings_count
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Location newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Location newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Location query()
@@ -27,7 +26,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Location whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Location whereLocation($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Location whereUpdatedAt($value)
- *
  * @mixin \Eloquent
  */
 class Location extends Model

@@ -24,6 +24,8 @@ class Listing
 
     private int $locationId;
 
+    private string $externalId;
+
     public function getPosition(): string
     {
         return $this->position;
@@ -122,5 +124,21 @@ class Listing
     public function setLocationId(int $locationId): void
     {
         $this->locationId = $locationId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getExternalId(): string
+    {
+        return $this->externalId;
+    }
+
+    /**
+     * @param string $externalId
+     */
+    public function setExternalId(string $externalId): void
+    {
+        $this->externalId = $externalId;
     }
 }

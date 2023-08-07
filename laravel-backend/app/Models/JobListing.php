@@ -27,7 +27,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $stack JobStack neve stringként
  * @property string $crawler Scraper class
  * @property int $id
- *
  * @method static \Database\Factories\JobListingFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|JobListing newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|JobListing newQuery()
@@ -47,7 +46,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|JobListing whereSalaryType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|JobListing whereStack($value)
  * @method static \Illuminate\Database\Eloquent\Builder|JobListing whereUpdatedAt($value)
- *
+ * @property string $external_id
+ * @method static \Illuminate\Database\Eloquent\Builder|JobListing whereExternalId($value)
  * @mixin \Eloquent
  */
 class JobListing extends Model
@@ -56,7 +56,7 @@ class JobListing extends Model
 
     protected $fillable = [
         'name', 'salary_type', 'salary_low', 'salary_high', 'salary_currency', 'original_location', 'level', 'position',
-        'stack', 'crawler', 'location_id',
+        'stack', 'crawler', 'location_id', 'external_id',
     ];
 
     protected $casts = [

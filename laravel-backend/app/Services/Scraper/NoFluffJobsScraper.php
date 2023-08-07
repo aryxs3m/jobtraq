@@ -4,6 +4,7 @@ namespace App\Services\Scraper;
 
 use App\Services\Scraper\DTOs\Listing;
 use App\Services\Scraper\DTOs\SalaryType;
+use simplehtmldom\simple_html_dom_node;
 
 class NoFluffJobsScraper extends BaseJobListingScraper
 {
@@ -18,10 +19,12 @@ class NoFluffJobsScraper extends BaseJobListingScraper
             $html = $this->downloadPage("https://nofluffjobs.com/hu/{$type}?page={$page}");
 
             try {
+                /** @var simple_html_dom_node $postingListItem */
                 foreach ($html->find('.posting-list-item') as $postingListItem) {
                     try {
                         $listing = new Listing();
                         $listing->setPosition($postingListItem->find('.posting-title__position', 0)->plaintext);
+                        $listing->setExternalId($postingListItem->getAttribute('href'));
 
                         $salaryRaw = $postingListItem->find('.salary', 0)->plaintext;
                         $this->setSalary($listing, $salaryRaw);
