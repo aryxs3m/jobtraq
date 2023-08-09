@@ -108,4 +108,12 @@ export class HomePageComponent implements OnInit {
   }
 
   protected readonly faExclamationTriangle = faExclamationTriangle;
+
+  formatterPiece(value: any) {
+    return `${value} db`;
+  }
+
+  formatterWeek(value: any) {
+    return `${value}. hét`;
+  }
 }

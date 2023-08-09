@@ -41,7 +41,11 @@
         [results]="barOpenPositions"
         xAxis="true"
         yAxis="true"
-        [scheme]="colorScheme">
+        [scheme]="colorScheme"
+        [dataLabelFormatting]="formatterPiece"
+        [xAxisTickFormatting]="formatterWeek"
+        [yAxisTickFormatting]="formatterPiece"
+      >
       </ngx-charts-bar-vertical>
     </div>
   </div>

@@ -59,7 +59,9 @@ class PublicReporter
     public function getJobsCountByWeek(): Collection
     {
         return DB::table('job_listings')
-            ->select(DB::raw('WEEK(job_listings.created_at, 7) AS name'), DB::raw('COUNT(1) AS value'))
+            ->select(
+                DB::raw('WEEK(job_listings.created_at, 7) AS name'),
+                DB::raw('COUNT(DISTINCT job_listings.external_id) AS value'))
             ->leftJoin('locations', 'locations.id', '=', 'job_listings.location_id')
             ->whereRaw("position IS NOT NULL AND level IS NOT NULL AND salary_currency IN ('HUF', 'Ft/hó')")
             ->whereRaw('locations.country_id = :countryId', ['countryId' => $this->getCountryId()])
