@@ -15,7 +15,7 @@ class NoFluffJobsScraper extends BaseJobListingScraper
 
         $maxPages = 5;
 
-        for ($page = 1; $page <= $maxPages; $page++) {
+        for ($page = 1; $page <= $maxPages; ++$page) {
             $html = $this->downloadPage("https://nofluffjobs.com/hu/{$type}?page={$page}");
 
             try {

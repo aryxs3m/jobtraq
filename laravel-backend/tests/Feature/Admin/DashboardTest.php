@@ -14,7 +14,7 @@ class DashboardTest extends TestCase
         $this->artisan('db:seed');
     }
 
-    public function test_can_get_dashboard(): void
+    public function testCanGetDashboard(): void
     {
         $user = User::factory()->make();
         $response = $this->actingAs($user)->get('/');

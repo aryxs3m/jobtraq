@@ -15,7 +15,7 @@ class ProfessionScraper extends BaseJobListingScraper
 
         $maxPages = 5;
 
-        for ($page = 1; $page <= $maxPages; $page++) {
+        for ($page = 1; $page <= $maxPages; ++$page) {
             $html = $this->downloadPage("https://www.profession.hu/allasok/{$page},0,0,{$type}%401%401,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,15?keywordsearch");
 
             try {
@@ -64,7 +64,7 @@ class ProfessionScraper extends BaseJobListingScraper
             $salaryLow = $salaryParts[1];
             $salaryHigh = $salaryParts[3];
             $salaryCurrency = $salaryParts[4];
-        } elseif (count($salaryParts) == 3) {
+        } elseif (3 == count($salaryParts)) {
             $salaryType = $salaryParts[0];
             $salaryLow = $salaryParts[1];
             $salaryHigh = $salaryParts[1];

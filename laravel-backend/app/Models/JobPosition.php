@@ -8,16 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * App\Models\JobPosition
+ * App\Models\JobPosition.
  *
- * @property Carbon $created_at létrehozási idő
- * @property Carbon $updated_at frissítési idő
- * @property string $name pozíció neve (pl. backend, frontend)
- * @property array $keywords kulcsszavak, amik alapján kikereshető címből
- * @property int $order sorrend
- * @property int $id
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\JobStack> $stacks
- * @property-read int|null $stacks_count
+ * @property Carbon                                                              $created_at   létrehozási idő
+ * @property Carbon                                                              $updated_at   frissítési idő
+ * @property string                                                              $name         pozíció neve (pl. backend, frontend)
+ * @property array                                                               $keywords     kulcsszavak, amik alapján kikereshető címből
+ * @property int                                                                 $order        sorrend
+ * @property int                                                                 $id
+ * @property \Illuminate\Database\Eloquent\Collection<int, \App\Models\JobStack> $stacks
+ * @property int|null                                                            $stacks_count
  *
  * @method static \Illuminate\Database\Eloquent\Builder|JobPosition newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|JobPosition newQuery()

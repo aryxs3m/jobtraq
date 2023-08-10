@@ -45,7 +45,7 @@ class ScraperManager
     }
 
     /**
-     * @param  Listing[]  $listings
+     * @param Listing[] $listings
      */
     private function saveListings(string $crawler, array $listings): void
     {

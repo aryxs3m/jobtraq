@@ -92,7 +92,7 @@ class PublicReporter
     /**
      * Átlagos fizetések szintenként egy megadott munkakörre.
      *
-     * @param  string  $position munkakör
+     * @param string $position munkakör
      */
     public function getAverageSalariesByLevels(string $position): Collection
     {

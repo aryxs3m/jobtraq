@@ -15,7 +15,7 @@ class ScraperKeywordsTest extends TestCase
         $this->artisan('db:seed');
     }
 
-    public function test_can_create_new_scraper_keyword(): void
+    public function testCanCreateNewScraperKeyword(): void
     {
         $user = User::factory()->make();
         $this->actingAs($user)->post('/scraper-keywords', [
@@ -28,7 +28,7 @@ class ScraperKeywordsTest extends TestCase
         ]);
     }
 
-    public function test_can_edit_scraper_keyword(): void
+    public function testCanEditScraperKeyword(): void
     {
         $user = User::factory()->make();
 
@@ -49,7 +49,7 @@ class ScraperKeywordsTest extends TestCase
         ]);
     }
 
-    public function test_can_show_scraper_keyword(): void
+    public function testCanShowScraperKeyword(): void
     {
         $user = User::factory()->make();
 

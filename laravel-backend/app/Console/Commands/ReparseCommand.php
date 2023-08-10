@@ -45,7 +45,7 @@ class ReparseCommand extends Command
                 $listings->each(function (JobListing $listing) use (&$count) {
                     $this->output->writeln(sprintf('Reparsing %s...', $listing->id));
                     $this->reParserService->reparse($listing);
-                    $count++;
+                    ++$count;
                 });
             });
 

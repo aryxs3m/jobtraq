@@ -15,7 +15,7 @@ class ScraperLogsDataTable extends DataTable
     /**
      * Build the DataTable class.
      *
-     * @param  QueryBuilder  $query Results from query() method.
+     * @param QueryBuilder $query results from query() method
      */
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
@@ -45,7 +45,7 @@ class ScraperLogsDataTable extends DataTable
             ->setTableId('scraperlogs-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-                    //->dom('Bfrtip')
+                    // ->dom('Bfrtip')
             ->orderBy(1)
             ->selectStyleSingle()
             ->buttons([

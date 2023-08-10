@@ -7,17 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
 /**
- * App\Models\Image
+ * App\Models\Image.
  *
- * @property int $id
+ * @property int                             $id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property string $filename
- * @property string $mime
- * @property int $size
- * @property string $path
- * @property string $url;
- * @property string $external_url;
+ * @property string                          $filename
+ * @property string                          $mime
+ * @property int                             $size
+ * @property string                          $path
+ * @property string                          $url;
+ * @property string                          $external_url;
  *
  * @method static \Illuminate\Database\Eloquent\Builder|Image newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Image newQuery()

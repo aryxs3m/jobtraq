@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * App\Models\Country
+ * App\Models\Country.
  *
- * @property int $id
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property string $name
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Location> $locations
- * @property-read int|null $locations_count
+ * @property int                                                                 $id
+ * @property \Illuminate\Support\Carbon|null                                     $created_at
+ * @property \Illuminate\Support\Carbon|null                                     $updated_at
+ * @property string                                                              $name
+ * @property \Illuminate\Database\Eloquent\Collection<int, \App\Models\Location> $locations
+ * @property int|null                                                            $locations_count
  *
  * @method static \Illuminate\Database\Eloquent\Builder|Country newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Country newQuery()

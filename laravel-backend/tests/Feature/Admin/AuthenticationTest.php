@@ -13,7 +13,7 @@ class AuthenticationTest extends TestCase
         $this->artisan('db:seed');
     }
 
-    public function test_redirect_to_login_when_not_authenticated(): void
+    public function testRedirectToLoginWhenNotAuthenticated(): void
     {
         $response = $this->get('/');
 
@@ -21,7 +21,7 @@ class AuthenticationTest extends TestCase
         $response->assertRedirect('/login');
     }
 
-    public function test_can_logon_with_valid_credentials(): void
+    public function testCanLogonWithValidCredentials(): void
     {
         // User from seeder
         $response = $this->post('/login', [
@@ -37,7 +37,7 @@ class AuthenticationTest extends TestCase
         $response->assertSee('Dashboard');
     }
 
-    public function test_cannot_logon_with_invalid_credentials(): void
+    public function testCannotLogonWithInvalidCredentials(): void
     {
         $response = $this->post('/login', [
             'email' => 'invalid@invalid.com',
@@ -51,7 +51,7 @@ class AuthenticationTest extends TestCase
         $response->assertRedirect('/login');
     }
 
-    public function test_can_logout(): void
+    public function testCanLogout(): void
     {
         $this->test_can_logon_with_valid_credentials();
 

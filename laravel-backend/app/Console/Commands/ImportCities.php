@@ -50,7 +50,7 @@ class ImportCities extends Command
                 ));
             }
 
-            $count++;
+            ++$count;
         }
 
         $this->output->success(sprintf('Imported %s cities.', $count));

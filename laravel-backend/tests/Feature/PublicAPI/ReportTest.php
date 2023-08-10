@@ -13,9 +13,9 @@ class ReportTest extends TestCase
         $this->artisan('db:seed');
     }
 
-    public function test_cat_get_homepage_report(): void
+    public function testCatGetHomepageReport(): void
     {
-        if (config('database.default') === 'sqlite') {
+        if ('sqlite' === config('database.default')) {
             $this->markTestSkipped('SQLite not supported.');
         }
 

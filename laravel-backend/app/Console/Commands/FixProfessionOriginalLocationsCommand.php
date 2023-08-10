@@ -35,7 +35,7 @@ class FixProfessionOriginalLocationsCommand extends Command
                 $listings->each(function (JobListing $listing) use (&$count) {
                     $listing->original_location = html_entity_decode($listing->original_location);
                     $listing->save();
-                    $count++;
+                    ++$count;
                 });
             });
 

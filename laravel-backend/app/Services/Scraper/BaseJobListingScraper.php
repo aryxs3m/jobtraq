@@ -15,7 +15,7 @@ abstract class BaseJobListingScraper implements JobListingScraperInterface
     public function __construct(HumanAdvertisementParser $advertisementParser)
     {
         // Limit for HTML DOM parsing
-        if (! defined('MAX_FILE_SIZE')) {
+        if (!defined('MAX_FILE_SIZE')) {
             define('MAX_FILE_SIZE', 6000000);
         }
 

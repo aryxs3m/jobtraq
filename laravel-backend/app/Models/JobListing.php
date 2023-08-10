@@ -9,26 +9,26 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * App\Models\JobListing
+ * App\Models\JobListing.
  *
- * @property Carbon $created_at létrehozási idő
- * @property Carbon $updated_at frissítési idő
- * @property string $name a hirdetés teljes, eredeti neve
- * @property SalaryType $salary_type fizetés típusa
- * @property int $salary_low fizetési sáv alja
- * @property int $salary_high fizetési sáv teteje
- * @property int $salary_avg átlagfizetés (fizetési sáv aljából és tetejéből számítva)
- * @property int $salary_currency deviza
- * @property string $original_location munkavégzés helye
- * @property Location $location munkavégzés helye
- * @property int $location_id munkavégzés helyének azonosítója
- * @property string $level JobLevel neve stringként
- * @property string $position JobPosition neve stringként
- * @property string $stack JobStack neve stringként
- * @property string $crawler Scraper class
- * @property int $id
+ * @property Carbon     $created_at        létrehozási idő
+ * @property Carbon     $updated_at        frissítési idő
+ * @property string     $name              a hirdetés teljes, eredeti neve
+ * @property SalaryType $salary_type       fizetés típusa
+ * @property int        $salary_low        fizetési sáv alja
+ * @property int        $salary_high       fizetési sáv teteje
+ * @property int        $salary_avg        átlagfizetés (fizetési sáv aljából és tetejéből számítva)
+ * @property int        $salary_currency   deviza
+ * @property string     $original_location munkavégzés helye
+ * @property Location   $location          munkavégzés helye
+ * @property int        $location_id       munkavégzés helyének azonosítója
+ * @property string     $level             JobLevel neve stringként
+ * @property string     $position          JobPosition neve stringként
+ * @property string     $stack             JobStack neve stringként
+ * @property string     $crawler           Scraper class
+ * @property int        $id
  *
- * @method static \Database\Factories\JobListingFactory factory($count = null, $state = [])
+ * @method static \Database\Factories\JobListingFactory            factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|JobListing newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|JobListing newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|JobListing query()

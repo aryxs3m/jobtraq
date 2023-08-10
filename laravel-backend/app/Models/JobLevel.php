@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\JobLevel
+ * App\Models\JobLevel.
  *
  * @property Carbon $created_at létrehozási idő
  * @property Carbon $updated_at frissítési idő
- * @property string $name pozíció neve (pl. backend, frontend)
- * @property array $keywords kulcsszavak, amik alapján kikereshető címből
- * @property int   $order sorrend
- * @property int $id
+ * @property string $name       pozíció neve (pl. backend, frontend)
+ * @property array  $keywords   kulcsszavak, amik alapján kikereshető címből
+ * @property int    $order      sorrend
+ * @property int    $id
  *
  * @method static \Illuminate\Database\Eloquent\Builder|JobLevel newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|JobLevel newQuery()

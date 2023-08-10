@@ -14,7 +14,7 @@ class JobListingsDataTable extends DataTable
     /**
      * Build the DataTable class.
      *
-     * @param  QueryBuilder  $query Results from query() method.
+     * @param QueryBuilder $query results from query() method
      */
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {

@@ -16,7 +16,7 @@ class JobCategory
     }
 
     /**
-     * @param  string  $position
+     * @param string $position
      */
     public function setPosition(?string $position): void
     {

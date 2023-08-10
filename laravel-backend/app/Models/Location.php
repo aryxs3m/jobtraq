@@ -8,16 +8,16 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * App\Models\Location
+ * App\Models\Location.
  *
- * @property string  $location    város vagy hely megnevezés
- * @property int $country_id  ország azonosítója
- * @property Country $country     ország
- * @property int $id
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\JobListing> $jobListings
- * @property-read int|null $job_listings_count
+ * @property string                                                                $location           város vagy hely megnevezés
+ * @property int                                                                   $country_id         ország azonosítója
+ * @property Country                                                               $country            ország
+ * @property int                                                                   $id
+ * @property \Illuminate\Support\Carbon|null                                       $created_at
+ * @property \Illuminate\Support\Carbon|null                                       $updated_at
+ * @property \Illuminate\Database\Eloquent\Collection<int, \App\Models\JobListing> $jobListings
+ * @property int|null                                                              $job_listings_count
  *
  * @method static \Illuminate\Database\Eloquent\Builder|Location newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Location newQuery()

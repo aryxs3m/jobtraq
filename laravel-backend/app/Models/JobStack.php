@@ -8,15 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * App\Models\JobStack
+ * App\Models\JobStack.
  *
- * @property Carbon $created_at létrehozási idő
- * @property Carbon $updated_at frissítési idő
- * @property string $name pozíció neve (pl. backend, frontend)
- * @property array $keywords kulcsszavak, amik alapján kikereshető címből
- * @property int $job_position_id kapcsolódó pozíció azonosítója
- * @property JobPosition $jobPosition kapcsolódó pozíció
- * @property int $id
+ * @property Carbon      $created_at      létrehozási idő
+ * @property Carbon      $updated_at      frissítési idő
+ * @property string      $name            pozíció neve (pl. backend, frontend)
+ * @property array       $keywords        kulcsszavak, amik alapján kikereshető címből
+ * @property int         $job_position_id kapcsolódó pozíció azonosítója
+ * @property JobPosition $jobPosition     kapcsolódó pozíció
+ * @property int         $id
  *
  * @method static \Illuminate\Database\Eloquent\Builder|JobStack newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|JobStack newQuery()

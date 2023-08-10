@@ -16,7 +16,7 @@ class HealthcheckTest extends TestCase
         $this->artisan('db:seed');
     }
 
-    public function test_can_get_healthcheck_endpoint(): void
+    public function testCanGetHealthcheckEndpoint(): void
     {
         $response = $this->get('/api/healthcheck');
 
@@ -26,7 +26,7 @@ class HealthcheckTest extends TestCase
         ]);
     }
 
-    public function test_frontend_and_backend_is_true(): void
+    public function testFrontendAndBackendIsTrue(): void
     {
         $response = $this->get('/api/healthcheck');
 
@@ -39,7 +39,7 @@ class HealthcheckTest extends TestCase
         ]);
     }
 
-    public function test_scrapers_are_failing_the_healthcheck_when_no_data(): void
+    public function testScrapersAreFailingTheHealthcheckWhenNoData(): void
     {
         $response = $this->get('/api/healthcheck');
 
@@ -60,7 +60,7 @@ class HealthcheckTest extends TestCase
         ]);
     }
 
-    public function test_scrapers_are_ok_when_there_is_data(): void
+    public function testScrapersAreOkWhenThereIsData(): void
     {
         JobListing::factory()->noFluffJobs()->create();
         JobListing::factory()->profession()->create();

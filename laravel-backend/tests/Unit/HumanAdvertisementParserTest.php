@@ -14,57 +14,57 @@ class HumanAdvertisementParserTest extends TestCase
         $this->artisan('db:seed');
     }
 
-    public function test_advertisement_parser_can_parse_levels(): void
+    public function testAdvertisementParserCanParseLevels(): void
     {
         /** @var HumanAdvertisementParser $advertisementParser */
         $advertisementParser = app(HumanAdvertisementParser::class);
 
         $jobCategory = $advertisementParser->parseJobTitle('Junior PHP Developer');
-        $this->assertTrue($jobCategory->getLevel() === 'junior');
+        $this->assertTrue('junior' === $jobCategory->getLevel());
 
         $jobCategory = $advertisementParser->parseJobTitle('Senior Java Backend Developer');
-        $this->assertTrue($jobCategory->getLevel() === 'senior');
+        $this->assertTrue('senior' === $jobCategory->getLevel());
 
         $jobCategory = $advertisementParser->parseJobTitle('Lead Data Engineer (Python)');
-        $this->assertTrue($jobCategory->getLevel() === 'lead');
+        $this->assertTrue('lead' === $jobCategory->getLevel());
     }
 
-    public function test_advertisement_parser_can_parse_stack(): void
+    public function testAdvertisementParserCanParseStack(): void
     {
         /** @var HumanAdvertisementParser $advertisementParser */
         $advertisementParser = app(HumanAdvertisementParser::class);
 
         $jobCategory = $advertisementParser->parseJobTitle('Junior PHP Developer');
-        $this->assertTrue($jobCategory->getStack() === 'php');
+        $this->assertTrue('php' === $jobCategory->getStack());
 
         $jobCategory = $advertisementParser->parseJobTitle('Senior Java Backend Developer');
-        $this->assertTrue($jobCategory->getStack() === 'java');
+        $this->assertTrue('java' === $jobCategory->getStack());
 
         $jobCategory = $advertisementParser->parseJobTitle('Lead Data Engineer (Python)');
-        $this->assertTrue($jobCategory->getStack() === 'python');
+        $this->assertTrue('python' === $jobCategory->getStack());
     }
 
-    public function test_advertisement_parser_can_parse_position(): void
+    public function testAdvertisementParserCanParsePosition(): void
     {
         /** @var HumanAdvertisementParser $advertisementParser */
         $advertisementParser = app(HumanAdvertisementParser::class);
 
         $jobCategory = $advertisementParser->parseJobTitle('Junior Full-Stack PHP Developer');
-        $this->assertTrue($jobCategory->getPosition() === 'full-stack');
+        $this->assertTrue('full-stack' === $jobCategory->getPosition());
 
         $jobCategory = $advertisementParser->parseJobTitle('Senior Java Backend Developer');
-        $this->assertTrue($jobCategory->getPosition() === 'backend');
+        $this->assertTrue('backend' === $jobCategory->getPosition());
 
         $jobCategory = $advertisementParser->parseJobTitle('Lead Data Engineer (Python)');
-        $this->assertTrue($jobCategory->getPosition() === 'data');
+        $this->assertTrue('data' === $jobCategory->getPosition());
     }
 
-    public function test_advertisement_parser_can_get_fallback_position(): void
+    public function testAdvertisementParserCanGetFallbackPosition(): void
     {
         /** @var HumanAdvertisementParser $advertisementParser */
         $advertisementParser = app(HumanAdvertisementParser::class);
 
         $jobCategory = $advertisementParser->parseJobTitle('Junior PHP Developer');
-        $this->assertTrue($jobCategory->getPosition() === 'backend');
+        $this->assertTrue('backend' === $jobCategory->getPosition());
     }
 }
