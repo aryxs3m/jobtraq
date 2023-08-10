@@ -15,6 +15,10 @@ class ReportTest extends TestCase
 
     public function test_cat_get_homepage_report(): void
     {
+        if (config('database.default') === 'sqlite') {
+            $this->markTestSkipped('SQLite not supported.');
+        }
+
         $response = $this->get('/api/report/homepage');
 
         $response->assertStatus(200);
