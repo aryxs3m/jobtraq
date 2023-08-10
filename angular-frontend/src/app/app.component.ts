@@ -5,6 +5,7 @@ import {CookieService} from "ngx-cookie-service";
 import {Subscription} from "rxjs";
 import {environment} from "../environments/environment";
 import {Meta} from "@angular/platform-browser";
+import {UpdateService} from "./update.service";
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ export class AppComponent {
   private statusChangeSubscription!: Subscription;
 
   constructor(private ccService: NgcCookieConsentService, private _ga4 : NgxGa4Service,
-              private cookieService: CookieService, private meta: Meta){
+              private cookieService: CookieService, private meta: Meta, private update: UpdateService){
     meta.addTags([
       { name: 'description', content: 'A JobTraq naponta frissülő kimutatást készít az álláshirdetésekről, hogy megmutassa a különböző IT munkakörök iránti keresletet és fizetési sávokat.'},
       { name: "og:image", content: "https://" + environment.domain + "/assets/og-image.jpg" },
