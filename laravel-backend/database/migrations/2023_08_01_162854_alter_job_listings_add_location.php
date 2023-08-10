@@ -15,12 +15,17 @@ return new class extends Migration
         Schema::table('job_listings', function (Blueprint $table) {
             if (config('database.default') === 'sqlite') {
                 $table->renameColumn('location', 'original_location');
-                $table->bigInteger('location_id')->unsigned()->nullable();
             } else {
                 \DB::statement('ALTER TABLE `job_listings` CHANGE `location` `original_location` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL;');
                 $table->foreignIdFor(Location::class)->nullable();
             }
         });
+
+        if (config('database.default') === 'sqlite') {
+            Schema::table('job_listings', function (Blueprint $table) {
+                $table->integer('location_id')->nullable();
+            });
+        }
     }
 
     /**
