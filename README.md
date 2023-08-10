@@ -13,29 +13,6 @@ Segítségével látható
 
 ## TODOs
 
-- ~~legyünk kedves botok: küldjük a scraperekben user-agenként a nevünket és az elérhetőséget~~
-- ~~Backend: cs fixer bekötése~~
-- ~~Backend: HealthcheckControllerhez a healthchecket végző service megírása~~
-- ~~Backend: némi ráncfelvarrás ráférne~~
-- ~~Backend: scraperekhez logolás, logokat lehessen adminfelületen megtekinteni~~
-- ~~Backend: autentikáció~~
-- ~~Backend: apidoc bekötése, annotációk készítése a controllerekbe~~
-- ~~Frontend: impressum feltöltése~~
-- ~~Frontend: contact feltöltése~~
-- ~~Frontend: mobil menü toggle~~
-- ~~Frontend: environmentek kezelése, API URL legyen állítható~~
-- ~~Frontend: E2E tesztekhez id-k hozzáadása kattintható elemekhez~~
-- ~~Frontend: cookie consent és Google Analytics bekötése~~
-- ~~Frontend: reszponzivitásban problémák javítása (mobilon itt-ott overflow, rossz méretek)~~
-- ~~Frontend: PWA~~
-- ~~Frontend: SSR javítása, rosszabb esetben kikapcsolása~~
-- ~~Frontend: tesztrendszer kizárása keresőmotorok indexeléséből~~
-- ~~Design: browser ikonok ellenőrzése többféle böngészőben, platformon (szükséges lehet hátteret hozzáadni)~~
-- ~~Frontend: hírek megjelenítése~~
-- ~~Backend: CRUD törlés javítása (jelenleg GET-tel megy, nem túl biztonságos)~~
-- ~~Backend: named route-ok használata, HTTPS problémák javítása~~
-- ~~Backend: tesztrendszer kizárása keresőmotorok indexeléséből~~ - megoldva nginxből
-- ~~Backend: hírek kezelése~~
 - Backend: tesztek javítása
 - Backend: media manager: képek feltöltése hírekhez
 - Backend: tároljuk az álláshirdetések egyedi azonosítóit is

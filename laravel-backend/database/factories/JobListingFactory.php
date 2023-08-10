@@ -36,6 +36,7 @@ class JobListingFactory extends Factory
             'stack' => $this->faker->randomElement(['PHP', 'Java', 'C++', 'Pascal']),
             'crawler' => $this->faker->randomElement($scraperManager->getServices()),
             'location_id' => Location::LOCATION_HUNGARY,
+            'external_id' => $this->faker->word,
         ];
     }
 
