@@ -53,7 +53,7 @@ class AuthenticationTest extends TestCase
 
     public function testCanLogout(): void
     {
-        $this->test_can_logon_with_valid_credentials();
+        $this->testCanLogonWithValidCredentials();
 
         $request = $this->post('/logout');
         $request->assertStatus(302);
