@@ -12,8 +12,8 @@ Segítségével látható
 - és még sok minden más.
 
 
-- https://jobtraq.hu
-- Teszt verzió: https://test.jobtraq.hu
+Web: https://jobtraq.hu<br>
+Teszt verzió: https://test.jobtraq.hu
 
 ## Technikai
 
