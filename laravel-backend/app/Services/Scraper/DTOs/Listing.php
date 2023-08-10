@@ -126,17 +126,11 @@ class Listing
         $this->locationId = $locationId;
     }
 
-    /**
-     * @return string
-     */
     public function getExternalId(): string
     {
         return $this->externalId;
     }
 
-    /**
-     * @param string $externalId
-     */
     public function setExternalId(string $externalId): void
     {
         $this->externalId = $externalId;

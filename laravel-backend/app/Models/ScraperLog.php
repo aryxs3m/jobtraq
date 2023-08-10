@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $scraper
  * @property array $log
  * @property int $id
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|ScraperLog newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ScraperLog newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ScraperLog query()
@@ -22,6 +23,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|ScraperLog whereLog($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ScraperLog whereScraper($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ScraperLog whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class ScraperLog extends Model

@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $crawler scraper class
  * @property array $keywords keresési feltételek/kulcsszavak
  * @property int $id
+ *
  * @method static \Database\Factories\CrawlerKeywordFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|CrawlerKeyword newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|CrawlerKeyword newQuery()
@@ -23,6 +24,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|CrawlerKeyword whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|CrawlerKeyword whereKeywords($value)
  * @method static \Illuminate\Database\Eloquent\Builder|CrawlerKeyword whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class CrawlerKeyword extends Model

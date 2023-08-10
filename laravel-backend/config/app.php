@@ -191,4 +191,6 @@ return [
     'force_https' => env('FORCE_HTTPS', false),
 
     'frontend_base_url' => env('FRONTEND_BASE_URL', 'https://jobtraq.hu'),
+
+    'static_url' => env('STATIC_URL', env('APP_URL', 'http://localhost')),
 ];

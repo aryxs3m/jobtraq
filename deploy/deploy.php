@@ -40,6 +40,10 @@ task('be-npm-build', function () {
     run("npm run build");
 });
 
+task('be-storage-link', function () {
+    run("php {{release_path}}/laravel-backend/artisan storage:link");
+});
+
 task('be-migrate', function () {
     run("php {{release_path}}/laravel-backend/artisan migrate");
 });

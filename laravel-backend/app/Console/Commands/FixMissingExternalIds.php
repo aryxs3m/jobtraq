@@ -40,8 +40,9 @@ class FixMissingExternalIds extends Command
                         ->where('crawler', $jobListing->crawler)
                         ->first();
 
-                    if (!$fullJobListing) {
+                    if (! $fullJobListing) {
                         $countUnableToFindFull++;
+
                         return;
                     }
 

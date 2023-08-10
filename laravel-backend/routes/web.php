@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ArticlesController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Data\CountriesController;
 use App\Http\Controllers\Admin\Data\LocationsController;
+use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\JobLevelsController;
 use App\Http\Controllers\Admin\JobListingsController;
 use App\Http\Controllers\Admin\JobPositionsController;
@@ -23,6 +24,7 @@ Route::middleware('auth')->group(function () {
         'data/countries' => CountriesController::class,
         'data/locations' => LocationsController::class,
         'articles' => ArticlesController::class,
+        'images' => ImageController::class,
     ]);
 
     Route::prefix('job-level-order')->name('job-level-order.')->group(function () {
