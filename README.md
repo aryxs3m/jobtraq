@@ -1,6 +1,6 @@
-[![PHPUnit](https://github.com/aryxs3m/jobtraq/actions/workflows/laravel.yml/badge.svg?branch=master)](https://github.com/aryxs3m/jobtraq/actions/workflows/laravel.yml) [![Cypress Tests](https://github.com/aryxs3m/jobtraq/actions/workflows/cypress.yml/badge.svg)](https://github.com/aryxs3m/jobtraq/actions/workflows/cypress.yml)
+[![PHPUnit](https://github.com/aryxs3m/jobtraq/actions/workflows/laravel.yml/badge.svg?branch=master)](https://github.com/aryxs3m/jobtraq/actions/workflows/laravel.yml)
 
-![JobTraq logo](angular-frontend/src/assets/logo_Light.svg)
+![JobTraq header](.github/jobtraq-header.png)
 
 A JobTraq naponta frissülő kimutatást készít az álláshirdetésekről, hogy megmutassa a különböző IT munkakörök iránti keresletet és fizetési sávokat.
 
@@ -11,12 +11,9 @@ Segítségével látható
 - stackek iránti kereslet
 - és még sok minden más.
 
-## TODOs
 
-- Backend: tesztek javítása
-- Backend: media manager: képek feltöltése hírekhez
-- Backend: tároljuk az álláshirdetések egyedi azonosítóit is
-- Frontend: privacy-policy feltöltése
+- https://jobtraq.hu
+- Teszt verzió: https://test.jobtraq.hu
 
 ## Technikai
 
