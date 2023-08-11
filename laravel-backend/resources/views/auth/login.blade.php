@@ -9,9 +9,9 @@
                 Image by <a href="https://www.freepik.com/free-photo/fern-leaves-black-background_2518455.htm#query=dark%20plants&position=12&from_view=search&track=ais">Freepik</a>
             </p>
         </div>
-        <div class="col-4 form-col bg-dark-subtle">
+        <div class="col col-lg-4 form-col bg-dark-subtle">
             <div class="container d-flex flex-column justify-content-center px-5">
-                <h3 class="mb-4">
+                <h3 class="mb-4 text-nowrap">
                     <i class="fas fa-lock me-2"></i>
                     Adminisztráció
                 </h3>
