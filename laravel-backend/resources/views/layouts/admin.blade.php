@@ -22,7 +22,7 @@
 </header>
 
 <div class="container-fluid">
-    <div class="row" style="min-height: 100vh">
+    <div class="row" id="content-row">
         @include('includes.sidebar')
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 pt-3">

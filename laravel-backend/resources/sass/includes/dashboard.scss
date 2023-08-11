@@ -59,3 +59,9 @@ li.nav-item:hover {
 .navbar .form-control {
     padding: .75rem 1rem;
 }
+
+@media screen and (min-width: 992px) {
+    #content-row {
+        min-height: 100vh;
+    }
+}
