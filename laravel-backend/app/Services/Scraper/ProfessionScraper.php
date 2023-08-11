@@ -13,14 +13,24 @@ class ProfessionScraper extends BaseJobListingScraper
         $type = urlencode($type);
         $listings = [];
 
-        $maxPages = 5;
+        $maxPages = 20;
+
+        $progressBar = $this->output->createProgressBar($maxPages);
+        $progressBar->start();
 
         for ($page = 1; $page <= $maxPages; ++$page) {
             $html = $this->downloadPage("https://www.profession.hu/allasok/{$page},0,0,{$type}%401%401,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,15?keywordsearch");
 
             try {
+                $items = $html->find('.job-cards li');
+
+                if (\count($items) === 0) {
+                    $this->output->writeln(sprintf(' - Page %s is empty.', $page));
+                    break;
+                }
+
                 /** @var simple_html_dom_node $postingListItem */
-                foreach ($html->find('.job-cards li') as $postingListItem) {
+                foreach ($items as $postingListItem) {
                     try {
                         $position = $postingListItem->find('.job-card__title', 0)->plaintext;
                         $salaryRaw = $postingListItem->find('.job-card__tag', 0)->plaintext;
@@ -46,8 +56,13 @@ class ProfessionScraper extends BaseJobListingScraper
                 $this->logError($throwable);
             }
 
+            $progressBar->advance();
+
             sleep(1);
         }
+
+        $progressBar->finish();
+        $this->output->newLine(2);
 
         return $listings;
     }

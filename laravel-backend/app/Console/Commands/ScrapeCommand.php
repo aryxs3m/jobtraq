@@ -36,6 +36,7 @@ class ScrapeCommand extends Command
     public function handle()
     {
         $this->scraper->setOutput($this->output);
+
         $this->scraper->scrapeAll();
     }
 }

@@ -13,14 +13,24 @@ class NoFluffJobsScraper extends BaseJobListingScraper
         $type = urlencode($type);
         $listings = [];
 
-        $maxPages = 5;
+        $maxPages = 20;
+
+        $progressBar = $this->output->createProgressBar($maxPages);
+        $progressBar->start();
 
         for ($page = 1; $page <= $maxPages; ++$page) {
             $html = $this->downloadPage("https://nofluffjobs.com/hu/{$type}?page={$page}");
 
             try {
+                $items = $html->find('.posting-list-item');
+
+                if (\count($items) === 0) {
+                    $this->output->writeln(sprintf(' - Page %s is empty.', $page));
+                    break;
+                }
+
                 /** @var simple_html_dom_node $postingListItem */
-                foreach ($html->find('.posting-list-item') as $postingListItem) {
+                foreach ($items as $postingListItem) {
                     try {
                         $listing = new Listing();
                         $listing->setPosition($postingListItem->find('.posting-title__position', 0)->plaintext);
@@ -45,8 +55,13 @@ class NoFluffJobsScraper extends BaseJobListingScraper
                 $this->logError($throwable);
             }
 
+            $progressBar->advance();
+
             sleep(1);
         }
+
+        $progressBar->finish();
+        $this->output->newLine(2);
 
         return $listings;
     }

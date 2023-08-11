@@ -5,12 +5,17 @@ namespace App\Services\Scraper;
 use App\Models\ScraperLog;
 use App\Services\Parser\HumanAdvertisementParser;
 use Drnxloc\LaravelHtmlDom\HtmlDomParser;
+use Illuminate\Console\OutputStyle;
 use Illuminate\Support\Facades\Log;
 use simplehtmldom\simple_html_dom;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 abstract class BaseJobListingScraper implements JobListingScraperInterface
 {
     protected HumanAdvertisementParser $advertisementParser;
+
+    protected OutputStyle $output;
 
     public function __construct(HumanAdvertisementParser $advertisementParser)
     {
@@ -20,6 +25,7 @@ abstract class BaseJobListingScraper implements JobListingScraperInterface
         }
 
         $this->advertisementParser = $advertisementParser;
+        $this->output = new OutputStyle(new ArrayInput([]), new ConsoleOutput());
     }
 
     protected const MULTIPLIERS = [
