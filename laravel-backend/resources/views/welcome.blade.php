@@ -3,7 +3,7 @@
 @section('content')
     <h2>Szép napot!</h2>
 
-    <div class="row row-cols-2 row-cols-md-3">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
         <div class="col mt-4">
             <div class="card shadow">
                 <div class="card-body d-flex flex-row">
