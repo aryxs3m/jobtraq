@@ -7,6 +7,7 @@ import {isPlatformServer} from "@angular/common";
 import {ArticleGetResponse} from "../network/ArticleGetResponse";
 import {LoaderService} from "../loader.service";
 import {NewsService} from "../services/news.service";
+import {Meta} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-news-page',
@@ -20,13 +21,15 @@ export class NewsPageComponent implements OnInit {
   private response!: ArticleGetResponse;
   private readonly isServer: boolean;
 
-  constructor(private route: ActivatedRoute, private loader: LoaderService, private newsService: NewsService, @Inject(PLATFORM_ID) platformId: Object) {
+  constructor(private route: ActivatedRoute, private loader: LoaderService, private newsService: NewsService,
+              @Inject(PLATFORM_ID) platformId: Object, private meta: Meta) {
     this.isServer = isPlatformServer(platformId);
   }
 
   ngOnInit(): void {
     if (this.isServer) {
-      return;
+      // TODO: egyelőre engedélyezem meta tagek miatt. Ha performance gond van, tiltani kell server side esetén újra.
+      // return;
     }
 
     this.route.data.subscribe(data => {
@@ -44,6 +47,19 @@ export class NewsPageComponent implements OnInit {
 
     this.newsBlock = data.data;
     this.publishedDate = moment(this.newsBlock.published_at).format('YYYY MMMM D');
+
+    this.meta.updateTag({
+      name: "description",
+      content: this.newsBlock.introduction,
+    });
+    this.meta.updateTag({
+      name: "og:image",
+      content: this.newsBlock.image_url,
+    });
+    this.meta.addTag({
+      name: "og:title",
+      content: this.newsBlock.title,
+    });
 
     if (this.newsBlock.content) {
       this.markdown = Marked.parse(this.newsBlock.content);
