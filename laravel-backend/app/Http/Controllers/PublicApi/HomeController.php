@@ -10,7 +10,7 @@ class HomeController extends BaseApiController
     /**
      * @api {get} / API és környezeti információk lekérése
      *
-     * @apiName JobTraq
+     * @apiName GetSystem
      *
      * @apiGroup Rendszer
      *

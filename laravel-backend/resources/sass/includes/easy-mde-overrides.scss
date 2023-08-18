@@ -1,0 +1,49 @@
+.EasyMDEContainer {
+    .editor-toolbar {
+        border-color: #333333 !important;
+
+        &.fullscreen {
+            z-index: 10000;
+            background-color: #222;
+        }
+
+        .separator {
+            border-right: 0;
+            border-left: 1px solid #666
+        }
+
+        button {
+            color: #939393;
+            transition: 0.1s all;
+            border-radius: 0;
+
+            &:hover {
+                background: #999;
+                color: black;
+            }
+
+            &.active {
+                background: #aaa;
+                color: black;
+            }
+        }
+    }
+
+    .CodeMirror,
+    .CodeMirror-scroll,
+    .CodeMirror-fullscreen {
+        background: #212529 !important;
+        color: #eee;
+        border-color: #333333 !important;
+    }
+
+    .CodeMirror-cursor {
+        border-color: #eee;
+    }
+
+    .editor-preview-active,
+    .editor-preview-active-side {
+        background-color: #26292a;
+        border-color: #333333 !important;
+    }
+}

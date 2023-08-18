@@ -8,6 +8,7 @@ import {ArticleGetResponse} from "../network/ArticleGetResponse";
 import {LoaderService} from "../loader.service";
 import {NewsService} from "../services/news.service";
 import {Meta} from "@angular/platform-browser";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-news-page',
@@ -65,4 +66,6 @@ export class NewsPageComponent implements OnInit {
       this.markdown = Marked.parse(this.newsBlock.content);
     }
   }
+
+  protected readonly environment = environment;
 }

@@ -3,6 +3,17 @@
 </app-page-header>
 
 <div class="container mt-4 mb-4" *ngIf="newsBlock">
-  <p class="lead">{{ newsBlock.introduction }}</p>
-  <div [innerHTML]="markdown"></div>
+  <div class="row">
+    <div class="col-12 col-md-8">
+      <div class="news-content">
+        <p class="lead">{{ newsBlock.introduction }}</p>
+        <div [innerHTML]="markdown"></div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+
+    </div>
+  </div>
+
+  <app-comments-block [newsBlock]="newsBlock"></app-comments-block>
 </div>

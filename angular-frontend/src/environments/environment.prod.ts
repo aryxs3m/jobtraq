@@ -8,7 +8,11 @@ export const environment = {
   domain: 'jobtraq.hu',
   api_url: 'https://api.jobtraq.hu/api/',
   launchDate: "2023-08-02",
-  discord_join_link: 'https://discord.gg/FquPDzetRC'
+  discord_join_link: 'https://discord.gg/FquPDzetRC',
+  cusdis: {
+    host: 'https://cusdis.jobtraq.hu',
+    app_id: '1337',
+  },
 };
 
 /*

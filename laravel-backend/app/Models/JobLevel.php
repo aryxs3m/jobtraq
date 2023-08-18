@@ -15,7 +15,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property array  $keywords   kulcsszavak, amik alapján kikereshető címből
  * @property int    $order      sorrend
  * @property int    $id
- *
  * @method static \Illuminate\Database\Eloquent\Builder|JobLevel newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|JobLevel newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|JobLevel query()
@@ -25,7 +24,6 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|JobLevel whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|JobLevel whereOrder($value)
  * @method static \Illuminate\Database\Eloquent\Builder|JobLevel whereUpdatedAt($value)
- *
  * @mixin \Eloquent
  */
 class JobLevel extends Model

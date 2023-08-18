@@ -19,7 +19,7 @@ class ReportController extends BaseApiController
      *
      * @apiDescription A jobtraq.hu frontendjén megjelenő egy naphoz tartozó minden adat.
      *
-     * @apiName JobTraq
+     * @apiName GetHomePage
      *
      * @apiGroup Kimutatások
      *

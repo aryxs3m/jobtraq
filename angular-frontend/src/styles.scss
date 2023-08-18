@@ -61,3 +61,25 @@ hr.divider {
       box-sizing: border-box;
   }
 }
+
+.news-content {
+  img {
+    max-width: 100%;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 30px;
+  }
+}
+
+blockquote {
+  padding-left: 15px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  border-left: 4px solid #12e773;
+  background-color: rgba(0,0,0, 0.03);
+
+  p {
+    margin-bottom: 5px;
+  }
+}

@@ -8,7 +8,9 @@ use App\Models\Image;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
@@ -28,12 +30,7 @@ class ImageController extends Controller
      */
     public function store(ImageRequest $request): RedirectResponse
     {
-        $image = new Image();
-        $image->path = $request->file('image')->store('public');
-        $image->filename = $request->file('image')->getClientOriginalName();
-        $image->size = $request->file('image')->getSize();
-        $image->mime = $request->file('image')->getMimeType();
-        $image->save();
+        $this->handleSave($request);
 
         return redirect()->back();
     }
@@ -47,5 +44,32 @@ class ImageController extends Controller
         $image->delete();
 
         return redirect()->back();
+    }
+
+    public function editorImageUpload(ImageRequest $request): JsonResponse
+    {
+        $image = $this->handleSave($request);
+
+        return response()->json([
+            'data' => [
+                'filePath' => $image->external_url,
+            ]
+        ]);
+    }
+
+    /**
+     * @param ImageRequest $request
+     * @return Image
+     */
+    protected function handleSave(ImageRequest $request): Image
+    {
+        $image = new Image();
+        $image->path = $request->file('image')->store('public');
+        $image->filename = $request->file('image')->getClientOriginalName();
+        $image->size = $request->file('image')->getSize();
+        $image->mime = $request->file('image')->getMimeType();
+        $image->save();
+
+        return $image;
     }
 }

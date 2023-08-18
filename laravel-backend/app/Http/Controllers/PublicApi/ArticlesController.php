@@ -14,7 +14,7 @@ class ArticlesController extends BaseApiController
     /**
      * @api {get} /articles Hírek listázása
      *
-     * @apiName JobTraq
+     * @apiName ListArticles
      *
      * @apiDescription A legfrissebb, publikált hírek listáját adja vissza.
      *
@@ -42,7 +42,7 @@ class ArticlesController extends BaseApiController
     /**
      * @api {get} /articles/get Hír lekérése
      *
-     * @apiName JobTraq
+     * @apiName GetArticle
      *
      * @apiDescription Egy adott hírt ad vissza slug alapján.
      *

@@ -41,7 +41,14 @@ import { SkeletonNewsCardComponent } from './news-block/skeleton-news-card/skele
 import {NgxSkeletonLoaderModule} from "ngx-skeleton-loader";
 import { CtaDiscordComponent } from './home-page/cta-discord/cta-discord.component';
 import { UpdateOverlayComponent } from './update-overlay/update-overlay.component';
+import {CommentsBlockComponent} from "./news-page/comments-block/comments-block.component";
+import { CommentMessageComponent } from './news-page/comments-block/comment-message/comment-message.component';
+import * as moment from "moment/moment";
+import 'moment/locale/hu';
+import {ReactiveFormsModule} from "@angular/forms";
+import { AlertBarComponent } from './alert-bar/alert-bar.component';
 registerLocaleData(localeHu, 'hu');
+moment().locale('hu');
 
 const cookieConfig:NgcCookieConsentConfig = {
   "cookie": {
@@ -101,27 +108,31 @@ const cookieConfig:NgcCookieConsentConfig = {
     SkeletonNewsCardComponent,
     CtaDiscordComponent,
     UpdateOverlayComponent,
+    CommentsBlockComponent,
+    CommentMessageComponent,
+    AlertBarComponent,
   ],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule,
-    FontAwesomeModule,
-    NgxChartsModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    NgxGa4Module.forRoot({}),
-    NgcCookieConsentModule.forRoot(cookieConfig),
-    NgOptimizedImage,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: !isDevMode(),
-      // Register the ServiceWorker as soon as the application is stable
-      // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
-    }),
-    NgxSkeletonLoaderModule
-  ],
+    imports: [
+        CommonModule,
+        BrowserModule,
+        AppRoutingModule,
+        NgbModule,
+        FontAwesomeModule,
+        NgxChartsModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        NgxGa4Module.forRoot({}),
+        NgcCookieConsentModule.forRoot(cookieConfig),
+        NgOptimizedImage,
+        ServiceWorkerModule.register('ngsw-worker.js', {
+            enabled: !isDevMode(),
+            // Register the ServiceWorker as soon as the application is stable
+            // or after 30 seconds (whichever comes first).
+            registrationStrategy: 'registerWhenStable:30000'
+        }),
+        NgxSkeletonLoaderModule,
+        ReactiveFormsModule
+    ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true

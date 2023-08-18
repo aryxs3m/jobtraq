@@ -1,0 +1,33 @@
+<h3 class="mb-3">Hozzászólások</h3>
+
+<p class="alert small text-muted ps-0" *ngIf="comments.length === 0">
+  Még senki sem szólt hozzá ehhez a hírhez.
+</p>
+
+<app-comment-message *ngFor="let comment of comments" [comment]="comment"></app-comment-message>
+
+<form [formGroup]="commentForm" (ngSubmit)="postComment()">
+  <app-alert-bar [icon]="faInfoCircle" background="bg-primary" *ngIf="this.success">
+      Hozzászólásod beküldésre került. A moderálás után meg lesz jelenítve.
+  </app-alert-bar>
+
+  <app-alert-bar [icon]="faExclamationCircle" background="bg-danger" *ngIf="this.fail">
+      Nem sikerült a hozzászólást beküldeni. Kérlek próbáld később.
+  </app-alert-bar>
+
+  <div class="mt-3 mb-3">
+    <label for="comment-name" class="form-label">Név</label>
+    <input type="text" class="form-control" id="comment-name" [disabled]="this.loading" [class.is-invalid]="name && name.invalid && name.touched" formControlName="name" required>
+    <div class="invalid-feedback">
+      Név megadása kötelező. 3-32 karakter hosszú lehet.
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="comment-text" class="form-label">Hozzászólás</label>
+    <textarea class="form-control" id="comment-text" formControlName="message" required [disabled]="this.loading" [class.is-invalid]="message && message.invalid && message.touched"></textarea>
+    <div class="invalid-feedback">
+      Üzenet megadása kötelező. 1-255 karakter hosszú lehet.
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Hozzászólok</button>
+</form>

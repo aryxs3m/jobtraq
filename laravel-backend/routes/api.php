@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PublicApi\ArticlesController;
+use App\Http\Controllers\PublicApi\CommentsController;
 use App\Http\Controllers\PublicApi\HealthcheckController;
 use App\Http\Controllers\PublicApi\HomeController;
 use App\Http\Controllers\PublicApi\ReportController;
@@ -33,4 +34,12 @@ Route::prefix('report')->group(function () {
 Route::prefix('articles')->group(function () {
     Route::get('/', [ArticlesController::class, 'list']);
     Route::get('/get', [ArticlesController::class, 'get']);
+});
+
+Route::prefix('comments')->group(function () {
+    Route::get('/', [CommentsController::class, 'getComments']);
+
+    Route::middleware('throttle:new-comments')->group(function () {
+        Route::post('/new', [CommentsController::class, 'newComment']);
+    });
 });

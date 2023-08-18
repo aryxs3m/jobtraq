@@ -12,7 +12,7 @@ class HealthcheckController extends BaseApiController
     /**
      * @api {get} /healthcheck Healthcheck információk lekérése
      *
-     * @apiName JobTraq
+     * @apiName GetHealthcheck
      *
      * @apiGroup Healthcheck
      *

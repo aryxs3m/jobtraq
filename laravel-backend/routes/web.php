@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ArticlesController;
+use App\Http\Controllers\Admin\CommentsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Data\CountriesController;
 use App\Http\Controllers\Admin\Data\LocationsController;
@@ -27,6 +28,9 @@ Route::middleware('auth')->group(function () {
         'images' => ImageController::class,
     ]);
 
+    Route::post('/images/editor-upload', [ImageController::class, 'editorImageUpload'])
+        ->name('images.editor-upload');
+
     Route::prefix('job-level-order')->name('job-level-order.')->group(function () {
         Route::get('', [JobLevelsController::class, 'order'])->name('order');
         Route::post('', [JobLevelsController::class, 'orderPost'])->name('order-post');
@@ -40,5 +44,13 @@ Route::middleware('auth')->group(function () {
     Route::prefix('scraper-logs')->name('scraper-logs.')->group(function () {
         Route::get('', [ScraperLogsController::class, 'index'])->name('index');
         Route::get('{log}', [ScraperLogsController::class, 'show'])->name('show');
+    });
+
+    Route::prefix('comments')->name('comments.')->group(function () {
+        Route::get('', [CommentsController::class, 'listComments'])->name('index');
+        Route::post('update-moderation', [CommentsController::class, 'updateCommentStatus'])
+            ->name('update-moderation');
+        Route::post('update-op', [CommentsController::class, 'updateCommentOpStatus'])
+            ->name('update-op');
     });
 });

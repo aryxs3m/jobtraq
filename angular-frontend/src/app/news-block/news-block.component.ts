@@ -27,7 +27,6 @@ export class NewsBlockComponent implements OnInit {
 
     this.http.get<ArticleListResponse>(environment.api_url + 'articles?limit=3').subscribe(data => {
       if (data.status === 'error') {
-        console.log('asd');
         this.loader.setBackendError(true);
 
         return;

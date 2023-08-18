@@ -50,6 +50,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" href="{{ route('comments.index') }}">
+                        <i class="fas fa-comment"></i>
+                        Hozzászólások
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2" href="{{ route('images.index') }}">
                         <i class="fas fa-image"></i>
                         Képek
