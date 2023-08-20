@@ -9,6 +9,7 @@ import {ScrapingEthicsPageComponent} from "./scraping-ethics-page/scraping-ethic
 import {ImpressumPageComponent} from "./impressum-page/impressum-page.component";
 import {NewsPageComponent} from "./news-page/news-page.component";
 import {NewsResolver} from "./resolvers/news.resolver";
+import {PrivacyPolicyPageComponent} from "./privacy-policy-page/privacy-policy-page.component";
 
 const routes: Routes = [
   { path: 'report', component: HomePageComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactPageComponent },
   { path: 'our-scraping-ethics', component: ScrapingEthicsPageComponent },
   { path: 'impressum', component: ImpressumPageComponent },
+  { path: 'privacy-policy', component: PrivacyPolicyPageComponent },
   { path: '', redirectTo: "/report", pathMatch: "full" },
   { path: '**', component: NotFoundPageComponent },
 ];

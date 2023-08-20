@@ -161,7 +161,7 @@
   </component>
   <component name="PhpInterpreters">
     <interpreters>
-      <interpreter id="40af87ac-540a-4c9a-8f9b-6b4909437316" name="laravel.test" home="docker-compose://DATA" false="false" debugger_id="php.debugger.XDebug">
+      <interpreter id="40af87ac-540a-4c9a-8f9b-6b4909437316" name="laravel.test" home="docker-compose://DATA" auto="false" debugger_id="php.debugger.XDebug">
         <remote_data INTERPRETER_PATH="php" HELPERS_PATH="/opt/.phpstorm_helpers" VALID="true" RUN_AS_ROOT_VIA_SUDO="false" DOCKER_ACCOUNT_NAME="Docker" DOCKER_COMPOSE_SERVICE_NAME="laravel.test" DOCKER_REMOTE_PROJECT_PATH="/opt/project">
           <type_data command="EXEC" />
           <dockerComposeConfigurationPaths>

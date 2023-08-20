@@ -47,6 +47,7 @@ import * as moment from "moment/moment";
 import 'moment/locale/hu';
 import {ReactiveFormsModule} from "@angular/forms";
 import { AlertBarComponent } from './alert-bar/alert-bar.component';
+import {PrivacyPolicyPageComponent} from "./privacy-policy-page/privacy-policy-page.component";
 registerLocaleData(localeHu, 'hu');
 moment().locale('hu');
 
@@ -111,6 +112,7 @@ const cookieConfig:NgcCookieConsentConfig = {
     CommentsBlockComponent,
     CommentMessageComponent,
     AlertBarComponent,
+    PrivacyPolicyPageComponent
   ],
     imports: [
         CommonModule,
