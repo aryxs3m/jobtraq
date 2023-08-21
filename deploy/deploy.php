@@ -3,6 +3,8 @@ namespace Deployer;
 
 require 'recipe/common.php';
 require 'deploy-test.php';
+require 'deploy-prod.php';
+require 'utilities.php';
 
 // Config
 
@@ -19,7 +21,16 @@ add('writable_dirs', [
 host('nekobox.pvga.hu')
     ->set('remote_user', 'jobtraq')
     ->set('deploy_path', '/var/www/jobtraq/test.jobtraq.hu')
-    ->set('keep_releases', 2);
+    ->set('keep_releases', 2)
+    ->setLabels(['environment' => 'test'])
+    ->set('fe_env', 'test');
+
+host('nekobox.pvga.hu')
+    ->set('remote_user', 'jobtraq')
+    ->set('deploy_path', '/var/www/jobtraq/jobtraq.hu')
+    ->set('keep_releases', 3)
+    ->setLabels(['environment' => 'prod'])
+    ->set('fe_env', 'production');
 
 task('be-copy-env', function () {
     run('cp "{{deploy_path}}/.env" "{{release_path}}/laravel-backend/.env"');
@@ -64,16 +75,22 @@ task('fe-npm-build', function () {
     // Legyen a szerveren fent az Angular CLI!
     // npm install -g @angular/cli
 
+    $feEnv = currentHost()->get('fe_env');
+
     cd("{{release_path}}/angular-frontend");
-    run("ng build --configuration=test");
-    run("ng run angular-frontend:server:test");
+
+    run("ng build --configuration={$feEnv}");
+    run("ng run angular-frontend:server:{$feEnv}");
 });
 
 task('fe-pm2-reload', function () {
+    $feEnv = currentHost()->get('fe_env');
+
     cd("{{release_path}}/angular-frontend");
-    run("pm2 delete ecosystem.test.config.js");
-    run("pm2 reload ecosystem.test.config.js");
-    run("pm2 startOrRestart ecosystem.test.config.js");
+
+    run("pm2 delete ecosystem.{$feEnv}.config.js");
+    run("pm2 reload ecosystem.{$feEnv}.config.js");
+    run("pm2 startOrRestart ecosystem.{$feEnv}.config.js");
 });
 
 task('be-reparse', function () {

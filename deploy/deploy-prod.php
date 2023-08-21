@@ -3,7 +3,7 @@
 use function Deployer\before;
 use function Deployer\task;
 
-task('setup-test', [
+task('setup-prod', [
         'be-copy-env',
         'be-composer-install',
         'be-npm-install',
@@ -15,7 +15,7 @@ task('setup-test', [
         'be-storage-link',
         'fe-pm2-reload',
     ])
-    ->select('environment=test')
-    ->desc('Deploy project to test machine');
+    ->select('environment=prod')
+    ->desc('Deploy project to prod machine');
 
-before('deploy:symlink', 'setup-test');
+before('deploy:symlink', 'setup-prod');
