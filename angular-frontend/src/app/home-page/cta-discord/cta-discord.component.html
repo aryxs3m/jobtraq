@@ -9,7 +9,7 @@
         <a [href]="environment.discord_join_link" target="_blank" class="mt-3 mt-md-0 btn btn-primary">Csatlakozom</a>
       </div>
       <app-small-divider></app-small-divider>
-      <div class="discord-icons d-flex mt-3">
+      <div class="discord-icons d-flex mt-3 flex-wrap">
         <div class="discord-icon" *ngFor="let member of members">
           <img
             src="{{ member.avatar_url }}"
