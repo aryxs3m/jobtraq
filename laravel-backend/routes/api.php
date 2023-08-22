@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PublicApi\ArticlesController;
 use App\Http\Controllers\PublicApi\CommentsController;
+use App\Http\Controllers\PublicApi\DiffReportController;
 use App\Http\Controllers\PublicApi\HealthcheckController;
 use App\Http\Controllers\PublicApi\HomeController;
 use App\Http\Controllers\PublicApi\ReportController;
@@ -29,6 +30,7 @@ Route::get('/healthcheck', [HealthcheckController::class, 'status']);
 Route::prefix('report')->group(function () {
     Route::get('homepage', [ReportController::class, 'homepageStatistics']);
     Route::get('by-position', [ReportController::class, 'statisticByPosition']);
+    Route::get('diff', [DiffReportController::class, 'diffReport']);
 });
 
 Route::prefix('articles')->group(function () {

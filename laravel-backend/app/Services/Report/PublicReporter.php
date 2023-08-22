@@ -17,12 +17,19 @@ class PublicReporter
 
     protected int $countryId;
 
+    public static function make(): static
+    {
+        return new static();
+    }
+
     /**
      * Erre a napra szűrve lesznek generálva a riportok.
      */
-    public function setFilterDate(Carbon $filterDate): void
+    public function setFilterDate(Carbon $filterDate): static
     {
         $this->filterDate = $filterDate;
+
+        return $this;
     }
 
     /**
@@ -182,8 +189,10 @@ class PublicReporter
         return $this->countryId;
     }
 
-    public function setCountryId(int $countryId): void
+    public function setCountryId(int $countryId): static
     {
         $this->countryId = $countryId;
+
+        return $this;
     }
 }
