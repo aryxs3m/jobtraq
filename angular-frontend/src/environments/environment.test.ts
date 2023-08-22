@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true,
+  production: false,
   google_measurement_id: 'G-ZH4VB95FLH',
   domain: 'test.jobtraq.hu',
   api_url: 'https://admin-test.jobtraq.hu/api/',

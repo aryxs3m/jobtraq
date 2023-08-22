@@ -18,14 +18,16 @@ add('writable_dirs', [
 
 // Hosts
 
-host('nekobox.pvga.hu')
+host('test.jobtraq.hu')
+    ->setHostname('nekobox.pvga.hu')
     ->set('remote_user', 'jobtraq')
     ->set('deploy_path', '/var/www/jobtraq/test.jobtraq.hu')
     ->set('keep_releases', 2)
     ->setLabels(['environment' => 'test'])
     ->set('fe_env', 'test');
 
-host('nekobox.pvga.hu')
+host('jobtraq.hu')
+    ->setHostname('nekobox.pvga.hu')
     ->set('remote_user', 'jobtraq')
     ->set('deploy_path', '/var/www/jobtraq/jobtraq.hu')
     ->set('keep_releases', 3)

@@ -13,6 +13,16 @@ majd meghívni: `vendor/bin/dep`
 
 A JobTraq szerverén fenn kell legyen az SSH kulcsod az élesítéshez.
 
+### Deploy indítása
+
+```shell
+./dep deploy
+```
+
+A deployer megkérdezi, melyik környezetre szeretnél deployolni.
+
+Indíthatsz közvetlenül is deployt a különböző környezetekre:
+
 ### Teszt deploy indítása
 
 ```shell
