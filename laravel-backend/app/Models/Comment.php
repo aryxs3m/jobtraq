@@ -8,16 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * App\Models\Comment
+ * App\Models\Comment.
  *
- * @property int $id
+ * @property int                             $id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property int $article_id
- * @property string $name
- * @property string $message
- * @property string $status
- * @property string $ip_address
+ * @property int                             $article_id
+ * @property string                          $name
+ * @property string                          $message
+ * @property string                          $status
+ * @property string                          $ip_address
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Comment newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Comment newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Comment query()
@@ -29,9 +30,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|Comment whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Comment whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Comment whereUpdatedAt($value)
- * @property-read \App\Models\Article|null $article
- * @property int $is_op
+ *
+ * @property \App\Models\Article|null $article
+ * @property int                      $is_op
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Comment whereIsOp($value)
+ *
  * @mixin \Eloquent
  */
 class Comment extends Model

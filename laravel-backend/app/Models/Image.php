@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Storage;
  * @property string                          $path
  * @property string                          $url;
  * @property string                          $external_url;
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Image newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Image newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Image query()
@@ -28,8 +29,10 @@ use Illuminate\Support\Facades\Storage;
  * @method static \Illuminate\Database\Eloquent\Builder|Image wherePath($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Image whereSize($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Image whereUpdatedAt($value)
- * @property-read string $external_url
- * @property-read string $url
+ *
+ * @property string $external_url
+ * @property string $url
+ *
  * @mixin \Eloquent
  */
 class Image extends Model

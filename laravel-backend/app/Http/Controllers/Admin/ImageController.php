@@ -10,7 +10,6 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
@@ -53,14 +52,10 @@ class ImageController extends Controller
         return response()->json([
             'data' => [
                 'filePath' => $image->external_url,
-            ]
+            ],
         ]);
     }
 
-    /**
-     * @param ImageRequest $request
-     * @return Image
-     */
     protected function handleSave(ImageRequest $request): Image
     {
         $image = new Image();

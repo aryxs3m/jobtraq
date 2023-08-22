@@ -24,7 +24,7 @@ class ProfessionScraper extends BaseJobListingScraper
             try {
                 $items = $html->find('.job-cards li');
 
-                if (\count($items) === 0) {
+                if (0 === \count($items)) {
                     $this->output->writeln(sprintf(' - Page %s is empty.', $page));
                     break;
                 }

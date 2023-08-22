@@ -24,7 +24,7 @@ class NoFluffJobsScraper extends BaseJobListingScraper
             try {
                 $items = $html->find('.posting-list-item');
 
-                if (\count($items) === 0) {
+                if (0 === \count($items)) {
                     $this->output->writeln(sprintf(' - Page %s is empty.', $page));
                     break;
                 }

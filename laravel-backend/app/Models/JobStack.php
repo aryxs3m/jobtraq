@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int         $job_position_id kapcsolódó pozíció azonosítója
  * @property JobPosition $jobPosition     kapcsolódó pozíció
  * @property int         $id
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|JobStack newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|JobStack newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|JobStack query()
@@ -26,6 +27,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|JobStack whereKeywords($value)
  * @method static \Illuminate\Database\Eloquent\Builder|JobStack whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|JobStack whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class JobStack extends Model

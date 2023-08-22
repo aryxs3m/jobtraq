@@ -34,10 +34,20 @@ class HumanAdvertisementParser
             }
         }
 
-        foreach (self::$positions as $position => $keywords) {
-            foreach ($keywords as $keyword) {
+        foreach (self::$positions as $position => $settings) {
+            foreach ($settings['keywords'] as $keyword) {
                 if (\in_array($keyword, $titleParts)) {
                     $jobCategory->setPosition($position);
+
+                    foreach ($settings['sub_positions'] as $subPosition) {
+                        foreach ($subPosition['keywords'] as $subKeyword) {
+                            if (\in_array($subKeyword, $titleParts)) {
+                                $jobCategory->setPosition($subPosition['name']);
+                                break 4;
+                            }
+                        }
+                    }
+
                     break 2;
                 }
             }
@@ -97,9 +107,18 @@ class HumanAdvertisementParser
         }
 
         if ([] === self::$positions) {
-            /** @var JobPosition $item */
-            foreach (JobPosition::all() as $item) {
-                self::$positions[$item->name] = $item->keywords;
+            /** @var JobPosition[] $jobPositions */
+            $jobPositions = JobPosition::query()->whereNull('job_position_id')->get();
+            foreach ($jobPositions as $item) {
+                self::$positions[$item->name] = [
+                    'keywords' => $item->keywords,
+                    'sub_positions' => $item->jobPositions->map(function (JobPosition $position) {
+                        return [
+                            'name' => $position->name,
+                            'keywords' => $position->keywords,
+                        ];
+                    }),
+                ];
             }
         }
 

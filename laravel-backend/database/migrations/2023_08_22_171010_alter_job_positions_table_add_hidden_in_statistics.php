@@ -10,8 +10,8 @@ return new class() extends Migration {
      */
     public function up(): void
     {
-        Schema::table('comments', function (Blueprint $table) {
-            $table->boolean('is_op')->default(false);
+        Schema::table('job_positions', function (Blueprint $table) {
+            $table->boolean('hidden_in_statistics')->default(false);
         });
     }
 
@@ -20,8 +20,8 @@ return new class() extends Migration {
      */
     public function down(): void
     {
-        Schema::table('comments', function (Blueprint $table) {
-            $table->dropColumn('is_op');
+        Schema::table('job_positions', function (Blueprint $table) {
+            $table->dropColumn('hidden_in_statistics');
         });
     }
 };

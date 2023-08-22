@@ -69,7 +69,7 @@ class ReportController extends BaseApiController
     {
         $return = [];
 
-        foreach (JobPosition::all() as $item) {
+        foreach (JobPosition::notHidden()->get() as $item) {
             $return[] = [
                 'name' => $item->name,
                 'data' => $reporter->getAverageSalariesByLevels($item->name),

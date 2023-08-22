@@ -24,6 +24,8 @@ class JobPositionRequest extends FormRequest
         return [
             'name' => 'string|required',
             'keywords' => 'string|required',
+            'job_position_id' => 'nullable|exists:job_positions,id',
+            'hidden_in_statistics' => 'int|min:0|max:1|required',
         ];
     }
 }

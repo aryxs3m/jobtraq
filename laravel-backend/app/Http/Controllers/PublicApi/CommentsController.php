@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\PublicApi;
 
 use App\Http\Controllers\BaseApiController;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\PublicApi\GetCommentsRequest;
 use App\Http\Requests\PublicApi\PostCommentRequest;
 use App\Models\Article;
@@ -50,10 +49,9 @@ class CommentsController extends BaseApiController
                         'created_at' => $comment->created_at,
                         'is_op' => $comment->is_op,
                     ];
-            })
+                })
         );
     }
-
 
     /**
      * @api {post} /comments/new Új hozzászólás rögzítése

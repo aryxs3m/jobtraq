@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\JobPosition;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -10,8 +11,8 @@ return new class() extends Migration {
      */
     public function up(): void
     {
-        Schema::table('comments', function (Blueprint $table) {
-            $table->boolean('is_op')->default(false);
+        Schema::table('job_positions', function (Blueprint $table) {
+            $table->foreignIdFor(JobPosition::class)->nullable();
         });
     }
 
@@ -20,8 +21,8 @@ return new class() extends Migration {
      */
     public function down(): void
     {
-        Schema::table('comments', function (Blueprint $table) {
-            $table->dropColumn('is_op');
+        Schema::table('job_positions', function (Blueprint $table) {
+            $table->dropForeignIdFor(JobPosition::class);
         });
     }
 };

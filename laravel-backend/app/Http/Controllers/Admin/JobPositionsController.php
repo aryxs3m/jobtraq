@@ -23,6 +23,7 @@ class JobPositionsController extends Controller
     {
         return view('job-positions.create', [
             'item' => null,
+            'positions' => JobPosition::all(),
         ]);
     }
 
@@ -30,6 +31,7 @@ class JobPositionsController extends Controller
     {
         return view('job-positions.update', [
             'item' => $jobPosition,
+            'positions' => JobPosition::all(),
         ]);
     }
 
@@ -58,6 +60,8 @@ class JobPositionsController extends Controller
     {
         $request = [
             'name' => $request->validated('name'),
+            'job_position_id' => $request->validated('job_position_id'),
+            'hidden_in_statistics' => $request->validated('hidden_in_statistics'),
             'keywords' => explode(',', $request->validated('keywords')),
         ];
 

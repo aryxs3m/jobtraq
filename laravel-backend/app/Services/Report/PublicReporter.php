@@ -45,9 +45,11 @@ class PublicReporter
         return DB::table('job_listings')
             ->select('position AS name', DB::raw('COUNT(1) AS value'))
             ->leftJoin('locations', 'locations.id', '=', 'job_listings.location_id')
+            ->leftJoin('job_positions', 'job_positions.name', '=', 'job_listings.position')
             ->whereRaw("position IS NOT NULL AND level IS NOT NULL AND salary_currency IN ('HUF', 'Ft/hó')")
             ->whereRaw('DATE(job_listings.created_at) = :filterDate', ['filterDate' => $this->getFilterDateSQL()])
             ->whereRaw('locations.country_id = :countryId', ['countryId' => $this->getCountryId()])
+            ->whereRaw('job_positions.hidden_in_statistics = 0')
             ->groupBy('position')
             ->orderBy('value', 'DESC')
             ->get();
