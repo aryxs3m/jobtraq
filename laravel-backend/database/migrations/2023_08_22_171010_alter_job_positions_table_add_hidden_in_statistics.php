@@ -11,7 +11,7 @@ return new class() extends Migration {
     public function up(): void
     {
         Schema::table('job_positions', function (Blueprint $table) {
-            $table->boolean('hidden_in_statistics')->default(false);
+            $table->boolean('hidden_in_statistics')->default(0);
         });
     }
 

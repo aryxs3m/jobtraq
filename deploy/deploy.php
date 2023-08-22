@@ -6,6 +6,12 @@ require 'deploy-test.php';
 require 'deploy-prod.php';
 require 'utilities.php';
 
+// Windows fixes
+if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+    set('git_tty', false);
+    set('ssh_multiplexing', false);
+}
+
 // Config
 
 set('repository', 'git@github.com:aryxs3m/jobtraq.git');

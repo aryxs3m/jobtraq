@@ -159,6 +159,8 @@
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/phpdocumentor/reflection-common" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/phpdocumentor/type-resolver" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/phpstan/phpdoc-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/laravel/prompts" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel-backend/vendor/psr/clock" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
