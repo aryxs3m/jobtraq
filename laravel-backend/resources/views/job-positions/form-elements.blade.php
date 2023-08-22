@@ -22,8 +22,8 @@
 <div class="mb-3">
     <label class="form-label">Statisztikából elrejtve</label>
     <select class="form-control" name="hidden_in_statistics">
-        <option value="0" @if($item->hidden_in_statistics === 0) selected @endif>Nem</option>
-        <option value="1" @if($item->hidden_in_statistics === 1) selected @endif>Igen</option>
+        <option value="0" @if($item && $item->hidden_in_statistics === 0) selected @endif>Nem</option>
+        <option value="1" @if($item && $item->hidden_in_statistics === 1) selected @endif>Igen</option>
     </select>
     <p class="small text-muted">
         Szülő pozíciókhoz vagy teszteléshez. Ezekről a pozíciókról pl. nem lesznek chartok a főoldalon.
