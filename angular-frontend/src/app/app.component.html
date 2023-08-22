@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <main>
-  <app-system-message></app-system-message>
+  <app-system-message *ngIf="!environment.production"></app-system-message>
   <app-update-overlay></app-update-overlay>
   <app-error-notify></app-error-notify>
   <router-outlet></router-outlet>

@@ -2,4 +2,4 @@ Contact: mailto:info@jobtraq.hu
 Contact: mailto:aryx@pvga.hu
 Expires: 2025-04-29T22:00:00.000Z
 Preferred-Languages: en, hu
-Canonical: https://jobtraq.hu/.well-known/security.txt
+Canonical: https://jobtraq.hu/security.txt

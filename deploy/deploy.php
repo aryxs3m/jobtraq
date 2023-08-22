@@ -52,6 +52,8 @@ task('be-npm-build', function () {
 });
 
 task('be-storage-link', function () {
+    run("rm -rf {{release_path}}/laravel-backend/storage/app/public");
+    run("ln -s {{deploy_path}}/public {{release_path}}/laravel-backend/storage/app/public");
     run("php {{release_path}}/laravel-backend/artisan storage:link");
 });
 

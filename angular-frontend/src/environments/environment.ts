@@ -9,10 +9,7 @@ export const environment = {
   api_url: 'http://localhost/api/',
   launchDate: "2023-08-01",
   discord_join_link: 'https://discord.gg/FquPDzetRC',
-  cusdis: {
-    host: 'http://localhost:3000',
-    app_id: 'fb5efeb8-a290-46cf-bb6a-ddd438267f53',
-  },
+  discord_guild_id: "464782333711482881"
 };
 
 /*

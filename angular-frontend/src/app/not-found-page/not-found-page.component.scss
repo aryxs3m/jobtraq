@@ -1,0 +1,15 @@
+div#not-found-bg {
+  height: 100vh;
+  background: url("/assets/tropical-green-leaves-background.webp");
+  background-size: cover;
+
+  & > div#not-found-overlay {
+    background: rgba(0,0,0,0.6);
+    height: 100%;
+  }
+
+  div.container {
+    padding-top: 100px;
+    color: #eee;
+  }
+}

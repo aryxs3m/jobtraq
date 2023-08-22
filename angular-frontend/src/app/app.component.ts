@@ -53,4 +53,6 @@ export class AppComponent {
       throw new Error(`Could not load Tag Manager, details: ${ex}`);
     }
   }
+
+    protected readonly environment = environment;
 }

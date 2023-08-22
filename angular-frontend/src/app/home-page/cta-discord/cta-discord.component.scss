@@ -1,0 +1,45 @@
+div#discord-cta {
+  background: url("/assets/tropical-green-leaves-background.webp");
+  background-size: cover;
+  color: #eee;
+
+  & > div#discord-cta-overlay {
+    background: rgba(0,0,0,0.4);
+    height: 100%;
+  }
+
+  .discord-icons {
+    height: 40px;
+
+    .discord-icon {
+      margin-right: -10px;
+      transition: all 0.1s ease-in-out;
+      opacity: 0.8;
+
+      &:hover {
+        margin-right: 0;
+        opacity: 1;
+        z-index: 10;
+      }
+
+      img {
+        border-radius: 100%;
+        background: #eee;
+        border: 2px solid;
+        width: 40px;
+      }
+    }
+
+    .discord-dnd {
+      border-color: #d23b3b !important;
+    }
+
+    .discord-online {
+      border-color: #12e773 !important;
+    }
+
+    .discord-idle {
+      border-color: #ffa73c !important;
+    }
+  }
+}

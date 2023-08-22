@@ -9,10 +9,7 @@ export const environment = {
   api_url: 'https://admin-test.jobtraq.hu/api/',
   launchDate: "2023-08-02",
   discord_join_link: 'https://discord.gg/FquPDzetRC',
-  cusdis: {
-    host: 'https://cusdis-test.jobtraq.hu',
-    app_id: '1337',
-  },
+  discord_guild_id: "464782333711482881"
 };
 
 /*
