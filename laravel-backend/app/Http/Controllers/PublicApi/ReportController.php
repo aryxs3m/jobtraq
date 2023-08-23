@@ -4,10 +4,8 @@ namespace App\Http\Controllers\PublicApi;
 
 use App\Http\Controllers\BaseApiController;
 use App\Http\Requests\PublicApi\HomePageRequest;
-use App\Models\JobPosition;
 use App\Models\Location;
 use App\Services\Report\HomepageReporter;
-use App\Services\Report\PublicReporter;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 

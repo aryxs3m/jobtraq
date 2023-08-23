@@ -21,7 +21,7 @@ class DiffReporter
             throw new \Exception('Second reporter is not ready.');
         }
 
-        //dd($firstReport);
+        // dd($firstReport);
 
         return [
             'pieChartPositions' => $this->diffChartData(

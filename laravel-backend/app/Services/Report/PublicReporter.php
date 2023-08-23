@@ -4,7 +4,6 @@ namespace App\Services\Report;
 
 use App\Models\JobListing;
 use Carbon\Carbon;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 /**

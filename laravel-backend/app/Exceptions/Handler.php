@@ -40,7 +40,6 @@ class Handler extends ExceptionHandler
 
         $this->renderable(function (\Throwable $throwable, Request $request) {
             if ($request->is('api/*')) {
-
                 $response = [
                     'status' => 'error',
                     'message' => $throwable->getMessage(),
