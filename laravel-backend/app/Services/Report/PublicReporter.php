@@ -47,7 +47,7 @@ class PublicReporter
      *
      * @throws \Exception
      */
-    public function getJobsCountByPosition(): Collection
+    public function getJobsCountByPosition(): array
     {
         return DB::table('job_listings')
             ->select('position AS name', DB::raw('COUNT(1) AS value'))
@@ -59,13 +59,14 @@ class PublicReporter
             ->whereRaw('job_positions.hidden_in_statistics = 0')
             ->groupBy('position')
             ->orderBy('value', 'DESC')
-            ->get();
+            ->get()
+            ->toArray();
     }
 
     /**
      * Álláshirdetések száma az elmúlt 4 hétben.
      */
-    public function getJobsCountByWeek(): Collection
+    public function getJobsCountByWeek(): array
     {
         return DB::table('job_listings')
             ->select(
@@ -79,13 +80,14 @@ class PublicReporter
             ->limit(4)
             ->get()
             ->reverse()
-            ->values();
+            ->values()
+            ->toArray();
     }
 
     /**
      * Álláshirdetések száma stackenként.
      */
-    public function getJobsCountByStack(): Collection
+    public function getJobsCountByStack(): array
     {
         return DB::table('job_listings')
             ->select('stack AS name', DB::raw('COUNT(1) AS value'))
@@ -95,7 +97,8 @@ class PublicReporter
             ->whereRaw('locations.country_id = :countryId', ['countryId' => $this->getCountryId()])
             ->groupBy('stack')
             ->orderBy('value', 'DESC')
-            ->get();
+            ->get()
+            ->toArray();
     }
 
     /**
@@ -103,7 +106,7 @@ class PublicReporter
      *
      * @param string $position munkakör
      */
-    public function getAverageSalariesByLevels(string $position): Collection
+    public function getAverageSalariesByLevels(string $position): array
     {
         return DB::table('job_listings')
             ->select('level AS name', 'job_levels.order', DB::raw('AVG(salary_low) AS value'))
@@ -121,7 +124,8 @@ class PublicReporter
                     'name' => $item->name,
                     'value' => (int) $item->value,
                 ];
-            });
+            })
+            ->toArray();
     }
 
     /**
