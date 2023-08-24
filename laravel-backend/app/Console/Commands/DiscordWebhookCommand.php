@@ -2,15 +2,18 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Location;
 use App\Services\Discord\DiscordAuthor;
 use App\Services\Discord\DiscordEmbed;
 use App\Services\Discord\DiscordField;
 use App\Services\Discord\DiscordFooter;
 use App\Services\Discord\DiscordImage;
+use App\Services\Discord\DiscordMarkdown;
 use App\Services\Discord\DiscordProvider;
-use App\Services\Discord\DiscordThumbnail;
-use App\Services\Discord\DiscordVideo;
 use App\Services\Discord\DiscordWebhook;
+use App\Services\Report\DiffReporter;
+use App\Services\Report\HomepageReporter;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 
 class DiscordWebhookCommand extends Command
@@ -36,63 +39,128 @@ class DiscordWebhookCommand extends Command
      */
     public function handle()
     {
-        $dc = DiscordWebhook::make()
-            ->setUrl('https://discord.com/api/webhooks/1143966194529996892/PogvuzSh3nVcCxbkqxuwPoIXFy3fZ8MZvW-h-vm3SFMJy_AlRu4jNIoS3ukoVPOH-B01')
-            ->setUsername('JobTraq test')
-            ->setAvatarUrl('https://t4.ftcdn.net/jpg/00/97/58/97/360_F_97589769_t45CqXyzjz0KXwoBZT9PRaWGHRk5hQqQ.jpg')
-            ->setContent('Ez egy teszt üzenet.')
-            ->addEmbed(
-                DiscordEmbed::make()
-                    ->setTitle('Teszt embed')
-                    ->setDescription('Teszt description')
-                    ->setUrl('https://pvga.hu')
-                    ->setColor('ffa500')
-                    ->addField(
-                        DiscordField::make()
-                            ->setName('teszt')
-                            ->setValue('teszt')
-                            ->build()
-                    )
-                    ->setFooter(
-                        DiscordFooter::make()
-                            ->setText('Footer text')
-                            ->setIconUrl('https://cdn-icons-png.flaticon.com/512/616/616430.png')
-                            ->build()
-                    )
-                    ->setAuthor(
-                        DiscordAuthor::make()
-                            ->setName('JobTraq')
-                            ->setUrl('https://jobtraq.hu')
-                            ->setIconUrl('https://jobtraq.hu/assets/favicons/apple-icon-60x60.png')
-                            ->build()
-                    )
-                    ->setImage(
-                        DiscordImage::make()
-                            ->setUrl('https://images.unsplash.com/photo-1544808208-727498b3df07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')
-                            ->build()
-                    )
-                    ->setThumbnail(
-                        DiscordThumbnail::make()
-                            ->setUrl('https://images.unsplash.com/photo-1544808208-727498b3df07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')
-                            ->build()
-                    )
-                    /*->setVideo(
-                        DiscordVideo::make()
-                            ->setUrl('http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4')
-                            ->build()
-                    )*/
-                    ->setProvider(
-                        DiscordProvider::make()
-                            ->setName('JobTraq')
-                            ->setUrl('https://jobtraq.hu')
-                            ->build()
-                    )
+        /** @var DiffReporter $diffReporter */
+        $diffReporter = app(DiffReporter::class);
+
+        $firstReporter = HomepageReporter::make()
+            ->setCountryId(Location::LOCATION_HUNGARY)
+            ->setFilterDate(Carbon::yesterday()->subDay());
+
+        $secondReporter = HomepageReporter::make()
+            ->setCountryId(Location::LOCATION_HUNGARY)
+            ->setFilterDate(Carbon::yesterday());
+
+        $diff = $diffReporter->diff(
+            $firstReporter,
+            $secondReporter
+        );
+
+        $discordEmbed = DiscordEmbed::make()
+            ->setTitle(Carbon::now()->locale('hu')->isoFormat('YYYY MMMM Do').' riport')
+            ->setDescription(
+                DiscordMarkdown::build()
+                    ->text('Változások a ')->bold('tegnapi')->text(' naphoz képest.')
+                    ->toString()
+            )
+            ->setUrl('https://jobtraq.hu/report/'.Carbon::now()->format('Y-m-d'))
+            ->setColor('000000')
+            ->setAuthor(
+                DiscordAuthor::make()
+                    ->setName('JobTraq')
+                    ->setUrl('https://jobtraq.hu')
+                    ->setIconUrl('https://jobtraq.hu/assets/favicons/apple-icon-60x60.png')
                     ->build()
             )
-            ->addComponent(
+            ->setProvider(
+                DiscordProvider::make()
+                    ->setName('JobTraq')
+                    ->setUrl('https://jobtraq.hu')
+                    ->build()
+            );
+
+        foreach ($diff['pieChartPositions'] as $position => $diffValues) {
+            $discordEmbed
+                ->addField(
+                    DiscordField::make()
+                        ->setName($position)
+                        ->setValue($this->shortDiff($diffValues, 'állás'))
+                        ->setInline(true)
+                        ->build()
+                );
+        }
+
+        foreach ($diff['treeMapStacks'] as $stack => $diffValues) {
+            $discordEmbed
+                ->addField(
+                    DiscordField::make()
+                        ->setName($stack)
+                        ->setValue($this->shortDiff($diffValues, 'állás'))
+                        ->setInline(true)
+                        ->build()
+                );
+        }
+
+
+        $discordTopListEmbed = DiscordEmbed::make()
+            ->setTitle(Carbon::now()->locale('hu')->isoFormat('YYYY MMMM Do').' stack népszerűség lista')
+            ->setDescription(
+                DiscordMarkdown::build()
+                    ->text('A ')->bold('legkeresettebb')->text(' stackek listája.')
+                    ->toString()
             )
-            ->send();
+            ->setColor('000000')
+            ->setAuthor(
+                DiscordAuthor::make()
+                    ->setName('JobTraq')
+                    ->setUrl('https://jobtraq.hu')
+                    ->setIconUrl('https://jobtraq.hu/assets/favicons/apple-icon-60x60.png')
+                    ->build()
+            )
+            ->setProvider(
+                DiscordProvider::make()
+                    ->setName('JobTraq')
+                    ->setUrl('https://jobtraq.hu')
+                    ->build()
+            );
+
+        $count = 1;
+        foreach ($secondReporter->getJobsCountByStack() as $item) {
+            $discordTopListEmbed->addField(
+                DiscordField::make()
+                    ->setName(sprintf('%s. %s', $count, $item->name))
+                    ->setValue(sprintf('%s állás', $item->value))
+                    ->build()
+            );
+            $count++;
+
+            if ($count > 5) {
+                break;
+            }
+        }
+
+        DiscordWebhook::make()
+            ->setUsername('JobTraq')
+            ->setAvatarUrl('https://jobtraq.hu/assets/favicons/apple-icon-180x180.png')
+            ->addEmbed($discordEmbed->build())
+            ->addEmbed($discordTopListEmbed->build())
+            ->send('https://discord.com/api/webhooks/1144178471589916762/YrWHytTybSwEH-_Sr0LGBKwCZfGbhO8Ba6LNHITxvNOtIJpJIHu9Mqfqk3qlykadsao1');
 
         // dd($dc);
+    }
+
+    private function shortDiff(array $diffValue, string $label = ''): string
+    {
+        $diff = $diffValue['second'] - $diffValue['first'];
+        $diffPrepend = '';
+
+        if ($diff > 0) {
+            $diffPrepend = '+';
+        }
+
+        if (!empty($label)) {
+            $label = " {$label}";
+        }
+
+        return sprintf('%s%s%s', $diffPrepend, $diff, $label);
     }
 }

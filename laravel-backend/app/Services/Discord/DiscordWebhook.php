@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Http;
 
 class DiscordWebhook
 {
-    private string $url;
     private string $content = '';
     private ?string $username = null;
     private ?string $avatar_url = null;
@@ -17,18 +16,6 @@ class DiscordWebhook
     public static function make(): DiscordWebhook
     {
         return new DiscordWebhook();
-    }
-
-    public function getUrl(): string
-    {
-        return $this->url;
-    }
-
-    public function setUrl(string $url): DiscordWebhook
-    {
-        $this->url = $url;
-
-        return $this;
     }
 
     public function getContent(): string
@@ -135,8 +122,8 @@ class DiscordWebhook
     /**
      * @throws \Exception
      */
-    public function send(): void
+    public function send(string $url): void
     {
-        Http::post($this->url, $this->build());
+        Http::post($url, $this->build());
     }
 }
