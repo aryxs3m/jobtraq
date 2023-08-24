@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\PublicApi;
+namespace App\Http\Controllers\PublicApi\Reports;
 
 use App\Http\Controllers\BaseApiController;
 use App\Http\Requests\PublicApi\HomePageRequest;

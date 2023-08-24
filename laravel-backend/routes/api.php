@@ -2,10 +2,11 @@
 
 use App\Http\Controllers\PublicApi\ArticlesController;
 use App\Http\Controllers\PublicApi\CommentsController;
-use App\Http\Controllers\PublicApi\DiffReportController;
 use App\Http\Controllers\PublicApi\HealthcheckController;
 use App\Http\Controllers\PublicApi\HomeController;
-use App\Http\Controllers\PublicApi\ReportController;
+use App\Http\Controllers\PublicApi\Reports\DiffReportController;
+use App\Http\Controllers\PublicApi\Reports\ReportController;
+use App\Http\Controllers\PublicApi\SubscribeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -44,4 +45,8 @@ Route::prefix('comments')->group(function () {
     Route::middleware('throttle:new-comments')->group(function () {
         Route::post('/new', [CommentsController::class, 'newComment']);
     });
+});
+
+Route::prefix('subscribe')->group(function () {
+    Route::post('/discord', [SubscribeController::class, 'subscribeDiscord']);
 });
