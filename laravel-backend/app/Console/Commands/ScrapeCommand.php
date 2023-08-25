@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Services\Scraper\ScraperManager;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class ScrapeCommand extends Command
 {
@@ -35,6 +36,7 @@ class ScrapeCommand extends Command
      */
     public function handle()
     {
+        Log::channel('scraper')->info('Scraping started');
         $this->scraper->setOutput($this->output);
 
         $this->scraper->scrapeAll();

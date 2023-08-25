@@ -6,6 +6,7 @@ use App\Models\CrawlerKeyword;
 use App\Models\JobListing;
 use App\Services\Scraper\DTOs\Listing;
 use Illuminate\Console\OutputStyle;
+use Illuminate\Support\Facades\Log;
 
 class ScraperManager
 {
@@ -38,10 +39,22 @@ class ScraperManager
                 $this->saveListings($crawlerKeyword->crawler, $listings);
 
                 $listingsCount += count($listings);
+
+                Log::channel('scraper')->info(sprintf(
+                    '%s:%s scraped %s listings',
+                    $crawlerKeyword->crawler,
+                    $keyword,
+                    count($listings)
+                ));
             }
         }
 
         $this->output->success(sprintf('Total %s listings scraped.', $listingsCount));
+
+        Log::channel('scraper')->info(sprintf(
+            'Scraping finished. Total %s listings found.',
+            $listingsCount
+        ));
     }
 
     /**

@@ -81,6 +81,10 @@ abstract class BaseJobListingScraper implements JobListingScraperInterface
             ],
         ]);
 
-        Log::error('Scraper error.', (array) $throwable);
+        Log::channel('scraper')->error('Scraping error', [
+            'message' => $throwable->getMessage(),
+            'file' => $throwable->getFile(),
+            'line' => $throwable->getLine(),
+        ]);
     }
 }
