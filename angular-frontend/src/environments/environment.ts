@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   google_measurement_id: 'G-ZH4VB95FLH',
   domain: 'localhost',
-  api_url: 'http://laravel-backend.test/api/',
+  api_url: 'http://localhost/api/',
   launchDate: "2023-08-01",
   discord_join_link: 'https://discord.gg/FquPDzetRC',
   discord_guild_id: "464782333711482881"
