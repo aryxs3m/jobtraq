@@ -14,6 +14,9 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('jtq:scrape')->dailyAt('02:00');
         $schedule->command('jtq:discord-webhook')->dailyAt('07:00');
+
+        // Egyelőre ezt még nem engedélyezem, gyűjtsünk inkább több, de felesleges adatot.
+        //$schedule->command('jtq:remove-unused-job-listings')->weekly();
     }
 
     /**
