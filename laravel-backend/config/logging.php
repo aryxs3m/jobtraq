@@ -1,5 +1,6 @@
 <?php
 
+use App\Logging\DiscordLoggerFactory;
 use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
@@ -135,5 +136,11 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+        'discord' => [
+            'driver' => 'custom',
+            'via' => DiscordLoggerFactory::class,
+            'webhook_url' => env('DISCORD_LOG_WEBHOOK'),
+        ]
     ],
 ];

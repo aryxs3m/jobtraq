@@ -4,7 +4,9 @@ use App\Http\Controllers\PublicApi\ArticlesController;
 use App\Http\Controllers\PublicApi\CommentsController;
 use App\Http\Controllers\PublicApi\HealthcheckController;
 use App\Http\Controllers\PublicApi\HomeController;
-use App\Http\Controllers\PublicApi\ReportController;
+use App\Http\Controllers\PublicApi\Reports\DiffReportController;
+use App\Http\Controllers\PublicApi\Reports\ReportController;
+use App\Http\Controllers\PublicApi\SubscribeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +31,7 @@ Route::get('/healthcheck', [HealthcheckController::class, 'status']);
 Route::prefix('report')->group(function () {
     Route::get('homepage', [ReportController::class, 'homepageStatistics']);
     Route::get('by-position', [ReportController::class, 'statisticByPosition']);
+    Route::get('diff', [DiffReportController::class, 'diffReport']);
 });
 
 Route::prefix('articles')->group(function () {
@@ -42,4 +45,8 @@ Route::prefix('comments')->group(function () {
     Route::middleware('throttle:new-comments')->group(function () {
         Route::post('/new', [CommentsController::class, 'newComment']);
     });
+});
+
+Route::prefix('subscribe')->group(function () {
+    Route::post('/discord', [SubscribeController::class, 'subscribeDiscord']);
 });

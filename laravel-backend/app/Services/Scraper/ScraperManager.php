@@ -55,6 +55,10 @@ class ScraperManager
             'Scraping finished. Total %s listings found.',
             $listingsCount
         ));
+
+        Log::channel('discord')->info('Scraping finished.', [
+            'New listings' => $listingsCount
+        ]);
     }
 
     /**
