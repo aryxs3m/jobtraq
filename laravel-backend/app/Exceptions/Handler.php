@@ -40,17 +40,10 @@ class Handler extends ExceptionHandler
 
         $this->renderable(function (\Throwable $throwable, Request $request) {
             if ($request->is('api/*')) {
-                $response = [
+                return response()->json([
                     'status' => 'error',
                     'message' => $throwable->getMessage(),
-                ];
-
-                if (config('app.debug')) {
-                    $response['data']['file'] = $throwable->getFile();
-                    $response['data']['line'] = $throwable->getLine();
-                }
-
-                return response()->json($response, 200);
+                ], 200);
             }
         });
     }

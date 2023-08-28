@@ -4,6 +4,7 @@ namespace App\Services\Report;
 
 use App\Models\JobListing;
 use Carbon\Carbon;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -16,19 +17,12 @@ class PublicReporter
 
     protected int $countryId;
 
-    public static function make(): static
-    {
-        return new static();
-    }
-
     /**
      * Erre a napra szűrve lesznek generálva a riportok.
      */
-    public function setFilterDate(Carbon $filterDate): static
+    public function setFilterDate(Carbon $filterDate): void
     {
         $this->filterDate = $filterDate;
-
-        return $this;
     }
 
     /**
@@ -46,7 +40,7 @@ class PublicReporter
      *
      * @throws \Exception
      */
-    public function getJobsCountByPosition(): array
+    public function getJobsCountByPosition(): Collection
     {
         return DB::table('job_listings')
             ->select('position AS name', DB::raw('COUNT(1) AS value'))
@@ -58,14 +52,13 @@ class PublicReporter
             ->whereRaw('job_positions.hidden_in_statistics = 0')
             ->groupBy('position')
             ->orderBy('value', 'DESC')
-            ->get()
-            ->toArray();
+            ->get();
     }
 
     /**
      * Álláshirdetések száma az elmúlt 4 hétben.
      */
-    public function getJobsCountByWeek(): array
+    public function getJobsCountByWeek(): Collection
     {
         return DB::table('job_listings')
             ->select(
@@ -79,14 +72,13 @@ class PublicReporter
             ->limit(4)
             ->get()
             ->reverse()
-            ->values()
-            ->toArray();
+            ->values();
     }
 
     /**
      * Álláshirdetések száma stackenként.
      */
-    public function getJobsCountByStack(): array
+    public function getJobsCountByStack(): Collection
     {
         return DB::table('job_listings')
             ->select('stack AS name', DB::raw('COUNT(1) AS value'))
@@ -96,8 +88,7 @@ class PublicReporter
             ->whereRaw('locations.country_id = :countryId', ['countryId' => $this->getCountryId()])
             ->groupBy('stack')
             ->orderBy('value', 'DESC')
-            ->get()
-            ->toArray();
+            ->get();
     }
 
     /**
@@ -105,7 +96,7 @@ class PublicReporter
      *
      * @param string $position munkakör
      */
-    public function getAverageSalariesByLevels(string $position): array
+    public function getAverageSalariesByLevels(string $position): Collection
     {
         return DB::table('job_listings')
             ->select('level AS name', 'job_levels.order', DB::raw('AVG(salary_low) AS value'))
@@ -123,8 +114,7 @@ class PublicReporter
                     'name' => $item->name,
                     'value' => (int) $item->value,
                 ];
-            })
-            ->toArray();
+            });
     }
 
     /**
@@ -192,10 +182,8 @@ class PublicReporter
         return $this->countryId;
     }
 
-    public function setCountryId(int $countryId): static
+    public function setCountryId(int $countryId): void
     {
         $this->countryId = $countryId;
-
-        return $this;
     }
 }

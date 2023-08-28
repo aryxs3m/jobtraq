@@ -30,8 +30,7 @@ host('test.jobtraq.hu')
     ->set('deploy_path', '/var/www/jobtraq/test.jobtraq.hu')
     ->set('keep_releases', 2)
     ->setLabels(['environment' => 'test'])
-    ->set('fe_env', 'test')
-    ->set('branch', 'develop');
+    ->set('fe_env', 'test');
 
 host('jobtraq.hu')
     ->setHostname('nekobox.pvga.hu')
@@ -39,8 +38,7 @@ host('jobtraq.hu')
     ->set('deploy_path', '/var/www/jobtraq/jobtraq.hu')
     ->set('keep_releases', 3)
     ->setLabels(['environment' => 'prod'])
-    ->set('fe_env', 'production')
-    ->set('branch', 'master');
+    ->set('fe_env', 'production');
 
 task('be-copy-env', function () {
     run('cp "{{deploy_path}}/.env" "{{release_path}}/laravel-backend/.env"');
