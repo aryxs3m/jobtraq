@@ -31,7 +31,7 @@ class ArticlesTest extends TestCase
                 'title' => $article->title,
                 'introduction' => $article->introduction,
                 'image_url' => $article->image_url,
-                'published_at' => $article->published_at->format('Y-m-d'),
+                'published_at' => $article->published_at,
                 'user_id' => $article->user_id,
             ]]
         ]);
@@ -53,7 +53,7 @@ class ArticlesTest extends TestCase
                 'title' => $article->title,
                 'introduction' => $article->introduction,
                 'image_url' => $article->image_url,
-                'published_at' => $article->published_at->format('Y-m-d'),
+                'published_at' => $article->published_at,
                 'published' => 1,
                 'created_at' => $article->created_at,
                 'updated_at' => $article->updated_at,
