@@ -5,82 +5,34 @@
 
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
         <div class="col mt-4">
-            <div class="card shadow">
-                <div class="card-body d-flex flex-row">
-                    <div class="align-self-center ps-3 pe-4">
-                        <i class="fas fa-calendar-day display-6 text-primary-emphasis"></i>
-                    </div>
-                    <div>
-                        <h3>{{ $countListingsToday }}</h3>
-                        <span class="small">Mai álláshirdetés</span>
-                    </div>
-                </div>
-            </div>
+            <x-dashboard-measure icon="fas fa-calendar-day" :value="$countListingsToday">
+                Mai álláshirdetés
+            </x-dashboard-measure>
         </div>
         <div class="col mt-4">
-            <div class="card shadow">
-                <div class="card-body d-flex flex-row">
-                    <div class="align-self-center ps-3 pe-4">
-                        <i class="fas fa-briefcase display-6 text-primary-emphasis"></i>
-                    </div>
-                    <div>
-                        <h3>{{ $countListings }}</h3>
-                        <span class="small">Összes álláshirdetés</span>
-                    </div>
-                </div>
-            </div>
+            <x-dashboard-measure icon="fas fa-briefcase" :value="$countListings">
+                Összes álláshirdetés
+            </x-dashboard-measure>
         </div>
         <div class="col mt-4">
-            <div class="card shadow">
-                <div class="card-body d-flex flex-row">
-                    <div class="align-self-center ps-3 pe-4">
-                        <i class="fas fa-circle-xmark display-6 text-primary-emphasis"></i>
-                    </div>
-                    <div>
-                        <h3>{{ $countListingsNotUsed }}</h3>
-                        <span class="small">Nem használt álláshirdetés</span>
-                    </div>
-                </div>
-            </div>
+            <x-dashboard-measure icon="fas fa-circle-xmark" :value="$countListingsNotUsed">
+                Nem használt álláshirdetés
+            </x-dashboard-measure>
         </div>
         <div class="col mt-4">
-            <div class="card shadow">
-                <div class="card-body d-flex flex-row">
-                    <div class="align-self-center ps-3 pe-4">
-                        <i class="fas fa-check-double display-6 text-primary-emphasis"></i>
-                    </div>
-                    <div>
-                        <h3>{{ $countListingsFull }}</h3>
-                        <span class="small">Teljesen kategorizált hirdetések</span>
-                    </div>
-                </div>
-            </div>
+            <x-dashboard-measure icon="fas fa-check-double" :value="$countListingsFull">
+                Teljesen kategorizált hirdetések
+            </x-dashboard-measure>
         </div>
         <div class="col mt-4">
-            <div class="card shadow">
-                <div class="card-body d-flex flex-row">
-                    <div class="align-self-center ps-3 pe-4">
-                        <i class="fas fa-percent display-6 text-primary-emphasis"></i>
-                    </div>
-                    <div>
-                        <h3>{{ $percentageOfNotUsedListings }}%</h3>
-                        <span class="small">Nem használt álláshirdetések</span>
-                    </div>
-                </div>
-            </div>
+            <x-dashboard-measure icon="fas fa-percent" :value="$percentageOfNotUsedListings" unit="%">
+                Nem használt álláshirdetések
+            </x-dashboard-measure>
         </div>
         <div class="col mt-4">
-            <div class="card shadow">
-                <div class="card-body d-flex flex-row">
-                    <div class="align-self-center ps-3 pe-4">
-                        <i class="fas fa-circle-exclamation display-6 text-primary-emphasis"></i>
-                    </div>
-                    <div>
-                        <h3>{{ $errorsToday }}</h3>
-                        <span class="small">Mai scraper hibák</span>
-                    </div>
-                </div>
-            </div>
+            <x-dashboard-measure icon="fas fa-circle-exclamation" :value="$errorsToday">
+                Mai scraper hibák
+            </x-dashboard-measure>
         </div>
     </div>
 
