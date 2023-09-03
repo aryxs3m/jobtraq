@@ -1,9 +1,8 @@
 <?php
 
-namespace Admin;
+namespace Admin\Controllers;
 
 use App\Models\Article;
-use App\Models\CrawlerKeyword;
 use App\Models\User;
 use Tests\TestCase;
 
