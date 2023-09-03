@@ -53,22 +53,26 @@
         })
     }
 
+    function crudDelete(button) {
+        let btn = $(button);
+
+        if (confirm('Biztos törlöd?')) {
+            $.ajax({
+                url: btn.data('action'),
+                method: 'DELETE',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                },
+                complete: () => {
+                    window.location.reload();
+                }
+            })
+        }
+    }
+
     $(function () {
         $(".btn-crud-delete").on('click', function () {
-            let btn = $(this);
-
-            if (confirm('Biztos törlöd?')) {
-                $.ajax({
-                    url: btn.data('action'),
-                    method: 'DELETE',
-                    data: {
-                        _token: '{{ csrf_token() }}',
-                    },
-                    complete: () => {
-                        window.location.reload();
-                    }
-                })
-            }
+            crudDelete(this);
         });
     });
 </script>

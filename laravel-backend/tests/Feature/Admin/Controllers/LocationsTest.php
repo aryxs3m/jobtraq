@@ -61,9 +61,17 @@ class LocationsTest extends TestCase
         /** @var Location $location */
         $location = Location::factory()->create();
 
-        $response = $this->actingAs($user)->get('/data/locations');
+        $response = $this->actingAs($user)->get('/data/locations', [
+            'Accept' => 'application/json',
+            'HTTP_X-Requested-With' => 'XMLHttpRequest'
+        ]);
+
         $response->assertStatus(200);
-        $response->assertSee($location->name);
+        $response->assertJsonFragment([
+            'draw' => 0,
+        ]);
+        $response->assertJsonIsArray('data');
+        $response->assertSeeText($location->id);
     }
 
     public function testCanDeleteLocation(): void

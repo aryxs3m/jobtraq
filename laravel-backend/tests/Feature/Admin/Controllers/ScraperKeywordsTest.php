@@ -4,6 +4,7 @@ namespace Admin\Controllers;
 
 use App\Models\CrawlerKeyword;
 use App\Models\User;
+use Illuminate\Testing\Fluent\AssertableJson;
 use Tests\TestCase;
 
 class ScraperKeywordsTest extends TestCase
@@ -56,9 +57,16 @@ class ScraperKeywordsTest extends TestCase
         /** @var CrawlerKeyword $scraperKeyword */
         $scraperKeyword = CrawlerKeyword::factory()->create();
 
-        $response = $this->actingAs($user)->get('/scraper-keywords');
+        $response = $this->actingAs($user)->get('/scraper-keywords', [
+            'Accept' => 'application/json',
+            'HTTP_X-Requested-With' => 'XMLHttpRequest'
+        ]);
+
         $response->assertStatus(200);
-        $response->assertSee($scraperKeyword->id);
-        $response->assertSee($scraperKeyword->crawler);
+        $response->assertJsonFragment([
+            'draw' => 0,
+        ]);
+        $response->assertJsonIsArray('data');
+        $response->assertSeeText($scraperKeyword->id);
     }
 }

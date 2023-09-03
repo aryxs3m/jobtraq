@@ -63,9 +63,16 @@ class ArticlesTest extends TestCase
         /** @var Article $article */
         $article = Article::factory()->create();
 
-        $response = $this->actingAs($user)->get('/articles');
+        $response = $this->actingAs($user)->get('/articles', [
+            'Accept' => 'application/json',
+            'HTTP_X-Requested-With' => 'XMLHttpRequest'
+        ]);
+
         $response->assertStatus(200);
-        $response->assertSee($article->id);
-        $response->assertSee($article->title);
+        $response->assertJsonFragment([
+            'draw' => 0,
+        ]);
+        $response->assertJsonIsArray('data');
+        $response->assertSeeText($article->id);
     }
 }

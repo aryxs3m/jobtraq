@@ -57,9 +57,17 @@ class JobLevelsTest extends TestCase
         /** @var JobLevel $jobLevel */
         $jobLevel = JobLevel::factory()->create();
 
-        $response = $this->actingAs($user)->get('/job-levels');
+        $response = $this->actingAs($user)->get('/job-levels', [
+            'Accept' => 'application/json',
+            'HTTP_X-Requested-With' => 'XMLHttpRequest'
+        ]);
+
         $response->assertStatus(200);
-        $response->assertSee($jobLevel->name);
+        $response->assertJsonFragment([
+            'draw' => 0,
+        ]);
+        $response->assertJsonIsArray('data');
+        $response->assertSeeText($jobLevel->id);
     }
 
     public function testCanDeleteJobLevel(): void

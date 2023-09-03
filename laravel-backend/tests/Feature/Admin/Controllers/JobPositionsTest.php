@@ -88,9 +88,17 @@ class JobPositionsTest extends TestCase
         /** @var JobPosition $jobPosition */
         $jobPosition = JobPosition::factory()->create();
 
-        $response = $this->actingAs($user)->get('/job-positions');
+        $response = $this->actingAs($user)->get('/job-positions', [
+            'Accept' => 'application/json',
+            'HTTP_X-Requested-With' => 'XMLHttpRequest'
+        ]);
+
         $response->assertStatus(200);
-        $response->assertSee($jobPosition->name);
+        $response->assertJsonFragment([
+            'draw' => 0,
+        ]);
+        $response->assertJsonIsArray('data');
+        $response->assertSeeText($jobPosition->id);
     }
 
     public function testCanDeleteJobPositions(): void

@@ -54,9 +54,17 @@ class CountriesTest extends TestCase
         /** @var Country $country */
         $country = Country::factory()->create();
 
-        $response = $this->actingAs($user)->get('/data/countries');
+        $response = $this->actingAs($user)->get('/data/countries', [
+            'Accept' => 'application/json',
+            'HTTP_X-Requested-With' => 'XMLHttpRequest'
+        ]);
+
         $response->assertStatus(200);
-        $response->assertSee($country->name);
+        $response->assertJsonFragment([
+            'draw' => 0,
+        ]);
+        $response->assertJsonIsArray('data');
+        $response->assertSeeText($country->id);
     }
 
     public function testCanDeleteCountry(): void

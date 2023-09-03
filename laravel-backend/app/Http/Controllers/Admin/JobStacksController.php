@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\DataTables\JobStacksDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\JobStackRequest;
 use App\Models\JobPosition;
@@ -9,15 +10,14 @@ use App\Models\JobStack;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 
 class JobStacksController extends Controller
 {
-    public function index(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
+    public function index(JobStacksDataTable $dataTable): View|Application|Factory|\Illuminate\Contracts\Foundation\Application|JsonResponse
     {
-        return view('job-stacks.list', [
-            'items' => JobStack::query()->with('jobPosition')->get(),
-        ]);
+        return $dataTable->render('job-stacks.list');
     }
 
     public function create(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\DataTables\ScraperKeywordsDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ScraperKeywordsRequest;
 use App\Models\CrawlerKeyword;
@@ -9,15 +10,14 @@ use App\Services\Scraper\ScraperManager;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 
 class ScraperKeywordsController extends Controller
 {
-    public function index(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
+    public function index(ScraperKeywordsDataTable $dataTable): View|Application|Factory|\Illuminate\Contracts\Foundation\Application|JsonResponse
     {
-        return view('crawler-keywords.list', [
-            'items' => CrawlerKeyword::all(),
-        ]);
+        return $dataTable->render('crawler-keywords.list');
     }
 
     public function create(ScraperManager $crawlManager): View|Application|Factory|\Illuminate\Contracts\Foundation\Application

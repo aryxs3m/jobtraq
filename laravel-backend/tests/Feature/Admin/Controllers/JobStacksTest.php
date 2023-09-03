@@ -77,9 +77,17 @@ class JobStacksTest extends TestCase
         /** @var JobStack $jobStack */
         $jobStack = JobStack::factory()->create();
 
-        $response = $this->actingAs($user)->get('/job-stacks');
+        $response = $this->actingAs($user)->get('/job-stacks', [
+            'Accept' => 'application/json',
+            'HTTP_X-Requested-With' => 'XMLHttpRequest'
+        ]);
+
         $response->assertStatus(200);
-        $response->assertSee($jobStack->name);
+        $response->assertJsonFragment([
+            'draw' => 0,
+        ]);
+        $response->assertJsonIsArray('data');
+        $response->assertSeeText($jobStack->id);
     }
 
     public function testCanDeleteJobStack(): void
