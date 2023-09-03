@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Log;
 
 class ScraperManager
 {
-    private OutputStyle $output;
+    private ?OutputStyle $output = null;
 
     private const SCRAPERS = [
         NoFluffJobsScraper::class,
@@ -29,13 +29,13 @@ class ScraperManager
 
         /** @var CrawlerKeyword $crawlerKeyword */
         foreach (CrawlerKeyword::all() as $crawlerKeyword) {
-            $this->output->writeln($crawlerKeyword->crawler);
+            $this->output?->writeln($crawlerKeyword->crawler);
 
             /** @var JobListingScraperInterface $crawlerService */
             $crawlerService = app($crawlerKeyword->crawler);
 
             foreach ($crawlerKeyword->keywords as $keyword) {
-                $this->output->writeln(sprintf(' > %s scraping ...', $keyword));
+                $this->output?->writeln(sprintf(' > %s scraping ...', $keyword));
                 $listings = $crawlerService->scrapePage($keyword);
                 $this->saveListings($crawlerKeyword->crawler, $listings);
 
@@ -50,7 +50,7 @@ class ScraperManager
             }
         }
 
-        $this->output->success(sprintf('Total %s listings scraped.', $listingsCount));
+        $this->output?->success(sprintf('Total %s listings scraped.', $listingsCount));
 
         Log::channel('scraper')->info(sprintf(
             'Scraping finished. Total %s listings found.',
