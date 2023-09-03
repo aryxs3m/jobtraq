@@ -71,6 +71,10 @@ task('be-migrate', function () {
     run("php {{release_path}}/laravel-backend/artisan migrate");
 });
 
+task('be-queue-restart', function () {
+    run("php {{release_path}}/laravel-backend/artisan queue:restart");
+});
+
 task('be-optimize', function () {
     run("php {{release_path}}/laravel-backend/artisan config:cache");
     run("php {{release_path}}/laravel-backend/artisan route:cache");
