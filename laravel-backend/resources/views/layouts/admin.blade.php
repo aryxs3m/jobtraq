@@ -1,7 +1,10 @@
 @extends('layouts.html')
 @section('body')
 <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
-    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="/">{{ config('app.name') }}</a>
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white d-flex align-items-center" href="/">
+        <img src="/logo.svg" alt="JobTraq" height="20" class="me-2">
+        {{ config('app.name') }}
+    </a>
 
     <ul class="navbar-nav flex-row d-md-none">
         <li class="nav-item text-nowrap">
