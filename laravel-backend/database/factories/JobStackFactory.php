@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Services\Scraper\ScraperManager;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

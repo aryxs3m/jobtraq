@@ -79,7 +79,7 @@ class JobStacksTest extends TestCase
 
         $response = $this->actingAs($user)->get('/job-stacks', [
             'Accept' => 'application/json',
-            'HTTP_X-Requested-With' => 'XMLHttpRequest'
+            'HTTP_X-Requested-With' => 'XMLHttpRequest',
         ]);
 
         $response->assertStatus(200);

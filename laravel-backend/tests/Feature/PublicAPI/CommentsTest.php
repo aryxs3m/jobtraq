@@ -32,7 +32,7 @@ class CommentsTest extends TestCase
             'data' => [
                 'id' => 1,
                 'status' => CommentStatus::AWAITING_MODERATION->value,
-            ]
+            ],
         ]);
     }
 
@@ -58,7 +58,7 @@ class CommentsTest extends TestCase
                 'message' => $comment->message,
                 'created_at' => $comment->created_at,
                 'is_op' => 0,
-            ]]
+            ]],
         ]);
         $response->assertJsonCount(1, 'data');
     }

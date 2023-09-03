@@ -58,7 +58,7 @@ class ScraperManager
         ));
 
         Log::channel('discord')->info('Scraping finished.', [
-            'New listings' => $listingsCount
+            'New listings' => $listingsCount,
         ]);
 
         ScrapingFinished::dispatch($listingsCount);

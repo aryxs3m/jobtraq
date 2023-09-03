@@ -14,18 +14,11 @@ class DiscordWebhookHandler extends AbstractProcessingHandler
 {
     private string $webhook_url;
 
-    /**
-     * @return string
-     */
     public function getWebhookUrl(): string
     {
         return $this->webhook_url;
     }
 
-    /**
-     * @param string $webhook_url
-     * @return DiscordWebhookHandler
-     */
     public function setWebhookUrl(string $webhook_url): DiscordWebhookHandler
     {
         $this->webhook_url = $webhook_url;
@@ -33,7 +26,8 @@ class DiscordWebhookHandler extends AbstractProcessingHandler
         return $this;
     }
 
-    #[NoReturn] protected function write(LogRecord $record): void
+    #[NoReturn]
+    protected function write(LogRecord $record): void
     {
         $discordEmbed = DiscordEmbed::make()
             ->setTitle($record->level->name)

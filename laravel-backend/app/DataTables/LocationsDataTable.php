@@ -9,8 +9,6 @@ use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class LocationsDataTable extends DataTable
@@ -18,7 +16,7 @@ class LocationsDataTable extends DataTable
     /**
      * Build the DataTable class.
      *
-     * @param QueryBuilder $query Results from query() method.
+     * @param QueryBuilder $query results from query() method
      */
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
@@ -45,7 +43,7 @@ class LocationsDataTable extends DataTable
                     ->setTableId('locations-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    //->dom('Bfrtip')
+                    // ->dom('Bfrtip')
                     ->orderBy(1)
                     ->selectStyleSingle()
                     ->buttons([
@@ -77,6 +75,6 @@ class LocationsDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'Locations_' . date('YmdHis');
+        return 'Locations_'.date('YmdHis');
     }
 }

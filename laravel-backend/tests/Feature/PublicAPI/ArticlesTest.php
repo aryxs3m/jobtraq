@@ -3,8 +3,6 @@
 namespace PublicAPI;
 
 use App\Models\Article;
-use App\Models\Comment;
-use App\Models\Enums\CommentStatus;
 use Tests\TestCase;
 
 class ArticlesTest extends TestCase
@@ -33,7 +31,7 @@ class ArticlesTest extends TestCase
                 'image_url' => $article->image_url,
                 'published_at' => $article->published_at,
                 'user_id' => $article->user_id,
-            ]]
+            ]],
         ]);
         $response->assertJsonCount(1, 'data');
     }
@@ -59,7 +57,7 @@ class ArticlesTest extends TestCase
                 'updated_at' => $article->updated_at,
                 'user_id' => $article->user_id,
                 'content' => $article->content,
-            ]
+            ],
         ]);
     }
 }

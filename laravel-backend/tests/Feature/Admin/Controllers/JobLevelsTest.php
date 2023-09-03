@@ -59,7 +59,7 @@ class JobLevelsTest extends TestCase
 
         $response = $this->actingAs($user)->get('/job-levels', [
             'Accept' => 'application/json',
-            'HTTP_X-Requested-With' => 'XMLHttpRequest'
+            'HTTP_X-Requested-With' => 'XMLHttpRequest',
         ]);
 
         $response->assertStatus(200);

@@ -141,6 +141,6 @@ return [
             'driver' => 'custom',
             'via' => DiscordLoggerFactory::class,
             'webhook_url' => env('DISCORD_LOG_WEBHOOK'),
-        ]
+        ],
     ],
 ];

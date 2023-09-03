@@ -2,7 +2,6 @@
 
 namespace App\DataTables\Formatters;
 
-use Carbon\Carbon;
 use Yajra\DataTables\Contracts\Formatter;
 
 class ClassBasenameFormatter implements Formatter

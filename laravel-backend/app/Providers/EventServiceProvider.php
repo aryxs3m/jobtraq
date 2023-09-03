@@ -21,7 +21,7 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         ScrapingFinished::class => [
-            SendScrapeFailNotification::class
+            SendScrapeFailNotification::class,
         ],
     ];
 

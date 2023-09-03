@@ -3,13 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Enums\CommentStatus;
-use App\Models\Location;
-use App\Models\User;
-use App\Services\Scraper\DTOs\SalaryType;
-use App\Services\Scraper\NoFluffJobsScraper;
-use App\Services\Scraper\ProfessionScraper;
-use App\Services\Scraper\ScraperManager;
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

@@ -56,7 +56,7 @@ class CountriesTest extends TestCase
 
         $response = $this->actingAs($user)->get('/data/countries', [
             'Accept' => 'application/json',
-            'HTTP_X-Requested-With' => 'XMLHttpRequest'
+            'HTTP_X-Requested-With' => 'XMLHttpRequest',
         ]);
 
         $response->assertStatus(200);

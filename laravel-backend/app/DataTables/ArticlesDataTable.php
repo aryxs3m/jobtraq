@@ -11,8 +11,6 @@ use Yajra\DataTables\Exceptions\Exception;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class ArticlesDataTable extends DataTable
@@ -20,7 +18,8 @@ class ArticlesDataTable extends DataTable
     /**
      * Build the DataTable class.
      *
-     * @param QueryBuilder $query Results from query() method.
+     * @param QueryBuilder $query results from query() method
+     *
      * @throws Exception
      */
     public function dataTable(QueryBuilder $query): EloquentDataTable
@@ -49,7 +48,7 @@ class ArticlesDataTable extends DataTable
                     ->setTableId('articles-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    //->dom('Bfrtip')
+                    // ->dom('Bfrtip')
                     ->orderBy(1)
                     ->selectStyleSingle()
                     ->buttons([
@@ -82,6 +81,6 @@ class ArticlesDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'Articles_' . date('YmdHis');
+        return 'Articles_'.date('YmdHis');
     }
 }

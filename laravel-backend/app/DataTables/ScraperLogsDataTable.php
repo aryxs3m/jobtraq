@@ -19,6 +19,7 @@ class ScraperLogsDataTable extends DataTable
      * Build the DataTable class.
      *
      * @param QueryBuilder $query results from query() method
+     *
      * @throws Exception
      */
     public function dataTable(QueryBuilder $query): EloquentDataTable

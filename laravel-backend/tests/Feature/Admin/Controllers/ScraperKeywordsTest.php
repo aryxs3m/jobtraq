@@ -4,7 +4,6 @@ namespace Admin\Controllers;
 
 use App\Models\CrawlerKeyword;
 use App\Models\User;
-use Illuminate\Testing\Fluent\AssertableJson;
 use Tests\TestCase;
 
 class ScraperKeywordsTest extends TestCase
@@ -59,7 +58,7 @@ class ScraperKeywordsTest extends TestCase
 
         $response = $this->actingAs($user)->get('/scraper-keywords', [
             'Accept' => 'application/json',
-            'HTTP_X-Requested-With' => 'XMLHttpRequest'
+            'HTTP_X-Requested-With' => 'XMLHttpRequest',
         ]);
 
         $response->assertStatus(200);
