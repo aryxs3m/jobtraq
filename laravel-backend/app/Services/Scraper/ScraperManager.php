@@ -2,6 +2,7 @@
 
 namespace App\Services\Scraper;
 
+use App\Events\ScrapingFinished;
 use App\Models\CrawlerKeyword;
 use App\Models\JobListing;
 use App\Services\Scraper\DTOs\Listing;
@@ -59,6 +60,8 @@ class ScraperManager
         Log::channel('discord')->info('Scraping finished.', [
             'New listings' => $listingsCount
         ]);
+
+        ScrapingFinished::dispatch($listingsCount);
     }
 
     /**
