@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\DataTables\ArticlesDataTable;
+use App\Models\Article;
 use App\Models\Enums\CommentStatus;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -18,10 +20,11 @@ class CommentFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => 'Commenter',
-            'message' => 'This is a test comment',
+            'name' => $this->faker->name,
+            'message' => $this->faker->sentence,
             'status' => CommentStatus::AWAITING_MODERATION,
             'ip_address' => $this->faker->ipv4,
+            'article_id' => Article::factory()->create()->id,
         ];
     }
 

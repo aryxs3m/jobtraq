@@ -30,9 +30,14 @@ class CommentsTest extends TestCase
         $response->assertJson([
             'status' => 'success',
             'data' => [
-                'id' => 1,
                 'status' => CommentStatus::AWAITING_MODERATION->value,
             ],
+        ]);
+
+        $this->assertDatabaseHas(Comment::class, [
+            'name' => 'Commenter',
+            'message' => 'Test message',
+            'article_id' => $article->id,
         ]);
     }
 
