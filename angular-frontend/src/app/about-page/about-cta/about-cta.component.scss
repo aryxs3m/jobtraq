@@ -1,0 +1,19 @@
+.masthead {
+  background-image: url("/assets/about-bg.webp");
+  background-position: center;
+  background-size: cover;
+}
+
+.scroll-cta {
+  color: white;
+  animation: 0.8s scroll-cta-icon infinite ease-in alternate;
+}
+
+@keyframes scroll-cta-icon {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
