@@ -48,5 +48,7 @@ Route::prefix('comments')->group(function () {
 });
 
 Route::prefix('subscribe')->group(function () {
-    Route::post('/discord', [SubscribeController::class, 'subscribeDiscord']);
+    Route::middleware('throttle:subscriptions')->group(function () {
+        Route::post('/discord', [SubscribeController::class, 'subscribeDiscord']);
+    });
 });

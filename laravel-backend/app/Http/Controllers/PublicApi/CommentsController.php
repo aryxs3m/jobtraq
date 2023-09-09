@@ -60,6 +60,8 @@ class CommentsController extends BaseApiController
      *
      * @apiDescription Hírhez rögzít új hozzászólást.
      *
+     * Percenként maximum 5 hozzászólást küldhetsz be egy IP címről.
+     *
      * @apiGroup Hozzászólások
      *
      * @apiVersion 0.1.0

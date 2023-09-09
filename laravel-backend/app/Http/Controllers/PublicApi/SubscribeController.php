@@ -16,6 +16,11 @@ class SubscribeController extends BaseApiController
      *
      * @apiDescription Feliratkoztat egy Discord webhookot a napi riportokra.
      *
+     * Ez egy "early-access" funkció, jelenleg a frontend oldalról nem érhető el. A webhook message tartalma
+     * előfordulhat, hogy változik a jövőben.
+     *
+     * Percenként maximum 3 feliratkozást küldhetsz be egy IP címről.
+     *
      * @apiGroup Feliratkozások
      *
      * @apiVersion 0.1.0
