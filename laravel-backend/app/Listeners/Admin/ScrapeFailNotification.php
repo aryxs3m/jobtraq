@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Listeners;
+namespace App\Listeners\Admin;
 
 use App\Events\ScrapingFinished;
 use App\Models\Location;
@@ -8,7 +8,7 @@ use App\Services\Report\PublicReporter;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 
-class SendScrapeFailNotification
+class ScrapeFailNotification
 {
     private PublicReporter $reporter;
 
