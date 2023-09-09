@@ -12,6 +12,8 @@ describe('Contact Page', () => {
     cy.contains('Minden visszajelzést szívesen fogadunk.')
     cy.contains('Online')
     cy.contains('pvga.hu')
+    cy.contains('PVGA Hackerspace')
+    cy.contains('aryxs3m/jobtraq')
     cy.contains('info@jobtraq.hu')
     cy.contains('Image by')
   })

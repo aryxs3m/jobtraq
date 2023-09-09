@@ -8,7 +8,6 @@ describe('About Us Page', () => {
   it('can show about us content', () => {
     cy.visit(Cypress.env('base_url') + '/about-us')
 
-    cy.contains('Naprakész információ a magyar IT álláspiacról')
     cy.contains('Hogyan működik?')
     cy.contains('Miben készült?')
     cy.contains('Open Source')

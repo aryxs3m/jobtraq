@@ -7,6 +7,6 @@ module.exports = defineConfig({
     },
   },
   env: {
-    base_url: 'https://test.jobtraq.hu',
+    base_url: 'http://localhost:4200',
   },
 });
