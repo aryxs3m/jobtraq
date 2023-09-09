@@ -39,6 +39,8 @@ Route::middleware('auth')->group(function () {
     Route::prefix('job-listings')->name('job-listings.')->group(function () {
         Route::get('', [JobListingsController::class, 'index'])->name('index');
         Route::get('reparse/{listing}', [JobListingsController::class, 'reparse'])->name('reparse');
+        Route::get('reparse', [JobListingsController::class, 'fullReparse'])->name('full-reparse');
+        Route::get('scrape', [JobListingsController::class, 'scrape'])->name('scrape');
     });
 
     Route::prefix('scraper-logs')->name('scraper-logs.')->group(function () {

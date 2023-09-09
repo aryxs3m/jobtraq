@@ -56,7 +56,7 @@ class ArticlesController extends BaseApiController
      * @apiSuccess {object} data
      * @apiSuccess {integer} data.id azonosító
      * @apiSuccess {date} data.created_at létrehozás ideje
-     * @apiSuccess {date} data.created_at frissítés ideje
+     * @apiSuccess {date} data.updated_at frissítés ideje
      * @apiSuccess {date} data.published_at publikálás dátuma
      * @apiSuccess {boolean} data.published publikált-e?
      * @apiSuccess {string} data.image_url teljes HTTP(S) URL a cikkhez tartozó illusztrációhoz

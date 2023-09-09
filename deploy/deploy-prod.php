@@ -13,6 +13,7 @@ task('setup-prod', [
         'fe-npm-build',
         'be-migrate',
         'be-storage-link',
+        'be-queue-restart',
         'fe-pm2-reload',
     ])
     ->select('environment=prod')

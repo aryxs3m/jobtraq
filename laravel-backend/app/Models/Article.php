@@ -52,6 +52,10 @@ class Article extends Model
         'published_at', 'published', 'title', 'content', 'introduction', 'image_url',
     ];
 
+    protected $casts = [
+        'published_at' => 'date',
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Data;
 
+use App\DataTables\LocationsDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\LocationRequest;
 use App\Models\Country;
@@ -9,15 +10,14 @@ use App\Models\Location;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 
 class LocationsController extends Controller
 {
-    public function index(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
+    public function index(LocationsDataTable $dataTable): View|Application|Factory|\Illuminate\Contracts\Foundation\Application|JsonResponse
     {
-        return view('data.locations.list', [
-            'items' => Location::all(),
-        ]);
+        return $dataTable->render('data.locations.list');
     }
 
     public function create(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application

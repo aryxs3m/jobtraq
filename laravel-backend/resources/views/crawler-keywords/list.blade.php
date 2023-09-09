@@ -7,25 +7,13 @@
         <a href="{{ route('scraper-keywords.create') }}" class="btn btn-sm btn-primary btn-success">Új</a>
     </div>
 
-    <table class="table" style="width: 100%">
-        <thead>
-        <tr>
-            <td>ID</td>
-            <td>Crawler</td>
-            <td>Műveletek</td>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($items as $item)
-            <tr>
-                <td>{{ $item->id }}</td>
-                <td>{{ $item->crawler }}</td>
-                <td>
-                    <a href="{{ route('scraper-keywords.edit', ['scraper_keyword' => $item]) }}" class="btn btn-sm btn-primary"><i class="fas fa-pencil"></i></a>
-                    <a href="#" data-action="{{ route('scraper-keywords.destroy', ['scraper_keyword' => $item->id]) }}" class="btn btn-sm btn-danger btn-crud-delete"><i class="fas fa-trash"></i></a>
-                </td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
+    <div class="card">
+        <div class="card-body">
+            {{ $dataTable->table() }}
+        </div>
+    </div>
 @endsection
+
+@push('scripts')
+    {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
+@endpush

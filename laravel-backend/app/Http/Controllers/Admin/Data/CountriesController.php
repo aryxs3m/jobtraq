@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers\Admin\Data;
 
+use App\DataTables\CountriesDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CountryRequest;
 use App\Models\Country;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 
 class CountriesController extends Controller
 {
-    public function index(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
+    public function index(CountriesDataTable $dataTable): View|Application|Factory|\Illuminate\Contracts\Foundation\Application|JsonResponse
     {
-        return view('data.countries.list', [
-            'items' => Country::all(),
-        ]);
+        return $dataTable->render('data.countries.list');
     }
 
     public function create(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application

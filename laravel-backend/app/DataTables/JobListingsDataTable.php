@@ -2,9 +2,12 @@
 
 namespace App\DataTables;
 
+use App\DataTables\Formatters\DateTimeFormatter;
+use App\DataTables\Formatters\MoneyFormatter;
 use App\Models\JobListing;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
+use Yajra\DataTables\Exceptions\Exception;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
@@ -15,14 +18,18 @@ class JobListingsDataTable extends DataTable
      * Build the DataTable class.
      *
      * @param QueryBuilder $query results from query() method
+     *
+     * @throws Exception
      */
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', 'job-listings.action')
-            ->addColumn('location', function (JobListing $item) {
-                return $item->location ? $item->location->location : '';
+            ->addColumn('location', function (JobListing $jobListing) {
+                return $jobListing->location ? $jobListing->location->location : '';
             })
+            ->formatColumn('created_at', new DateTimeFormatter())
+            ->formatColumn('salary_avg', new MoneyFormatter())
             ->setRowId('id');
     }
 
@@ -56,14 +63,14 @@ class JobListingsDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('created_at'),
+            Column::formatted('created_at'),
             Column::make('name'),
             Column::make('original_location'),
             Column::make('location'),
             Column::make('position'),
             Column::make('level'),
             Column::make('stack'),
-            Column::make('salary_avg'),
+            Column::formatted('salary_avg'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

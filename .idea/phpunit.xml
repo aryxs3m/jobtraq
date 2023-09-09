@@ -4,7 +4,8 @@
     <option name="directories">
       <list>
         <option value="$PROJECT_DIR$/deploy/tests" />
-        <option value="$PROJECT_DIR$/laravel-backend/tests" />
+        <option value="$PROJECT_DIR$/laravel-backend/tests/Unit" />
+        <option value="$PROJECT_DIR$/laravel-backend/tests/Feature" />
       </list>
     </option>
   </component>

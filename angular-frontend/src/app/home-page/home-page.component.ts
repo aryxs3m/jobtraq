@@ -95,7 +95,7 @@ export class HomePageComponent implements OnInit {
         }
 
         this.treeMapStacks = data.data.treeMapStacks;
-        this.mostNeededStack = data.data.treeMapStacks[0].name;
+        this.mostNeededStack = data.data.treeMapStacks[0]?.name;
 
         this.positionSalaries = data.data.positionSalaries;
         this.barStack = data.data.barStacks;

@@ -7,7 +7,9 @@
     <div class="col-12 col-md-8">
       <div class="news-content">
         <p class="lead">{{ newsBlock.introduction }}</p>
-        <div [innerHTML]="markdown"></div>
+        <div class="markdown-content">
+          <div [innerHTML]="markdown"></div>
+        </div>
       </div>
     </div>
     <div class="col-12 col-md-4">

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Admin;
+namespace Admin\Controllers;
 
 use App\Models\User;
 use Tests\TestCase;
