@@ -17,7 +17,7 @@ class JobPositionsTest extends TestCase
 
     public function testCanCreateNewSimpleJobPosition(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
         $this->actingAs($user)->post('/job-positions', [
             'name' => 'senior',
             'keywords' => 'test1,test2',
@@ -33,7 +33,7 @@ class JobPositionsTest extends TestCase
 
     public function testCanCreateNewParentChildJobPosition(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var JobPosition $jobPosition */
         $jobPosition = JobPosition::factory()->create();
@@ -60,7 +60,7 @@ class JobPositionsTest extends TestCase
 
     public function testCanEditJobPosition(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var JobPosition $jobPosition */
         $jobPosition = JobPosition::factory()->create();
@@ -83,7 +83,7 @@ class JobPositionsTest extends TestCase
 
     public function testCanShowJobPositions(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var JobPosition $jobPosition */
         $jobPosition = JobPosition::factory()->create();
@@ -103,7 +103,7 @@ class JobPositionsTest extends TestCase
 
     public function testCanDeleteJobPositions(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var JobPosition $jobPosition */
         $jobPosition = JobPosition::factory()->create();

@@ -17,7 +17,7 @@ class JobLevelsTest extends TestCase
 
     public function testCanCreateNewJobLevel(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
         $this->actingAs($user)->post('/job-levels', [
             'name' => 'joblevel name',
             'keywords' => 'test1,test2',
@@ -30,7 +30,7 @@ class JobLevelsTest extends TestCase
 
     public function testCanEditJobLevel(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var JobLevel $jobLevel */
         $jobLevel = JobLevel::factory()->create();
@@ -52,7 +52,7 @@ class JobLevelsTest extends TestCase
 
     public function testCanShowJobLevels(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var JobLevel $jobLevel */
         $jobLevel = JobLevel::factory()->create();
@@ -72,7 +72,7 @@ class JobLevelsTest extends TestCase
 
     public function testCanDeleteJobLevel(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var JobLevel $jobLevel */
         $jobLevel = JobLevel::factory()->create();

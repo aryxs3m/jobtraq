@@ -16,7 +16,7 @@ class DashboardTest extends TestCase
 
     public function testCanGetDashboard(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
         $response = $this->actingAs($user)->get('/');
 
         $response->assertSee('Dashboard');

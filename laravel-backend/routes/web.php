@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\JobPositionsController;
 use App\Http\Controllers\Admin\JobStacksController;
 use App\Http\Controllers\Admin\ScraperKeywordsController;
 use App\Http\Controllers\Admin\ScraperLogsController;
+use App\Http\Controllers\Admin\UsersController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function () {
@@ -26,6 +27,7 @@ Route::middleware('auth')->group(function () {
         'data/locations' => LocationsController::class,
         'articles' => ArticlesController::class,
         'images' => ImageController::class,
+        'users' => UsersController::class,
     ]);
 
     Route::post('/images/editor-upload', [ImageController::class, 'editorImageUpload'])

@@ -18,7 +18,7 @@ class JobStacksTest extends TestCase
 
     public function testCanCreateNewJobStack(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
         $this->actingAs($user)->post('/job-stacks', [
             'name' => 'jobstack',
             'keywords' => 'test1,test2',
@@ -31,7 +31,7 @@ class JobStacksTest extends TestCase
 
     public function testCanCreateNewDefaultPositionJobStack(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var JobPosition $jobPosition */
         $jobPosition = JobPosition::factory()->create();
@@ -50,7 +50,7 @@ class JobStacksTest extends TestCase
 
     public function testCanEditJobStack(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var JobStack $jobStack */
         $jobStack = JobStack::factory()->create();
@@ -72,7 +72,7 @@ class JobStacksTest extends TestCase
 
     public function testCanShowJobStacks(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var JobStack $jobStack */
         $jobStack = JobStack::factory()->create();
@@ -92,7 +92,7 @@ class JobStacksTest extends TestCase
 
     public function testCanDeleteJobStack(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var JobStack $jobStack */
         $jobStack = JobStack::factory()->create();

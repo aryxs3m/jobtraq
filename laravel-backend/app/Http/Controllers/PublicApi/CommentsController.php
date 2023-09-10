@@ -10,7 +10,6 @@ use App\Models\Article;
 use App\Models\Comment;
 use App\Models\Enums\CommentStatus;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Log;
 
 class CommentsController extends BaseApiController
 {

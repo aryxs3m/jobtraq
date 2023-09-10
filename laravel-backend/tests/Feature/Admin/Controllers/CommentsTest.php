@@ -18,7 +18,7 @@ class CommentsTest extends TestCase
 
     public function testCanListComments(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var Comment $awaitingComment */
         $awaitingComment = Comment::factory()->create();
@@ -44,7 +44,7 @@ class CommentsTest extends TestCase
 
     public function testCanListCommentsApproved(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var Comment $comment */
         $comment = Comment::factory()->create();
@@ -65,7 +65,7 @@ class CommentsTest extends TestCase
 
     public function testCanListCommentsDenied(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var Comment $comment */
         $comment = Comment::factory()->create();
@@ -86,7 +86,7 @@ class CommentsTest extends TestCase
 
     public function testCanListCommentsAwaiting(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var Comment $comment */
         $comment = Comment::factory()->denied()->create();
@@ -107,7 +107,7 @@ class CommentsTest extends TestCase
 
     public function testCanApproveComment(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var Comment $comment */
         $comment = Comment::factory()->create();
@@ -130,7 +130,7 @@ class CommentsTest extends TestCase
 
     public function testCanDenyComment(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var Comment $comment */
         $comment = Comment::factory()->create();
@@ -153,14 +153,14 @@ class CommentsTest extends TestCase
 
     public function testCanOpComment(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var Comment $comment */
         $comment = Comment::factory()->create();
 
         $response = $this->actingAs($user)->post('/comments/update-op', [
             'comment_id' => $comment->id,
-            'is_op' => true
+            'is_op' => true,
         ]);
 
         $response->assertJson([

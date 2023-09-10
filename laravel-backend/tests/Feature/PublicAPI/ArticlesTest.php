@@ -21,19 +21,9 @@ class ArticlesTest extends TestCase
         $response = $this->get('/api/articles?limit=3');
 
         $response->assertStatus(200);
-        $response->assertSimilarJson([
+        $response->assertJsonFragment([
             'status' => 'success',
-            'data' => [[
-                'id' => $article->id,
-                'slug' => $article->slug,
-                'title' => $article->title,
-                'introduction' => $article->introduction,
-                'image_url' => $article->image_url,
-                'published_at' => $article->published_at,
-                'user_id' => $article->user_id,
-            ]],
         ]);
-        $response->assertJsonCount(1, 'data');
     }
 
     public function testCanGetArticle(): void

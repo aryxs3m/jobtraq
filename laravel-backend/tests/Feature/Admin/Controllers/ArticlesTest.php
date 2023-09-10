@@ -17,7 +17,8 @@ class ArticlesTest extends TestCase
 
     public function testCanCreateNewArticle(): void
     {
-        $user = User::factory()->create();
+        $user = $this->createAdministratorUser();
+
         $this->actingAs($user)->post('/articles', [
             'published' => 1,
             'title' => 'Test Article',
@@ -34,7 +35,7 @@ class ArticlesTest extends TestCase
 
     public function testCanEditArticle(): void
     {
-        $user = User::factory()->create();
+        $user = $this->createAdministratorUser();
 
         /** @var Article $article */
         $article = Article::factory()->create();
@@ -58,7 +59,7 @@ class ArticlesTest extends TestCase
 
     public function testCanShowArticle(): void
     {
-        $user = User::factory()->create();
+        $user = $this->createAdministratorUser();
 
         /** @var Article $article */
         $article = Article::factory()->create();
