@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\PublicApi;
 
+use App\Events\CommentPosted;
 use App\Http\Controllers\BaseApiController;
 use App\Http\Requests\PublicApi\GetCommentsRequest;
 use App\Http\Requests\PublicApi\PostCommentRequest;
@@ -9,6 +10,7 @@ use App\Models\Article;
 use App\Models\Comment;
 use App\Models\Enums\CommentStatus;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Log;
 
 class CommentsController extends BaseApiController
 {
@@ -86,6 +88,8 @@ class CommentsController extends BaseApiController
         $comment->ip_address = $request->ip();
         $comment->status = CommentStatus::AWAITING_MODERATION;
         $comment->save();
+
+        CommentPosted::dispatch($comment);
 
         return $this->success([
             'id' => $comment->id,

@@ -2,24 +2,23 @@
 
 namespace App\Events;
 
+use App\Models\Comment;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class ScrapingFinished implements ShouldQueue
+class CommentPosted implements ShouldQueue
 {
-    use Dispatchable;
-    use InteractsWithSockets;
-    use SerializesModels;
+    use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public int $totalListings;
+    public Comment $comment;
 
     /**
      * Create a new event instance.
      */
-    public function __construct(int $totalListings)
+    public function __construct(Comment $comment)
     {
-        $this->totalListings = $totalListings;
+        $this->comment = $comment;
     }
 }

@@ -2,12 +2,13 @@
 
 namespace App\Providers;
 
+use App\Events\CommentPosted;
 use App\Events\ScrapingFinished;
-use App\Listeners\SendScrapeFailNotification;
+use App\Listeners\Admin\CommentPostNotification;
+use App\Listeners\Admin\ScrapeFailNotification;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Event;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -21,7 +22,10 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         ScrapingFinished::class => [
-            SendScrapeFailNotification::class,
+            ScrapeFailNotification::class,
+        ],
+        CommentPosted::class => [
+            CommentPostNotification::class,
         ],
     ];
 
