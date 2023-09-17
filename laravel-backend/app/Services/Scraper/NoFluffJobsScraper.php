@@ -40,8 +40,30 @@ class NoFluffJobsScraper extends BaseJobListingScraper
                         $this->setSalary($listing, $salaryRaw);
 
                         $location = trim($postingListItem->find('.posting-info__location', 0)->plaintext);
-                        $listing->setLocation($location);
-                        $listing->setLocationId($this->advertisementParser->parseJobLocation($location));
+
+                        // Ha a hirdetés távmunkaként szerepel, de van iroda, akkor a további helyszínek popover elemein
+                        // végigmegyünk és keresünk egy olyan helyszínt, ami a mi adatbázisunkban is szerepel. Így a
+                        // remote pozíciókat is földrajzi helyhez lehet kötni.
+                        if (str_contains($location, 'Távmunka')) {
+                            $locationsPopover = $postingListItem->next_sibling();
+
+                            foreach ($locationsPopover->find('.popover-body li a') as $item) {
+                                $location = trim($item->plaintext);
+                                $jobLocationId = $this->advertisementParser->parseJobLocation($location);
+
+                                if ($jobLocationId) {
+                                    $listing->setLocation($location);
+                                    $listing->setLocationId($jobLocationId);
+
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (!$listing->getLocation()) {
+                            $listing->setLocation($location);
+                            $listing->setLocationId($this->advertisementParser->parseJobLocation($location));
+                        }
 
                         $listing->setCategory(
                             $this->advertisementParser->parseJobTitle($listing->getPosition()));
