@@ -56,6 +56,11 @@ task('be-npm-install', function () {
     run("npm i");
 });
 
+task('be-apidoc-public', function () {
+    cd('{{release_path}}/laravel-backend');
+    run("npm run apidoc-public");
+});
+
 task('be-npm-build', function () {
     cd('{{release_path}}/laravel-backend');
     run("npm run build");
