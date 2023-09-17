@@ -1,7 +1,5 @@
 # JobTraq Deploy
 
-A deploy a [Deployer](https://deployer.org/) segítségével történik.
-
 A használathoz telepítsd fel a composer csomagokat ebben a mappában:
 
 ```shell

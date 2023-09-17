@@ -25,18 +25,16 @@ A frontend Angular, a backend pedig Laravel.
 A frontend oldal néhány API kéréssel dolgozik csak, minden kimutatást a backend állít össze. Ezeket egyszerű
 chartokkal jeleníti meg.
 
+[Frontend információk](angular-frontend/README.md)
+
 ### Backend
 
 A backend tartalmaz egy egyszerű admin felületet, ahol beállíthatóak a scraperek és a különböző keresési feltételek,
 illetve minden olyan adat, amiből a kimutatások össze vannak állítva és az álláshirdetések be vannak kategorizálva.
 
-Így az admin felületen be kell pl. állítani az ismert stackeket, pozíciókat, pozíció szinteket.
+A backend rész végzi a scrapelést, a kimutatások összeállítását, stb.
 
-Minden fő business logika serviceként van megírva:
-
-- scraperek,
-- álláshirdetéseket címből kategorizáló service,
-- riportokat összeállító servicek.
+[Backend információk](laravel-backend/README.md)
 
 A backend rész tartalmaz teszteket is, amit az `artisan test` paranccsal tudsz futtatni.
 
@@ -47,3 +45,10 @@ A `cypress-tests` mappában [Cypress](https://www.cypress.io/) tesztek találhat
 - a backend alkalmazás fut és a `php artisan migrate --seed` futtatva volt,
 - a backend oldalon lettek scrapelve álláshirdetések (`php artisan jtq:scrape`)
 
+[E2E teszt részletek](cypress-tests/README.md)
+
+### Deploy
+
+A deployhoz [Deployer](https://deployer.org/) lett beállítva a projektbe.
+
+[Deploy részletek](deploy/README.md)
