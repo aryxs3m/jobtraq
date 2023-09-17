@@ -9,8 +9,8 @@ import * as moment from "moment";
 })
 export class NewsCardComponent implements OnInit {
   @Input() newsBlock!: NewsBlockItem;
-  articleLink: string = '';
-  publishDate: string = '';
+  articleLink = '';
+  publishDate = '';
 
   ngOnInit(): void {
     this.articleLink = `/news/${this.newsBlock.slug}`;

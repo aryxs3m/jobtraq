@@ -8,7 +8,7 @@ import {UpdateService} from "../update.service";
 })
 export class UpdateOverlayComponent {
 
-  visible: boolean = false;
+  visible = false;
 
   constructor(private updateService: UpdateService) {
     updateService.updateAvailableChange.subscribe(value => {

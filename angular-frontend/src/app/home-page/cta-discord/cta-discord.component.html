@@ -15,9 +15,9 @@
             src="{{ member.avatar_url }}"
             alt="{{ member.username }}"
             title="{{ member.username }}"
-            [class.discord-dnd]="member.status == 'dnd'"
-            [class.discord-online]="member.status == 'online'"
-            [class.discord-idle]="member.status == 'idle'"
+            [class.discord-dnd]="member.status === 'dnd'"
+            [class.discord-online]="member.status === 'online'"
+            [class.discord-idle]="member.status === 'idle'"
           >
         </div>
       </div>

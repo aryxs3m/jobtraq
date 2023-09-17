@@ -26,13 +26,13 @@ export class HomePageComponent implements OnInit {
   };
 
   pieChartPositions: ChartData[] = [];
-  positionsMostOpen: string = '';
+  positionsMostOpen = '';
 
   barOpenPositions: ChartData[] = [];
-  positionsTrend: string = 'stagnál';
+  positionsTrend = 'stagnál';
 
   treeMapStacks: ChartData[] = [];
-  mostNeededStack: string = '';
+  mostNeededStack = '';
 
   positionSalaries: PositionSalaries[] = [];
 
@@ -40,8 +40,8 @@ export class HomePageComponent implements OnInit {
   protected readonly faSpinner = faSpinner;
   protected readonly faCircleNotch = faCircleNotch;
 
-  loading: boolean = true;
-  isReady: boolean = true;
+  loading = true;
+  isReady = true;
   isServer: boolean;
 
   constructor(private http: HttpClient, private loader: LoaderService, private route: ActivatedRoute,
@@ -67,13 +67,13 @@ export class HomePageComponent implements OnInit {
     this.loading = true;
     this.isReady = true;
 
-    let dateFilter = this.route.snapshot.paramMap.get('date');
+    const dateFilter = this.route.snapshot.paramMap.get('date');
 
     if (dateFilter) {
       this.search.dateFilter = new Date(dateFilter);
     }
 
-    let apiRoute = dateFilter ?
+    const apiRoute = dateFilter ?
       `report/homepage?date=${dateFilter}` :
       'report/homepage';
 
@@ -88,10 +88,10 @@ export class HomePageComponent implements OnInit {
         this.positionsMostOpen = data.data.pieChartPositions[0].name;
 
         this.barOpenPositions = data.data.barOpenPositions;
-        let openPositionsWeeks = data.data.barOpenPositions.length;
+        const openPositionsWeeks = data.data.barOpenPositions.length;
         console.log(this.barOpenPositions[openPositionsWeeks - 2]);
         if (openPositionsWeeks > 1) {
-          let distance = this.barOpenPositions[openPositionsWeeks - 2].value - this.barOpenPositions[openPositionsWeeks - 1].value;
+          const distance = this.barOpenPositions[openPositionsWeeks - 2].value - this.barOpenPositions[openPositionsWeeks - 1].value;
           if (distance > 5) {
             this.positionsTrend = 'fogy';
           } else if (distance < 5) {

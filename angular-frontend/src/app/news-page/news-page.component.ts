@@ -17,8 +17,8 @@ import {environment} from "../../environments/environment";
 })
 export class NewsPageComponent implements OnInit {
   newsBlock: NewsBlockItem|null = null;
-  publishedDate: string = '';
-  markdown: string = '';
+  publishedDate = '';
+  markdown = '';
   private response!: ArticleGetResponse;
   private readonly isServer: boolean;
 

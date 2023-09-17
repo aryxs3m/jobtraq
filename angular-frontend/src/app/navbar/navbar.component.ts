@@ -13,7 +13,7 @@ import * as moment from 'moment';
 })
 export class NavbarComponent {
   protected readonly faGithub = faGithub;
-  collapsed: boolean = true;
+  collapsed = true;
   launchDate: string = environment.launchDate;
   todayDate: string = moment(new Date()).format('YYYY-MM-DD');
 

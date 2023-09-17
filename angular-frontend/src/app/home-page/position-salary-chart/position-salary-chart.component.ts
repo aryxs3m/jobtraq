@@ -12,8 +12,8 @@ export class PositionSalaryChartComponent implements OnInit {
   @Input() colorScheme!: Color;
   @Input() position!: string;
 
-  top: string = '';
-  avgSalary: number = 0;
+  top = '';
+  avgSalary = 0;
 
   ngOnInit(): void {
     this.top = this.data[0].name

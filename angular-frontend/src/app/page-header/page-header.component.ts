@@ -10,7 +10,7 @@ import {faGithub} from "@fortawesome/free-brands-svg-icons";
 export class PageHeaderComponent implements OnInit {
   @Input() title!: string;
   @Input() background: null|string = null;
-  @Input() tint: boolean = false;
+  @Input() tint = false;
 
   protected readonly faEnvelope = faEnvelope;
   protected readonly faGlobe = faGlobe;

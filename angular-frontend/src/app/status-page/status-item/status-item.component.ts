@@ -9,5 +9,5 @@ import {HttpClient} from "@angular/common/http";
 export class StatusItemComponent {
   @Input() available!: boolean;
   @Input() name!: string;
-  @Input() description: string = '';
+  @Input() description = '';
 }

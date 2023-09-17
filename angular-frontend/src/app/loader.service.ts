@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class LoaderService {
-  private loading: boolean = false;
-  private backendError: boolean = false;
+  private loading = false;
+  private backendError = false;
 
   constructor() { }
 

@@ -9,10 +9,10 @@ import {isPlatformServer} from "@angular/common";
   styleUrls: ['./status-page.component.scss']
 })
 export class StatusPageComponent implements OnInit {
-  loading: boolean = true;
+  loading = true;
 
-  frontendStatus: boolean = false;
-  backendStatus: boolean = false;
+  frontendStatus = false;
+  backendStatus = false;
   scraperStatus: any = [];
   isServer: boolean;
 

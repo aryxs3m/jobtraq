@@ -27,7 +27,7 @@ export class UpdateService {
             type: 'UPDATE_AVAILABLE',
             current: evt.currentVersion,
             available: evt.latestVersion,
-          }))).subscribe(evt => {
+          }))).subscribe(() => {
             this.updateAvailableChange.next(true);
       });
 

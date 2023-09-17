@@ -18,7 +18,7 @@ import {faExclamationCircle, faInfoCircle} from "@fortawesome/free-solid-svg-ico
 export class CommentsBlockComponent implements OnInit {
   @Input() newsBlock!: NewsBlockItem;
   comments: Comment[] = [];
-  loading: boolean = false;
+  loading = false;
 
   commentForm = new FormGroup({
     name: new FormControl('', [
@@ -33,8 +33,8 @@ export class CommentsBlockComponent implements OnInit {
     ]),
   });
 
-  success: boolean = false;
-  fail: boolean = false;
+  success = false;
+  fail = false;
 
   constructor(private http: HttpClient, private loader: LoaderService) {}
 

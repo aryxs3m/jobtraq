@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./no-data-info.component.scss']
 })
 export class NoDataInfoComponent {
-  today: boolean = true;
+  today = true;
 
   @Input() visible!: boolean;
 
@@ -20,7 +20,7 @@ export class NoDataInfoComponent {
   }
 
   private changeState() {
-    let date: Date = new Date();
+    const date: Date = new Date();
 
     if (this.search.dateFilter.toDateString() === date.toDateString()) {
       this.today = true;
