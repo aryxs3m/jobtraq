@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  NgcCookieConsentService,
-  NgcStatusChangeEvent,
-} from 'ngx-cookieconsent';
+import { NgcCookieConsentService } from 'ngx-cookieconsent';
 import { NgxGa4Service } from '@kattoshi/ngx-ga4';
 import { CookieService } from 'ngx-cookie-service';
 import { Subscription } from 'rxjs';

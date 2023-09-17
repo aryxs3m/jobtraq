@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ImpressumPageComponent } from './impressum-page.component';
+import { PageHeaderComponent } from '../page-header/page-header.component';
 
 describe('ImpressumPageComponent', () => {
   let component: ImpressumPageComponent;
@@ -8,7 +9,7 @@ describe('ImpressumPageComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ImpressumPageComponent],
+      declarations: [ImpressumPageComponent, PageHeaderComponent],
     });
     fixture = TestBed.createComponent(ImpressumPageComponent);
     component = fixture.componentInstance;
