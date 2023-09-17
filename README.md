@@ -13,7 +13,8 @@ Segítségével látható
 
 
 Web: https://jobtraq.hu<br>
-Teszt verzió: https://test.jobtraq.hu
+Teszt verzió: https://test.jobtraq.hu<br>
+API dokumentáció: https://apidoc.jobtraq.hu
 
 ## Technikai
 
@@ -38,3 +39,11 @@ Minden fő business logika serviceként van megírva:
 - riportokat összeállító servicek.
 
 A backend rész tartalmaz teszteket is, amit az `artisan test` paranccsal tudsz futtatni.
+
+### E2E tesztelés
+
+A `cypress-tests` mappában [Cypress](https://www.cypress.io/) tesztek találhatóak. Ezek E2E tesztek, futtathatóak, ha
+- a frontend alkalmazás fut,
+- a backend alkalmazás fut és a `php artisan migrate --seed` futtatva volt,
+- a backend oldalon lettek scrapelve álláshirdetések (`php artisan jtq:scrape`)
+
