@@ -18,7 +18,7 @@ class Listing
 
     private int $homeOfficeDays = 0;
 
-    private string $location;
+    private ?string $location = null;
 
     private JobCategory $category;
 
@@ -86,7 +86,7 @@ class Listing
         $this->salaryHigh = $salaryHigh;
     }
 
-    public function getLocation(): string
+    public function getLocation(): ?string
     {
         return $this->location;
     }

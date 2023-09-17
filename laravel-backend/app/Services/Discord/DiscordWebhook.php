@@ -124,6 +124,17 @@ class DiscordWebhook
      */
     public function send(string $url): void
     {
-        Http::post($url, $this->build());
+        Http::withHeaders([
+            'User-Agent' => $this->makeUserAgent(),
+        ])->post($url, $this->build());
+    }
+
+    private function makeUserAgent(): string
+    {
+        return sprintf('%s %s (%s)',
+            config('app.name'),
+            config('app.env'),
+            config('app.url'),
+        );
     }
 }
