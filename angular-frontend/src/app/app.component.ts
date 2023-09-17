@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgcCookieConsentService, NgcStatusChangeEvent} from "ngx-cookieconsent";
 import {NgxGa4Service} from "@kattoshi/ngx-ga4";
 import {CookieService} from "ngx-cookie-service";
@@ -12,7 +12,7 @@ import {UpdateService} from "./update.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'angular-frontend';
   private statusChangeSubscription!: Subscription;
 
@@ -37,7 +37,7 @@ export class AppComponent {
     }
 
     this.statusChangeSubscription = this.ccService.statusChange$.subscribe(
-      (event: NgcStatusChangeEvent) => {
+      () => {
         if (this.ccService.hasConsented()) {
           this.enableTagManager();
         }

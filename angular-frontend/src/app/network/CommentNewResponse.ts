@@ -1,5 +1,3 @@
-import {NewsBlockItem} from "./NewsBlockItem";
-
 export interface CommentNewResponse {
   status: string;
   data: {

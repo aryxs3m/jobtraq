@@ -23,7 +23,7 @@ export class NewsPageComponent implements OnInit {
   private readonly isServer: boolean;
 
   constructor(private route: ActivatedRoute, private loader: LoaderService, private newsService: NewsService,
-              @Inject(PLATFORM_ID) platformId: Object, private meta: Meta) {
+              @Inject(PLATFORM_ID) platformId: object, private meta: Meta) {
     this.isServer = isPlatformServer(platformId);
   }
 
@@ -34,9 +34,8 @@ export class NewsPageComponent implements OnInit {
     }
 
     this.route.data.subscribe(data => {
-      console.log('Check route resolver data')
-      // @ts-ignore
-      this.loadArticle(<ArticleGetResponse>data.routeResolver);
+      // TODO: test
+      this.loadArticle(<ArticleGetResponse>data['routeResolver']);
     })
   }
 

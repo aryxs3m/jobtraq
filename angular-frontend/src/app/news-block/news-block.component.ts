@@ -16,7 +16,7 @@ export class NewsBlockComponent implements OnInit {
 
   private readonly isServer: boolean;
 
-  constructor(private http: HttpClient, private loader: LoaderService, @Inject(PLATFORM_ID) platformId: Object) {
+  constructor(private http: HttpClient, private loader: LoaderService, @Inject(PLATFORM_ID) platformId: object) {
     this.isServer = isPlatformServer(platformId);
   }
 
@@ -33,7 +33,7 @@ export class NewsBlockComponent implements OnInit {
       }
 
       this.blocks = data.data;
-    }, error => {
+    }, () => {
       this.loader.setBackendError(true);
     })
   }

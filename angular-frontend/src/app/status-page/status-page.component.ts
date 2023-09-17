@@ -16,7 +16,7 @@ export class StatusPageComponent implements OnInit {
   scraperStatus: any = [];
   isServer: boolean;
 
-  constructor(private http: HttpClient, @Inject(PLATFORM_ID) platformId: Object) {
+  constructor(private http: HttpClient, @Inject(PLATFORM_ID) platformId: object) {
     this.isServer = isPlatformServer(platformId);
   }
 
@@ -25,6 +25,7 @@ export class StatusPageComponent implements OnInit {
       return;
     }
 
+    // TODO: healthcheck response
     this.http.get<any>(environment.api_url + 'healthcheck').subscribe(data => {
       this.frontendStatus = data.data.frontend;
       this.backendStatus = data.data.backend;

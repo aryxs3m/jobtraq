@@ -17,7 +17,7 @@ export class CtaDiscordComponent implements OnInit {
   members: DiscordMember[] = [];
   private readonly isServer: boolean;
 
-  constructor(private http: HttpClient, @Inject(PLATFORM_ID) platformId: Object) {
+  constructor(private http: HttpClient, @Inject(PLATFORM_ID) platformId: object) {
     this.isServer = isPlatformServer(platformId);
   }
 

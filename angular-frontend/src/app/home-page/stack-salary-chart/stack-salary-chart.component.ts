@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Color} from "@swimlane/ngx-charts";
+import {BarStacks} from "../../network/Report/BarStacks";
 
 @Component({
   selector: 'app-stack-salary-chart',
@@ -8,6 +9,6 @@ import {Color} from "@swimlane/ngx-charts";
 })
 export class StackSalaryChartComponent {
 
-  @Input() barStack!: any[];
+  @Input() barStack!: BarStacks[];
   @Input() colorScheme!: Color;
 }

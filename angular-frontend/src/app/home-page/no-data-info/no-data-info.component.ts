@@ -14,7 +14,7 @@ export class NoDataInfoComponent {
   @Input() visible!: boolean;
 
   constructor(private search: SearchService, private router: Router) {
-    search.dateFilterChange.subscribe(value => {
+    search.dateFilterChange.subscribe(() => {
       this.changeState();
     })
   }

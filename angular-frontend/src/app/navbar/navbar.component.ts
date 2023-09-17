@@ -20,13 +20,14 @@ export class NavbarComponent {
   constructor(public loader: LoaderService, public search: SearchService, private router: Router) {
     this.router.events
       .subscribe(
-        (event: any) => {
+        (event: object) => {
           if (event instanceof NavigationStart) {
             this.collapsed = true;
           }
         });
   }
 
+  // TODO: event: any fix
   setDate(event: any) {
     this.search.dateFilter = new Date(event.target.value);
     this.router.navigateByUrl('/report/'+this.search.getDate());

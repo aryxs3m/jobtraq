@@ -7,8 +7,6 @@ export class LoaderService {
   private loading = false;
   private backendError = false;
 
-  constructor() { }
-
   setLoading(loading: boolean) {
     this.loading = loading;
   }

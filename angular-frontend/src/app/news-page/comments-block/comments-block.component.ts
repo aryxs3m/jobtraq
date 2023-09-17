@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ArticleListResponse} from "../../network/ArticleListResponse";
 import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {CommentsResponse} from "../../network/CommentsResponse";
@@ -48,7 +47,7 @@ export class CommentsBlockComponent implements OnInit {
       }
 
       this.comments = data.data;
-    }, error => {
+    }, () => {
       this.loader.setBackendError(true);
     })
   }
