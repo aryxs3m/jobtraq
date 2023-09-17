@@ -1,22 +1,25 @@
-import {Component, Input} from '@angular/core';
-import {SearchService} from "../../search.service";
-import {faExclamationTriangle} from "@fortawesome/free-solid-svg-icons";
-import {Router} from "@angular/router";
+import { Component, Input } from '@angular/core';
+import { SearchService } from '../../search.service';
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-no-data-info',
   templateUrl: './no-data-info.component.html',
-  styleUrls: ['./no-data-info.component.scss']
+  styleUrls: ['./no-data-info.component.scss'],
 })
 export class NoDataInfoComponent {
   today = true;
 
   @Input() visible!: boolean;
 
-  constructor(private search: SearchService, private router: Router) {
+  constructor(
+    private search: SearchService,
+    private router: Router
+  ) {
     search.dateFilterChange.subscribe(() => {
       this.changeState();
-    })
+    });
   }
 
   private changeState() {

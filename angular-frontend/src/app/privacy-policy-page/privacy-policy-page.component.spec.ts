@@ -8,7 +8,7 @@ describe('PrivacyPolicyPageComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [PrivacyPolicyPageComponent]
+      declarations: [PrivacyPolicyPageComponent],
     });
     fixture = TestBed.createComponent(PrivacyPolicyPageComponent);
     component = fixture.componentInstance;

@@ -1,11 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {NewsBlockItem} from "../../network/NewsBlockItem";
-import * as moment from "moment";
+import { Component, Input, OnInit } from '@angular/core';
+import { NewsBlockItem } from '../../network/NewsBlockItem';
+import * as moment from 'moment';
 
 @Component({
-    selector: 'app-news-card',
-    templateUrl: './news-card.component.html',
-    styleUrls: ['./news-card.component.scss']
+  selector: 'app-news-card',
+  templateUrl: './news-card.component.html',
+  styleUrls: ['./news-card.component.scss'],
 })
 export class NewsCardComponent implements OnInit {
   @Input() newsBlock!: NewsBlockItem;

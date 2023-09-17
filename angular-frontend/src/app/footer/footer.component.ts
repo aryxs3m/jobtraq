@@ -1,18 +1,16 @@
-import {Component} from '@angular/core';
-import {NgcCookieConsentService} from "ngx-cookieconsent";
+import { Component } from '@angular/core';
+import { NgcCookieConsentService } from 'ngx-cookieconsent';
 
 @Component({
-    selector: 'app-footer',
-    templateUrl: './footer.component.html',
-    styleUrls: ['./footer.component.scss']
+  selector: 'app-footer',
+  templateUrl: './footer.component.html',
+  styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent {
-
-  constructor(private cookieConsent: NgcCookieConsentService) {
-  }
+  constructor(private cookieConsent: NgcCookieConsentService) {}
 
   backToTop() {
-    window.scrollTo({top: 0});
+    window.scrollTo({ top: 0 });
   }
 
   showCookieConsent() {

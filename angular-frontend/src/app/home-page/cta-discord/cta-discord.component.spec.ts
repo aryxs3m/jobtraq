@@ -8,7 +8,7 @@ describe('CtaDiscordComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CtaDiscordComponent]
+      declarations: [CtaDiscordComponent],
     });
     fixture = TestBed.createComponent(CtaDiscordComponent);
     component = fixture.componentInstance;

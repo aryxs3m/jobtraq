@@ -1,11 +1,13 @@
 <div class="bg-body-secondary py-5" *ngIf="loaderService.getBackendError()">
   <div class="container py-5 d-flex flex-row">
-    <fa-icon [icon]="faExclamationTriangle" class="text-danger display-3 me-4"></fa-icon>
+    <fa-icon
+      [icon]="faExclamationTriangle"
+      class="text-danger display-3 me-4"></fa-icon>
     <div>
       <h3 class="text-danger">ERR 500</h3>
       <p class="lead">
-        Sajnos valami miatt a backend éppen nem tud válaszolni.
-        Kérlek gyere vissza később.
+        Sajnos valami miatt a backend éppen nem tud válaszolni. Kérlek gyere
+        vissza később.
       </p>
     </div>
   </div>

@@ -1,13 +1,20 @@
 <div class="comment-message mb-4">
-    <div class="d-flex">
-        <img ngSrc="https://api.dicebear.com/6.x/micah/svg?seed={{ encodeURIComponent(comment.name) }}" alt="Avatar" class="comment-avatar me-3" width="50" height="50">
-        <div>
-            <div class="d-flex align-items-start">
-                <h5 class="mb-1 me-2">{{ comment.name }}</h5>
-                <small>{{ moment(comment.created_at).fromNow() }}</small>
-                <span class="badge bg-dark ms-2" *ngIf="comment.is_op">JobTraq OP</span>
-            </div>
-            <p class="mb-0">{{ comment.message }}</p>
-        </div>
+  <div class="d-flex">
+    <img
+      ngSrc="https://api.dicebear.com/6.x/micah/svg?seed={{
+        encodeURIComponent(comment.name)
+      }}"
+      alt="Avatar"
+      class="comment-avatar me-3"
+      width="50"
+      height="50" />
+    <div>
+      <div class="d-flex align-items-start">
+        <h5 class="mb-1 me-2">{{ comment.name }}</h5>
+        <small>{{ moment(comment.created_at).fromNow() }}</small>
+        <span class="badge bg-dark ms-2" *ngIf="comment.is_op">JobTraq OP</span>
+      </div>
+      <p class="mb-0">{{ comment.message }}</p>
     </div>
+  </div>
 </div>

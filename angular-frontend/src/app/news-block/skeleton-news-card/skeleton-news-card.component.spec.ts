@@ -8,7 +8,7 @@ describe('SkeletonNewsCardComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SkeletonNewsCardComponent]
+      declarations: [SkeletonNewsCardComponent],
     });
     fixture = TestBed.createComponent(SkeletonNewsCardComponent);
     component = fixture.componentInstance;

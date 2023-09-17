@@ -8,7 +8,7 @@ describe('ErrorNotifyComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ErrorNotifyComponent]
+      declarations: [ErrorNotifyComponent],
     });
     fixture = TestBed.createComponent(ErrorNotifyComponent);
     component = fixture.componentInstance;

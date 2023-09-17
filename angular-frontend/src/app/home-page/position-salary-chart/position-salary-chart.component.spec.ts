@@ -8,7 +8,7 @@ describe('PositionSalaryChartComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [PositionSalaryChartComponent]
+      declarations: [PositionSalaryChartComponent],
     });
     fixture = TestBed.createComponent(PositionSalaryChartComponent);
     component = fixture.componentInstance;

@@ -1,4 +1,4 @@
-import {DiscordMember} from "./DiscordMember";
+import { DiscordMember } from './DiscordMember';
 
 export interface DiscordWidget {
   channels: [];

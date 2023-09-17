@@ -1,13 +1,18 @@
 <div class="card news-card">
-    <img [src]="newsBlock.image_url" class="card-img-top" alt="{{ newsBlock.title }} illustration">
-    <div class="card-body">
-        <div class="card-title d-flex flex-row justify-content-between">
-          <h5>{{ newsBlock.title }}</h5>
-          <span class="small">{{ publishDate }}</span>
-        </div>
-        <p class="card-text">{{ newsBlock.introduction }}</p>
-        <p class="small mb-0">
-          <a [routerLink]="articleLink" class="stretched-link">Tovább olvasom<span class="arrow"> ›</span></a>
-        </p>
+  <img
+    [src]="newsBlock.image_url"
+    class="card-img-top"
+    alt="{{ newsBlock.title }} illustration" />
+  <div class="card-body">
+    <div class="card-title d-flex flex-row justify-content-between">
+      <h5>{{ newsBlock.title }}</h5>
+      <span class="small">{{ publishDate }}</span>
     </div>
+    <p class="card-text">{{ newsBlock.introduction }}</p>
+    <p class="small mb-0">
+      <a [routerLink]="articleLink" class="stretched-link"
+        >Tovább olvasom<span class="arrow"> ›</span></a
+      >
+    </p>
+  </div>
 </div>

@@ -52,17 +52,20 @@ hr.divider {
   border-bottom: 1px solid #eee;
 
   .col:last-child {
-      width: 100%;
-      /*height: calc(100% - 30px);*/
-      display: flex;
-      flex-flow: column;
-      justify-content: center;
-      align-items: center;
-      box-sizing: border-box;
+    width: 100%;
+    /*height: calc(100% - 30px);*/
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
   }
 }
 
-.ngx-charts .circle, .ngx-charts .cell, .ngx-charts .bar, .ngx-charts .arc {
+.ngx-charts .circle,
+.ngx-charts .cell,
+.ngx-charts .bar,
+.ngx-charts .arc {
   cursor: default !important;
 }
 
@@ -71,7 +74,12 @@ hr.divider {
     max-width: 100%;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin-top: 30px;
   }
 }
@@ -81,7 +89,7 @@ blockquote {
   padding-top: 10px;
   padding-bottom: 5px;
   border-left: 4px solid #12e773;
-  background-color: rgba(0,0,0, 0.03);
+  background-color: rgba(0, 0, 0, 0.03);
 
   p {
     margin-bottom: 5px;

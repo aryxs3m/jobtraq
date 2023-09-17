@@ -8,7 +8,7 @@ describe('ScrapingEthicsPageComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ScrapingEthicsPageComponent]
+      declarations: [ScrapingEthicsPageComponent],
     });
     fixture = TestBed.createComponent(ScrapingEthicsPageComponent);
     component = fixture.componentInstance;

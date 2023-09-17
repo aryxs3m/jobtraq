@@ -8,7 +8,7 @@ describe('AboutCtaComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [AboutCtaComponent]
+      declarations: [AboutCtaComponent],
     });
     fixture = TestBed.createComponent(AboutCtaComponent);
     component = fixture.componentInstance;

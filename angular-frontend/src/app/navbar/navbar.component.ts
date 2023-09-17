@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { LoaderService } from "../loader.service";
-import {SearchService} from "../search.service";
-import {NavigationStart, Router} from "@angular/router";
-import {faDiscord, faGithub} from "@fortawesome/free-brands-svg-icons";
-import {environment} from "../../environments/environment";
+import { LoaderService } from '../loader.service';
+import { SearchService } from '../search.service';
+import { NavigationStart, Router } from '@angular/router';
+import { faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { environment } from '../../environments/environment';
 import * as moment from 'moment';
 
 @Component({
@@ -17,20 +17,22 @@ export class NavbarComponent {
   launchDate: string = environment.launchDate;
   todayDate: string = moment(new Date()).format('YYYY-MM-DD');
 
-  constructor(public loader: LoaderService, public search: SearchService, private router: Router) {
-    this.router.events
-      .subscribe(
-        (event: object) => {
-          if (event instanceof NavigationStart) {
-            this.collapsed = true;
-          }
-        });
+  constructor(
+    public loader: LoaderService,
+    public search: SearchService,
+    private router: Router
+  ) {
+    this.router.events.subscribe((event: object) => {
+      if (event instanceof NavigationStart) {
+        this.collapsed = true;
+      }
+    });
   }
 
   // TODO: event: any fix
   setDate(event: any) {
     this.search.dateFilter = new Date(event.target.value);
-    this.router.navigateByUrl('/report/'+this.search.getDate());
+    this.router.navigateByUrl('/report/' + this.search.getDate());
   }
 
   toggleMenu() {

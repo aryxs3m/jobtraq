@@ -11,7 +11,8 @@
     "serve:ssr": "node dist/angular-frontend/server/main.js",
     "build:ssr": "ng build && ng run angular-frontend:server",
     "prerender": "ng run angular-frontend:prerender",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "prettier": "npx prettier --write ."
   },
   "private": true,
   "dependencies": {
@@ -72,6 +73,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "prettier": "3.0.3",
     "typescript": "~5.1.3"
   }
 }

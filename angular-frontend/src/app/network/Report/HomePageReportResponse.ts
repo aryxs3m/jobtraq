@@ -1,4 +1,4 @@
-import {HomePageReport} from "./HomePageReport";
+import { HomePageReport } from './HomePageReport';
 
 export interface HomePageReportResponse {
   status: string; // TODO enum

@@ -3,5 +3,5 @@ export interface CommentNewResponse {
   data: {
     id: number;
     status: string;
-  }
+  };
 }

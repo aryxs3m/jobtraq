@@ -12,7 +12,9 @@
       </p>
       <app-small-divider></app-small-divider>
       <p>
-        Jelenleg <strong class="chart-highlight">{{ positionsMostOpen }}</strong> területre van a legtöbb szabad pozíció.
+        Jelenleg
+        <strong class="chart-highlight">{{ positionsMostOpen }}</strong>
+        területre van a legtöbb szabad pozíció.
       </p>
     </div>
     <div class="col">
@@ -29,12 +31,12 @@
   <div class="row chart-row">
     <div class="col m-auto">
       <h3>Álláshirdetések alakulása</h3>
-      <p class="lead">
-        Nyitott álláshirdetések számának változása.
-      </p>
+      <p class="lead">Nyitott álláshirdetések számának változása.</p>
       <app-small-divider></app-small-divider>
       <p>
-        Mostanában <strong class="chart-highlight">{{ positionsTrend }}</strong> az álláshirdetések száma.
+        Mostanában
+        <strong class="chart-highlight">{{ positionsTrend }}</strong> az
+        álláshirdetések száma.
       </p>
     </div>
     <div class="col">
@@ -46,8 +48,7 @@
         [scheme]="colorScheme"
         [dataLabelFormatting]="formatterPiece"
         [xAxisTickFormatting]="formatterWeek"
-        [yAxisTickFormatting]="formatterPiece"
-      >
+        [yAxisTickFormatting]="formatterPiece">
       </ngx-charts-bar-vertical>
     </div>
   </div>
@@ -76,18 +77,23 @@
   <!-- Pozíciónkénti chartok -->
   <div *ngIf="!loading">
     <div *ngFor="let salaryData of positionSalaries">
-      <app-position-salary-chart [position]="salaryData.name" [data]="salaryData.data" [colorScheme]="colorScheme" *ngIf="salaryData.data.length > 0"></app-position-salary-chart>
+      <app-position-salary-chart
+        [position]="salaryData.name"
+        [data]="salaryData.data"
+        [colorScheme]="colorScheme"
+        *ngIf="salaryData.data.length > 0"></app-position-salary-chart>
     </div>
   </div>
 
   <!-- Stackenkénti chart -->
-  <app-stack-salary-chart *ngIf="!loading" [barStack]="barStack" [colorScheme]="colorScheme"></app-stack-salary-chart>
+  <app-stack-salary-chart
+    *ngIf="!loading"
+    [barStack]="barStack"
+    [colorScheme]="colorScheme"></app-stack-salary-chart>
 </div>
 
 <div class="container mt-4 mb-4">
   <app-news-block></app-news-block>
 </div>
-
-
 
 <app-cta-discord></app-cta-discord>

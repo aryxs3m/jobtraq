@@ -1,6 +1,6 @@
-import {PositionSalaries} from "./PositionSalaries";
-import {ChartData} from "./ChartData";
-import {BarStacks} from "./BarStacks";
+import { PositionSalaries } from './PositionSalaries';
+import { ChartData } from './ChartData';
+import { BarStacks } from './BarStacks';
 
 export interface HomePageReport {
   isDataReady: boolean;
