@@ -39,6 +39,8 @@ class AddAdminCommand extends Command
             'password' => Hash::make($password),
         ]);
 
+        $user->assignRole('Adminisztrátor');
+
         $this->output->success(sprintf('Admin #%s created! Now you can log in!', $user->id));
     }
 }
