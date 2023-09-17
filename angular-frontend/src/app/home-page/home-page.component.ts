@@ -7,6 +7,10 @@ import {ActivatedRoute, Data, Params} from "@angular/router";
 import {SearchService} from "../search.service";
 import {environment} from "../../environments/environment";
 import {isPlatformServer} from "@angular/common";
+import {HomePageReportResponse} from "../network/Report/HomePageReportResponse";
+import {ChartData} from "../network/Report/ChartData";
+import {PositionSalaries} from "../network/Report/PositionSalaries";
+import {BarStacks} from "../network/Report/BarStacks";
 
 @Component({
   selector: 'app-home-page',
@@ -21,18 +25,18 @@ export class HomePageComponent implements OnInit {
     domain: ['#00C992', '#00A99F', '#008898', '#00677E', '#2F4858']
   };
 
-  pieChartPositions = [];
+  pieChartPositions: ChartData[] = [];
   positionsMostOpen: string = '';
 
-  barOpenPositions = [];
+  barOpenPositions: ChartData[] = [];
   positionsTrend: string = 'stagnál';
 
-  treeMapStacks = [];
+  treeMapStacks: ChartData[] = [];
   mostNeededStack: string = '';
 
-  positionSalaries: any[] = [];
+  positionSalaries: PositionSalaries[] = [];
 
-  barStack = [];
+  barStack: BarStacks[] = [];
   protected readonly faSpinner = faSpinner;
   protected readonly faCircleNotch = faCircleNotch;
 
@@ -73,10 +77,10 @@ export class HomePageComponent implements OnInit {
       `report/homepage?date=${dateFilter}` :
       'report/homepage';
 
-    this.http.get<any>(environment.api_url + apiRoute).subscribe(data => {
+    this.http.get<HomePageReportResponse>(environment.api_url + apiRoute).subscribe(data => {
         this.isReady = data.data.isDataReady;
 
-        if (data.data.isDataReady === false) {
+        if (!data.data.isDataReady) {
           return;
         }
 
@@ -85,8 +89,9 @@ export class HomePageComponent implements OnInit {
 
         this.barOpenPositions = data.data.barOpenPositions;
         let openPositionsWeeks = data.data.barOpenPositions.length;
+        console.log(this.barOpenPositions[openPositionsWeeks - 2]);
         if (openPositionsWeeks > 1) {
-          let distance = this.barOpenPositions[openPositionsWeeks - 2] - this.barOpenPositions[openPositionsWeeks - 1];
+          let distance = this.barOpenPositions[openPositionsWeeks - 2].value - this.barOpenPositions[openPositionsWeeks - 1].value;
           if (distance > 5) {
             this.positionsTrend = 'fogy';
           } else if (distance < 5) {

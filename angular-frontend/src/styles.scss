@@ -62,6 +62,10 @@ hr.divider {
   }
 }
 
+.ngx-charts .circle, .ngx-charts .cell, .ngx-charts .bar, .ngx-charts .arc {
+  cursor: default !important;
+}
+
 .news-content {
   img {
     max-width: 100%;

@@ -15,6 +15,7 @@ task('setup-prod', [
         'be-storage-link',
         'be-queue-restart',
         'fe-pm2-reload',
+        'be-apidoc-public',
     ])
     ->select('environment=prod')
     ->desc('Deploy project to prod machine');

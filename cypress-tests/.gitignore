@@ -1,7 +1,3 @@
 /node_modules/
-/cypress/videos/about-us.cy.js.mp4
-/cypress/videos/contact.cy.js.mp4
-/cypress/videos/cookie-consent.cy.js.mp4
-/cypress/videos/homepage-reports.cy.js.mp4
-/cypress/videos/scraping-ethics.cy.js.mp4
-/cypress/videos/status.cy.js.mp4
+/cypress/videos/*
+/cypress/screenshots/*
