@@ -3,7 +3,6 @@
 namespace Admin\Controllers;
 
 use App\Models\Country;
-use App\Models\User;
 use Tests\TestCase;
 
 class CountriesTest extends TestCase

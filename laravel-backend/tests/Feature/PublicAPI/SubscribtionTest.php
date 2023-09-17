@@ -2,10 +2,7 @@
 
 namespace PublicAPI;
 
-use App\Models\JobListing;
 use App\Models\Subscription;
-use App\Services\Scraper\NoFluffJobsScraper;
-use App\Services\Scraper\ProfessionScraper;
 use Tests\TestCase;
 
 class SubscribtionTest extends TestCase
@@ -30,7 +27,7 @@ class SubscribtionTest extends TestCase
             'status' => 'success',
             'data' => [
                 'id' => 1,
-            ]
+            ],
         ]);
 
         $this->assertDatabaseHas(Subscription::class, [

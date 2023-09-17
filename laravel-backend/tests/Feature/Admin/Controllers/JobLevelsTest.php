@@ -3,7 +3,6 @@
 namespace Admin\Controllers;
 
 use App\Models\JobLevel;
-use App\Models\User;
 use Tests\TestCase;
 
 class JobLevelsTest extends TestCase

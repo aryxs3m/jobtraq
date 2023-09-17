@@ -4,7 +4,6 @@ namespace Admin\Controllers;
 
 use App\Models\Country;
 use App\Models\Location;
-use App\Models\User;
 use Tests\TestCase;
 
 class LocationsTest extends TestCase

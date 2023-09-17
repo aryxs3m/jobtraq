@@ -3,7 +3,6 @@
 namespace Admin\Controllers;
 
 use App\Models\JobPosition;
-use App\Models\User;
 use Tests\TestCase;
 
 class JobPositionsTest extends TestCase

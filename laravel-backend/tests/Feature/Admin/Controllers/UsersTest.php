@@ -2,7 +2,6 @@
 
 namespace Admin\Controllers;
 
-use App\Models\JobLevel;
 use App\Models\User;
 use Tests\TestCase;
 
@@ -29,7 +28,7 @@ class UsersTest extends TestCase
 
         $this->assertDatabaseHas(User::class, [
             'name' => 'PHPUnit User',
-            'email' => 'phpunit@jobtraq.hu'
+            'email' => 'phpunit@jobtraq.hu',
         ]);
 
         $newUser = User::whereEmail('phpunit@jobtraq.hu')->firstOrFail();
@@ -52,7 +51,7 @@ class UsersTest extends TestCase
             'name' => 'PHPUnit Renamed User',
             'email' => 'phpunit2@jobtraq.hu',
             'roles' => [
-                'Adminisztrátor'
+                'Adminisztrátor',
             ],
         ]);
 

@@ -2,7 +2,6 @@
 
 namespace Admin\Controllers;
 
-use App\Models\User;
 use Tests\TestCase;
 
 class DashboardTest extends TestCase

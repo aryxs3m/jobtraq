@@ -4,7 +4,6 @@ namespace Admin\Controllers;
 
 use App\Models\Comment;
 use App\Models\Enums\CommentStatus;
-use App\Models\User;
 use Tests\TestCase;
 
 class CommentsTest extends TestCase

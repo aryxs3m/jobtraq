@@ -3,7 +3,6 @@
 namespace Admin\Controllers;
 
 use App\Models\Article;
-use App\Models\User;
 use Tests\TestCase;
 
 class ArticlesTest extends TestCase

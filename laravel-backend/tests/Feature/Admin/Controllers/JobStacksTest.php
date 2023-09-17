@@ -4,7 +4,6 @@ namespace Admin\Controllers;
 
 use App\Models\JobPosition;
 use App\Models\JobStack;
-use App\Models\User;
 use Tests\TestCase;
 
 class JobStacksTest extends TestCase
