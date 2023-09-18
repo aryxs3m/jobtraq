@@ -3,7 +3,6 @@
 namespace Admin\Controllers;
 
 use App\Models\CrawlerKeyword;
-use App\Models\User;
 use Tests\TestCase;
 
 class ScraperKeywordsTest extends TestCase
@@ -17,7 +16,7 @@ class ScraperKeywordsTest extends TestCase
 
     public function testCanCreateNewScraperKeyword(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
         $this->actingAs($user)->post('/scraper-keywords', [
             'crawler' => 'MockScraper',
             'keywords' => 'test1,test2',
@@ -30,7 +29,7 @@ class ScraperKeywordsTest extends TestCase
 
     public function testCanEditScraperKeyword(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var CrawlerKeyword $scraperKeyword */
         $scraperKeyword = CrawlerKeyword::factory()->create();
@@ -51,7 +50,7 @@ class ScraperKeywordsTest extends TestCase
 
     public function testCanShowScraperKeyword(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var CrawlerKeyword $scraperKeyword */
         $scraperKeyword = CrawlerKeyword::factory()->create();

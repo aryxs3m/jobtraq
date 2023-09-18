@@ -33,8 +33,6 @@ class DiscordWebhookCommand extends Command
         /** @var WebhookReportService $webhookReportService */
         $webhookReportService = app(WebhookReportService::class);
 
-        $webhookReportService->send('https://asd.com');
-
         $subscriptions = Subscription::query()
             ->where('type', '=', 'discord')
             ->get();

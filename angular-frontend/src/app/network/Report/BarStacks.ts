@@ -1,4 +1,4 @@
-import {ChartData} from "./ChartData";
+import { ChartData } from './ChartData';
 
 export interface BarStacks {
   name: string;

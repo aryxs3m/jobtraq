@@ -4,7 +4,6 @@ namespace Admin\Controllers;
 
 use App\Models\Country;
 use App\Models\Location;
-use App\Models\User;
 use Tests\TestCase;
 
 class LocationsTest extends TestCase
@@ -18,7 +17,7 @@ class LocationsTest extends TestCase
 
     public function testCanCreateNewLocation(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var Country $country */
         $country = Country::factory()->create();
@@ -36,7 +35,7 @@ class LocationsTest extends TestCase
 
     public function testCanEditLocation(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var Location $location */
         $location = Location::factory()->create();
@@ -56,7 +55,7 @@ class LocationsTest extends TestCase
 
     public function testCanShowLocations(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var Location $location */
         $location = Location::factory()->create();
@@ -76,7 +75,7 @@ class LocationsTest extends TestCase
 
     public function testCanDeleteLocation(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var Location $location */
         $location = Location::factory()->create();

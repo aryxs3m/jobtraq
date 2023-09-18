@@ -3,7 +3,6 @@
 namespace Admin\Controllers;
 
 use App\Models\Country;
-use App\Models\User;
 use Tests\TestCase;
 
 class CountriesTest extends TestCase
@@ -17,7 +16,7 @@ class CountriesTest extends TestCase
 
     public function testCanCreateNewCountry(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
         $this->actingAs($user)->post('/data/countries', [
             'name' => 'Teszt Ország',
         ]);
@@ -29,7 +28,7 @@ class CountriesTest extends TestCase
 
     public function testCanEditCountry(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var Country $country */
         $country = Country::factory()->create();
@@ -49,7 +48,7 @@ class CountriesTest extends TestCase
 
     public function testCanShowCountries(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var Country $country */
         $country = Country::factory()->create();
@@ -69,7 +68,7 @@ class CountriesTest extends TestCase
 
     public function testCanDeleteCountry(): void
     {
-        $user = User::factory()->make();
+        $user = $this->createAdministratorUser();
 
         /** @var Country $country */
         $country = Country::factory()->create();

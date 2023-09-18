@@ -1,5 +1,3 @@
-
-
 .loader {
   background: linear-gradient(283deg, #12e773, #13a154);
   background-size: 400% 400%;
@@ -24,17 +22,35 @@
 }
 
 @-webkit-keyframes loaderAnimation {
-  0%{background-position:0% 49%}
-  50%{background-position:100% 52%}
-  100%{background-position:0% 49%}
+  0% {
+    background-position: 0% 49%;
+  }
+  50% {
+    background-position: 100% 52%;
+  }
+  100% {
+    background-position: 0% 49%;
+  }
 }
 @-moz-keyframes loaderAnimation {
-  0%{background-position:0% 49%}
-  50%{background-position:100% 52%}
-  100%{background-position:0% 49%}
+  0% {
+    background-position: 0% 49%;
+  }
+  50% {
+    background-position: 100% 52%;
+  }
+  100% {
+    background-position: 0% 49%;
+  }
 }
 @keyframes loaderAnimation {
-  0%{background-position:0% 49%}
-  50%{background-position:100% 52%}
-  100%{background-position:0% 49%}
+  0% {
+    background-position: 0% 49%;
+  }
+  50% {
+    background-position: 100% 52%;
+  }
+  100% {
+    background-position: 0% 49%;
+  }
 }

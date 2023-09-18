@@ -8,7 +8,7 @@ describe('SmallDividerComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SmallDividerComponent]
+      declarations: [SmallDividerComponent],
     });
     fixture = TestBed.createComponent(SmallDividerComponent);
     component = fixture.componentInstance;

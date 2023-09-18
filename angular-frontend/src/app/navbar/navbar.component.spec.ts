@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavbarComponent } from './navbar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -8,7 +9,8 @@ describe('NavbarComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [NavbarComponent]
+      imports: [FontAwesomeModule],
+      declarations: [NavbarComponent],
     });
     fixture = TestBed.createComponent(NavbarComponent);
     component = fixture.componentInstance;

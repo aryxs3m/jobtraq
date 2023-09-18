@@ -1,4 +1,8 @@
-<app-page-header [background]="newsBlock.image_url" [title]="newsBlock.title" [tint]="true" *ngIf="newsBlock">
+<app-page-header
+  [background]="newsBlock.image_url"
+  [title]="newsBlock.title"
+  [tint]="true"
+  *ngIf="newsBlock">
   <p class="small">{{ publishedDate }}</p>
 </app-page-header>
 
@@ -12,9 +16,7 @@
         </div>
       </div>
     </div>
-    <div class="col-12 col-md-4">
-
-    </div>
+    <div class="col-12 col-md-4"></div>
   </div>
 
   <app-comments-block [newsBlock]="newsBlock"></app-comments-block>

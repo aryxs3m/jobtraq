@@ -7,9 +7,9 @@ export const environment = {
   google_measurement_id: 'G-ZH4VB95FLH',
   domain: 'test.jobtraq.hu',
   api_url: 'https://admin-test.jobtraq.hu/api/',
-  launchDate: "2023-08-02",
+  launchDate: '2023-08-02',
   discord_join_link: 'https://discord.gg/FquPDzetRC',
-  discord_guild_id: "464782333711482881"
+  discord_guild_id: '464782333711482881',
 };
 
 /*

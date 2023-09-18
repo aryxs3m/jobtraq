@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\DataTables\ArticlesDataTable;
 use App\Models\Article;
 use App\Models\Enums\CommentStatus;
 use Illuminate\Database\Eloquent\Factories\Factory;

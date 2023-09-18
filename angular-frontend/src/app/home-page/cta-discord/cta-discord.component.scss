@@ -1,10 +1,10 @@
 div#discord-cta {
-  background: url("/assets/tropical-green-leaves-background.webp");
+  background: url('/assets/tropical-green-leaves-background.webp');
   background-size: cover;
   color: #eee;
 
   & > div#discord-cta-overlay {
-    background: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.4);
     height: 100%;
   }
 

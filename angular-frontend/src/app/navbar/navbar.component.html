@@ -2,36 +2,85 @@
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-black">
     <div class="container">
       <a class="navbar-brand" id="nav-link-brand" routerLink="/">
-        <img ngSrc="assets/logo_Light.svg" alt="JobTraq" height="30" width="111">
+        <img
+          ngSrc="assets/logo_Light.svg"
+          alt="JobTraq"
+          height="30"
+          width="111" />
       </a>
-      <button class="navbar-toggler" (click)="toggleMenu()" type="button" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <button
+        class="navbar-toggler"
+        (click)="toggleMenu()"
+        type="button"
+        aria-controls="navbarCollapse"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="navbar-collapse" [class.collapse]="collapsed" id="navbarCollapse">
+      <div
+        class="navbar-collapse"
+        [class.collapse]="collapsed"
+        id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link" id="nav-link-about-us" routerLinkActive="active" routerLink="about-us">Hogy működik?</a>
+            <a
+              class="nav-link"
+              id="nav-link-about-us"
+              routerLinkActive="active"
+              routerLink="about-us"
+              >Hogy működik?</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="nav-link-status" routerLinkActive="active" routerLink="status">Állapot</a>
+            <a
+              class="nav-link"
+              id="nav-link-status"
+              routerLinkActive="active"
+              routerLink="status"
+              >Állapot</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="nav-link-contact" routerLinkActive="active" routerLink="contact">Kapcsolat</a>
+            <a
+              class="nav-link"
+              id="nav-link-contact"
+              routerLinkActive="active"
+              routerLink="contact"
+              >Kapcsolat</a
+            >
           </li>
         </ul>
         <form class="d-flex" role="search">
-          <input id="nav-input-search" class="form-control me-2" type="date" placeholder="Szűrés napra" aria-label="Szűrés napra"
-                 [value]="search.getDate()" (change)="setDate($event)" min="{{ launchDate }}" max="{{ todayDate }}">
+          <input
+            id="nav-input-search"
+            class="form-control me-2"
+            type="date"
+            placeholder="Szűrés napra"
+            aria-label="Szűrés napra"
+            [value]="search.getDate()"
+            (change)="setDate($event)"
+            min="{{ launchDate }}"
+            max="{{ todayDate }}" />
         </form>
         <ul class="navbar-nav smb-2 mt-3 mt-md-0 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link" id="nav-link-github" target="_blank" href="https://github.com/aryxs3m/jobtraq">
-              <fa-icon [icon]="faGithub"></fa-icon><span class="d-md-none ms-2">GitHub</span>
+            <a
+              class="nav-link"
+              id="nav-link-github"
+              target="_blank"
+              href="https://github.com/aryxs3m/jobtraq">
+              <fa-icon [icon]="faGithub"></fa-icon
+              ><span class="d-md-none ms-2">GitHub</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="nav-link-discord" target="_blank" [href]="environment.discord_join_link">
-              <fa-icon [icon]="faDiscord"></fa-icon><span class="d-md-none ms-2">Discord</span>
+            <a
+              class="nav-link"
+              id="nav-link-discord"
+              target="_blank"
+              [href]="environment.discord_join_link">
+              <fa-icon [icon]="faDiscord"></fa-icon
+              ><span class="d-md-none ms-2">Discord</span>
             </a>
           </li>
         </ul>

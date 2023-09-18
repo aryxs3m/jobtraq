@@ -3,7 +3,8 @@
   overflow: hidden;
   will-change: transform;
 
-  .card-title > h5, p.card-text {
+  .card-title > h5,
+  p.card-text {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

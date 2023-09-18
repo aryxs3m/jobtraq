@@ -8,7 +8,7 @@ describe('NoDataInfoComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [NoDataInfoComponent]
+      declarations: [NoDataInfoComponent],
     });
     fixture = TestBed.createComponent(NoDataInfoComponent);
     component = fixture.componentInstance;

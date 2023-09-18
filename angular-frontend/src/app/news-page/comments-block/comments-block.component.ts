@@ -1,24 +1,26 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ArticleListResponse} from "../../network/ArticleListResponse";
-import {environment} from "../../../environments/environment";
-import {HttpClient} from "@angular/common/http";
-import {CommentsResponse} from "../../network/CommentsResponse";
-import {NewsBlockItem} from "../../network/NewsBlockItem";
-import {LoaderService} from "../../loader.service";
-import {Comment} from "../../network/Comment";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {CommentNewResponse} from "../../network/CommentNewResponse";
-import {faExclamationCircle, faInfoCircle} from "@fortawesome/free-solid-svg-icons";
+import { Component, Input, OnInit } from '@angular/core';
+import { environment } from '../../../environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { CommentsResponse } from '../../network/CommentsResponse';
+import { NewsBlockItem } from '../../network/NewsBlockItem';
+import { LoaderService } from '../../loader.service';
+import { Comment } from '../../network/Comment';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CommentNewResponse } from '../../network/CommentNewResponse';
+import {
+  faExclamationCircle,
+  faInfoCircle,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-comments-block',
   templateUrl: './comments-block.component.html',
-  styleUrls: ['./comments-block.component.scss']
+  styleUrls: ['./comments-block.component.scss'],
 })
 export class CommentsBlockComponent implements OnInit {
   @Input() newsBlock!: NewsBlockItem;
   comments: Comment[] = [];
-  loading: boolean = false;
+  loading = false;
 
   commentForm = new FormGroup({
     name: new FormControl('', [
@@ -33,24 +35,33 @@ export class CommentsBlockComponent implements OnInit {
     ]),
   });
 
-  success: boolean = false;
-  fail: boolean = false;
+  success = false;
+  fail = false;
 
-  constructor(private http: HttpClient, private loader: LoaderService) {}
-
+  constructor(
+    private http: HttpClient,
+    private loader: LoaderService
+  ) {}
 
   ngOnInit(): void {
-    this.http.get<CommentsResponse>(environment.api_url + 'comments?slug=' + this.newsBlock.slug).subscribe(data => {
-      if (data.status === 'error') {
-        this.loader.setBackendError(true);
+    this.http
+      .get<CommentsResponse>(
+        environment.api_url + 'comments?slug=' + this.newsBlock.slug
+      )
+      .subscribe(
+        data => {
+          if (data.status === 'error') {
+            this.loader.setBackendError(true);
 
-        return;
-      }
+            return;
+          }
 
-      this.comments = data.data;
-    }, error => {
-      this.loader.setBackendError(true);
-    })
+          this.comments = data.data;
+        },
+        () => {
+          this.loader.setBackendError(true);
+        }
+      );
   }
 
   postComment() {
@@ -62,27 +73,29 @@ export class CommentsBlockComponent implements OnInit {
     this.success = false;
     this.fail = false;
 
-    this.http.post<CommentNewResponse>(environment.api_url + 'comments/new', {
-      slug: this.newsBlock.slug,
-      name: this.name?.value,
-      message: this.message?.value,
-    }).subscribe(data => {
-      if (data.status === 'success') {
-        this.comments.unshift({
-          created_at: new Date(),
-          message: this.message?.value ?? '',
-          name: this.name?.value ?? '',
-          is_op: false,
-        })
+    this.http
+      .post<CommentNewResponse>(environment.api_url + 'comments/new', {
+        slug: this.newsBlock.slug,
+        name: this.name?.value,
+        message: this.message?.value,
+      })
+      .subscribe(data => {
+        if (data.status === 'success') {
+          this.comments.unshift({
+            created_at: new Date(),
+            message: this.message?.value ?? '',
+            name: this.name?.value ?? '',
+            is_op: false,
+          });
 
-        this.commentForm.reset();
-        this.success = true;
-        this.loading = false;
-      } else {
-        this.fail = true;
-        this.loading = false;
-      }
-    })
+          this.commentForm.reset();
+          this.success = true;
+          this.loading = false;
+        } else {
+          this.fail = true;
+          this.loading = false;
+        }
+      });
   }
 
   get name() {

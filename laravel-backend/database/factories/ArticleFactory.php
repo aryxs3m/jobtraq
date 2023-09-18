@@ -19,7 +19,7 @@ class ArticleFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence(3,2),
+            'title' => $this->faker->sentence(3, 2),
             'published_at' => Carbon::now(),
             'published' => true,
             'image_url' => 'https://picsum.photos/1280/720',

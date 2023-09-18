@@ -1,6 +1,6 @@
-import {NewsBlockItem} from "./NewsBlockItem";
+import { NewsBlockItem } from './NewsBlockItem';
 
 export interface ArticleGetResponse {
   status: string;
-  data: NewsBlockItem
+  data: NewsBlockItem;
 }

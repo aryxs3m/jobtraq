@@ -10,7 +10,7 @@ describe('Homepage Reports', () => {
     cy.contains('Álláshirdetések alakulása')
     cy.contains('Legnépszerűbb stack')
     cy.contains('bérsáv')
-    cy.contains('Stackenkénti átlagos bér')
+    cy.contains('Stackenkénti átlagos bruttó bér')
   })
 
   it('has every highlight populated', () => {

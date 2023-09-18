@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NotFoundPageComponent } from './not-found-page.component';
+import { SmallDividerComponent } from '../small-divider/small-divider.component';
 
 describe('NotFoundPageComponent', () => {
   let component: NotFoundPageComponent;
@@ -8,7 +9,7 @@ describe('NotFoundPageComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [NotFoundPageComponent]
+      declarations: [NotFoundPageComponent, SmallDividerComponent],
     });
     fixture = TestBed.createComponent(NotFoundPageComponent);
     component = fixture.componentInstance;

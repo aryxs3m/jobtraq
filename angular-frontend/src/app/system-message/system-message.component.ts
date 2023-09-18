@@ -1,10 +1,8 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-system-message',
   templateUrl: './system-message.component.html',
-  styleUrls: ['./system-message.component.scss']
+  styleUrls: ['./system-message.component.scss'],
 })
-export class SystemMessageComponent {
-
-}
+export class SystemMessageComponent {}

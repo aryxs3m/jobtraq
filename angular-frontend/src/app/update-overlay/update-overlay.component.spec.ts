@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UpdateOverlayComponent } from './update-overlay.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../../environments/environment';
 
 describe('UpdateOverlayComponent', () => {
   let component: UpdateOverlayComponent;
@@ -8,7 +10,12 @@ describe('UpdateOverlayComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [UpdateOverlayComponent]
+      imports: [
+        ServiceWorkerModule.register('ngsw-worker.js', {
+          enabled: environment.production,
+        }),
+      ],
+      declarations: [UpdateOverlayComponent],
     });
     fixture = TestBed.createComponent(UpdateOverlayComponent);
     component = fixture.componentInstance;

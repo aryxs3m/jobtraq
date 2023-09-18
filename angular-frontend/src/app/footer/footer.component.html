@@ -2,26 +2,52 @@
   <div class="container">
     <div class="row row-cols-2 row-cols-md-3">
       <div class="col mb-3">
-        <img ngSrc="assets/logo_Light.svg" alt="JobTraq logo" class="mb-4 img-fluid" height="86" width="321">
+        <img
+          ngSrc="assets/logo_Light.svg"
+          alt="JobTraq logo"
+          class="mb-4 img-fluid"
+          height="86"
+          width="321" />
         <p>JobTraq by <a target="_blank" href="https://pvga.hu">PVGA</a></p>
       </div>
       <div class="col mb-3">
         <ul class="footer-links">
           <li><a class="nav-link" routerLink="/about-us">Hogy működik?</a></li>
-          <li><a class="nav-link" routerLink="/privacy-policy">Adatvédelem</a></li>
+          <li>
+            <a class="nav-link" routerLink="/privacy-policy">Adatvédelem</a>
+          </li>
           <li><a class="nav-link" routerLink="/status">Állapot</a></li>
-          <li><a class="nav-link" (click)="showCookieConsent()">Süti beállítások</a></li>
+          <li>
+            <a
+              class="nav-link"
+              (click)="showCookieConsent()"
+              (keyup)="showCookieConsent()"
+              >Süti beállítások</a
+            >
+          </li>
         </ul>
       </div>
       <div class="col mb-3">
         <ul class="footer-links">
-          <li><a class="nav-link" routerLink="/our-scraping-ethics">Scraping etika</a></li>
+          <li>
+            <a class="nav-link" routerLink="/our-scraping-ethics"
+              >Scraping etika</a
+            >
+          </li>
           <li><a class="nav-link" routerLink="/impressum">Impresszum</a></li>
-          <li><a class="nav-link" href="https://apidoc.jobtraq.hu" target="_blank">API dokumentáció</a></li>
+          <li>
+            <a class="nav-link" href="https://apidoc.jobtraq.hu" target="_blank"
+              >API dokumentáció</a
+            >
+          </li>
           <li><a class="nav-link" routerLink="/contact">Kapcsolat</a></li>
         </ul>
       </div>
     </div>
-    <p class="float-end"><a class="nav-link" (click)="backToTop()">Vissza a tetejére</a></p>
+    <p class="float-end">
+      <a class="nav-link" (click)="backToTop()" (keyup)="backToTop()"
+        >Vissza a tetejére</a
+      >
+    </p>
   </div>
 </footer>

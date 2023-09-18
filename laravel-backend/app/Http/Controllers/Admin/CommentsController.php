@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\CommentListRequest;
 use App\Http\Requests\Admin\UpdateCommentOpStatusRequest;
 use App\Http\Requests\Admin\UpdateCommentStatusRequest;
 use App\Models\Comment;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -14,8 +15,13 @@ use Illuminate\Http\JsonResponse;
 
 class CommentsController extends Controller
 {
+    /**
+     * @throws AuthorizationException
+     */
     public function listComments(CommentListRequest $request): View|\Illuminate\Foundation\Application|Factory|Application
     {
+        $this->authorize('view comments');
+
         $commentsQuery = Comment::query();
 
         if ($request->has('status') && null !== $request->validated('status')) {
@@ -34,8 +40,13 @@ class CommentsController extends Controller
         ]);
     }
 
+    /**
+     * @throws AuthorizationException
+     */
     public function updateCommentStatus(UpdateCommentStatusRequest $request): JsonResponse
     {
+        $this->authorize('moderate comments');
+
         try {
             $comment = Comment::query()->find($request->validated('comment_id'));
             $comment->status = $request->validated('status');
@@ -52,8 +63,13 @@ class CommentsController extends Controller
         }
     }
 
+    /**
+     * @throws AuthorizationException
+     */
     public function updateCommentOpStatus(UpdateCommentOpStatusRequest $request): JsonResponse
     {
+        $this->authorize('op comments');
+
         try {
             $comment = Comment::query()->find($request->validated('comment_id'));
             $comment->is_op = $request->validated('is_op');
