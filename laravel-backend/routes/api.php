@@ -4,6 +4,7 @@ use App\Http\Controllers\PublicApi\ArticlesController;
 use App\Http\Controllers\PublicApi\CommentsController;
 use App\Http\Controllers\PublicApi\HealthcheckController;
 use App\Http\Controllers\PublicApi\HomeController;
+use App\Http\Controllers\PublicApi\Integrations\HomeAssistantController;
 use App\Http\Controllers\PublicApi\Reports\DiffReportController;
 use App\Http\Controllers\PublicApi\Reports\ReportController;
 use App\Http\Controllers\PublicApi\SubscribeController;
@@ -51,4 +52,8 @@ Route::prefix('subscribe')->group(function () {
     Route::middleware('throttle:subscriptions')->group(function () {
         Route::post('/discord', [SubscribeController::class, 'subscribeDiscord']);
     });
+});
+
+Route::prefix('integrations')->group(function () {
+    Route::get('/homeassistant', [HomeAssistantController::class, 'getSensor']);
 });
