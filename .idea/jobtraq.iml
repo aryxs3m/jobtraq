@@ -8,6 +8,7 @@
       <sourceFolder url="file://$MODULE_DIR$/laravel-backend/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/deploy/src" isTestSource="false" packagePrefix="Jobtraq\Deploy\" />
       <sourceFolder url="file://$MODULE_DIR$/deploy/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/deploy/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/laravel-backend/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />

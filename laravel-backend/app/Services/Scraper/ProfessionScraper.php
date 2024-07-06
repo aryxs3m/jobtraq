@@ -8,6 +8,11 @@ use simplehtmldom\simple_html_dom_node;
 
 class ProfessionScraper extends BaseJobListingScraper
 {
+    protected const STRIPPED_KEYWORDS = [
+        'Karrier tipp!',
+        'Karriertipp!',
+    ];
+
     public function scrapePage(string $type): array
     {
         $type = urlencode($type);
@@ -111,6 +116,6 @@ class ProfessionScraper extends BaseJobListingScraper
 
     protected function cleanPositionName(string $plaintext): string
     {
-        return trim(str_replace('Karrier tipp!', '', $plaintext));
+        return trim(str_replace(self::STRIPPED_KEYWORDS, '', $plaintext));
     }
 }
