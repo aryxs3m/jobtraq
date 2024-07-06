@@ -33,7 +33,7 @@ class NoFluffJobsScraper extends BaseJobListingScraper
                 foreach ($items as $postingListItem) {
                     try {
                         $listing = new Listing();
-                        $listing->setPosition($postingListItem->find('.posting-title__position', 0)->plaintext);
+                        $listing->setPosition(trim($postingListItem->find('.posting-title__position', 0)->plaintext));
                         $listing->setExternalId($postingListItem->getAttribute('href'));
 
                         $salaryRaw = $postingListItem->find('.salary', 0)->plaintext;
@@ -62,7 +62,13 @@ class NoFluffJobsScraper extends BaseJobListingScraper
 
                         if (!$listing->getLocation()) {
                             $listing->setLocation($location);
-                            $listing->setLocationId($this->advertisementParser->parseJobLocation($location));
+
+                            $locationId = $this->advertisementParser->parseJobLocation($location);
+                            if (null === $locationId) {
+                                continue;
+                            }
+
+                            $listing->setLocationId($locationId);
                         }
 
                         $listing->setCategory(

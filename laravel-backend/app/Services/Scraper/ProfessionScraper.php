@@ -32,8 +32,8 @@ class ProfessionScraper extends BaseJobListingScraper
                 /** @var simple_html_dom_node $postingListItem */
                 foreach ($items as $postingListItem) {
                     try {
-                        $position = $postingListItem->find('.job-card__title', 0)->plaintext;
-                        $salaryRaw = $postingListItem->find('.job-card__tag', 0)->plaintext;
+                        $position = $this->cleanPositionName($postingListItem->find('.job-card__title', 0)->plaintext);
+                        $salaryRaw = trim($postingListItem->find('.job-card__tag', 0)->plaintext);
                         $location = html_entity_decode(trim(
                             $postingListItem->find('.job-card__company-address', 0)->plaintext
                         ));
@@ -107,5 +107,10 @@ class ProfessionScraper extends BaseJobListingScraper
         $listing->setSalaryLow($this->parseSalary($salaryLow));
         $listing->setSalaryHigh($this->parseSalary($salaryHigh));
         $listing->setSalaryCurrency($salaryCurrency);
+    }
+
+    protected function cleanPositionName(string $plaintext): string
+    {
+        return trim(str_replace('Karrier tipp!', '', $plaintext));
     }
 }
