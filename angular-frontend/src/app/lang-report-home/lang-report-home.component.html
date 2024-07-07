@@ -1,0 +1,27 @@
+<app-page-header background="about-bg.webp" title="Stack kimutatások">
+  <p class="lead">Nyomonkövetheted egy programnyelv iránti keresletet és a fizetések változását.</p>
+</app-page-header>
+
+<div class="container mt-5 mb-3">
+  <div class="form-group">
+    <label for="stack-search">Keresés a nyelvek között</label>
+    <input id="stack-search" [ngModel]="searchValue" (change)="searchChange()" type="text" class="form-control form-control-lg z-3" placeholder="php, java, python, stb.">
+  </div>
+
+  <div class="card border-top-0 z-0" *ngIf="showResults">
+    <div class="card-body">
+
+      <div class="row row-cols-3 row-gap-3">
+        <div class="col" *ngFor="let stack of searchResults">
+          <div class="card">
+            <div class="card-body">
+              {{ stack }}
+              <a routerLink="asd" class="stretched-link"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

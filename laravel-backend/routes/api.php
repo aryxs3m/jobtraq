@@ -6,7 +6,9 @@ use App\Http\Controllers\PublicApi\HealthcheckController;
 use App\Http\Controllers\PublicApi\HomeController;
 use App\Http\Controllers\PublicApi\Integrations\HomeAssistantController;
 use App\Http\Controllers\PublicApi\Reports\DiffReportController;
+use App\Http\Controllers\PublicApi\Reports\LangReportController;
 use App\Http\Controllers\PublicApi\Reports\ReportController;
+use App\Http\Controllers\PublicApi\StackSearchController;
 use App\Http\Controllers\PublicApi\SubscribeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +35,11 @@ Route::prefix('report')->group(function () {
     Route::get('homepage', [ReportController::class, 'homepageStatistics']);
     Route::get('by-position', [ReportController::class, 'statisticByPosition']);
     Route::get('diff', [DiffReportController::class, 'diffReport']);
+    Route::get('lang', [LangReportController::class, 'langReport']);
+});
+
+Route::prefix('search')->group(function () {
+    Route::get('stack', [StackSearchController::class, 'searchStack']);
 });
 
 Route::prefix('articles')->group(function () {

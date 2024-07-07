@@ -63,20 +63,28 @@ class PublicReporter
     }
 
     /**
-     * Álláshirdetések száma az elmúlt 4 hétben.
+     * Álláshirdetések száma az elmúlt hetekben.
      */
-    public function getJobsCountByWeek(): array
+    public function getJobsCountByWeek(string $stack = null, int $limit = 4): array
     {
-        return DB::table('job_listings')
+        $query = DB::table('job_listings')
             ->select(
+                DB::raw('YEAR(job_listings.created_at) AS year'),
                 DB::raw('WEEK(job_listings.created_at, 7) AS name'),
                 DB::raw('COUNT(DISTINCT job_listings.external_id) AS value'))
             ->leftJoin('locations', 'locations.id', '=', 'job_listings.location_id')
             ->whereRaw("position IS NOT NULL AND level IS NOT NULL AND salary_currency IN ('HUF', 'Ft/hó')")
-            ->whereRaw('locations.country_id = :countryId', ['countryId' => $this->getCountryId()])
-            ->groupBy(DB::raw('WEEK(job_listings.created_at, 7)'))
+            ->whereRaw('locations.country_id = :countryId', ['countryId' => $this->getCountryId()]);
+
+        if (null !== $stack) {
+            $query->whereRaw('job_listings.stack = :stack', ['stack' => $stack]);
+        }
+
+        return $query
+            ->groupBy(DB::raw('year, WEEK(job_listings.created_at, 7)'))
+            ->orderBy('year', 'DESC')
             ->orderBy('name', 'DESC')
-            ->limit(4)
+            ->limit($limit)
             ->get()
             ->reverse()
             ->values()

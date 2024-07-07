@@ -48,10 +48,13 @@ import { CommentsBlockComponent } from './news-page/comments-block/comments-bloc
 import { CommentMessageComponent } from './news-page/comments-block/comment-message/comment-message.component';
 import * as moment from 'moment/moment';
 import 'moment/locale/hu';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AlertBarComponent } from './alert-bar/alert-bar.component';
 import { PrivacyPolicyPageComponent } from './privacy-policy-page/privacy-policy-page.component';
 import { AboutCtaComponent } from './about-page/about-cta/about-cta.component';
+import { LangReportComponent } from './lang-report/lang-report.component';
+import { DetailBlockComponent } from './lang-report/detail-block/detail-block.component';
+import { LangReportHomeComponent } from './lang-report-home/lang-report-home.component';
 registerLocaleData(localeHu, 'hu');
 moment().locale('hu');
 
@@ -118,6 +121,9 @@ const cookieConfig: NgcCookieConsentConfig = {
     AlertBarComponent,
     PrivacyPolicyPageComponent,
     AboutCtaComponent,
+    LangReportComponent,
+    DetailBlockComponent,
+    LangReportHomeComponent,
   ],
   imports: [
     CommonModule,
@@ -139,6 +145,7 @@ const cookieConfig: NgcCookieConsentConfig = {
     }),
     NgxSkeletonLoaderModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [
     {

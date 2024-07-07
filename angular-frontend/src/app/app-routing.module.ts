@@ -10,10 +10,14 @@ import { ImpressumPageComponent } from './impressum-page/impressum-page.componen
 import { NewsPageComponent } from './news-page/news-page.component';
 import { NewsResolver } from './resolvers/news.resolver';
 import { PrivacyPolicyPageComponent } from './privacy-policy-page/privacy-policy-page.component';
+import {LangReportComponent} from "./lang-report/lang-report.component";
+import {LangReportHomeComponent} from "./lang-report-home/lang-report-home.component";
 
 const routes: Routes = [
   { path: 'report', component: HomePageComponent },
   { path: 'report/:date', component: HomePageComponent },
+  { path: 'lang-report', component: LangReportHomeComponent },
+  { path: 'lang-report/:lang', component: LangReportComponent },
   {
     path: 'news/:slug',
     component: NewsPageComponent,
